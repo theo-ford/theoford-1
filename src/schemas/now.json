@@ -1,0 +1,110 @@
+{
+  "Main": {
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": null,
+        "choices": {
+          "image": {
+            "type": "Slice",
+            "fieldset": "Image",
+            "description": "Image with no caption.",
+            "icon": "add_a_photo",
+            "display": "list",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image_with_caption": {
+            "type": "Slice",
+            "fieldset": "Image with Caption",
+            "description": "Image with Caption",
+            "icon": "add_a_photo",
+            "display": "list",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "image_caption": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Image Caption"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "coloured_text_module": {
+            "type": "Slice",
+            "fieldset": "Coloured Text Module",
+            "description": "Coloured Text Module",
+            "icon": "border_color",
+            "display": "list",
+            "non-repeat": {
+              "background_colour": {
+                "type": "Color",
+                "config": {
+                  "label": "Background Colour"
+                }
+              },
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading6",
+                  "label": "Title"
+                }
+              },
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Text"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "white_text_module": {
+            "type": "Slice",
+            "fieldset": "White Text Module",
+            "description": "White Text Module",
+            "icon": "border_color",
+            "display": "list",
+            "non-repeat": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading6",
+                  "label": "Title"
+                }
+              },
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Text"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}

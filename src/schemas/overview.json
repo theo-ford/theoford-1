@@ -1,0 +1,26 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid"
+      }
+    },
+    "overview_projects": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "project_relationship_field": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["project"],
+              "label": "Project Relationship Field"
+            }
+          }
+        },
+        "label": "Overview Projects"
+      }
+    }
+  }
+}

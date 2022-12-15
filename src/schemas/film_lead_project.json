@@ -1,0 +1,49 @@
+{
+  "Main": {
+    "video_carousel": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "video_thumbnail_landscape": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Video Thumbnail Landscape"
+            }
+          },
+          "video_thumbnail_square": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Video Thumbnail Square"
+            }
+          },
+          "video_title": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph",
+              "label": "Video Title"
+            }
+          },
+          "video_about": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph",
+              "label": "Video About"
+            }
+          },
+          "video": {
+            "type": "Link",
+            "config": {
+              "select": "media",
+              "label": "Video"
+            }
+          }
+        },
+        "label": "Video Carousel"
+      }
+    }
+  }
+}

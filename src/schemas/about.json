@@ -1,0 +1,31 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "slug"
+      }
+    },
+    "about_page_text_top": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, hyperlink",
+        "label": "About Page Text Top"
+      }
+    },
+    "about_page_text_indent": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, hyperlink",
+        "label": "About Page Text Indent"
+      }
+    },
+    "about_page_text_bottom": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, hyperlink",
+        "label": "About Page Text Bottom"
+      }
+    }
+  }
+}
