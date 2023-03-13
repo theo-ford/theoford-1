@@ -1,5 +1,11 @@
 {
   "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "slug"
+      }
+    },
     "video_carousel": {
       "type": "Group",
       "config": {

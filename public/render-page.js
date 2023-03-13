@@ -146,6 +146,12 @@ var plugins = [{
     "schemas": {
       "project": {
         "Main": {
+          "uid": {
+            "type": "UID",
+            "config": {
+              "label": "slug"
+            }
+          },
           "body": {
             "type": "Slices",
             "fieldset": "Slice zone",
@@ -235,6 +241,12 @@ var plugins = [{
       },
       "film_lead_project": {
         "Main": {
+          "uid": {
+            "type": "UID",
+            "config": {
+              "label": "slug"
+            }
+          },
           "video_carousel": {
             "type": "Group",
             "config": {
