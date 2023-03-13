@@ -38,6 +38,7 @@
     "react-intersection-observer": "^8.31.0",
     "react-is": "^17.0.1",
     "react-media": "^1.10.0",
+    "react-native-swipe-gestures": "^1.0.5",
     "react-player": "^2.9.0",
     "react-responsive-carousel": "^3.2.18",
     "react-router": "^5.2.0",

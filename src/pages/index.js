@@ -19,6 +19,9 @@ import Icon from "../../assets/WhiteLogo.svg";
 import Slider from "react-slick";
 import "../components/slick/slick.css";
 import "../components/slick/slick-theme.css";
+// import GestureRecognizer, {
+//   swipeDirections,
+// } from "react-native-swipe-gestures";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -81,6 +84,29 @@ const ProjectCon = styled.div`
 
 const Index = ({ data }) => {
   const ProjectCarousel = ({ children }) => {
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
+
+    // the required distance between touchStart and touchEnd to be detected as a swipe
+    const minSwipeDistance = 50;
+
+    const onTouchStart = e => {
+      setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
+      setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = e => setTouchEnd(e.targetTouches[0].clientX);
+
+    const onTouchEnd = () => {
+      if (!touchStart || !touchEnd) return;
+      const distance = touchStart - touchEnd;
+      const isLeftSwipe = distance > minSwipeDistance;
+      const isRightSwipe = distance < -minSwipeDistance;
+      if (isLeftSwipe || isRightSwipe)
+        console.log("swipe", isLeftSwipe ? "left" : "right");
+      // add your conditional logic here
+      ProjectCarouselRef.current.slickNext();
+    };
     const ProjectCarouselRef = React.useRef(null);
     function projectCarouselNextImg() {
       console.log("Next");
@@ -94,7 +120,8 @@ const Index = ({ data }) => {
       accessibility: true,
       dots: false,
       arrows: false,
-      useCSS: false,
+      swipe: false,
+      swipeToSlide: false,
       // these two disable it completely
       // touchMove: false,
       // swipe: false,
@@ -102,7 +129,7 @@ const Index = ({ data }) => {
       // these two do nothing
       // draggable: false,
       // swipeToSlide: true,
-
+      // useCSS: false,
       // useTransform: true,
 
       // touchThreshold: 5,
@@ -110,7 +137,13 @@ const Index = ({ data }) => {
     return (
       <>
         <p onClick={projectCarouselNextImg}>Next</p>
-        <div onClick={projectCarouselNextImg}>
+        <div
+          onClick={projectCarouselNextImg}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          // onSwipeLeft={projectCarouselNextImg}
+        >
           <Slider {...settings} ref={ProjectCarouselRef}>
             {children}
           </Slider>
