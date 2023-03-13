@@ -94,9 +94,18 @@ const Index = ({ data }) => {
       accessibility: true,
       dots: false,
       arrows: false,
+      useCSS: false,
+      // these two disable it completely
       // touchMove: false,
+      // swipe: false,
+
+      // these two do nothing
       // draggable: false,
-      // swipeToSlide: false,
+      // swipeToSlide: true,
+
+      // useTransform: true,
+
+      // touchThreshold: 5,
     };
     return (
       <>
