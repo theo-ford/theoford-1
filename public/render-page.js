@@ -35264,7 +35264,7 @@ const GlobalStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["createGlobal
 // }
 
 body {
-  font-family: "Linotype Univers 530 Medium", "Helvetica Neue", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   font-weight: normal;
   font-style: normal;
 
@@ -35289,7 +35289,7 @@ input {
 }
 
 h1,h2,h3,h4,h5, p{
-  font-family: "Linotype Univers 530 Medium", "Helvetica Neue", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   font-weight: normal;
 
   margin: 0;
@@ -35329,6 +35329,11 @@ h5 {
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.3px;
+}
+p {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -35387,9 +35392,9 @@ a:focus {
   ## Text
   --------------------------------------------------------------*/
 
-p {
+/* p {
   margin: 1em 0;
-}
+} */
 
 ul, li{
   list-style: none;
@@ -35397,69 +35402,6 @@ ul, li{
   margin: 0;
 }
 
-/*--------------------------------------------------------------
-  ## Box Sizing / Layout
-  --------------------------------------------------------------*/
-
-div {
-  box-sizing: border-box;
-}
-
-/*--------------------------------------------------------------
-  ## Input Placeholders
-  --------------------------------------------------------------*/
-
-// ::-webkit-input-placeholder{
-//     color: #000 !important;
-//     font-family: 'MonumentGrotesk-Medium', 'Helvetica Neue', 'Lucida Grande',
-//       sans-serif !important;
-//     font-size: 24px !important;
-
-//     @media (max-width: 500px) {
-//       font-size: 19px !important;
-//     }
-
-// }
-// ::-moz-placeholder{
-//     color: #000 !important;
-//     font-family: 'MonumentGrotesk-Medium', 'Helvetica Neue', 'Lucida Grande',
-//       sans-serif !important;
-//     font-size: 24px !important;
-
-//     @media (max-width: 500px) {
-//       font-size: 19px !important;
-//     }
-
-// }
-// :-ms-input-placeholder{
-//       color: #000 !important;
-//     font-family: 'MonumentGrotesk-Medium', 'Helvetica Neue', 'Lucida Grande',
-//       sans-serif !important;
-//     font-size: 24px !important;
-
-//     @media (max-width: 500px) {
-//       font-size: 19px !important;
-//     }
-
-// }
-// :-moz-placeholder {
-//     color: #000 !important;
-//     font-family: 'MonumentGrotesk-Medium', 'Helvetica Neue', 'Lucida Grande',
-//       sans-serif !important;
-//     font-size: 24px !important;
-
-//     @media (max-width: 500px) {
-//       font-size: 19px !important;
-//     }
-
-//   }
-
-
-// - - - - - - - - - - - TF STYLES
-// .artist_title h1 {
-//   font-size:200px;
-//   line-height:1;
-// }
 
 
 /* video {
@@ -35526,6 +35468,16 @@ h1.navRight {
     bottom: 0px;
     right: 15px;  
   } 
+}
+
+
+
+/* theo ford */
+
+.logo_styles {
+  mix-blend-mode: exclusion;
+  width: 100%;
+  /* position: fixed; */
 }
 
 `;
