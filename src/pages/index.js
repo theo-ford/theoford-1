@@ -94,7 +94,7 @@ const Index = ({ data }) => {
       accessibility: true,
       dots: false,
       arrows: false,
-      touchMove: false,
+      // touchMove: false,
       // draggable: false,
       // swipeToSlide: false,
     };
