@@ -16,6 +16,9 @@ import { useMediaQuery } from "../components/tf/media-query";
 // import logo from "../../public/icons/WhiteLogo.svg";
 // import Logo2 from "../components/svg/logo";
 import Icon from "../../assets/WhiteLogo.svg";
+import Slider from "react-slick";
+import "../components/slick/slick.css";
+import "../components/slick/slick-theme.css";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -26,10 +29,10 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 const Img = styled.img`
-  width: 20%;
+  width: 100%;
 `;
 const Video = styled.video`
-  width: 40%;
+  width: 100%;
 `;
 const VideoCarouselCon = styled.div`
   width: 100%;
@@ -71,9 +74,41 @@ const NavCon1 = styled.div`
     color: white;
   }
 `;
+const ProjectCon = styled.div`
+  margin-top: 100px;
+  margin-bottom: 100px;
+`;
 
 const Index = ({ data }) => {
-  console.log("testing 20230313");
+  const ProjectCarousel = ({ children }) => {
+    const ProjectCarouselRef = React.useRef(null);
+    function projectCarouselNextImg() {
+      console.log("Next");
+      ProjectCarouselRef.current.slickNext();
+    }
+    const settings = {
+      infinite: true,
+      speed: 0,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      accessibility: true,
+      dots: false,
+      arrows: false,
+      touchMove: false,
+      // draggable: false,
+      // swipeToSlide: false,
+    };
+    return (
+      <>
+        <p onClick={projectCarouselNextImg}>Next</p>
+        <div onClick={projectCarouselNextImg}>
+          <Slider {...settings} ref={ProjectCarouselRef}>
+            {children}
+          </Slider>
+        </div>
+      </>
+    );
+  };
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
     (content, index) => {
       if (
@@ -99,59 +134,35 @@ const Index = ({ data }) => {
         const project = content.project_relationship_field.document.data.body.map(
           (content_four, index) => {
             if (content_four.slice_type == "image") {
-              console.log(content_four.primary.image.fluid.srcWebp);
-              console.log(true);
-              return (
-                <>
-                  <Img src={content_four.primary.image.fluid.srcWebp} />
-                </>
-              );
+              return <img src={content_four.primary.image.fluid.srcWebp} />;
             }
             if (content_four.slice_type == "video") {
-              console.log(content_four.primary.video.url);
-              console.log(true);
               return (
-                <>
-                  <Video playsInline autoPlay muted loop>
-                    <source
-                      type="video/mp4"
-                      src={content_four.primary.video.url}
-                    />
-                  </Video>
-                </>
+                <video playsInline autoPlay muted loop>
+                  <source
+                    type="video/mp4"
+                    src={content_four.primary.video.url}
+                  />
+                </video>
               );
             }
           }
         );
-        return <>{project}</>;
+        console.log(project);
+        return (
+          <>
+            <ProjectCon>
+              <ProjectCarousel>{project}</ProjectCarousel>
+            </ProjectCon>
+          </>
+        );
       }
     }
   );
 
-  // const projects = data.prismicFeaturedProjects.data.project_relationship_group.map(
-  //   (content, index) => {
-  //     const singleProject = content.project_relationship_field.document.data.body.map(
-  //       (content_four, index) => {
-  //         if (content.project_relationship_field.document.type == "project") {
-  //           console.log("hello");
-  //         }
-  //       }
-  //     );
-  //   }
-  // );
   return (
     <>
       <GlobalStyle />
-
-      <LogoGrid16>
-        <LogoCon>
-          <Icon className="logo_styles" />
-        </LogoCon>
-        <NavCon1>
-          <p>Selected</p>
-          <p>Index</p>
-        </NavCon1>
-      </LogoGrid16>
 
       {overview}
     </>
