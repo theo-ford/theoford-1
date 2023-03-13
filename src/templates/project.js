@@ -8,7 +8,6 @@ import ReactPlayer from "react-player";
 // import { VideoComponent } from "../components/tf/video_component";
 import { VideoComponentNoControls } from "../components/tf/video-component-no-controls";
 import { useMediaQuery } from "../components/tf/media-query";
-import * as prismicH from "@prismicio/helpers";
 
 const Project = ({ data }) => {
   return <p>Project</p>;
