@@ -37,11 +37,7 @@ const Img = styled.img`
 const Video = styled.video`
   width: 100%;
 `;
-const VideoCarouselCon = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-color: black;
-`;
+
 const Logo = styled.img`
   width: 400px;
   position: fixed;
@@ -66,6 +62,7 @@ const LogoGrid16 = styled.div`
   z-index: 20000;
   mix-blend-mode: exclusion;
 `;
+
 const LogoCon = styled.div`
   grid-column: span 5;
   mix-blend-mode: exclusion;
@@ -77,13 +74,68 @@ const NavCon1 = styled.div`
     color: white;
   }
 `;
+const Grid2 = styled.div`
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  margin-left: 10px;
+  grid-row-gap: 0;
+  width: calc(100% - 20px);
+  z-index: 20000;
+`;
+const CounterCon = styled.div`
+  grid-column: span 1;
+  margin-bottom: 5px;
+`;
+const NextButtonCon = styled.div`
+  grid-column: span 1;
+  p {
+    color: #cfcfcfcf;
+  }
+`;
+const SquareCarouselCon = styled.div`
+  grid-column: span 2;
+`;
+const ProjectTitleCon = styled.div`
+  grid-column: span 1;
+  p {
+    color: #cfcfcfcf;
+  }
+`;
+const ProjectLocationYearCon = styled.div`
+  grid-column: span 1;
+  margin-bottom: 5px;
+`;
+
 const ProjectCon = styled.div`
   margin-top: 100px;
   margin-bottom: 100px;
 `;
+const VideoCarouselCon = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+`;
+const FilmLeadCarouselConCon = styled.div`
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  margin-left: 10px;
+  grid-row-gap: 0;
+  width: calc(100% - 20px);
+  z-index: 20000;
+  align-items: center;
+  height: 100vh;
+`;
+const FilmLeadCarouselCon = styled.div`
+  grid-column: span 2;
+`;
 
 const Index = ({ data }) => {
-  const ProjectCarousel = ({ children }) => {
+  const ProjectCarousel = ({ children, title, year, location }) => {
+    console.log(title);
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
 
@@ -122,57 +174,138 @@ const Index = ({ data }) => {
       arrows: false,
       swipe: false,
       swipeToSlide: false,
-      // these two disable it completely
-      // touchMove: false,
-      // swipe: false,
-
-      // these two do nothing
-      // draggable: false,
-      // swipeToSlide: true,
-      // useCSS: false,
-      // useTransform: true,
-
-      // touchThreshold: 5,
     };
     return (
       <>
-        <p onClick={projectCarouselNextImg}>Next</p>
-        <div
-          onClick={projectCarouselNextImg}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-          // onSwipeLeft={projectCarouselNextImg}
-        >
-          <Slider {...settings} ref={ProjectCarouselRef}>
-            {children}
-          </Slider>
-        </div>
+        <Grid2>
+          <CounterCon>
+            <p>01</p>
+          </CounterCon>
+          <NextButtonCon>
+            <p onClick={projectCarouselNextImg}>Next</p>
+          </NextButtonCon>
+        </Grid2>
+        <Grid2>
+          <SquareCarouselCon
+            onClick={projectCarouselNextImg}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+            // onSwipeLeft={projectCarouselNextImg}
+          >
+            <Slider {...settings} ref={ProjectCarouselRef}>
+              {children}
+            </Slider>
+          </SquareCarouselCon>
+        </Grid2>
+        <Grid2>
+          <ProjectTitleCon>
+            <p>{title}</p>
+            {/* <p>Title</p> */}
+          </ProjectTitleCon>
+          <ProjectLocationYearCon>
+            <p>{location}</p>
+            <p>{year}</p>
+          </ProjectLocationYearCon>
+        </Grid2>
+      </>
+    );
+  };
+  const FilmLeadCarousel = ({ children }) => {
+    const FilmsLeadCarouselRef = React.useRef(null);
+    function filmsLeadCarouselNextImg() {
+      console.log("Next");
+      FilmsLeadCarouselRef.current.slickNext();
+    }
+    const settings = {
+      infinite: true,
+      speed: 0,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      accessibility: true,
+      dots: false,
+      arrows: false,
+      swipe: false,
+      swipeToSlide: false,
+    };
+    return (
+      <>
+        <NextButtonCon>
+          <p onClick={filmsLeadCarouselNextImg}>Next</p>
+        </NextButtonCon>
+        <Slider {...settings} ref={FilmsLeadCarouselRef}>
+          {children}
+        </Slider>
       </>
     );
   };
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
     (content, index) => {
+      console.log(
+        content.project_relationship_field.document.data.project_title.text
+      );
       if (
         content.project_relationship_field.document.type == "film_lead_project"
       ) {
-        const filmLeadProject = content.project_relationship_field.document.data.video_carousel.map(
+        console.log("film lead project");
+        const filmLeadProject = content.project_relationship_field.document.data.body.map(
           (content_three, index) => {
-            console.log(content_three.video.url);
-            return (
-              <Video playsInline muted loop controls>
-                <source type="video/mp4" src={content_three.video.url} />
-              </Video>
-            );
+            // console.log(content_three.video.url);
+            console.log("test");
+            console.log(content_three.slice_type);
+
+            if (content_three.slice_type == "video_with_play_button") {
+              return (
+                <video playsInline muted loop controls>
+                  <source
+                    type="video/mp4"
+                    src={content_three.primary.video_with_play_button.url}
+                  />
+                </video>
+              );
+            }
           }
         );
         return (
           <>
-            <VideoCarouselCon>{filmLeadProject}</VideoCarouselCon>
+            <VideoCarouselCon>
+              <FilmLeadCarouselConCon>
+                <FilmLeadCarouselCon>
+                  <FilmLeadCarousel>{filmLeadProject}</FilmLeadCarousel>
+                </FilmLeadCarouselCon>
+              </FilmLeadCarouselConCon>
+            </VideoCarouselCon>
+            <Grid2>
+              <ProjectTitleCon>
+                <p>
+                  {
+                    content.project_relationship_field.document.data
+                      .project_title.text
+                  }
+                </p>
+                <p>
+                  {content.project_relationship_field.document.data.client.text}
+                </p>
+              </ProjectTitleCon>
+              <ProjectLocationYearCon>
+                <p>
+                  {
+                    content.project_relationship_field.document.data.location
+                      .text
+                  }
+                </p>
+                <p>
+                  {content.project_relationship_field.document.data.year.text}
+                </p>
+              </ProjectLocationYearCon>
+            </Grid2>
           </>
         );
       }
       if (content.project_relationship_field.document.type == "project") {
+        // console.log(
+        //   content.project_relationship_field.document.data.project_title.text
+        // );
         const project = content.project_relationship_field.document.data.body.map(
           (content_four, index) => {
             if (content_four.slice_type == "image") {
@@ -194,7 +327,20 @@ const Index = ({ data }) => {
         return (
           <>
             <ProjectCon>
-              <ProjectCarousel>{project}</ProjectCarousel>
+              <ProjectCarousel
+                title={
+                  content.project_relationship_field.document.data.project_title
+                    .text
+                }
+                year={
+                  content.project_relationship_field.document.data.year.text
+                }
+                location={
+                  content.project_relationship_field.document.data.location.text
+                }
+              >
+                {project}
+              </ProjectCarousel>
             </ProjectCon>
           </>
         );
@@ -224,25 +370,37 @@ export const query = graphql`
                 id
                 type
                 data {
+                  project_title {
+                    html
+                    text
+                  }
+                  location {
+                    html
+                    text
+                  }
+                  year {
+                    html
+                    text
+                  }
                   body {
-                    ... on PrismicProjectBodyVideo {
-                      id
-                      slice_type
-                      primary {
-                        video {
-                          url
-                        }
-                      }
-                    }
                     ... on PrismicProjectBodyImage {
                       id
                       slice_type
                       primary {
                         image {
                           fluid {
-                            srcSetWebp
                             srcWebp
+                            srcSetWebp
                           }
+                        }
+                      }
+                    }
+                    ... on PrismicProjectBodyVideo {
+                      id
+                      slice_type
+                      primary {
+                        video {
+                          url
                         }
                       }
                     }
@@ -253,9 +411,31 @@ export const query = graphql`
                 id
                 type
                 data {
-                  video_carousel {
-                    video {
-                      url
+                  project_title {
+                    html
+                    text
+                  }
+                  location {
+                    html
+                    text
+                  }
+                  year {
+                    html
+                    text
+                  }
+                  client {
+                    html
+                    text
+                  }
+                  body {
+                    ... on PrismicFilmLeadProjectBodyVideoWithPlayButton {
+                      id
+                      slice_type
+                      primary {
+                        video_with_play_button {
+                          url
+                        }
+                      }
                     }
                   }
                 }

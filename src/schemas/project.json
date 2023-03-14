@@ -6,6 +6,50 @@
         "label": "slug"
       }
     },
+    "project_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Project Title"
+      }
+    },
+    "location": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Location"
+      }
+    },
+    "client": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Client"
+      }
+    },
+    "year": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Year"
+      }
+    },
+    "team": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,hyperlink",
+        "allowTargetBlank": true,
+        "label": "Team"
+      }
+    },
+    "homepage_intro": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,hyperlink",
+        "allowTargetBlank": true,
+        "label": "Homepage Intro"
+      }
+    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
@@ -14,8 +58,8 @@
         "choices": {
           "image": {
             "type": "Slice",
-            "fieldset": "Image",
-            "description": "Image",
+            "fieldset": "Square Image",
+            "description": "Square Image",
             "icon": "add_box",
             "display": "list",
             "non-repeat": {
@@ -27,12 +71,12 @@
                   "label": "Image"
                 }
               },
-              "image_thumbnail_square_image": {
+              "index_image": {
                 "type": "Image",
                 "config": {
                   "constraint": {},
                   "thumbnails": [],
-                  "label": "Image Thumbnail Square Image"
+                  "label": "Index Image"
                 }
               }
             },
@@ -40,8 +84,8 @@
           },
           "video": {
             "type": "Slice",
-            "fieldset": "Video",
-            "description": "Video",
+            "fieldset": "Square Autoplay Video",
+            "description": "Square Autoplay Video",
             "icon": "add_box",
             "display": "list",
             "non-repeat": {
@@ -52,20 +96,12 @@
                   "select": null
                 }
               },
-              "video_thumbnail_landscape_image": {
+              "index_image": {
                 "type": "Image",
                 "config": {
                   "constraint": {},
                   "thumbnails": [],
-                  "label": "Video Thumbnail Landscape Image"
-                }
-              },
-              "video_thumbnail_square_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Video Thumbnail Square Image"
+                  "label": "Index Image"
                 }
               }
             },
@@ -83,6 +119,65 @@
                 "config": {
                   "multi": "paragraph,hyperlink",
                   "label": "Text"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "non_square_image": {
+            "type": "Slice",
+            "fieldset": "Non Square Image",
+            "description": "Non Square Image",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {
+              "non_square_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Non Square Image"
+                }
+              },
+              "index_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Index Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "video_with_play_button": {
+            "type": "Slice",
+            "fieldset": "Video With Play Button",
+            "description": "Video With Play Button",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {
+              "video_with_play_button": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Video With Play Button"
+                }
+              },
+              "video_thumbnail": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Video Thumbnail"
+                }
+              },
+              "index_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Index Image"
                 }
               }
             },

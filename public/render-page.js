@@ -152,6 +152,50 @@ var plugins = [{
               "label": "slug"
             }
           },
+          "project_title": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Project Title"
+            }
+          },
+          "location": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph",
+              "label": "Location"
+            }
+          },
+          "client": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Client"
+            }
+          },
+          "year": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Year"
+            }
+          },
+          "team": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph,hyperlink",
+              "allowTargetBlank": true,
+              "label": "Team"
+            }
+          },
+          "homepage_intro": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph,hyperlink",
+              "allowTargetBlank": true,
+              "label": "Homepage Intro"
+            }
+          },
           "body": {
             "type": "Slices",
             "fieldset": "Slice zone",
@@ -160,8 +204,8 @@ var plugins = [{
               "choices": {
                 "image": {
                   "type": "Slice",
-                  "fieldset": "Image",
-                  "description": "Image",
+                  "fieldset": "Square Image",
+                  "description": "Square Image",
                   "icon": "add_box",
                   "display": "list",
                   "non-repeat": {
@@ -173,12 +217,12 @@ var plugins = [{
                         "label": "Image"
                       }
                     },
-                    "image_thumbnail_square_image": {
+                    "index_image": {
                       "type": "Image",
                       "config": {
                         "constraint": {},
                         "thumbnails": [],
-                        "label": "Image Thumbnail Square Image"
+                        "label": "Index Image"
                       }
                     }
                   },
@@ -186,8 +230,8 @@ var plugins = [{
                 },
                 "video": {
                   "type": "Slice",
-                  "fieldset": "Video",
-                  "description": "Video",
+                  "fieldset": "Square Autoplay Video",
+                  "description": "Square Autoplay Video",
                   "icon": "add_box",
                   "display": "list",
                   "non-repeat": {
@@ -198,20 +242,12 @@ var plugins = [{
                         "select": null
                       }
                     },
-                    "video_thumbnail_landscape_image": {
+                    "index_image": {
                       "type": "Image",
                       "config": {
                         "constraint": {},
                         "thumbnails": [],
-                        "label": "Video Thumbnail Landscape Image"
-                      }
-                    },
-                    "video_thumbnail_square_image": {
-                      "type": "Image",
-                      "config": {
-                        "constraint": {},
-                        "thumbnails": [],
-                        "label": "Video Thumbnail Square Image"
+                        "label": "Index Image"
                       }
                     }
                   },
@@ -233,6 +269,65 @@ var plugins = [{
                     }
                   },
                   "repeat": {}
+                },
+                "non_square_image": {
+                  "type": "Slice",
+                  "fieldset": "Non Square Image",
+                  "description": "Non Square Image",
+                  "icon": "add_box",
+                  "display": "list",
+                  "non-repeat": {
+                    "non_square_image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Non Square Image"
+                      }
+                    },
+                    "index_image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Index Image"
+                      }
+                    }
+                  },
+                  "repeat": {}
+                },
+                "video_with_play_button": {
+                  "type": "Slice",
+                  "fieldset": "Video With Play Button",
+                  "description": "Video With Play Button",
+                  "icon": "add_box",
+                  "display": "list",
+                  "non-repeat": {
+                    "video_with_play_button": {
+                      "type": "Link",
+                      "config": {
+                        "select": "media",
+                        "label": "Video With Play Button"
+                      }
+                    },
+                    "video_thumbnail": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Video Thumbnail"
+                      }
+                    },
+                    "index_image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Index Image"
+                      }
+                    }
+                  },
+                  "repeat": {}
                 }
               }
             }
@@ -247,49 +342,156 @@ var plugins = [{
               "label": "slug"
             }
           },
-          "video_carousel": {
-            "type": "Group",
+          "project_title": {
+            "type": "StructuredText",
             "config": {
-              "fields": {
-                "video_thumbnail_landscape": {
-                  "type": "Image",
-                  "config": {
-                    "constraint": {},
-                    "thumbnails": [],
-                    "label": "Video Thumbnail Landscape"
-                  }
-                },
-                "video_thumbnail_square": {
-                  "type": "Image",
-                  "config": {
-                    "constraint": {},
-                    "thumbnails": [],
-                    "label": "Video Thumbnail Square"
-                  }
-                },
-                "video_title": {
-                  "type": "StructuredText",
-                  "config": {
-                    "multi": "paragraph",
-                    "label": "Video Title"
-                  }
-                },
-                "video_about": {
-                  "type": "StructuredText",
-                  "config": {
-                    "multi": "paragraph",
-                    "label": "Video About"
-                  }
+              "single": "paragraph",
+              "label": "Project Title"
+            }
+          },
+          "location": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Location"
+            }
+          },
+          "client": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Client"
+            }
+          },
+          "year": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Year"
+            }
+          },
+          "team": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Team"
+            }
+          },
+          "homepage_intro": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Homepage Intro"
+            }
+          },
+          "body": {
+            "type": "Slices",
+            "fieldset": "Slice zone",
+            "config": {
+              "labels": null,
+              "choices": {
+                "video_with_play_button": {
+                  "type": "Slice",
+                  "fieldset": "Video With Play Button",
+                  "description": "Video With Play Button",
+                  "icon": "add_box",
+                  "display": "list",
+                  "non-repeat": {
+                    "video_with_play_button": {
+                      "type": "Link",
+                      "config": {
+                        "select": "media",
+                        "label": "Video With Play Button"
+                      }
+                    },
+                    "video_thumbnail": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Video Thumbnail"
+                      }
+                    },
+                    "index_image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Index Image"
+                      }
+                    }
+                  },
+                  "repeat": {}
                 },
                 "video": {
-                  "type": "Link",
-                  "config": {
-                    "select": "media",
-                    "label": "Video"
-                  }
+                  "type": "Slice",
+                  "fieldset": "Square Autoplay Video",
+                  "description": "Square Autoplay Video",
+                  "icon": "add_box",
+                  "display": "list",
+                  "non-repeat": {
+                    "video": {
+                      "type": "Link",
+                      "config": {
+                        "label": "Video",
+                        "select": null
+                      }
+                    },
+                    "index_image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Index Image"
+                      }
+                    }
+                  },
+                  "repeat": {}
+                },
+                "text": {
+                  "type": "Slice",
+                  "fieldset": "Text",
+                  "description": "Text",
+                  "icon": "add_box",
+                  "display": "list",
+                  "non-repeat": {
+                    "text": {
+                      "type": "StructuredText",
+                      "config": {
+                        "multi": "paragraph,hyperlink",
+                        "label": "Text"
+                      }
+                    }
+                  },
+                  "repeat": {}
+                },
+                "image": {
+                  "type": "Slice",
+                  "fieldset": "Image",
+                  "description": "Image",
+                  "icon": "add_box",
+                  "display": "list",
+                  "non-repeat": {
+                    "image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Image"
+                      }
+                    },
+                    "index_image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Index Image"
+                      }
+                    }
+                  },
+                  "repeat": {}
                 }
-              },
-              "label": "Video Carousel"
+              }
             }
           }
         }
