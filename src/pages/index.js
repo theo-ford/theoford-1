@@ -248,15 +248,24 @@ const Index = ({ data }) => {
         content.project_relationship_field.document.type == "film_lead_project"
       ) {
         console.log("film lead project");
+
         const filmLeadProject = content.project_relationship_field.document.data.body.map(
           (content_three, index) => {
             // console.log(content_three.video.url);
             console.log("test");
+            console.log(content_three.primary.video_thumbnail.fluid.src);
             console.log(content_three.slice_type);
 
             if (content_three.slice_type == "video_with_play_button") {
               return (
-                <video playsInline muted loop controls>
+                <video
+                  playsInline
+                  muted
+                  loop
+                  controls
+                  preload="none"
+                  poster={content_three.primary.video_thumbnail.fluid.src}
+                >
                   <source
                     type="video/mp4"
                     src={content_three.primary.video_with_play_button.url}
@@ -434,6 +443,13 @@ export const query = graphql`
                       primary {
                         video_with_play_button {
                           url
+                        }
+                        video_thumbnail {
+                          fluid {
+                            src
+                            srcSetWebp
+                            srcWebp
+                          }
                         }
                       }
                     }
