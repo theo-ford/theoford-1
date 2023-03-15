@@ -164,7 +164,13 @@ const Index = ({ data }) => {
     );
   };
 
-  const ProjectCarousel = ({ children, title, year, location }) => {
+  const ProjectCarousel = ({
+    children,
+    title,
+    year,
+    location,
+    projectLength,
+  }) => {
     // console.log(title);
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
@@ -194,6 +200,24 @@ const Index = ({ data }) => {
       // console.log("Next");
       ProjectCarouselRef.current.slickNext();
     }
+
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [totalSlides, setTotalSlides] = useState(null);
+
+    useEffect(() => {
+      setCurrentSlide(0);
+    }, []);
+
+    useEffect(() => {
+      setTotalSlides(projectLength);
+    }, []);
+
+    const updateCurrentSlide = index => {
+      if (currentSlide !== index) {
+        setCurrentSlide(index);
+      }
+    };
+
     const settings = {
       infinite: true,
       speed: 0,
@@ -209,10 +233,15 @@ const Index = ({ data }) => {
       <>
         <Grid2>
           <CounterCon>
-            <p>01</p>
+            {/* <p>{currentSlide + 1}</p> */}
+            <p>{("0" + (currentSlide + 1)).slice(-2)}</p>
           </CounterCon>
           <NextButtonCon>
-            <p onClick={projectCarouselNextImg}>Next</p>
+            {projectLength > 1 ? (
+              <p onClick={projectCarouselNextImg}>Next</p>
+            ) : (
+              ""
+            )}
           </NextButtonCon>
         </Grid2>
         <Grid2>
@@ -223,7 +252,11 @@ const Index = ({ data }) => {
             onTouchEnd={onTouchEnd}
             // onSwipeLeft={projectCarouselNextImg}
           >
-            <Slider {...settings} ref={ProjectCarouselRef}>
+            <Slider
+              {...settings}
+              ref={ProjectCarouselRef}
+              afterChange={index => updateCurrentSlide(index)}
+            >
               {children}
             </Slider>
           </SquareCarouselCon>
@@ -347,6 +380,9 @@ const Index = ({ data }) => {
         // );
         const project = content.project_relationship_field.document.data.body.map(
           (content_four, index) => {
+            const projectLength =
+              content.project_relationship_field.document.data.body.length;
+            console.log(projectLength);
             if (content_four.slice_type == "image") {
               return <img src={content_four.primary.image.fluid.srcWebp} />;
             }
@@ -371,6 +407,9 @@ const Index = ({ data }) => {
           <>
             <ProjectCon>
               <ProjectCarousel
+                projectLength={
+                  content.project_relationship_field.document.data.body.length
+                }
                 title={
                   content.project_relationship_field.document.data.project_title
                     .text
