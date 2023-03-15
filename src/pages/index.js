@@ -5,23 +5,13 @@ import styled, { createGlobalStyle } from "styled-components";
 import { withPreview } from "gatsby-source-prismic";
 import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
-import Div100vh from "react-div-100vh";
 import "../components/styles/index.css";
-import Scrollspy from "react-scrollspy";
-import burgerBlack from "../../public/icons/burger-black.png";
-import exitBlack from "../../public/icons/exit-black.png";
-import exitWhite from "../../public/icons/exit-white.png";
-import { NavStudio } from "../components/tf/nav-studio";
 import { useMediaQuery } from "../components/tf/media-query";
-// import logo from "../../public/icons/WhiteLogo.svg";
-// import Logo2 from "../components/svg/logo";
 import Icon from "../../assets/WhiteLogo.svg";
 import Slider from "react-slick";
 import "../components/slick/slick.css";
 import "../components/slick/slick-theme.css";
-// import GestureRecognizer, {
-//   swipeDirections,
-// } from "react-native-swipe-gestures";
+import { useOnScreen } from "../components/hooks/useOnScreen";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -134,8 +124,28 @@ const FilmLeadCarouselCon = styled.div`
 `;
 
 const Index = ({ data }) => {
+  const AutoPlayVideo = ({ srcProps, posterProps }) => {
+    const autoplayVideoRef = useRef(null);
+
+    const isOnScreen = useOnScreen(autoplayVideoRef);
+    console.log({ isOnScreen });
+
+    return (
+      <video
+        playsInline
+        autoPlay
+        muted
+        loop
+        ref={autoplayVideoRef}
+        poster={posterProps}
+      >
+        <source type="video/mp4" data-src={srcProps} />
+      </video>
+    );
+  };
+
   const ProjectCarousel = ({ children, title, year, location }) => {
-    console.log(title);
+    // console.log(title);
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
 
@@ -155,13 +165,13 @@ const Index = ({ data }) => {
       const isLeftSwipe = distance > minSwipeDistance;
       const isRightSwipe = distance < -minSwipeDistance;
       if (isLeftSwipe || isRightSwipe)
-        console.log("swipe", isLeftSwipe ? "left" : "right");
-      // add your conditional logic here
-      ProjectCarouselRef.current.slickNext();
+        // console.log("swipe", isLeftSwipe ? "left" : "right");
+        // add your conditional logic here
+        ProjectCarouselRef.current.slickNext();
     };
     const ProjectCarouselRef = React.useRef(null);
     function projectCarouselNextImg() {
-      console.log("Next");
+      // console.log("Next");
       ProjectCarouselRef.current.slickNext();
     }
     const settings = {
@@ -214,7 +224,7 @@ const Index = ({ data }) => {
   const FilmLeadCarousel = ({ children }) => {
     const FilmsLeadCarouselRef = React.useRef(null);
     function filmsLeadCarouselNextImg() {
-      console.log("Next");
+      // console.log("Next");
       FilmsLeadCarouselRef.current.slickNext();
     }
     const settings = {
@@ -241,20 +251,20 @@ const Index = ({ data }) => {
   };
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
     (content, index) => {
-      console.log(
-        content.project_relationship_field.document.data.project_title.text
-      );
+      // console.log(
+      //   content.project_relationship_field.document.data.project_title.text
+      // );
       if (
         content.project_relationship_field.document.type == "film_lead_project"
       ) {
-        console.log("film lead project");
+        // console.log("film lead project");
 
         const filmLeadProject = content.project_relationship_field.document.data.body.map(
           (content_three, index) => {
             // console.log(content_three.video.url);
-            console.log("test");
-            console.log(content_three.primary.video_thumbnail.fluid.src);
-            console.log(content_three.slice_type);
+            // console.log("test");
+            // console.log(content_three.primary.video_thumbnail.fluid.src);
+            // console.log(content_three.slice_type);
 
             if (content_three.slice_type == "video_with_play_button") {
               return (
@@ -322,17 +332,21 @@ const Index = ({ data }) => {
             }
             if (content_four.slice_type == "video") {
               return (
-                <video playsInline autoPlay muted loop>
-                  <source
-                    type="video/mp4"
-                    src={content_four.primary.video.url}
-                  />
-                </video>
+                // <video playsInline autoPlay muted loop ref={autoplayVideoRef}>
+                //   <source
+                //     type="video/mp4"
+                //     src={content_four.primary.video.url}
+                //   />
+                // </video>
+                <AutoPlayVideo
+                  srcProps={content_four.primary.video.url}
+                  posterProps={content_four.primary.index_image.fluid.src}
+                />
               );
             }
           }
         );
-        console.log(project);
+        // console.log(project);
         return (
           <>
             <ProjectCon>
@@ -410,6 +424,13 @@ export const query = graphql`
                       primary {
                         video {
                           url
+                        }
+                        index_image {
+                          fluid {
+                            src
+                            srcSetWebp
+                            srcWebp
+                          }
                         }
                       }
                     }
