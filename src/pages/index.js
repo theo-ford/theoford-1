@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ReactDOM, { findDOMNode } from "react-dom";
 import { graphql, Link, useScrollRestoration } from "gatsby";
 import styled, { createGlobalStyle } from "styled-components";
@@ -125,10 +125,25 @@ const FilmLeadCarouselCon = styled.div`
 
 const Index = ({ data }) => {
   const AutoPlayVideo = ({ srcProps, posterProps }) => {
+    // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
     const autoplayVideoRef = useRef(null);
 
     const isOnScreen = useOnScreen(autoplayVideoRef);
+
+    const [videoSrcState, setVideoSrcState] = useState("");
+
+    console.log(srcProps);
     console.log({ isOnScreen });
+    // if (isOnScreen == true) {
+    //   setVideoSrcState(srcProps);
+    // }
+    useEffect(() => {
+      if (isOnScreen == true) {
+        console.log("testing true");
+        setVideoSrcState(srcProps);
+        autoplayVideoRef.current.load();
+      }
+    }, [isOnScreen]);
 
     return (
       <video
@@ -139,7 +154,11 @@ const Index = ({ data }) => {
         ref={autoplayVideoRef}
         poster={posterProps}
       >
-        <source type="video/mp4" data-src={srcProps} />
+        <source
+          type="video/mp4"
+          // data-src={srcProps}
+          src={videoSrcState}
+        />
       </video>
     );
   };
