@@ -142,6 +142,7 @@ const Index = ({ data }) => {
         console.log("testing true");
         setVideoSrcState(srcProps);
         autoplayVideoRef.current.load();
+        autoplayVideoRef.current.play();
       }
     }, [isOnScreen]);
 
