@@ -201,8 +201,9 @@ const Index = ({ data }) => {
         controls={false}
         width="100%"
         playsinline={true}
-        // className="player"
         // height="100%"
+        // className="player"
+
         // light={posterProps}
       ></ReactPlayer>
       // </div>
