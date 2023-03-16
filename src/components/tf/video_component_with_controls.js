@@ -106,6 +106,9 @@ const FullScreenButton = styled.p`
   top: 40px;
   left: 0px;
 `;
+const ReactPlayerWrapper = styled.div`
+  display: none;
+`;
 
 export const VideoComponent = ({ content, source }) => {
   const [playing, setPlaying] = useState(false);

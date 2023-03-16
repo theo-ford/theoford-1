@@ -123,6 +123,55 @@ const FilmLeadCarouselConCon = styled.div`
 const FilmLeadCarouselCon = styled.div`
   grid-column: span 2;
 `;
+const ReactPlayerWrapper = styled.div`
+  /* display: block; */
+  /* display: ${props => (props.videoLoad ? "block" : "none")}; */
+  opacity: ${props => (props.videoLoad ? 1 : 0)};
+`;
+const AutoplayVideoPosterCon = styled.div`
+  width: 100%;
+  height: 100%;
+  display: ${props => (props.videoLoad ? "none" : "block")};
+  /* background-color: red; */
+`;
+const AutoplayPosterPopUpConConCon = styled.div`
+  /* width: 100%;
+  /* height: 100%; */
+  /* position: absolute;
+  margin: 0 auto; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; */
+`;
+const AutoplayPosterPopUpConCon = styled.div`
+  /* position: absolute; */
+  background-color: white;
+  position: absolute;
+  padding: 10px;
+  margin-top: 2.3%;
+  border-radius: 10px;
+  margin-left: 1.7%;
+  filter: drop-shadow(0px 0px 5px #cfcfcf);
+
+  /* position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  line-height: 1;
+  z-index: 99; */
+  /* background-color: green; */
+  /* p {
+    position: relative;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    justify-content: center;
+  } */
+`;
+// const AutoplayPosterPopUpCon = styled.div``;
 
 const Index = ({ data }) => {
   const AutoPlayVideo = ({ srcProps, posterProps }) => {
@@ -170,13 +219,14 @@ const Index = ({ data }) => {
     const divReactPlayerAutoplayVideoRef = useRef();
     const isOnScreen = useOnScreen(divReactPlayerAutoplayVideoRef);
     const [videoSrcState, setVideoSrcState] = useState("");
+    const [mediaState, setMediaState] = useState(null);
 
-    console.log(srcProps);
-    console.log({ isOnScreen });
+    // console.log(srcProps);
+    // console.log({ isOnScreen });
 
     useEffect(() => {
       if (isOnScreen == true) {
-        console.log("testing true");
+        // console.log("testing true");
         setVideoSrcState(srcProps);
         // autoplayVideoRef.current.load();
         // autoplayVideoRef.current.play();
@@ -184,10 +234,16 @@ const Index = ({ data }) => {
     }, [isOnScreen]);
     function progressFunc(progress) {
       console.log(srcProps);
-      // var videoProgress = progress.playedSeconds;
+      var videoProgress = progress.playedSeconds;
       // console.log(videoProgress);
-      var loadProgress = progress.loaded;
-      console.log(loadProgress);
+      // var loadProgress = progress.loaded;
+      // console.log(loadProgress);
+      var loadedSeconds = progress.loadedSeconds;
+      console.log(loadedSeconds);
+
+      if (loadedSeconds > videoProgress) {
+        setMediaState(true);
+      }
       // if (!seeking) {
       //   setPlayedState(videoProgress);
       // }
@@ -195,34 +251,48 @@ const Index = ({ data }) => {
 
     // console.log(getSecondsLoaded());
     return (
-      <div ref={divReactPlayerAutoplayVideoRef}>
-        <ReactPlayer
-          url={videoSrcState}
-          config={{
-            file: {
-              attributes: {
-                preload: "none",
+      <>
+        <ReactPlayerWrapper
+          ref={divReactPlayerAutoplayVideoRef}
+          videoLoad={mediaState}
+        >
+          <ReactPlayer
+            url={videoSrcState}
+            config={{
+              file: {
+                attributes: {
+                  preload: "none",
+                },
               },
-            },
-          }}
-          ref={reactPlayerAutoplayVideoRef}
-          playing={true}
-          muted={true}
-          loop={true}
-          controls={false}
-          width="100%"
-          playsinline={true}
-          height="auto"
-          // onProgres={progress => {
-          //   console.log(progress.playedSeconds);
-          // }}
-          onProgress={progressFunc}
-          onBufferEnd={console.log("buffer end")}
-          // className="player"
+            }}
+            ref={reactPlayerAutoplayVideoRef}
+            playing={true}
+            muted={true}
+            loop={true}
+            controls={false}
+            width="100%"
+            playsinline={true}
+            height="auto"
+            // onProgres={progress => {
+            //   console.log(progress.playedSeconds);
+            // }}
+            onProgress={progressFunc}
+            // onBufferEnd={console.log("buffer end")}
+            // className="player"
 
-          // light={posterProps}
-        ></ReactPlayer>
-      </div>
+            // light={posterProps}
+          ></ReactPlayer>
+        </ReactPlayerWrapper>
+        <AutoplayVideoPosterCon videoLoad={mediaState}>
+          <AutoplayPosterPopUpConConCon>
+            <AutoplayPosterPopUpConCon>
+              <p>Video Loading</p>
+            </AutoplayPosterPopUpConCon>
+          </AutoplayPosterPopUpConConCon>
+
+          <img src={posterProps} />
+        </AutoplayVideoPosterCon>
+      </>
     );
   };
 
