@@ -182,7 +182,18 @@ const Index = ({ data }) => {
         // autoplayVideoRef.current.play();
       }
     }, [isOnScreen]);
+    function progressFunc(progress) {
+      console.log(srcProps);
+      // var videoProgress = progress.playedSeconds;
+      // console.log(videoProgress);
+      var loadProgress = progress.loaded;
+      console.log(loadProgress);
+      // if (!seeking) {
+      //   setPlayedState(videoProgress);
+      // }
+    }
 
+    // console.log(getSecondsLoaded());
     return (
       <div ref={divReactPlayerAutoplayVideoRef}>
         <ReactPlayer
@@ -194,7 +205,7 @@ const Index = ({ data }) => {
               },
             },
           }}
-          // ref={reactPlayerAutoplayVideoRef}
+          ref={reactPlayerAutoplayVideoRef}
           playing={true}
           muted={true}
           loop={true}
@@ -202,6 +213,11 @@ const Index = ({ data }) => {
           width="100%"
           playsinline={true}
           height="auto"
+          // onProgres={progress => {
+          //   console.log(progress.playedSeconds);
+          // }}
+          onProgress={progressFunc}
+          onBufferEnd={console.log("buffer end")}
           // className="player"
 
           // light={posterProps}
