@@ -169,14 +169,24 @@ const Index = ({ data }) => {
     // const reactPlayerAutoplayVideoRef = useRef();
     const divReactPlayerAutoplayVideoRef = useRef();
     const isOnScreen = useOnScreen(divReactPlayerAutoplayVideoRef);
+    const [videoSrcState, setVideoSrcState] = useState("");
 
     console.log(srcProps);
     console.log({ isOnScreen });
 
+    useEffect(() => {
+      if (isOnScreen == true) {
+        console.log("testing true");
+        setVideoSrcState(srcProps);
+        // autoplayVideoRef.current.load();
+        // autoplayVideoRef.current.play();
+      }
+    }, [isOnScreen]);
+
     return (
       <div ref={divReactPlayerAutoplayVideoRef}>
         <ReactPlayer
-          url={srcProps}
+          url={videoSrcState}
           config={{
             file: {
               attributes: {
@@ -429,14 +439,14 @@ const Index = ({ data }) => {
                 //     src={content_four.primary.video.url}
                 //   />
                 // </video>
-                <AutoPlayVideo
-                  srcProps={content_four.primary.video.url}
-                  posterProps={content_four.primary.index_image.fluid.src}
-                />
-                // <ReactPlayerAutoPlay
+                // <AutoPlayVideo
                 //   srcProps={content_four.primary.video.url}
                 //   posterProps={content_four.primary.index_image.fluid.src}
                 // />
+                <ReactPlayerAutoPlay
+                  srcProps={content_four.primary.video.url}
+                  posterProps={content_four.primary.index_image.fluid.src}
+                />
               );
             }
           }
