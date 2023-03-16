@@ -201,7 +201,7 @@ const Index = ({ data }) => {
         controls={false}
         width="100%"
         playsinline={true}
-        // height="100%"
+        height="auto"
         // className="player"
 
         // light={posterProps}
