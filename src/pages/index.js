@@ -12,6 +12,7 @@ import Slider from "react-slick";
 import "../components/slick/slick.css";
 import "../components/slick/slick-theme.css";
 import { useOnScreen } from "../components/hooks/useOnScreen";
+import ReactPlayer from "react-player";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -161,6 +162,25 @@ const Index = ({ data }) => {
           src={videoSrcState}
         />
       </video>
+    );
+  };
+
+  const ReactPlayerAutoPlay = ({ srcProps, posterProps }) => {
+    const reactPlayerAutoplayVideoRef = useRef(null);
+    return (
+      <ReactPlayer
+        ref={reactPlayerAutoplayVideoRef}
+        // className="player"
+        playing={true}
+        muted={true}
+        loop={true}
+        controls={false}
+        width="100%"
+        // height="100%"
+        url={srcProps}
+        playsinline={true}
+        // light={posterProps}
+      ></ReactPlayer>
     );
   };
 
@@ -382,7 +402,7 @@ const Index = ({ data }) => {
           (content_four, index) => {
             const projectLength =
               content.project_relationship_field.document.data.body.length;
-            console.log(projectLength);
+            // console.log(projectLength);
             if (content_four.slice_type == "image") {
               return <img src={content_four.primary.image.fluid.srcWebp} />;
             }
@@ -394,7 +414,11 @@ const Index = ({ data }) => {
                 //     src={content_four.primary.video.url}
                 //   />
                 // </video>
-                <AutoPlayVideo
+                // <AutoPlayVideo
+                //   srcProps={content_four.primary.video.url}
+                //   posterProps={content_four.primary.index_image.fluid.src}
+                // />
+                <ReactPlayerAutoPlay
                   srcProps={content_four.primary.video.url}
                   posterProps={content_four.primary.index_image.fluid.src}
                 />
