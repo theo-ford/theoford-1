@@ -167,45 +167,45 @@ const Index = ({ data }) => {
 
   const ReactPlayerAutoPlay = ({ srcProps, posterProps }) => {
     // const reactPlayerAutoplayVideoRef = useRef();
-    const divReactPlayerAutoplayVideoRef = useRef();
-    const isOnScreen = useOnScreen(divReactPlayerAutoplayVideoRef);
-    const [videoSrcState, setVideoSrcState] = useState("");
+    // const divReactPlayerAutoplayVideoRef = useRef();
+    // const isOnScreen = useOnScreen(divReactPlayerAutoplayVideoRef);
+    // const [videoSrcState, setVideoSrcState] = useState("");
 
-    console.log(srcProps);
-    console.log({ isOnScreen });
+    // console.log(srcProps);
+    // console.log({ isOnScreen });
 
-    useEffect(() => {
-      if (isOnScreen == true) {
-        console.log("testing true");
-        setVideoSrcState(srcProps);
-        // autoplayVideoRef.current.load();
-        // autoplayVideoRef.current.play();
-      }
-    }, [isOnScreen]);
+    // useEffect(() => {
+    //   if (isOnScreen == true) {
+    //     console.log("testing true");
+    //     setVideoSrcState(srcProps);
+    //     // autoplayVideoRef.current.load();
+    //     // autoplayVideoRef.current.play();
+    //   }
+    // }, [isOnScreen]);
 
     return (
-      <div ref={divReactPlayerAutoplayVideoRef}>
-        <ReactPlayer
-          url={videoSrcState}
-          config={{
-            file: {
-              attributes: {
-                preload: "none",
-              },
+      // <div ref={divReactPlayerAutoplayVideoRef}>
+      <ReactPlayer
+        url={srcProps}
+        config={{
+          file: {
+            attributes: {
+              preload: "none",
             },
-          }}
-          // ref={reactPlayerAutoplayVideoRef}
-          playing={true}
-          muted={true}
-          loop={true}
-          controls={false}
-          width="100%"
-          playsinline={true}
-          // className="player"
-          // height="100%"
-          // light={posterProps}
-        ></ReactPlayer>
-      </div>
+          },
+        }}
+        // ref={reactPlayerAutoplayVideoRef}
+        playing={true}
+        muted={true}
+        loop={true}
+        controls={false}
+        width="100%"
+        playsinline={true}
+        // className="player"
+        // height="100%"
+        // light={posterProps}
+      ></ReactPlayer>
+      // </div>
     );
   };
 
