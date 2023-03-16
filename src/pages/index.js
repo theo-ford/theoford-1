@@ -186,7 +186,7 @@ const Index = ({ data }) => {
     return (
       <div ref={divReactPlayerAutoplayVideoRef}>
         <ReactPlayer
-          url={srcProps}
+          url={videoSrcState}
           config={{
             file: {
               attributes: {
