@@ -124,14 +124,16 @@ const FilmLeadCarouselCon = styled.div`
   grid-column: span 2;
 `;
 const ReactPlayerWrapper = styled.div`
-  /* display: block; */
+  /* display: none; */
+  /* opacity: 0; */
   /* display: ${props => (props.videoLoad ? "block" : "none")}; */
-  opacity: ${props => (props.videoLoad ? 1 : 0)};
+  /* opacity: ${props => (props.videoLoad ? 1 : 0)}; */
 `;
 const AutoplayVideoPosterCon = styled.div`
   width: 100%;
   height: 100%;
   display: ${props => (props.videoLoad ? "none" : "block")};
+  /* position: absolute; */
   /* background-color: red; */
 `;
 const AutoplayPosterPopUpConConCon = styled.div`
@@ -148,10 +150,13 @@ const AutoplayPosterPopUpConCon = styled.div`
   /* position: absolute; */
   background-color: white;
   position: absolute;
-  padding: 10px;
-  margin-top: 2.3%;
+  padding: 8px;
+
   border-radius: 10px;
-  margin-left: 1.7%;
+  /* margin-left: 1.7%;
+  margin-top: 2.3%; */
+  margin-left: 8px;
+  margin-top: 8px;
   filter: drop-shadow(0px 0px 5px #cfcfcf);
 
   /* position: absolute;
@@ -526,14 +531,14 @@ const Index = ({ data }) => {
                 //     src={content_four.primary.video.url}
                 //   />
                 // </video>
-                // <AutoPlayVideo
-                //   srcProps={content_four.primary.video.url}
-                //   posterProps={content_four.primary.index_image.fluid.src}
-                // />
-                <ReactPlayerAutoPlay
+                <AutoPlayVideo
                   srcProps={content_four.primary.video.url}
                   posterProps={content_four.primary.index_image.fluid.src}
                 />
+                // <ReactPlayerAutoPlay
+                //   srcProps={content_four.primary.video.url}
+                //   posterProps={content_four.primary.index_image.fluid.src}
+                // />
               );
             }
           }
