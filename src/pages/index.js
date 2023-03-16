@@ -166,21 +166,36 @@ const Index = ({ data }) => {
   };
 
   const ReactPlayerAutoPlay = ({ srcProps, posterProps }) => {
-    const reactPlayerAutoplayVideoRef = useRef(null);
+    // const reactPlayerAutoplayVideoRef = useRef();
+    const divReactPlayerAutoplayVideoRef = useRef();
+    const isOnScreen = useOnScreen(divReactPlayerAutoplayVideoRef);
+
+    console.log(srcProps);
+    console.log({ isOnScreen });
+
     return (
-      <ReactPlayer
-        ref={reactPlayerAutoplayVideoRef}
-        // className="player"
-        playing={true}
-        muted={true}
-        loop={true}
-        controls={false}
-        width="100%"
-        // height="100%"
-        url={srcProps}
-        playsinline={true}
-        // light={posterProps}
-      ></ReactPlayer>
+      <div ref={divReactPlayerAutoplayVideoRef}>
+        <ReactPlayer
+          url={srcProps}
+          config={{
+            file: {
+              attributes: {
+                preload: "none",
+              },
+            },
+          }}
+          // ref={reactPlayerAutoplayVideoRef}
+          playing={true}
+          muted={true}
+          loop={true}
+          controls={false}
+          width="100%"
+          playsinline={true}
+          // className="player"
+          // height="100%"
+          // light={posterProps}
+        ></ReactPlayer>
+      </div>
     );
   };
 
@@ -414,14 +429,14 @@ const Index = ({ data }) => {
                 //     src={content_four.primary.video.url}
                 //   />
                 // </video>
-                // <AutoPlayVideo
-                //   srcProps={content_four.primary.video.url}
-                //   posterProps={content_four.primary.index_image.fluid.src}
-                // />
-                <ReactPlayerAutoPlay
+                <AutoPlayVideo
                   srcProps={content_four.primary.video.url}
                   posterProps={content_four.primary.index_image.fluid.src}
                 />
+                // <ReactPlayerAutoPlay
+                //   srcProps={content_four.primary.video.url}
+                //   posterProps={content_four.primary.index_image.fluid.src}
+                // />
               );
             }
           }
