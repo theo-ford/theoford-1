@@ -178,6 +178,22 @@ const AutoplayPosterPopUpConCon = styled.div`
 `;
 // const AutoplayPosterPopUpCon = styled.div``;
 
+const AutoplayVideoCon = styled.div`
+  position: relative;
+  /* width: 100%;
+  height: 100%; */
+`;
+const AutoplayVideoImg = styled.img`
+  position: absolute;
+  /* width: 100%;
+  height: 100%; */
+`;
+const AutoplayVideoVideo = styled.video`
+  position: absolute;
+  /* width: 100%;
+  height: 100%; */
+`;
+
 const Index = ({ data }) => {
   const AutoPlayVideo = ({ srcProps, posterProps }) => {
     // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
@@ -209,23 +225,30 @@ const Index = ({ data }) => {
 
     return (
       <>
-        <img src={posterProps} style={{ opacity: isVideoLoaded ? 0 : 1 }} />
-        <video
-          playsInline
-          autoPlay
-          muted
-          loop
-          ref={autoplayVideoRef}
-          onLoadedData={onLoadedData}
-          //poster={posterProps}
-          style={{ opacity: isVideoLoaded ? 1 : 0 }}
-        >
-          <source
-            type="video/mp4"
-            // data-src={srcProps}
-            src={videoSrcState}
+        <AutoplayVideoCon>
+          <AutoplayVideoImg
+            src={posterProps}
+            style={{ opacity: isVideoLoaded ? 0 : 1 }}
+            // style={{ display: isVideoLoaded ? "none" : "block" }}
           />
-        </video>
+          <AutoplayVideoVideo
+            playsInline
+            autoPlay
+            muted
+            loop
+            ref={autoplayVideoRef}
+            onLoadedData={onLoadedData}
+            //poster={posterProps}
+            style={{ opacity: isVideoLoaded ? 1 : 0 }}
+            // style={{ display: isVideoLoaded ? "block" : "none" }}
+          >
+            <source
+              type="video/mp4"
+              // data-src={srcProps}
+              src={videoSrcState}
+            />
+          </AutoplayVideoVideo>
+        </AutoplayVideoCon>
       </>
     );
   };
