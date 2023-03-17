@@ -278,7 +278,8 @@ const Index = ({ data }) => {
             width="100%"
             playsinline={true}
             height="auto"
-            light={posterProps}
+            fallback={posterProps}
+            // light={posterProps}
             // onProgres={progress => {
             //   console.log(progress.playedSeconds);
             // }}
