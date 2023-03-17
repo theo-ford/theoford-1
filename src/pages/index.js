@@ -187,6 +187,12 @@ const Index = ({ data }) => {
 
     const [videoSrcState, setVideoSrcState] = useState("");
 
+    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+
+    const onLoadedData = () => {
+      setIsVideoLoaded(true);
+    };
+
     console.log(srcProps);
     console.log({ isOnScreen });
     // if (isOnScreen == true) {
@@ -202,20 +208,25 @@ const Index = ({ data }) => {
     }, [isOnScreen]);
 
     return (
-      <video
-        playsInline
-        autoPlay
-        muted
-        loop
-        ref={autoplayVideoRef}
-        poster={posterProps}
-      >
-        <source
-          type="video/mp4"
-          // data-src={srcProps}
-          src={videoSrcState}
-        />
-      </video>
+      <>
+        <img src={posterProps} style={{ opacity: isVideoLoaded ? 0 : 1 }} />
+        <video
+          playsInline
+          autoPlay
+          muted
+          loop
+          ref={autoplayVideoRef}
+          onLoadedData={onLoadedData}
+          //poster={posterProps}
+          style={{ opacity: isVideoLoaded ? 1 : 0 }}
+        >
+          <source
+            type="video/mp4"
+            // data-src={srcProps}
+            src={videoSrcState}
+          />
+        </video>
+      </>
     );
   };
 
@@ -531,14 +542,14 @@ const Index = ({ data }) => {
                 //     src={content_four.primary.video.url}
                 //   />
                 // </video>
-                // <AutoPlayVideo
-                //   srcProps={content_four.primary.video.url}
-                //   posterProps={content_four.primary.index_image.fluid.src}
-                // />
-                <ReactPlayerAutoPlay
+                <AutoPlayVideo
                   srcProps={content_four.primary.video.url}
                   posterProps={content_four.primary.index_image.fluid.src}
                 />
+                // <ReactPlayerAutoPlay
+                //   srcProps={content_four.primary.video.url}
+                //   posterProps={content_four.primary.index_image.fluid.src}
+                // />
               );
             }
           }
