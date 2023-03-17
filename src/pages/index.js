@@ -184,7 +184,7 @@ const AutoplayVideoCon = styled.div`
   height: 100%; */
 `;
 const AutoplayVideoImg = styled.img`
-  position: absolute;
+  /* position: absolute; */
   /* width: 100%;
   height: 100%; */
 `;
@@ -228,7 +228,10 @@ const Index = ({ data }) => {
         <AutoplayVideoCon>
           <AutoplayVideoImg
             src={posterProps}
-            style={{ opacity: isVideoLoaded ? 0 : 1 }}
+            style={{
+              opacity: isVideoLoaded ? 0 : 1,
+              position: isVideoLoaded ? "absolute" : "relative",
+            }}
             // style={{ display: isVideoLoaded ? "none" : "block" }}
             // style={{ visibility: isVideoLoaded ? "hidden" : "visible" }}
           />
@@ -240,7 +243,10 @@ const Index = ({ data }) => {
             ref={autoplayVideoRef}
             onLoadedData={onLoadedData}
             //poster={posterProps}
-            style={{ opacity: isVideoLoaded ? 1 : 0 }}
+            style={{
+              opacity: isVideoLoaded ? 1 : 0,
+              position: isVideoLoaded ? "relative" : "absolute",
+            }}
             // style={{ visibility: isVideoLoaded ? "visible" : "hidden" }}
             // style={{ display: isVideoLoaded ? "block" : "none" }}
           >
