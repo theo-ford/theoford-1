@@ -237,29 +237,29 @@ const Index = ({ data }) => {
         // autoplayVideoRef.current.play();
       }
     }, [isOnScreen]);
-    function progressFunc(progress) {
-      console.log(srcProps);
-      var videoProgress = progress.playedSeconds;
-      // console.log(videoProgress);
-      // var loadProgress = progress.loaded;
-      // console.log(loadProgress);
-      var loadedSeconds = progress.loadedSeconds;
-      console.log(loadedSeconds);
+    // function progressFunc(progress) {
+    //   console.log(srcProps);
+    //   var videoProgress = progress.playedSeconds;
+    //   // console.log(videoProgress);
+    //   // var loadProgress = progress.loaded;
+    //   // console.log(loadProgress);
+    //   var loadedSeconds = progress.loadedSeconds;
+    //   console.log(loadedSeconds);
 
-      if (loadedSeconds > videoProgress) {
-        setMediaState(true);
-      }
-      // if (!seeking) {
-      //   setPlayedState(videoProgress);
-      // }
-    }
+    //   if (loadedSeconds > videoProgress) {
+    //     setMediaState(true);
+    //   }
+    //   // if (!seeking) {
+    //   //   setPlayedState(videoProgress);
+    //   // }
+    // }
 
     // console.log(getSecondsLoaded());
     return (
       <>
         <ReactPlayerWrapper
           ref={divReactPlayerAutoplayVideoRef}
-          videoLoad={mediaState}
+          // videoLoad={mediaState}
         >
           <ReactPlayer
             url={videoSrcState}
@@ -278,17 +278,16 @@ const Index = ({ data }) => {
             width="100%"
             playsinline={true}
             height="auto"
+            light={posterProps}
             // onProgres={progress => {
             //   console.log(progress.playedSeconds);
             // }}
-            onProgress={progressFunc}
+            // onProgress={progressFunc}
             // onBufferEnd={console.log("buffer end")}
             // className="player"
-
-            // light={posterProps}
           ></ReactPlayer>
         </ReactPlayerWrapper>
-        <AutoplayVideoPosterCon videoLoad={mediaState}>
+        {/* <AutoplayVideoPosterCon videoLoad={mediaState}>
           <AutoplayPosterPopUpConConCon>
             <AutoplayPosterPopUpConCon>
               <p>Video Loading</p>
@@ -296,7 +295,7 @@ const Index = ({ data }) => {
           </AutoplayPosterPopUpConConCon>
 
           <img src={posterProps} />
-        </AutoplayVideoPosterCon>
+        </AutoplayVideoPosterCon> */}
       </>
     );
   };
@@ -531,14 +530,14 @@ const Index = ({ data }) => {
                 //     src={content_four.primary.video.url}
                 //   />
                 // </video>
-                <AutoPlayVideo
-                  srcProps={content_four.primary.video.url}
-                  posterProps={content_four.primary.index_image.fluid.src}
-                />
-                // <ReactPlayerAutoPlay
+                // <AutoPlayVideo
                 //   srcProps={content_four.primary.video.url}
                 //   posterProps={content_four.primary.index_image.fluid.src}
                 // />
+                <ReactPlayerAutoPlay
+                  srcProps={content_four.primary.video.url}
+                  posterProps={content_four.primary.index_image.fluid.src}
+                />
               );
             }
           }
