@@ -189,7 +189,7 @@ const AutoplayVideoImg = styled.img`
   height: 100%; */
 `;
 const AutoplayVideoVideo = styled.video`
-  position: absolute;
+  /* position: absolute; */
   /* width: 100%;
   height: 100%; */
 `;
@@ -230,6 +230,7 @@ const Index = ({ data }) => {
             src={posterProps}
             style={{ opacity: isVideoLoaded ? 0 : 1 }}
             // style={{ display: isVideoLoaded ? "none" : "block" }}
+            // style={{ visibility: isVideoLoaded ? "hidden" : "visible" }}
           />
           <AutoplayVideoVideo
             playsInline
@@ -240,6 +241,7 @@ const Index = ({ data }) => {
             onLoadedData={onLoadedData}
             //poster={posterProps}
             style={{ opacity: isVideoLoaded ? 1 : 0 }}
+            // style={{ visibility: isVideoLoaded ? "visible" : "hidden" }}
             // style={{ display: isVideoLoaded ? "block" : "none" }}
           >
             <source
@@ -400,6 +402,13 @@ const Index = ({ data }) => {
       swipe: false,
       swipeToSlide: false,
     };
+    console.log(ProjectCarouselRef.current);
+    // const height = document.querySelector("slick-slide").clientHeight;
+    // console.log(height);
+    // useEffect(() => {
+    //   const height = document.querySelector("slick-slide").clientHeight;
+    //   console.log(height);
+    // }, []);
     return (
       <>
         <Grid2>
