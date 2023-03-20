@@ -193,6 +193,19 @@ const AutoplayVideoVideo = styled.video`
   width: 100%;
   height: 100%;
 `;
+const AutoplayVideoImgCon = styled.div``;
+const AutoplayVideoTextCon = styled.div`
+  position: absolute;
+  z-index: 10000;
+  p {
+    color: black;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    margin-top: -1px;
+  }
+`;
 
 const Index = ({ data }) => {
   const ImgComponent = ({ srcProps, videoLoad }) => {
@@ -236,13 +249,29 @@ const Index = ({ data }) => {
     return (
       <>
         <AutoplayVideoCon>
-          <AutoplayVideoImg
-            src={posterProps}
+          <AutoplayVideoImgCon
             style={{
               opacity: isVideoLoaded ? 0 : 1,
               position: isVideoLoaded ? "absolute" : "relative",
+              // opacity: 1,
+              // position: "relative",
             }}
-          />
+          >
+            <AutoplayVideoTextCon>
+              <p>Video Loading</p>
+            </AutoplayVideoTextCon>
+
+            <AutoplayVideoImg
+              src={posterProps}
+              style={{
+                opacity: isVideoLoaded ? 0 : 1,
+                position: isVideoLoaded ? "absolute" : "relative",
+                // opacity: 1,
+                // position: "relative",
+              }}
+            />
+          </AutoplayVideoImgCon>
+
           <AutoplayVideoVideo
             playsInline
             autoPlay
@@ -253,6 +282,8 @@ const Index = ({ data }) => {
             style={{
               opacity: isVideoLoaded ? 1 : 0,
               position: isVideoLoaded ? "relative" : "absolute",
+              // opacity: 0,
+              // position: "absolute",
             }}
           >
             <source type="video/mp4" src={videoSrcState} />
