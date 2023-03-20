@@ -210,23 +210,26 @@ const Index = ({ data }) => {
       setIsVideoLoaded(true);
     };
 
-    useEffect(() => {
-      console.log("changedSlide:" + changedSlide);
-      console.log("isVideoLoaded:" + isVideoLoaded);
-      if (changedSlide == true && isVideoLoaded == false) {
-        // console.log("isVideoLoaded1:" + isVideoLoaded);
-        setIsVideoLoaded(false);
-        // console.log("isVideoLoaded2:" + isVideoLoaded);
-      }
-      console.log("isVideoLoaded2:" + isVideoLoaded);
-      // console.log(videoLoad);
-    }, [changedSlide, isVideoLoaded]);
+    // useEffect(() => {
+    //   console.log(srcProps);
+    //   console.log("changedSlide:" + changedSlide);
+    //   console.log("isVideoLoaded:" + isVideoLoaded);
+    //   if (changedSlide == true) {
+    //     // setIsVideoLoaded(false);
+    //   }
+    // }, [changedSlide, isVideoLoaded]);
 
     useEffect(() => {
       if (isOnScreen == true) {
+        console.log(srcProps);
+        console.log("on screen");
         setVideoSrcState(srcProps);
         autoplayVideoRef.current.load();
         autoplayVideoRef.current.play();
+      } else if (isOnScreen === false) {
+        console.log("false");
+        setIsVideoLoaded(false);
+        setVideoSrcState("");
       }
     }, [isOnScreen]);
 
@@ -246,7 +249,7 @@ const Index = ({ data }) => {
             muted
             loop
             ref={autoplayVideoRef}
-            onLoadedData={onLoadedData}
+            onCanPlayThrough={onLoadedData}
             style={{
               opacity: isVideoLoaded ? 1 : 0,
               position: isVideoLoaded ? "relative" : "absolute",
@@ -267,19 +270,16 @@ const Index = ({ data }) => {
     projectLength,
     videoLoad,
   }) => {
+    // SWIPE GESTURE
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
-
     // the required distance between touchStart and touchEnd to be detected as a swipe
     const minSwipeDistance = 50;
-
     const onTouchStart = e => {
       setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
       setTouchStart(e.targetTouches[0].clientX);
     };
-
     const onTouchMove = e => setTouchEnd(e.targetTouches[0].clientX);
-
     const onTouchEnd = () => {
       if (!touchStart || !touchEnd) return;
       const distance = touchStart - touchEnd;
@@ -290,32 +290,23 @@ const Index = ({ data }) => {
         // add your conditional logic here
         ProjectCarouselRef.current.slickNext();
     };
-    const ProjectCarouselRef = React.useRef(null);
 
-    const [changedSlide, setChangedSlide] = useState(false);
-
-    function projectCarouselNextImg() {
-      ProjectCarouselRef.current.slickNext();
-      setChangedSlide(true);
-    }
-
+    // COUNTER
     const [currentSlide, setCurrentSlide] = useState(0);
     const [totalSlides, setTotalSlides] = useState(null);
-
     useEffect(() => {
       setCurrentSlide(0);
     }, []);
-
     useEffect(() => {
       setTotalSlides(projectLength);
     }, []);
-
     const updateCurrentSlide = index => {
       if (currentSlide !== index) {
         setCurrentSlide(index);
       }
     };
 
+    // SLIDER SETTINGS
     const settings = {
       infinite: true,
       speed: 0,
@@ -327,8 +318,16 @@ const Index = ({ data }) => {
       swipe: false,
       swipeToSlide: false,
     };
-    // console.log(ProjectCarouselRef.current);
 
+    // SLIDESHOW FUNCTION
+    const ProjectCarouselRef = React.useRef(null);
+
+    const [changedSlide, setChangedSlide] = useState(false);
+
+    function projectCarouselNextImg() {
+      ProjectCarouselRef.current.slickNext();
+      setChangedSlide(true);
+    }
     return (
       <>
         <Grid2>
@@ -355,8 +354,6 @@ const Index = ({ data }) => {
               ref={ProjectCarouselRef}
               afterChange={index => updateCurrentSlide(index)}
             >
-              {/* {React.cloneElement(children, { videoLoad: false })} */}
-              {/* {children} */}
               {React.Children.map(children, child =>
                 React.cloneElement(child, {
                   changedSlide: changedSlide,
