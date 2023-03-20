@@ -180,18 +180,18 @@ const AutoplayPosterPopUpConCon = styled.div`
 
 const AutoplayVideoCon = styled.div`
   position: relative;
-  /* width: 100%;
-  height: 100%; */
+  width: 100%;
+  height: 100%;
 `;
 const AutoplayVideoImg = styled.img`
   /* position: absolute; */
-  /* width: 100%;
-  height: 100%; */
+  width: 100%;
+  height: 100%;
 `;
 const AutoplayVideoVideo = styled.video`
   /* position: absolute; */
-  /* width: 100%;
-  height: 100%; */
+  width: 100%;
+  height: 100%;
 `;
 
 const Index = ({ data }) => {
