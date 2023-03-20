@@ -280,7 +280,7 @@ const Index = ({ data }) => {
             }}
           >
             <AutoplayVideoTextCon>
-              {/* <p>Video Loading</p> */}
+              <p>Video Loading</p>
             </AutoplayVideoTextCon>
 
             <AutoplayVideoImg
@@ -397,7 +397,7 @@ const Index = ({ data }) => {
                 >
                   Next
                 </p>
-                <PVideoLoadingNext>&nbsp;(Video Loading)</PVideoLoadingNext>
+                <PVideoLoadingNext>&nbsp; (Video Loading)</PVideoLoadingNext>
               </>
             ) : (
               ""
