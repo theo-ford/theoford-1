@@ -207,7 +207,7 @@ const AutoplayVideoTextCon = styled.div`
     padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     background-color: white;
     margin-top: -1px;
     animation-name: ${breatheAnimation};
