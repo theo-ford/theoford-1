@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import ReactDOM, { findDOMNode } from "react-dom";
 import { graphql, Link, useScrollRestoration } from "gatsby";
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { withPreview } from "gatsby-source-prismic";
 import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
@@ -194,6 +194,11 @@ const AutoplayVideoVideo = styled.video`
   height: 100%;
 `;
 const AutoplayVideoImgCon = styled.div``;
+const breatheAnimation = keyframes`
+0% {opacity: 0} 
+50% {opacity: 1}
+100% {opacity:0}
+`;
 const AutoplayVideoTextCon = styled.div`
   position: absolute;
   z-index: 10000;
@@ -202,8 +207,12 @@ const AutoplayVideoTextCon = styled.div`
     padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-left: 10px;
     background-color: white;
     margin-top: -1px;
+    animation-name: ${breatheAnimation};
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
   }
 `;
 
@@ -252,10 +261,10 @@ const Index = ({ data }) => {
         <AutoplayVideoCon>
           <AutoplayVideoImgCon
             style={{
-              opacity: isVideoLoaded ? 0 : 1,
-              position: isVideoLoaded ? "absolute" : "relative",
-              // opacity: 1,
-              // position: "relative",
+              // opacity: isVideoLoaded ? 0 : 1,
+              // position: isVideoLoaded ? "absolute" : "relative",
+              opacity: 1,
+              position: "relative",
             }}
           >
             <AutoplayVideoTextCon>
@@ -265,10 +274,10 @@ const Index = ({ data }) => {
             <AutoplayVideoImg
               src={posterProps}
               style={{
-                opacity: isVideoLoaded ? 0 : 1,
-                position: isVideoLoaded ? "absolute" : "relative",
-                // opacity: 1,
-                // position: "relative",
+                // opacity: isVideoLoaded ? 0 : 1,
+                // position: isVideoLoaded ? "absolute" : "relative",
+                opacity: 1,
+                position: "relative",
               }}
             />
           </AutoplayVideoImgCon>
@@ -282,10 +291,10 @@ const Index = ({ data }) => {
             // onCanPlayThrough={onLoadedData}
             onLoadedData={onLoadedData}
             style={{
-              opacity: isVideoLoaded ? 1 : 0,
-              position: isVideoLoaded ? "relative" : "absolute",
-              // opacity: 0,
-              // position: "absolute",
+              // opacity: isVideoLoaded ? 1 : 0,
+              // position: isVideoLoaded ? "relative" : "absolute",
+              opacity: 0,
+              position: "absolute",
             }}
           >
             <source type="video/mp4" src={videoSrcState} />
