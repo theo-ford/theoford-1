@@ -221,6 +221,13 @@ const AutoplayVideoTextCon = styled.div`
   }
 `;
 
+const PVideoLoadingNext = styled.p`
+  animation-name: ${breatheAnimation};
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  display: inline-block;
+`;
+
 const Index = ({ data }) => {
   const ImgComponent = ({ srcProps, videoLoad }) => {
     return <img src={srcProps} />;
@@ -273,7 +280,7 @@ const Index = ({ data }) => {
             }}
           >
             <AutoplayVideoTextCon>
-              <p>Video Loading</p>
+              {/* <p>Video Loading</p> */}
             </AutoplayVideoTextCon>
 
             <AutoplayVideoImg
@@ -383,7 +390,15 @@ const Index = ({ data }) => {
           </CounterCon>
           <NextButtonCon>
             {projectLength > 1 ? (
-              <p onClick={projectCarouselNextImg}>Next</p>
+              <>
+                <p
+                  onClick={projectCarouselNextImg}
+                  style={{ display: "inline-block" }}
+                >
+                  Next
+                </p>
+                <PVideoLoadingNext>&nbsp;(Video Loading)</PVideoLoadingNext>
+              </>
             ) : (
               ""
             )}
