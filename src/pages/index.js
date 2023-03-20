@@ -273,10 +273,10 @@ const Index = ({ data }) => {
         <AutoplayVideoCon>
           <AutoplayVideoImgCon
             style={{
-              // opacity: isVideoLoaded ? 0 : 1,
-              // position: isVideoLoaded ? "absolute" : "relative",
-              opacity: 1,
-              position: "relative",
+              opacity: isVideoLoaded ? 0 : 1,
+              position: isVideoLoaded ? "absolute" : "relative",
+              // opacity: 1,
+              // position: "relative",
             }}
           >
             <AutoplayVideoTextCon>
@@ -286,10 +286,10 @@ const Index = ({ data }) => {
             <AutoplayVideoImg
               src={posterProps}
               style={{
-                // opacity: isVideoLoaded ? 0 : 1,
-                // position: isVideoLoaded ? "absolute" : "relative",
-                opacity: 1,
-                position: "relative",
+                opacity: isVideoLoaded ? 0 : 1,
+                position: isVideoLoaded ? "absolute" : "relative",
+                // opacity: 1,
+                // position: "relative",
               }}
             />
           </AutoplayVideoImgCon>
@@ -303,10 +303,10 @@ const Index = ({ data }) => {
             // onCanPlayThrough={onLoadedData}
             onLoadedData={onLoadedData}
             style={{
-              // opacity: isVideoLoaded ? 1 : 0,
-              // position: isVideoLoaded ? "relative" : "absolute",
-              opacity: 0,
-              position: "absolute",
+              opacity: isVideoLoaded ? 1 : 0,
+              position: isVideoLoaded ? "relative" : "absolute",
+              // opacity: 0,
+              // position: "absolute",
             }}
           >
             <source type="video/mp4" src={videoSrcState} />
@@ -397,7 +397,7 @@ const Index = ({ data }) => {
                 >
                   Next
                 </p>
-                <PVideoLoadingNext>&nbsp; (Video Loading)</PVideoLoadingNext>
+                {/* <PVideoLoadingNext>&nbsp; (Video Loading)</PVideoLoadingNext> */}
               </>
             ) : (
               ""
