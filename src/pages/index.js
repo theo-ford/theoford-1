@@ -240,7 +240,8 @@ const Index = ({ data }) => {
         autoplayVideoRef.current.load();
         autoplayVideoRef.current.play();
       } else if (isOnScreen === false) {
-        console.log("false");
+        console.log(srcProps);
+        console.log("off screen");
         setIsVideoLoaded(false);
         setVideoSrcState("");
       }
@@ -278,7 +279,8 @@ const Index = ({ data }) => {
             muted
             loop
             ref={autoplayVideoRef}
-            onCanPlayThrough={onLoadedData}
+            // onCanPlayThrough={onLoadedData}
+            onLoadedData={onLoadedData}
             style={{
               opacity: isVideoLoaded ? 1 : 0,
               position: isVideoLoaded ? "relative" : "absolute",
