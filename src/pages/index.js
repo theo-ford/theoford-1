@@ -202,12 +202,17 @@ const breatheAnimation = keyframes`
 const AutoplayVideoTextCon = styled.div`
   position: absolute;
   z-index: 10000;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
   p {
     color: black;
     padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    /* padding-left: 10px; */
+    padding-left: 10px;
     background-color: white;
     margin-top: -1px;
     animation-name: ${breatheAnimation};
