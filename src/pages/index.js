@@ -211,12 +211,16 @@ const Index = ({ data }) => {
     };
 
     useEffect(() => {
-      if (changedSlide == true) {
-        console.log(changedSlide);
+      console.log("changedSlide:" + changedSlide);
+      console.log("isVideoLoaded:" + isVideoLoaded);
+      if (changedSlide == true && isVideoLoaded == false) {
+        // console.log("isVideoLoaded1:" + isVideoLoaded);
         setIsVideoLoaded(false);
+        // console.log("isVideoLoaded2:" + isVideoLoaded);
       }
+      console.log("isVideoLoaded2:" + isVideoLoaded);
       // console.log(videoLoad);
-    }, [changedSlide]);
+    }, [changedSlide, isVideoLoaded]);
 
     useEffect(() => {
       if (isOnScreen == true) {
@@ -289,6 +293,7 @@ const Index = ({ data }) => {
     const ProjectCarouselRef = React.useRef(null);
 
     const [changedSlide, setChangedSlide] = useState(false);
+
     function projectCarouselNextImg() {
       ProjectCarouselRef.current.slickNext();
       setChangedSlide(true);
@@ -470,7 +475,6 @@ const Index = ({ data }) => {
               return (
                 <ImgComponent
                   srcProps={content_four.primary.image.fluid.srcWebp}
-                  // videoLoad={videoLoad}
                 />
               );
             }
@@ -479,8 +483,6 @@ const Index = ({ data }) => {
                 <AutoPlayVideo
                   srcProps={content_four.primary.video.url}
                   posterProps={content_four.primary.index_image.fluid.src}
-                  videoLoad={false}
-                  // videoLoad={videoLoad}
                 />
               );
             }
