@@ -195,28 +195,30 @@ const AutoplayVideoVideo = styled.video`
 `;
 
 const Index = ({ data }) => {
-  const AutoPlayVideo = ({ srcProps, posterProps }) => {
+  const ImgComponent = ({ srcProps, videoLoad }) => {
+    return <img src={srcProps} />;
+  };
+  const AutoPlayVideo = ({ srcProps, posterProps, videoLoad }) => {
     // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
+    // https://frontend-digest.com/responsive-and-progressive-video-loading-in-react-e8753315af51
     const autoplayVideoRef = useRef(null);
-
     const isOnScreen = useOnScreen(autoplayVideoRef);
-
     const [videoSrcState, setVideoSrcState] = useState("");
-
     const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-
+    console.log(videoLoad);
     const onLoadedData = () => {
       setIsVideoLoaded(true);
     };
 
-    console.log(srcProps);
-    console.log({ isOnScreen });
-    // if (isOnScreen == true) {
-    //   setVideoSrcState(srcProps);
-    // }
+    useEffect(() => {
+      if (videoLoad == true) {
+        setIsVideoLoaded(false);
+      }
+      // console.log(videoLoad);
+    }, [videoLoad]);
+
     useEffect(() => {
       if (isOnScreen == true) {
-        console.log("testing true");
         setVideoSrcState(srcProps);
         autoplayVideoRef.current.load();
         autoplayVideoRef.current.play();
@@ -232,8 +234,6 @@ const Index = ({ data }) => {
               opacity: isVideoLoaded ? 0 : 1,
               position: isVideoLoaded ? "absolute" : "relative",
             }}
-            // style={{ display: isVideoLoaded ? "none" : "block" }}
-            // style={{ visibility: isVideoLoaded ? "hidden" : "visible" }}
           />
           <AutoplayVideoVideo
             playsInline
@@ -242,103 +242,14 @@ const Index = ({ data }) => {
             loop
             ref={autoplayVideoRef}
             onLoadedData={onLoadedData}
-            //poster={posterProps}
             style={{
               opacity: isVideoLoaded ? 1 : 0,
               position: isVideoLoaded ? "relative" : "absolute",
             }}
-            // style={{ visibility: isVideoLoaded ? "visible" : "hidden" }}
-            // style={{ display: isVideoLoaded ? "block" : "none" }}
           >
-            <source
-              type="video/mp4"
-              // data-src={srcProps}
-              src={videoSrcState}
-            />
+            <source type="video/mp4" src={videoSrcState} />
           </AutoplayVideoVideo>
         </AutoplayVideoCon>
-      </>
-    );
-  };
-
-  const ReactPlayerAutoPlay = ({ srcProps, posterProps }) => {
-    const reactPlayerAutoplayVideoRef = useRef();
-    const divReactPlayerAutoplayVideoRef = useRef();
-    const isOnScreen = useOnScreen(divReactPlayerAutoplayVideoRef);
-    const [videoSrcState, setVideoSrcState] = useState("");
-    const [mediaState, setMediaState] = useState(null);
-
-    // console.log(srcProps);
-    // console.log({ isOnScreen });
-
-    useEffect(() => {
-      if (isOnScreen == true) {
-        // console.log("testing true");
-        setVideoSrcState(srcProps);
-        // autoplayVideoRef.current.load();
-        // autoplayVideoRef.current.play();
-      }
-    }, [isOnScreen]);
-    // function progressFunc(progress) {
-    //   console.log(srcProps);
-    //   var videoProgress = progress.playedSeconds;
-    //   // console.log(videoProgress);
-    //   // var loadProgress = progress.loaded;
-    //   // console.log(loadProgress);
-    //   var loadedSeconds = progress.loadedSeconds;
-    //   console.log(loadedSeconds);
-
-    //   if (loadedSeconds > videoProgress) {
-    //     setMediaState(true);
-    //   }
-    //   // if (!seeking) {
-    //   //   setPlayedState(videoProgress);
-    //   // }
-    // }
-
-    // console.log(getSecondsLoaded());
-    return (
-      <>
-        <ReactPlayerWrapper
-          ref={divReactPlayerAutoplayVideoRef}
-          // videoLoad={mediaState}
-        >
-          <ReactPlayer
-            url={videoSrcState}
-            config={{
-              file: {
-                attributes: {
-                  preload: "none",
-                },
-              },
-            }}
-            ref={reactPlayerAutoplayVideoRef}
-            playing={true}
-            muted={true}
-            loop={true}
-            controls={false}
-            width="100%"
-            playsinline={true}
-            height="auto"
-            fallback={posterProps}
-            // light={posterProps}
-            // onProgres={progress => {
-            //   console.log(progress.playedSeconds);
-            // }}
-            // onProgress={progressFunc}
-            // onBufferEnd={console.log("buffer end")}
-            // className="player"
-          ></ReactPlayer>
-        </ReactPlayerWrapper>
-        {/* <AutoplayVideoPosterCon videoLoad={mediaState}>
-          <AutoplayPosterPopUpConConCon>
-            <AutoplayPosterPopUpConCon>
-              <p>Video Loading</p>
-            </AutoplayPosterPopUpConCon>
-          </AutoplayPosterPopUpConConCon>
-
-          <img src={posterProps} />
-        </AutoplayVideoPosterCon> */}
       </>
     );
   };
@@ -349,8 +260,8 @@ const Index = ({ data }) => {
     year,
     location,
     projectLength,
+    videoLoad,
   }) => {
-    // console.log(title);
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
 
@@ -375,9 +286,11 @@ const Index = ({ data }) => {
         ProjectCarouselRef.current.slickNext();
     };
     const ProjectCarouselRef = React.useRef(null);
+
+    const [changedSlide, setChangedSlide] = useState(false);
     function projectCarouselNextImg() {
-      // console.log("Next");
       ProjectCarouselRef.current.slickNext();
+      setChangedSlide(true);
     }
 
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -408,18 +321,12 @@ const Index = ({ data }) => {
       swipe: false,
       swipeToSlide: false,
     };
-    console.log(ProjectCarouselRef.current);
-    // const height = document.querySelector("slick-slide").clientHeight;
-    // console.log(height);
-    // useEffect(() => {
-    //   const height = document.querySelector("slick-slide").clientHeight;
-    //   console.log(height);
-    // }, []);
+    // console.log(ProjectCarouselRef.current);
+
     return (
       <>
         <Grid2>
           <CounterCon>
-            {/* <p>{currentSlide + 1}</p> */}
             <p>{("0" + (currentSlide + 1)).slice(-2)}</p>
           </CounterCon>
           <NextButtonCon>
@@ -436,21 +343,25 @@ const Index = ({ data }) => {
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
-            // onSwipeLeft={projectCarouselNextImg}
           >
             <Slider
               {...settings}
               ref={ProjectCarouselRef}
               afterChange={index => updateCurrentSlide(index)}
             >
-              {children}
+              {/* {React.cloneElement(children, { videoLoad: false })} */}
+              {/* {children} */}
+              {React.Children.map(children, child =>
+                React.cloneElement(child, {
+                  videoLoad: changedSlide,
+                })
+              )}
             </Slider>
           </SquareCarouselCon>
         </Grid2>
         <Grid2>
           <ProjectTitleCon>
             <p>{title}</p>
-            {/* <p>Title</p> */}
           </ProjectTitleCon>
           <ProjectLocationYearCon>
             <p>{location}</p>
@@ -463,7 +374,6 @@ const Index = ({ data }) => {
   const FilmLeadCarousel = ({ children }) => {
     const FilmsLeadCarouselRef = React.useRef(null);
     function filmsLeadCarouselNextImg() {
-      // console.log("Next");
       FilmsLeadCarouselRef.current.slickNext();
     }
     const settings = {
@@ -490,21 +400,11 @@ const Index = ({ data }) => {
   };
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
     (content, index) => {
-      // console.log(
-      //   content.project_relationship_field.document.data.project_title.text
-      // );
       if (
         content.project_relationship_field.document.type == "film_lead_project"
       ) {
-        // console.log("film lead project");
-
         const filmLeadProject = content.project_relationship_field.document.data.body.map(
           (content_three, index) => {
-            // console.log(content_three.video.url);
-            // console.log("test");
-            // console.log(content_three.primary.video_thumbnail.fluid.src);
-            // console.log(content_three.slice_type);
-
             if (content_three.slice_type == "video_with_play_button") {
               return (
                 <video
@@ -561,38 +461,30 @@ const Index = ({ data }) => {
         );
       }
       if (content.project_relationship_field.document.type == "project") {
-        // console.log(
-        //   content.project_relationship_field.document.data.project_title.text
-        // );
         const project = content.project_relationship_field.document.data.body.map(
           (content_four, index) => {
             const projectLength =
               content.project_relationship_field.document.data.body.length;
-            // console.log(projectLength);
             if (content_four.slice_type == "image") {
-              return <img src={content_four.primary.image.fluid.srcWebp} />;
+              return (
+                <ImgComponent
+                  srcProps={content_four.primary.image.fluid.srcWebp}
+                  // videoLoad={videoLoad}
+                />
+              );
             }
             if (content_four.slice_type == "video") {
               return (
-                // <video playsInline autoPlay muted loop ref={autoplayVideoRef}>
-                //   <source
-                //     type="video/mp4"
-                //     src={content_four.primary.video.url}
-                //   />
-                // </video>
                 <AutoPlayVideo
                   srcProps={content_four.primary.video.url}
                   posterProps={content_four.primary.index_image.fluid.src}
+                  videoLoad={false}
+                  // videoLoad={videoLoad}
                 />
-                // <ReactPlayerAutoPlay
-                //   srcProps={content_four.primary.video.url}
-                //   posterProps={content_four.primary.index_image.fluid.src}
-                // />
               );
             }
           }
         );
-        // console.log(project);
         return (
           <>
             <ProjectCon>
@@ -611,7 +503,12 @@ const Index = ({ data }) => {
                   content.project_relationship_field.document.data.location.text
                 }
               >
-                {project}
+                {React.Children.map(project, child =>
+                  React.cloneElement(child, {
+                    videoLoad: false,
+                  })
+                )}
+                {/* {project} */}
               </ProjectCarousel>
             </ProjectCon>
           </>
