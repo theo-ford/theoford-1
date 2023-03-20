@@ -198,24 +198,25 @@ const Index = ({ data }) => {
   const ImgComponent = ({ srcProps, videoLoad }) => {
     return <img src={srcProps} />;
   };
-  const AutoPlayVideo = ({ srcProps, posterProps, videoLoad }) => {
+  const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
     // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
     // https://frontend-digest.com/responsive-and-progressive-video-loading-in-react-e8753315af51
     const autoplayVideoRef = useRef(null);
     const isOnScreen = useOnScreen(autoplayVideoRef);
     const [videoSrcState, setVideoSrcState] = useState("");
     const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-    console.log(videoLoad);
+
     const onLoadedData = () => {
       setIsVideoLoaded(true);
     };
 
     useEffect(() => {
-      if (videoLoad == true) {
+      if (changedSlide == true) {
+        console.log(changedSlide);
         setIsVideoLoaded(false);
       }
       // console.log(videoLoad);
-    }, [videoLoad]);
+    }, [changedSlide]);
 
     useEffect(() => {
       if (isOnScreen == true) {
@@ -353,7 +354,7 @@ const Index = ({ data }) => {
               {/* {children} */}
               {React.Children.map(children, child =>
                 React.cloneElement(child, {
-                  videoLoad: changedSlide,
+                  changedSlide: changedSlide,
                 })
               )}
             </Slider>
@@ -505,7 +506,7 @@ const Index = ({ data }) => {
               >
                 {React.Children.map(project, child =>
                   React.cloneElement(child, {
-                    videoLoad: false,
+                    changedSlide: false,
                   })
                 )}
                 {/* {project} */}
