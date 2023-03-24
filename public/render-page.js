@@ -35544,10 +35544,14 @@ h5 {
   line-height: 14px;
   letter-spacing: 0.3px;
 }
-p {
+p, a {
+  /* font-family: "Helvetica Now Var Roman";
+  font-variation-settings: "wght" 343; */
   font-size: 16px;
   margin: 0;
   padding: 0;
+  line-height: 100%;
+  letter-spacing: -0.5;
 }
 
 

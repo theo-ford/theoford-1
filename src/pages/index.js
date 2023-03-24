@@ -22,49 +22,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: white;
   }
 `;
-const Img = styled.img`
-  width: 100%;
-`;
-const Video = styled.video`
-  width: 100%;
-`;
 
-const Logo = styled.img`
-  width: 400px;
-  position: fixed;
-  top: 0;
-  left: 0;
-`;
-const IconStyled = styled.svg`
-  width: 400px;
-  position: fixed;
-  top: 200;
-  left: 0;
-`;
-const LogoGrid16 = styled.div`
-  display: grid;
-  position: sticky;
-  top: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 12.5px;
-  margin-left: 12.5px;
-  grid-row-gap: 0;
-  width: calc(100% - 25px);
-  z-index: 20000;
-  mix-blend-mode: exclusion;
-`;
-
-const LogoCon = styled.div`
-  grid-column: span 5;
-  mix-blend-mode: exclusion;
-`;
-const NavCon1 = styled.div`
-  grid-column: span 1;
-  mix-blend-mode: exclusion;
-  p {
-    color: white;
-  }
-`;
 const Grid2 = styled.div`
   display: grid;
   top: 12.5px;
@@ -88,25 +46,24 @@ const NextButtonCon = styled.div`
 const SquareCarouselCon = styled.div`
   grid-column: span 2;
 `;
-const ProjectTitleCon = styled.div`
-  grid-column: span 1;
-  p {
-    color: #cfcfcfcf;
-  }
-`;
-const ProjectLocationYearCon = styled.div`
-  grid-column: span 1;
-  margin-bottom: 5px;
-`;
 
 const ProjectCon = styled.div`
-  margin-top: 100px;
-  margin-bottom: 100px;
+  /* margin-top: 100px; */
+  /* margin-bottom: 200px; */
+  margin-bottom: 200px;
+  @media (max-width: 666px) {
+    margin-bottom: 200px;
+  }
 `;
 const VideoCarouselCon = styled.div`
   width: 100%;
   height: 100vh;
   background-color: black;
+  margin-bottom: 200px;
+  @media (max-width: 666px) {
+    margin-bottom: 200px;
+  }
+  /* margin-bottom: 200px; */
 `;
 const FilmLeadCarouselConCon = styled.div`
   display: grid;
@@ -123,66 +80,34 @@ const FilmLeadCarouselConCon = styled.div`
 const FilmLeadCarouselCon = styled.div`
   grid-column: span 2;
 `;
-const ReactPlayerWrapper = styled.div`
-  /* display: none; */
-  /* opacity: 0; */
-  /* display: ${props => (props.videoLoad ? "block" : "none")}; */
-  /* opacity: ${props => (props.videoLoad ? 1 : 0)}; */
-`;
-const AutoplayVideoPosterCon = styled.div`
-  width: 100%;
-  height: 100%;
-  display: ${props => (props.videoLoad ? "none" : "block")};
-  /* position: absolute; */
-  /* background-color: red; */
-`;
-const AutoplayPosterPopUpConConCon = styled.div`
-  /* width: 100%;
-  /* height: 100%; */
-  /* position: absolute;
-  margin: 0 auto; */
-  /* display: flex;
-  justify-content: center;
+const DesktopFilmLeadCarouselConCon = styled.div`
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 12.5px;
+  margin-left: 12.5px;
+  grid-row-gap: 0;
+  width: calc(100% - 25px);
+  z-index: 20000;
   align-items: center;
-  text-align: center; */
-`;
-const AutoplayPosterPopUpConCon = styled.div`
-  /* position: absolute; */
-  background-color: white;
-  position: absolute;
-  padding: 8px;
-
-  border-radius: 10px;
-  /* margin-left: 1.7%;
-  margin-top: 2.3%; */
-  margin-left: 8px;
-  margin-top: 8px;
-  filter: drop-shadow(0px 0px 5px #cfcfcf);
-
-  /* position: absolute;
-  width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  line-height: 1;
-  z-index: 99; */
-  /* background-color: green; */
-  /* p {
-    position: relative;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    margin: 0;
-    justify-content: center;
-  } */
 `;
-// const AutoplayPosterPopUpCon = styled.div``;
-
+const DesktopFilmLeadCarouselCon = styled.div`
+  grid-column: 5 / span 8;
+  align-self: center;
+`;
+const VideoWithContolsSC = styled.video`
+  grid-column: 5 / span 8;
+  width: 100%;
+`;
 const AutoplayVideoCon = styled.div`
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 12.5px);
+  @media (max-width: 666px) {
+    width: 100%;
+  }
 `;
+
 const AutoplayVideoImg = styled.img`
   /* position: absolute; */
   width: 100%;
@@ -221,17 +146,195 @@ const AutoplayVideoTextCon = styled.div`
   }
 `;
 
-const PVideoLoadingNext = styled.p`
-  animation-name: ${breatheAnimation};
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  display: inline-block;
+const SquareImage = styled.img`
+  width: calc(100% - 12.5px);
+  @media (max-width: 666px) {
+    width: 100%;
+  }
+`;
+
+const Grid16 = styled.div`
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 12.5px;
+  margin-left: 12.5px;
+  grid-row-gap: 0;
+  width: calc(100% - 25px);
+  z-index: 20000;
+`;
+const TwoUpCarouselCounterNextCon = styled.div`
+  margin-bottom: 8px;
+`;
+const TwoUpCarouselCon = styled.div`
+  margin-left: 12.5px;
+`;
+const TwoUpCarouselCounterOneCon = styled.div`
+  grid-column: span 8;
+`;
+const TwoUpCarouselCounterTwoCon = styled.div`
+  grid-column: span 6;
+`;
+const TwoUpCarouselNextButtonCon = styled.div`
+  grid-column: span 2;
+  p {
+    color: #cfcfcf;
+  }
+`;
+
+const SingleImgProjectAssetCon = styled.div`
+  grid-column: span 8;
+`;
+
+const ProjectInfoCon = styled.div`
+  margin-top: 8px;
+  @media (max-width: 666px) {
+    margin-top: 4px;
+  }
+`;
+const ProjectTitleCon = styled.div`
+  grid-column: span 4;
+
+  @media (max-width: 666px) {
+    grid-column: span 1;
+    p {
+      color: #d4d4d4;
+    }
+  }
+`;
+
+const ProjectLocationYearCon = styled.div`
+  grid-column: span 4;
+  @media (max-width: 666px) {
+    grid-column: span 1;
+  }
+`;
+
+const ProjectIndexAbout = styled.div`
+  grid-column: span 4;
+  p {
+    font-size: 12px;
+  }
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
+const ProjectLink = styled.div`
+  grid-column: 15 / span 2;
+  a {
+    color: #d4d4d4;
+  }
+  @media (max-width: 666px) {
+    display: none;
+  }
 `;
 
 const Index = ({ data }) => {
-  const ImgComponent = ({ srcProps, videoLoad }) => {
-    return <img src={srcProps} />;
+  let isPageWide = useMediaQuery("(min-width: 667px)");
+
+  const ProjectInfo = ({
+    title,
+    year,
+    location,
+    uid,
+    homepage_intro,
+    client,
+  }) => {
+    if (isPageWide) {
+      return (
+        <ProjectInfoCon>
+          <Grid16>
+            <ProjectTitleCon>
+              <p>{title}</p>
+            </ProjectTitleCon>
+            <ProjectLocationYearCon>
+              <p>{location}</p>
+              <p>{year}</p>
+            </ProjectLocationYearCon>
+            <ProjectIndexAbout>
+              <p>{homepage_intro}</p>
+            </ProjectIndexAbout>
+            <ProjectLink>
+              <a>More Info</a>
+            </ProjectLink>
+          </Grid16>
+        </ProjectInfoCon>
+      );
+    } else {
+      return (
+        <ProjectInfoCon>
+          <Grid2>
+            <ProjectTitleCon>
+              <p>{title}</p>
+            </ProjectTitleCon>
+            <ProjectLocationYearCon>
+              <p>{location}</p>
+              <p>{year}</p>
+            </ProjectLocationYearCon>
+          </Grid2>
+        </ProjectInfoCon>
+      );
+    }
   };
+
+  const ImgComponent = ({ srcProps, videoLoad }) => {
+    return <SquareImage src={srcProps} />;
+  };
+
+  const VideoWithControls = ({ srcProps, posterProps }) => {
+    const videoWithControlsRef = useRef(null);
+    // const height = videoWithControlsRef.current.dimensions.height;
+
+    const isOnScreen = useOnScreen(videoWithControlsRef);
+    const [videoSrcState, setVideoSrcState] = useState("");
+    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+
+    console.log("video with controls ref");
+    console.log(videoWithControlsRef);
+
+    const onLoadedData = () => {
+      setIsVideoLoaded(true);
+    };
+
+    if (isVideoLoaded) {
+      console.log("video has loaded");
+      const height = videoWithControlsRef.current.clientHeight;
+      console.log(height);
+      const width = videoWithControlsRef.current.clientWidth;
+      console.log(width);
+    }
+
+    useEffect(() => {
+      if (isOnScreen == true) {
+        // console.log(srcProps);
+        // console.log("on screen");
+        setVideoSrcState(srcProps);
+        videoWithControlsRef.current.load();
+        // videoWithControlsRef.current.play();
+      } else if (isOnScreen === false) {
+        // console.log(srcProps);
+        // console.log("off screen");
+        setIsVideoLoaded(false);
+        setVideoSrcState("");
+      }
+    }, [isOnScreen]);
+
+    return (
+      <VideoWithContolsSC
+        playsInline
+        muted
+        loop
+        controls
+        preload="none"
+        poster={posterProps}
+        ref={videoWithControlsRef}
+        onLoadedData={onLoadedData}
+      >
+        <source type="video/mp4" src={videoSrcState} />
+      </VideoWithContolsSC>
+    );
+  };
+
   const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
     // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
     // https://frontend-digest.com/responsive-and-progressive-video-loading-in-react-e8753315af51
@@ -240,29 +343,23 @@ const Index = ({ data }) => {
     const [videoSrcState, setVideoSrcState] = useState("");
     const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
 
+    console.log("autoplay Video Ref");
+    console.log(autoplayVideoRef);
+
     const onLoadedData = () => {
       setIsVideoLoaded(true);
     };
 
-    // useEffect(() => {
-    //   console.log(srcProps);
-    //   console.log("changedSlide:" + changedSlide);
-    //   console.log("isVideoLoaded:" + isVideoLoaded);
-    //   if (changedSlide == true) {
-    //     // setIsVideoLoaded(false);
-    //   }
-    // }, [changedSlide, isVideoLoaded]);
-
     useEffect(() => {
       if (isOnScreen == true) {
-        console.log(srcProps);
-        console.log("on screen");
+        // console.log(srcProps);
+        // console.log("on screen");
         setVideoSrcState(srcProps);
         autoplayVideoRef.current.load();
         autoplayVideoRef.current.play();
       } else if (isOnScreen === false) {
-        console.log(srcProps);
-        console.log("off screen");
+        // console.log(srcProps);
+        // console.log("off screen");
         setIsVideoLoaded(false);
         setVideoSrcState("");
       }
@@ -316,11 +413,86 @@ const Index = ({ data }) => {
     );
   };
 
+  const TwoUpProjectCarousel = ({
+    children,
+
+    projectLength,
+  }) => {
+    // COUNTER
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [totalSlides, setTotalSlides] = useState(null);
+    useEffect(() => {
+      setCurrentSlide(0);
+    }, []);
+    useEffect(() => {
+      setTotalSlides(projectLength);
+    }, []);
+    const updateCurrentSlide = index => {
+      if (currentSlide !== index) {
+        setCurrentSlide(index);
+      }
+    };
+
+    // SLIDER SETTINGS
+    const settings = {
+      infinite: true,
+      // speed: 200,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      accessibility: true,
+      dots: false,
+      arrows: false,
+      swipe: false,
+      swipeToSlide: false,
+    };
+
+    // SLIDESHOW FUNCTION
+    const ProjectCarouselRef = React.useRef(null);
+
+    const [changedSlide, setChangedSlide] = useState(false);
+
+    function projectCarouselNextImg() {
+      ProjectCarouselRef.current.slickNext();
+      setChangedSlide(true);
+    }
+    return (
+      <>
+        <TwoUpCarouselCounterNextCon>
+          <Grid16>
+            <TwoUpCarouselCounterOneCon>
+              {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
+              <p> 01</p>
+            </TwoUpCarouselCounterOneCon>
+            <TwoUpCarouselCounterTwoCon>
+              {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
+              <p> 01</p>
+            </TwoUpCarouselCounterTwoCon>
+            <TwoUpCarouselNextButtonCon>
+              <p>Next</p>
+            </TwoUpCarouselNextButtonCon>
+          </Grid16>
+        </TwoUpCarouselCounterNextCon>
+
+        <TwoUpCarouselCon onClick={projectCarouselNextImg}>
+          <Slider
+            {...settings}
+            ref={ProjectCarouselRef}
+            afterChange={index => updateCurrentSlide(index)}
+          >
+            {React.Children.map(children, child =>
+              React.cloneElement(child, {
+                changedSlide: changedSlide,
+              })
+            )}
+          </Slider>
+        </TwoUpCarouselCon>
+      </>
+    );
+  };
+
   const ProjectCarousel = ({
     children,
-    title,
-    year,
-    location,
+
     projectLength,
     videoLoad,
   }) => {
@@ -424,15 +596,6 @@ const Index = ({ data }) => {
             </Slider>
           </SquareCarouselCon>
         </Grid2>
-        <Grid2>
-          <ProjectTitleCon>
-            <p>{title}</p>
-          </ProjectTitleCon>
-          <ProjectLocationYearCon>
-            <p>{location}</p>
-            <p>{year}</p>
-          </ProjectLocationYearCon>
-        </Grid2>
       </>
     );
   };
@@ -472,64 +635,86 @@ const Index = ({ data }) => {
           (content_three, index) => {
             if (content_three.slice_type == "video_with_play_button") {
               return (
-                <video
-                  playsInline
-                  muted
-                  loop
-                  controls
-                  preload="none"
-                  poster={content_three.primary.video_thumbnail.fluid.src}
-                >
-                  <source
-                    type="video/mp4"
-                    src={content_three.primary.video_with_play_button.url}
-                  />
-                </video>
+                <VideoWithControls
+                  srcProps={content_three.primary.video_with_play_button.url}
+                  posterProps={content_three.primary.video_thumbnail.fluid.src}
+                ></VideoWithControls>
               );
             }
           }
         );
-        return (
-          <>
-            <VideoCarouselCon>
-              <FilmLeadCarouselConCon>
-                <FilmLeadCarouselCon>
-                  <FilmLeadCarousel>{filmLeadProject}</FilmLeadCarousel>
-                </FilmLeadCarouselCon>
-              </FilmLeadCarouselConCon>
-            </VideoCarouselCon>
-            <Grid2>
-              <ProjectTitleCon>
-                <p>
-                  {
+        if (isPageWide) {
+          return (
+            <>
+              <VideoCarouselCon>
+                <DesktopFilmLeadCarouselConCon>
+                  <DesktopFilmLeadCarouselCon>
+                    <FilmLeadCarousel>{filmLeadProject}</FilmLeadCarousel>
+                  </DesktopFilmLeadCarouselCon>
+                </DesktopFilmLeadCarouselConCon>
+                <ProjectInfo
+                  title={
                     content.project_relationship_field.document.data
                       .project_title.text
                   }
-                </p>
-                <p>
-                  {content.project_relationship_field.document.data.client.text}
-                </p>
-              </ProjectTitleCon>
-              <ProjectLocationYearCon>
-                <p>
-                  {
+                  client={
+                    content.project_relationship_field.document.data.client.text
+                  }
+                  year={
+                    content.project_relationship_field.document.data.year.text
+                  }
+                  location={
                     content.project_relationship_field.document.data.location
                       .text
                   }
-                </p>
-                <p>
-                  {content.project_relationship_field.document.data.year.text}
-                </p>
-              </ProjectLocationYearCon>
-            </Grid2>
-          </>
-        );
+                  homepage_intro={
+                    content.project_relationship_field.document.data
+                      .homepage_intro.text
+                  }
+                ></ProjectInfo>
+              </VideoCarouselCon>
+            </>
+          );
+        }
+        if (!isPageWide) {
+          return (
+            <>
+              <VideoCarouselCon>
+                <FilmLeadCarouselConCon>
+                  <FilmLeadCarouselCon>
+                    <FilmLeadCarousel>{filmLeadProject}</FilmLeadCarousel>
+                  </FilmLeadCarouselCon>
+                </FilmLeadCarouselConCon>
+                <ProjectInfo
+                  title={
+                    content.project_relationship_field.document.data
+                      .project_title.text
+                  }
+                  client={
+                    content.project_relationship_field.document.data.client.text
+                  }
+                  year={
+                    content.project_relationship_field.document.data.year.text
+                  }
+                  location={
+                    content.project_relationship_field.document.data.location
+                      .text
+                  }
+                  homepage_intro={
+                    content.project_relationship_field.document.data
+                      .homepage_intro.text
+                  }
+                ></ProjectInfo>
+              </VideoCarouselCon>
+            </>
+          );
+        }
       }
       if (content.project_relationship_field.document.type == "project") {
+        const projectLength =
+          content.project_relationship_field.document.data.body.length;
         const project = content.project_relationship_field.document.data.body.map(
           (content_four, index) => {
-            const projectLength =
-              content.project_relationship_field.document.data.body.length;
             if (content_four.slice_type == "image") {
               return (
                 <ImgComponent
@@ -547,22 +732,12 @@ const Index = ({ data }) => {
             }
           }
         );
-        return (
-          <>
+        if (isPageWide && projectLength > 1) {
+          return (
             <ProjectCon>
-              <ProjectCarousel
+              <TwoUpProjectCarousel
                 projectLength={
                   content.project_relationship_field.document.data.body.length
-                }
-                title={
-                  content.project_relationship_field.document.data.project_title
-                    .text
-                }
-                year={
-                  content.project_relationship_field.document.data.year.text
-                }
-                location={
-                  content.project_relationship_field.document.data.location.text
                 }
               >
                 {React.Children.map(project, child =>
@@ -571,10 +746,104 @@ const Index = ({ data }) => {
                   })
                 )}
                 {/* {project} */}
-              </ProjectCarousel>
+              </TwoUpProjectCarousel>
+              <ProjectInfo
+                title={
+                  content.project_relationship_field.document.data.project_title
+                    .text
+                }
+                client={
+                  content.project_relationship_field.document.data.client.text
+                }
+                year={
+                  content.project_relationship_field.document.data.year.text
+                }
+                location={
+                  content.project_relationship_field.document.data.location.text
+                }
+                homepage_intro={
+                  content.project_relationship_field.document.data
+                    .homepage_intro.text
+                }
+              ></ProjectInfo>
             </ProjectCon>
-          </>
-        );
+          );
+        } else if (isPageWide && projectLength <= 1) {
+          return (
+            <>
+              <ProjectCon>
+                <Grid16>
+                  <TwoUpCarouselCounterOneCon>
+                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
+                    <p> 01</p>
+                  </TwoUpCarouselCounterOneCon>
+                  <TwoUpCarouselCounterTwoCon>
+                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
+                    <p> 01</p>
+                  </TwoUpCarouselCounterTwoCon>
+                  <TwoUpCarouselNextButtonCon>
+                    <p>Next</p>
+                  </TwoUpCarouselNextButtonCon>
+                </Grid16>
+                <Grid16>
+                  <SingleImgProjectAssetCon>{project}</SingleImgProjectAssetCon>
+                </Grid16>
+                <ProjectInfo
+                  title={
+                    content.project_relationship_field.document.data
+                      .project_title.text
+                  }
+                  client={
+                    content.project_relationship_field.document.data.client.text
+                  }
+                  year={
+                    content.project_relationship_field.document.data.year.text
+                  }
+                  location={
+                    content.project_relationship_field.document.data.location
+                      .text
+                  }
+                  homepage_intro={
+                    content.project_relationship_field.document.data
+                      .homepage_intro.text
+                  }
+                ></ProjectInfo>
+              </ProjectCon>
+            </>
+          );
+        } else if (isPageWide == false) {
+          return (
+            <ProjectCon>
+              <ProjectCarousel projectLength={projectLength}>
+                {React.Children.map(project, child =>
+                  React.cloneElement(child, {
+                    changedSlide: false,
+                  })
+                )}
+                {/* {project} */}
+              </ProjectCarousel>
+              <ProjectInfo
+                title={
+                  content.project_relationship_field.document.data.project_title
+                    .text
+                }
+                client={
+                  content.project_relationship_field.document.data.client.text
+                }
+                year={
+                  content.project_relationship_field.document.data.year.text
+                }
+                location={
+                  content.project_relationship_field.document.data.location.text
+                }
+                homepage_intro={
+                  content.project_relationship_field.document.data
+                    .homepage_intro.text
+                }
+              ></ProjectInfo>
+            </ProjectCon>
+          );
+        }
       }
     }
   );
@@ -611,6 +880,12 @@ export const query = graphql`
                   }
                   year {
                     html
+                    text
+                  }
+                  homepage_intro {
+                    text
+                  }
+                  client {
                     text
                   }
                   body {
@@ -663,6 +938,9 @@ export const query = graphql`
                   }
                   client {
                     html
+                    text
+                  }
+                  homepage_intro {
                     text
                   }
                   body {
