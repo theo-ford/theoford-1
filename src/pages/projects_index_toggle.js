@@ -23,6 +23,25 @@ const GlobalStyle = createGlobalStyle`
     background-color: white;
   }
 `;
+
+const IntroCon = styled.div`
+  margin-top: 10px;
+  span.grey {
+    color: #d4d4d4;
+  }
+`;
+const AboutCon = styled.div`
+  grid-column: span 6;
+`;
+const LocationCon = styled.div`
+  grid-column: 9 / span 5;
+  span.grey {
+    color: #d4d4d4;
+  }
+`;
+const ContactCon = styled.div`
+  grid-column: 15 / span 2;
+`;
 const NavSpacer = styled.div`
   height: 20vh;
   width: 100%;
@@ -35,13 +54,32 @@ const LogoGridCon = styled.div`
   z-index: 300000;
   mix-blend-mode: exclusion;
 `;
+
 const LogoCon = styled.div`
   top: 12.5px;
   mix-blend-mode: exclusion;
   grid-column: span 6;
 `;
+const NavCon1 = styled.div`
+  grid-column: span 1;
+  p {
+    color: #878787;
+  }
+  p.selected {
+    color: white;
+  }
+`;
+const NavCon2 = styled.div`
+  grid-column: span 1;
+  p {
+    color: #878787;
+  }
+  p.selected {
+    color: white;
+  }
+`;
 const PageCon = styled.div`
-  margin-top: 20vh;
+  margin-top: 22vh;
 `;
 const Grid2 = styled.div`
   display: grid;
@@ -188,6 +226,7 @@ const TwoUpCarouselCounterNextCon = styled.div`
 `;
 const TwoUpCarouselCon = styled.div`
   margin-left: 12.5px;
+  cursor: e-resize;
 `;
 const TwoUpCarouselCounterOneCon = styled.div`
   grid-column: span 8;
@@ -207,6 +246,7 @@ const SingleImgProjectAssetCon = styled.div`
 `;
 
 const ProjectInfoCon = styled.div`
+  height: 80px;
   margin-top: 8px;
   @media (max-width: 666px) {
     margin-top: 4px;
@@ -458,7 +498,7 @@ const Index = ({ data }) => {
       infinite: true,
       // speed: 200,
       slidesToShow: 2,
-      slidesToScroll: 2,
+      slidesToScroll: 1,
       accessibility: true,
       dots: false,
       arrows: false,
@@ -871,12 +911,59 @@ const Index = ({ data }) => {
   return (
     <>
       <GlobalStyle />
+      <IntroCon>
+        <Grid16>
+          <AboutCon>
+            <p>
+              The design office of Theo Ford. Specialising in graphic design,
+              art direction, moving-image and web development. Recent commisions
+              and collaborations include identites for{" "}
+              <span className="grey">Tesla</span>, adverts for{" "}
+              <span className="grey">American Apparel</span>, and printed matter
+              for <span className="grey">COS</span>.<br />
+            </p>
+          </AboutCon>
+          <LocationCon>
+            <p>
+              Current Location: <span className="grey">New York,</span> London,
+              <span className="grey">
+                Los Angeles, Beijing, Stockholm, Gothenburg, Glasgow, Falmouth.
+              </span>{" "}
+              2023/03/23 21:32.
+            </p>
+          </LocationCon>
+          <ContactCon>
+            <p class="">
+              <span>
+                6 Latona Road
+                <br />
+                London SE15 6AG
+                <br />
+                <br />
+                +44 7599 759 529
+                <br />
+                info@theoford.com
+                <br />
+                @tf.public
+              </span>
+            </p>
+          </ContactCon>
+        </Grid16>
+      </IntroCon>
       <NavSpacer></NavSpacer>
       <LogoGridCon>
         <Grid16>
           <LogoCon>
             <Icon />
           </LogoCon>
+          <NavCon1>
+            <p className="selected">Selected</p>
+            <p>Index</p>
+          </NavCon1>
+          <NavCon2>
+            <p>About</p>
+            <p>Instagram</p>
+          </NavCon2>
         </Grid16>
       </LogoGridCon>
       <PageCon>{overview}</PageCon>

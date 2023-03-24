@@ -35478,14 +35478,6 @@ const GlobalStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["createGlobal
 // }
 
 body {
-  font-family: "Helvetica Neue", sans-serif;
-  font-weight: normal;
-  font-style: normal;
-
-  font-size: 18px;
-  line-height: 1.2;
-  letter-spacing: 0px;
-
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
@@ -35503,55 +35495,23 @@ input {
 }
 
 h1,h2,h3,h4,h5, p{
-  font-family: "Helvetica Neue", sans-serif;
-  font-weight: normal;
-
+  font-family: "Helvetica Now Var Roman";
   margin: 0;
 }
 
 
-/* Title 1 */
-h1{
-  font-size: 50px;
-  line-height: 50px;
-  letter-spacing: 0.3px;
-}
 
-/* Title 2 */
-h2 {
-  font-size: 30px;
-  line-height: 32px;
-  letter-spacing: 0.2px;
-}
-
-/* Heading 1 */
-h3 {
-  font-size: 30px;
-  line-height: 32px;
-  letter-spacing: 0.2px;
-}
-
-/* Heading 2 */
-h4 {
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: 0.2px;
-}
-
-/* Heading 3 */
-h5 {
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.3px;
-}
 p, a {
-  /* font-family: "Helvetica Now Var Roman";
-  font-variation-settings: "wght" 343; */
+  font-family: "Helvetica Now Var Roman";
+  font-variation-settings: "wght" 356;
+  /* font-family: "HelveticaNowText"; */
+  /* font-variation-settings: "wght" 351; */
+  /* font-variation-settings: "wght" 900; */
   font-size: 16px;
   margin: 0;
   padding: 0;
   line-height: 100%;
-  letter-spacing: -0.5;
+  letter-spacing: -0.5px;
 }
 
 

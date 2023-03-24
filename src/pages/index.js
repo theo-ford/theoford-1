@@ -22,7 +22,45 @@ const GlobalStyle = createGlobalStyle`
     background-color: white;
   }
 `;
+const NavSpacer = styled.div`
+  height: 22vh;
+  width: 100%;
+`;
 
+const LogoGridCon = styled.div`
+  width: 100%;
+  position: sticky;
+  top: 12.5px;
+  z-index: 300000;
+  mix-blend-mode: exclusion;
+`;
+
+const LogoCon = styled.div`
+  top: 12.5px;
+  mix-blend-mode: exclusion;
+  grid-column: span 6;
+`;
+const NavCon1 = styled.div`
+  grid-column: span 1;
+  p {
+    color: #878787;
+  }
+  p.selected {
+    color: white;
+  }
+`;
+const NavCon2 = styled.div`
+  grid-column: span 1;
+  p {
+    color: #878787;
+  }
+  p.selected {
+    color: white;
+  }
+`;
+const PageCon = styled.div`
+  margin-top: 20vh;
+`;
 const Grid2 = styled.div`
   display: grid;
   top: 12.5px;
@@ -168,6 +206,7 @@ const TwoUpCarouselCounterNextCon = styled.div`
 `;
 const TwoUpCarouselCon = styled.div`
   margin-left: 12.5px;
+  cursor: e-resize;
 `;
 const TwoUpCarouselCounterOneCon = styled.div`
   grid-column: span 8;
@@ -438,7 +477,7 @@ const Index = ({ data }) => {
       infinite: true,
       // speed: 200,
       slidesToShow: 2,
-      slidesToScroll: 2,
+      slidesToScroll: 1,
       accessibility: true,
       dots: false,
       arrows: false,
@@ -851,8 +890,23 @@ const Index = ({ data }) => {
   return (
     <>
       <GlobalStyle />
-
-      {overview}
+      <NavSpacer></NavSpacer>
+      <LogoGridCon>
+        <Grid16>
+          <LogoCon>
+            <Icon />
+          </LogoCon>
+          <NavCon1>
+            <p className="selected">Selected</p>
+            <p>Index</p>
+          </NavCon1>
+          <NavCon2>
+            <p>About</p>
+            <p>Instagram</p>
+          </NavCon2>
+        </Grid16>
+      </LogoGridCon>
+      <PageCon>{overview}</PageCon>
     </>
   );
 };
