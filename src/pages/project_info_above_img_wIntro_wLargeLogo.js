@@ -983,6 +983,9 @@ const Index = ({ data }) => {
 
   return (
     <>
+      <Helmet>
+        <title>lrg logo, info above, w intro</title>
+      </Helmet>
       <GlobalStyle />
       <IntroCon>
         <Grid16>

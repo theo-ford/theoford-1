@@ -7,12 +7,13 @@ import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
 import "../components/styles/index.css";
 import { useMediaQuery } from "../components/tf/media-query";
-import Icon from "../../assets/WhiteLogo.svg";
+// import Icon from "../../assets/White Logo No TF.svg";
 import Slider from "react-slick";
 import "../components/slick/slick.css";
 import "../components/slick/slick-theme.css";
 import { useOnScreen } from "../components/hooks/useOnScreen";
 import ReactPlayer from "react-player";
+import Icon from "../../assets/WhiteLogo.svg";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -22,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: white;
   }
 `;
+
 const IntroCon = styled.div`
   margin-top: 10px;
   span.grey {
@@ -41,7 +43,7 @@ const ContactCon = styled.div`
   grid-column: 15 / span 2;
 `;
 const NavSpacer = styled.div`
-  height: 29vh;
+  height: 31vh;
   width: 100%;
 `;
 
@@ -77,7 +79,7 @@ const NavCon2 = styled.div`
   }
 `;
 const PageCon = styled.div`
-  margin-top: 29vh;
+  margin-top: 31vh;
 `;
 const Grid2 = styled.div`
   display: grid;
@@ -244,6 +246,7 @@ const SingleImgProjectAssetCon = styled.div`
 `;
 
 const ProjectInfoCon = styled.div`
+  height: 80px;
   margin-top: 8px;
   @media (max-width: 666px) {
     margin-top: 4px;
@@ -804,18 +807,6 @@ const Index = ({ data }) => {
         if (isPageWide && projectLength > 1) {
           return (
             <ProjectCon>
-              <TwoUpProjectCarousel
-                projectLength={
-                  content.project_relationship_field.document.data.body.length
-                }
-              >
-                {React.Children.map(project, child =>
-                  React.cloneElement(child, {
-                    changedSlide: false,
-                  })
-                )}
-                {/* {project} */}
-              </TwoUpProjectCarousel>
               <ProjectInfo
                 title={
                   content.project_relationship_field.document.data.project_title
@@ -835,28 +826,24 @@ const Index = ({ data }) => {
                     .homepage_intro.text
                 }
               ></ProjectInfo>
+              <TwoUpProjectCarousel
+                projectLength={
+                  content.project_relationship_field.document.data.body.length
+                }
+              >
+                {React.Children.map(project, child =>
+                  React.cloneElement(child, {
+                    changedSlide: false,
+                  })
+                )}
+                {/* {project} */}
+              </TwoUpProjectCarousel>
             </ProjectCon>
           );
         } else if (isPageWide && projectLength <= 1) {
           return (
             <>
               <ProjectCon>
-                <Grid16>
-                  <TwoUpCarouselCounterOneCon>
-                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-                    <p> 01</p>
-                  </TwoUpCarouselCounterOneCon>
-                  <TwoUpCarouselCounterTwoCon>
-                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-                    <p> 01</p>
-                  </TwoUpCarouselCounterTwoCon>
-                  <TwoUpCarouselNextButtonCon>
-                    <p>Next</p>
-                  </TwoUpCarouselNextButtonCon>
-                </Grid16>
-                <Grid16>
-                  <SingleImgProjectAssetCon>{project}</SingleImgProjectAssetCon>
-                </Grid16>
                 <ProjectInfo
                   title={
                     content.project_relationship_field.document.data
@@ -877,6 +864,22 @@ const Index = ({ data }) => {
                       .homepage_intro.text
                   }
                 ></ProjectInfo>
+                <Grid16>
+                  <TwoUpCarouselCounterOneCon>
+                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
+                    <p> 01</p>
+                  </TwoUpCarouselCounterOneCon>
+                  <TwoUpCarouselCounterTwoCon>
+                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
+                    <p> 01</p>
+                  </TwoUpCarouselCounterTwoCon>
+                  <TwoUpCarouselNextButtonCon>
+                    <p>Next</p>
+                  </TwoUpCarouselNextButtonCon>
+                </Grid16>
+                <Grid16>
+                  <SingleImgProjectAssetCon>{project}</SingleImgProjectAssetCon>
+                </Grid16>
               </ProjectCon>
             </>
           );
@@ -921,47 +924,8 @@ const Index = ({ data }) => {
     <>
       <GlobalStyle />
       <Helmet>
-        <title>sml logo, info below, w intro</title>
+        <title>sml logo, info above, no intro</title>
       </Helmet>
-      <IntroCon>
-        <Grid16>
-          <AboutCon>
-            <p>
-              The design office of Theo Ford. Specialising in graphic design,
-              art direction, moving-image and web development. Recent commisions
-              and collaborations include identites for{" "}
-              <span className="grey">Tesla</span>, adverts for{" "}
-              <span className="grey">American Apparel</span>, and printed matter
-              for <span className="grey">COS</span>.<br />
-            </p>
-          </AboutCon>
-          <LocationCon>
-            <p>
-              Current Location: <span className="grey">New York,</span> London,
-              <span className="grey">
-                Los Angeles, Beijing, Stockholm, Gothenburg, Glasgow, Falmouth.
-              </span>{" "}
-              2023/03/23 21:32.
-            </p>
-          </LocationCon>
-          <ContactCon>
-            <p class="">
-              <span>
-                6 Latona Road
-                <br />
-                London SE15 6AG
-                <br />
-                <br />
-                +44 7599 759 529
-                <br />
-                info@theoford.com
-                <br />
-                @tf.public
-              </span>
-            </p>
-          </ContactCon>
-        </Grid16>
-      </IntroCon>
       <NavSpacer></NavSpacer>
       <LogoGridCon>
         <Grid16>
@@ -986,7 +950,7 @@ const Index = ({ data }) => {
 export default withPreview(Index);
 
 export const query = graphql`
-  query NowQuery2 {
+  query IndexQuery6 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {

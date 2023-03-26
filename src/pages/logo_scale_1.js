@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 const NavSpacer = styled.div`
-  height: 22vh;
+  height: 32vh;
   width: 100%;
 `;
 
@@ -70,7 +70,7 @@ const NavCon2 = styled.div`
   }
 `;
 const PageCon = styled.div`
-  margin-top: 20vh;
+  margin-top: 32vh;
 `;
 const Grid2 = styled.div`
   display: grid;
@@ -1024,6 +1024,9 @@ const Index = ({ data }) => {
   return (
     <>
       <GlobalStyle />
+      <Helmet>
+        <title>lrg logo, info below, no intro</title>
+      </Helmet>
 
       {/* <div style={{ overflow: "auto" }} ref={indexRef}> */}
       {/* <NavSpacer></NavSpacer>

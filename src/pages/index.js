@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 const NavSpacer = styled.div`
-  height: 22vh;
+  height: 24vh;
   width: 100%;
 `;
 
@@ -59,7 +59,7 @@ const NavCon2 = styled.div`
   }
 `;
 const PageCon = styled.div`
-  margin-top: 20vh;
+  margin-top: 24vh;
 `;
 const Grid2 = styled.div`
   display: grid;
@@ -901,6 +901,9 @@ const Index = ({ data }) => {
 
   return (
     <>
+      <Helmet>
+        <title>sml logo, info below, no intro</title>
+      </Helmet>
       <GlobalStyle />
       <NavSpacer></NavSpacer>
       <LogoGridCon>
