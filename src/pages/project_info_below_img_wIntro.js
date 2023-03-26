@@ -7,13 +7,12 @@ import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
 import "../components/styles/index.css";
 import { useMediaQuery } from "../components/tf/media-query";
-// import Icon from "../../assets/White Logo No TF.svg";
+import Icon from "../../assets/WhiteLogo.svg";
 import Slider from "react-slick";
 import "../components/slick/slick.css";
 import "../components/slick/slick-theme.css";
 import { useOnScreen } from "../components/hooks/useOnScreen";
 import ReactPlayer from "react-player";
-import Icon from "../../assets/WhiteLogo.svg";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -23,7 +22,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: white;
   }
 `;
-
 const IntroCon = styled.div`
   margin-top: 10px;
   span.grey {
@@ -246,7 +244,6 @@ const SingleImgProjectAssetCon = styled.div`
 `;
 
 const ProjectInfoCon = styled.div`
-  height: 80px;
   margin-top: 8px;
   @media (max-width: 666px) {
     margin-top: 4px;
@@ -521,14 +518,26 @@ const Index = ({ data }) => {
           <Grid16>
             <TwoUpCarouselCounterOneCon>
               {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-              <p> 01</p>
+              <p>{("0" + (currentSlide + 1)).slice(-2)}</p>
             </TwoUpCarouselCounterOneCon>
             <TwoUpCarouselCounterTwoCon>
               {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-              <p> 01</p>
+              <p>{("0" + (currentSlide + 2)).slice(-2)}</p>
             </TwoUpCarouselCounterTwoCon>
             <TwoUpCarouselNextButtonCon>
-              <p>Next</p>
+              {projectLength > 1 ? (
+                <>
+                  <p
+                    onClick={projectCarouselNextImg}
+                    style={{ display: "inline-block" }}
+                  >
+                    Next
+                  </p>
+                  {/* <PVideoLoadingNext>&nbsp; (Video Loading)</PVideoLoadingNext> */}
+                </>
+              ) : (
+                ""
+              )}
             </TwoUpCarouselNextButtonCon>
           </Grid16>
         </TwoUpCarouselCounterNextCon>
@@ -795,6 +804,18 @@ const Index = ({ data }) => {
         if (isPageWide && projectLength > 1) {
           return (
             <ProjectCon>
+              <TwoUpProjectCarousel
+                projectLength={
+                  content.project_relationship_field.document.data.body.length
+                }
+              >
+                {React.Children.map(project, child =>
+                  React.cloneElement(child, {
+                    changedSlide: false,
+                  })
+                )}
+                {/* {project} */}
+              </TwoUpProjectCarousel>
               <ProjectInfo
                 title={
                   content.project_relationship_field.document.data.project_title
@@ -814,24 +835,28 @@ const Index = ({ data }) => {
                     .homepage_intro.text
                 }
               ></ProjectInfo>
-              <TwoUpProjectCarousel
-                projectLength={
-                  content.project_relationship_field.document.data.body.length
-                }
-              >
-                {React.Children.map(project, child =>
-                  React.cloneElement(child, {
-                    changedSlide: false,
-                  })
-                )}
-                {/* {project} */}
-              </TwoUpProjectCarousel>
             </ProjectCon>
           );
         } else if (isPageWide && projectLength <= 1) {
           return (
             <>
               <ProjectCon>
+                <Grid16>
+                  <TwoUpCarouselCounterOneCon>
+                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
+                    <p> 01</p>
+                  </TwoUpCarouselCounterOneCon>
+                  <TwoUpCarouselCounterTwoCon>
+                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
+                    <p> 01</p>
+                  </TwoUpCarouselCounterTwoCon>
+                  <TwoUpCarouselNextButtonCon>
+                    <p>Next</p>
+                  </TwoUpCarouselNextButtonCon>
+                </Grid16>
+                <Grid16>
+                  <SingleImgProjectAssetCon>{project}</SingleImgProjectAssetCon>
+                </Grid16>
                 <ProjectInfo
                   title={
                     content.project_relationship_field.document.data
@@ -852,22 +877,6 @@ const Index = ({ data }) => {
                       .homepage_intro.text
                   }
                 ></ProjectInfo>
-                <Grid16>
-                  <TwoUpCarouselCounterOneCon>
-                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-                    <p> 01</p>
-                  </TwoUpCarouselCounterOneCon>
-                  <TwoUpCarouselCounterTwoCon>
-                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-                    <p> 01</p>
-                  </TwoUpCarouselCounterTwoCon>
-                  <TwoUpCarouselNextButtonCon>
-                    <p>Next</p>
-                  </TwoUpCarouselNextButtonCon>
-                </Grid16>
-                <Grid16>
-                  <SingleImgProjectAssetCon>{project}</SingleImgProjectAssetCon>
-                </Grid16>
               </ProjectCon>
             </>
           );
@@ -974,7 +983,7 @@ const Index = ({ data }) => {
 export default withPreview(Index);
 
 export const query = graphql`
-  query IndexQuery2 {
+  query NowQuery2 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {

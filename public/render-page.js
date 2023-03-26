@@ -35487,7 +35487,7 @@ body {
   margin: 0;
   background-color: white;
 
-  word-break: break-word;
+  /* word-break: break-word; */
 }
 
 input {
@@ -35503,14 +35503,14 @@ h1,h2,h3,h4,h5, p{
 
 p, a {
   font-family: "Helvetica Now Var Roman";
-  font-variation-settings: "wght" 356;
+  font-variation-settings: "wght" 390;
   /* font-family: "HelveticaNowText"; */
   /* font-variation-settings: "wght" 351; */
   /* font-variation-settings: "wght" 900; */
   font-size: 16px;
   margin: 0;
   padding: 0;
-  line-height: 100%;
+  line-height: 110%;
   letter-spacing: -0.5px;
 }
 
@@ -35657,6 +35657,11 @@ h1.navRight {
   width: 100%;
   /* position: fixed; */
 }
+
+
+.shrink {
+    width: calc(37.5% - 6.25px) !important;
+  }
 
 `;
 /* harmony default export */ __webpack_exports__["default"] = (GlobalStyle);

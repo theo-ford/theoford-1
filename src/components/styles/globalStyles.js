@@ -205,6 +205,11 @@ h1.navRight {
   /* position: fixed; */
 }
 
+
+.shrink {
+    width: calc(37.5% - 6.25px) !important;
+  }
+
 `;
 
 export default GlobalStyle;

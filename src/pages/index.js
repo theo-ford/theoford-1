@@ -500,14 +500,26 @@ const Index = ({ data }) => {
           <Grid16>
             <TwoUpCarouselCounterOneCon>
               {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-              <p> 01</p>
+              <p>{("0" + (currentSlide + 1)).slice(-2)}</p>
             </TwoUpCarouselCounterOneCon>
             <TwoUpCarouselCounterTwoCon>
               {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-              <p> 01</p>
+              <p>{("0" + (currentSlide + 2)).slice(-2)}</p>
             </TwoUpCarouselCounterTwoCon>
             <TwoUpCarouselNextButtonCon>
-              <p>Next</p>
+              {projectLength > 1 ? (
+                <>
+                  <p
+                    onClick={projectCarouselNextImg}
+                    style={{ display: "inline-block" }}
+                  >
+                    Next
+                  </p>
+                  {/* <PVideoLoadingNext>&nbsp; (Video Loading)</PVideoLoadingNext> */}
+                </>
+              ) : (
+                ""
+              )}
             </TwoUpCarouselNextButtonCon>
           </Grid16>
         </TwoUpCarouselCounterNextCon>
