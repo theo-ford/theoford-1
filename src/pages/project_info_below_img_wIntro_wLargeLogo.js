@@ -43,7 +43,7 @@ const ContactCon = styled.div`
   grid-column: 15 / span 2;
 `;
 const NavSpacer = styled.div`
-  height: 14vh;
+  height: 12vh;
   width: 100%;
 `;
 
