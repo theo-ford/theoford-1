@@ -60,7 +60,7 @@ const LogoCon = styled.div`
   top: 12.5px;
   mix-blend-mode: exclusion;
   /* grid-column: span 6; */
-  width: calc(62.5% - 6.25px);
+  width: calc(50% - 6.25px);
   display: inline-block;
   vertical-align: top;
   transition: all 1s;
@@ -1011,14 +1011,9 @@ const Index = ({ data }) => {
           <ContactCon>
             <p class="">
               <span>
-                6 Latona Road
-                <br />
-                London SE15 6AG
-                <br />
+                info@theoford.com
                 <br />
                 +44 7599 759 529
-                <br />
-                info@theoford.com
                 <br />
                 @tf.public
               </span>
