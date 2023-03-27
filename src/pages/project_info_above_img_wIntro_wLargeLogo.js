@@ -43,7 +43,7 @@ const ContactCon = styled.div`
   grid-column: 15 / span 2;
 `;
 const NavSpacer = styled.div`
-  height: 10vh;
+  height: 12vh;
   width: 100%;
 `;
 
@@ -90,7 +90,7 @@ const NavCon2 = styled.div`
   }
 `;
 const PageCon = styled.div`
-  margin-top: 22vh;
+  margin-top: 24vh;
 `;
 const Grid2 = styled.div`
   display: grid;
