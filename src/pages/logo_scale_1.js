@@ -40,7 +40,7 @@ const LogoCon = styled.div`
   top: 12.5px;
   mix-blend-mode: exclusion;
   /* grid-column: span 6; */
-  width: calc(62.5% - 6.25px);
+  width: calc(50% - 6.25px);
   display: inline-block;
   vertical-align: top;
   transition: all 1s;
