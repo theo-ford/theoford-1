@@ -7,12 +7,13 @@ import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
 import "../components/styles/index.css";
 import { useMediaQuery } from "../components/tf/media-query";
-import Icon from "../../assets/WhiteLogo.svg";
+// import Icon from "../../assets/White Logo No TF.svg";
 import Slider from "react-slick";
 import "../components/slick/slick.css";
 import "../components/slick/slick-theme.css";
 import { useOnScreen } from "../components/hooks/useOnScreen";
 import ReactPlayer from "react-player";
+import Icon from "../../assets/WhiteLogo.svg";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -22,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: white;
   }
 `;
+
 const IntroCon = styled.div`
   margin-top: 10px;
   span.grey {
@@ -41,12 +43,13 @@ const ContactCon = styled.div`
   grid-column: 15 / span 2;
 `;
 const NavSpacer = styled.div`
-  height: 29vh;
+  height: 14vh;
   width: 100%;
 `;
 
 const LogoGridCon = styled.div`
-  width: 100%;
+  width: calc(100% - 25px);
+  margin-left: 12.5px;
   position: sticky;
   top: 12.5px;
   z-index: 300000;
@@ -56,10 +59,19 @@ const LogoGridCon = styled.div`
 const LogoCon = styled.div`
   top: 12.5px;
   mix-blend-mode: exclusion;
-  grid-column: span 6;
+  /* grid-column: span 6; */
+  width: calc(50% - 6.25px);
+  display: inline-block;
+  vertical-align: top;
+  transition: all 1s;
+
+  .shrink {
+    width: calc(37.5% - 6.25px);
+  }
 `;
 const NavCon1 = styled.div`
-  grid-column: span 1;
+  display: inline-block;
+  margin-left: 12.5px;
   p {
     color: #878787;
   }
@@ -68,7 +80,8 @@ const NavCon1 = styled.div`
   }
 `;
 const NavCon2 = styled.div`
-  grid-column: span 1;
+  display: inline-block;
+  margin-left: 12.5px;
   p {
     color: #878787;
   }
@@ -77,7 +90,7 @@ const NavCon2 = styled.div`
   }
 `;
 const PageCon = styled.div`
-  margin-top: 29vh;
+  margin-top: 28vh;
 `;
 const Grid2 = styled.div`
   display: grid;
@@ -244,6 +257,7 @@ const SingleImgProjectAssetCon = styled.div`
 `;
 
 const ProjectInfoCon = styled.div`
+  height: 80px;
   margin-top: 8px;
   @media (max-width: 666px) {
     margin-top: 4px;
@@ -288,6 +302,56 @@ const ProjectLink = styled.div`
 
 const Index = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
+
+  const LogoConRef = useRef(null);
+
+  const LogoNav = scrollPosition => {
+    return (
+      <>
+        <NavSpacer></NavSpacer>
+        <LogoGridCon>
+          <LogoCon ref={LogoConRef}>
+            <Icon />
+          </LogoCon>
+          <NavCon1>
+            <p className="selected">Selected</p>
+            <p>Index</p>
+          </NavCon1>
+          <NavCon2>
+            <p>About</p>
+            <p>Instagram</p>
+          </NavCon2>
+        </LogoGridCon>
+      </>
+    );
+  };
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    console.log(position);
+    // setScrollPosition(position);
+    if (position > 25) {
+      console.log("greater than 100");
+      // setScrollPosition(true);
+      // console.log("scroll position: " + scrollPosition);
+      LogoConRef.current.classList.add("shrink");
+    } else if (position < 25) {
+      console.log("less than 100");
+      // setScrollPosition(false);
+      // console.log("scroll position: " + scrollPosition);
+      LogoConRef.current.classList.remove("shrink");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const ProjectInfo = ({
     title,
@@ -921,7 +985,7 @@ const Index = ({ data }) => {
     <>
       <GlobalStyle />
       <Helmet>
-        <title>sml logo, info below, w intro</title>
+        <title>cat</title>
       </Helmet>
       <IntroCon>
         <Grid16>
@@ -958,7 +1022,7 @@ const Index = ({ data }) => {
         </Grid16>
       </IntroCon>
       <NavSpacer></NavSpacer>
-      <LogoGridCon>
+      {/* <LogoGridCon>
         <Grid16>
           <LogoCon>
             <Icon />
@@ -972,7 +1036,8 @@ const Index = ({ data }) => {
             <p>Instagram</p>
           </NavCon2>
         </Grid16>
-      </LogoGridCon>
+      </LogoGridCon> */}
+      <LogoNav></LogoNav>
       <PageCon>{overview}</PageCon>
     </>
   );
@@ -981,7 +1046,7 @@ const Index = ({ data }) => {
 export default withPreview(Index);
 
 export const query = graphql`
-  query NowQuery2 {
+  query IndexQuery8 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {

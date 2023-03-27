@@ -43,7 +43,7 @@ const ContactCon = styled.div`
   grid-column: 15 / span 2;
 `;
 const NavSpacer = styled.div`
-  height: 10vh;
+  height: 14vh;
   width: 100%;
 `;
 
@@ -90,7 +90,7 @@ const NavCon2 = styled.div`
   }
 `;
 const PageCon = styled.div`
-  margin-top: 24vh;
+  margin-top: 25vh;
 `;
 const Grid2 = styled.div`
   display: grid;
@@ -1011,14 +1011,9 @@ const Index = ({ data }) => {
           <ContactCon>
             <p class="">
               <span>
-                6 Latona Road
-                <br />
-                London SE15 6AG
-                <br />
+                info@theoford.com
                 <br />
                 +44 7599 759 529
-                <br />
-                info@theoford.com
                 <br />
                 @tf.public
               </span>
