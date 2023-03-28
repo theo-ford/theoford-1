@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const IntroCon = styled.div`
-  margin-top: 10px;
+  margin-top: 8px;
   span.grey {
     color: #d4d4d4;
   }

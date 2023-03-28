@@ -1003,7 +1003,9 @@ const Index = ({ data }) => {
             <p>
               Current Location: <span className="grey">New York,</span> London,
               <span className="grey">
-                Los Angeles, Beijing, Stockholm, Gothenburg, Glasgow, Falmouth.
+                {" "}
+                Los Angeles, Beijing, Stockholm, Gothenburg, Glasgow, Falmouth,
+                Philadelphia.
               </span>{" "}
               2023/03/23 21:32.
             </p>

@@ -210,6 +210,28 @@ h1.navRight {
     width: calc(37.5% - 6.25px) !important;
   }
 
+
+/* .films-slider .slick-slide div {
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 12.5px;
+  margin-left: 12.5px;
+  grid-row-gap: 0;
+  width: calc(100% - 25px);
+  z-index: 20000;
+  align-items: center;
+  height: 100vh;
+}  */
+
+
+video.landscape {
+  grid-column: 5 / span 8;
+}
+
+video.portrait {
+  grid-column: 7 / span 4;
+}
 `;
 
 export default GlobalStyle;
