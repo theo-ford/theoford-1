@@ -15,7 +15,7 @@ import { useOnScreen } from "../components/hooks/useOnScreen";
 import ReactPlayer from "react-player";
 import Icon from "../../assets/WhiteLogo.svg";
 // import PauseButton from "../../assets/PauseButton.png";
-import PauseButton from "../../public/icons/PauseButton.png";
+// import PauseButton from "../../public/icons/PauseButton.png";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -865,7 +865,8 @@ const Index = ({ data }) => {
               {/* <p onClick={playVideo}>&#9658; Play</p> */}
               {isPlaying ? (
                 <p onClick={pauseVideo}>
-                  <PauseButtonImg src={PauseButton} /> Pause
+                  {/* <PauseButtonImg src={PauseButton} /> Pause */}
+                  Pause
                 </p>
               ) : (
                 <p onClick={playVideo}>&#9658; Play</p>
