@@ -862,15 +862,14 @@ const Index = ({ data }) => {
               </p>
             </PaginationCon>
             <PlayButtonCon>
-              {/* <p onClick={playVideo}>&#9658; Play</p> */}
-              {isPlaying ? (
+              <p onClick={playVideo}>&#9658; Play</p>
+              {/* {isPlaying ? (
                 <p onClick={pauseVideo}>
-                  {/* <PauseButtonImg src={PauseButton} /> Pause */}
-                  Pause
+                  <PauseButtonImg src={PauseButton} /> Pause
                 </p>
               ) : (
                 <p onClick={playVideo}>&#9658; Play</p>
-              )}
+              )} */}
             </PlayButtonCon>
           </VideoConInner>
         </VideoCon>
