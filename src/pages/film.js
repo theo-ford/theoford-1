@@ -35,6 +35,9 @@ const IntroCon = styled.div`
   span.grey {
     color: #d4d4d4;
   }
+  @media (max-width: 666px) {
+    display: none;
+  }
 `;
 const AboutCon = styled.div`
   grid-column: span 6;
@@ -59,6 +62,7 @@ const LogoGridCon = styled.div`
   top: 12.5px;
   z-index: 300000;
   mix-blend-mode: exclusion;
+  display: none;
 `;
 const LogoCon = styled.div`
   top: 12.5px;
@@ -71,6 +75,9 @@ const LogoCon = styled.div`
 
   .shrink {
     width: calc(37.5% - 6.25px);
+  }
+  @media (max-width: 666px) {
+    width: calc(75% - 6.25px);
   }
 `;
 const NavCon1 = styled.div`
@@ -305,10 +312,13 @@ const VideoCon = styled.div`
   width: calc(100% - 25px);
   z-index: 20000;
   align-items: center;
-  height: 107.5vh;
+  height: 110vh;
 `;
 const VideoConInner = styled.div`
   grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
+  @media (max-width: 666px) {
+    grid-column: span 16;
+  }
 `;
 const VideoWithContolsSC = styled.video`
   // grid-column: 5 / span 8;
@@ -887,9 +897,9 @@ const Index = ({ data }) => {
     };
     return (
       <>
-        <NextButtonCon>
+        {/* <NextButtonCon>
           <p onClick={filmsLeadCarouselNextImg}>Next</p>
-        </NextButtonCon>
+        </NextButtonCon> */}
         <Slider {...settings} ref={FilmsLeadCarouselRef}>
           {children}
         </Slider>
