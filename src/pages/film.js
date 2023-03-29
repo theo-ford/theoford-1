@@ -335,7 +335,7 @@ const LandscapeVideo = styled.video`
   // grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
   width: 100%;
 `;
-const PlayButtonCon = styled.p`
+const PlayButtonCon = styled.div`
   /* background-color: red; */
   margin-top: 5px;
   /* grid-column: 5 / span 1; */
@@ -862,14 +862,15 @@ const Index = ({ data }) => {
               </p>
             </PaginationCon>
             <PlayButtonCon>
-              <p onClick={playVideo}>&#9658; Play</p>
-              {/* {isPlaying ? (
+              {/* <p onClick={playVideo}>&#9658; Play</p> */}
+              {isPlaying ? (
                 <p onClick={pauseVideo}>
-                  <PauseButtonImg src={PauseButton} /> Pause
+                  {/* <PauseButtonImg src={PauseButton} />  */}
+                  Pause
                 </p>
               ) : (
                 <p onClick={playVideo}>&#9658; Play</p>
-              )} */}
+              )}
             </PlayButtonCon>
           </VideoConInner>
         </VideoCon>
