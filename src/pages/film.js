@@ -760,57 +760,57 @@ const Index = ({ data }) => {
 
     // console.log(divIsInView);
 
-    useEffect(() => {
-      console.log(videoSrcState);
-      if (divIsInView) {
-        console.log("div on screen at video level");
-        setVideoSrcState(srcProps);
-        videoWithControlsRef.current.load();
-        const height = videoWithControlsRef.current.clientHeight;
-
-        const width = videoWithControlsRef.current.clientWidth;
-
-        if (width > height) {
-          setOrientationState(false);
-        } else if (height >= width) {
-          setOrientationState(true);
-        }
-      } else if (!divIsInView) {
-        console.log("div is NOT screen at video level");
-        setIsVideoLoaded(false);
-        setVideoSrcState("");
-      }
-      // console.log(divIsInView);
-    }, [divIsInView, videoSrcState]);
-
     // useEffect(() => {
-    //   if (isOnScreen == true) {
-    //     // console.log(srcProps);
-    //     // console.log("on screen");
+    //   console.log(videoSrcState);
+    //   if (divIsInView) {
+    //     console.log("div on screen at video level");
     //     setVideoSrcState(srcProps);
     //     videoWithControlsRef.current.load();
-    //     // videoWithControlsRef.current.play();
-
-    //     // console.log(videoSrcState);
-    //     // console.log("video has loaded");
     //     const height = videoWithControlsRef.current.clientHeight;
-    //     // console.log(height);
+
     //     const width = videoWithControlsRef.current.clientWidth;
-    //     // console.log(width);
+
     //     if (width > height) {
-    //       // console.log("landscape");
     //       setOrientationState(false);
     //     } else if (height >= width) {
-    //       // console.log("portrait");
     //       setOrientationState(true);
     //     }
-    //   } else if (isOnScreen === false) {
-    //     // console.log(srcProps);
-    //     // console.log("off screen");
+    //   } else if (!divIsInView) {
+    //     console.log("div is NOT screen at video level");
     //     setIsVideoLoaded(false);
     //     setVideoSrcState("");
     //   }
-    // }, [isOnScreen, videoSrcState, isVideoLoaded]);
+    //   // console.log(divIsInView);
+    // }, [divIsInView, videoSrcState]);
+
+    useEffect(() => {
+      if (isOnScreen == true) {
+        // console.log(srcProps);
+        // console.log("on screen");
+        setVideoSrcState(srcProps);
+        videoWithControlsRef.current.load();
+        // videoWithControlsRef.current.play();
+
+        // console.log(videoSrcState);
+        // console.log("video has loaded");
+        const height = videoWithControlsRef.current.clientHeight;
+        // console.log(height);
+        const width = videoWithControlsRef.current.clientWidth;
+        // console.log(width);
+        if (width > height) {
+          // console.log("landscape");
+          setOrientationState(false);
+        } else if (height >= width) {
+          // console.log("portrait");
+          setOrientationState(true);
+        }
+      } else if (isOnScreen === false) {
+        // console.log(srcProps);
+        // console.log("off screen");
+        setIsVideoLoaded(false);
+        setVideoSrcState("");
+      }
+    }, [isOnScreen, videoSrcState, isVideoLoaded]);
 
     // useEffect(() => {
     //   if (isVideoLoaded) {
