@@ -338,6 +338,8 @@ const PlayButtonCon = styled.div`
   width: calc(50% - 6.25px);
   margin-left: calc(6.25px);
   display: inline-block;
+  z-index: 1;
+  position: absolute;
   p {
     color: #d4d4d4;
     font-size: 12px;
@@ -372,6 +374,12 @@ const PlayerControlP = styled.p`
     color: white;
   }
 `;
+const VideoControlsImgCon = styled.div``;
+const VideoControlsImg = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
 const Index = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef = useRef(null);
@@ -709,15 +717,7 @@ const Index = ({ data }) => {
               <p>Video Loading</p>
             </AutoplayVideoTextCon>
 
-            <AutoplayVideoImg
-              src={posterProps}
-              style={{
-                opacity: isVideoLoaded ? 0 : 1,
-                position: isVideoLoaded ? "absolute" : "relative",
-                // opacity: 1,
-                // position: "relative",
-              }}
-            />
+            <AutoplayVideoImg />
           </AutoplayVideoImgCon>
 
           <AutoplayVideoVideo
@@ -913,6 +913,126 @@ const Index = ({ data }) => {
     );
   };
 
+  const VideoWithControlsImg = ({ srcProps, posterProps, divIsInView }) => {
+    const videoWithControlsRef = useRef(null);
+    // const height = videoWithControlsRef.current.dimensions.height;
+    const imgRef = useRef(null);
+    const isOnScreen = useOnScreen(videoWithControlsRef);
+    const [videoSrcState, setVideoSrcState] = useState("");
+    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+    const [isPortrait, setOrientationState] = useState("");
+    const [isPlaying, setPlayingStatus] = useState(false);
+    const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
+
+    const onLoadedData = () => {
+      setIsVideoLoaded(true);
+    };
+
+    useEffect(() => {
+      console.log(imgRef.current.height);
+      console.log(imgRef.current.width);
+      var width = imgRef.current.width;
+      var height = imgRef.current.height;
+      if (height >= width) {
+        setOrientationState(true);
+      }
+    }, [imgRef]);
+    // console.log(imgRef);
+
+    useEffect(() => {
+      if (isOnScreen == true) {
+        // console.log(srcProps);
+        // console.log("on screen");
+        setVideoSrcState(srcProps);
+        videoWithControlsRef.current.load();
+        // videoWithControlsRef.current.play();
+      } else if (isOnScreen === false) {
+        // console.log(srcProps);
+        // console.log("off screen");
+        setIsVideoLoaded(false);
+        setVideoSrcState("");
+      }
+    }, [isOnScreen, videoSrcState]);
+
+    const playVideo = () => {
+      videoWithControlsRef.current.play();
+      setPlayingStatus(true);
+      setHasStartedPlaying(true);
+    };
+    const pauseVideo = () => {
+      videoWithControlsRef.current.pause();
+      setPlayingStatus(false);
+    };
+    return (
+      <>
+        <VideoCon>
+          <VideoConInner portrait={isPortrait}>
+            <VideoControlsImgCon
+              style={{
+                opacity: hasStartedPlaying ? 0 : 1,
+                position: hasStartedPlaying ? "absolute" : "relative",
+                // opacity: 1,
+                // position: "relative",
+              }}
+            >
+              <VideoControlsImg
+                ref={imgRef}
+                src={posterProps}
+                style={{
+                  opacity: hasStartedPlaying ? 0 : 1,
+                  position: hasStartedPlaying ? "absolute" : "relative",
+                  // opacity: 1,
+                  // position: "relative",
+                }}
+              ></VideoControlsImg>
+            </VideoControlsImgCon>
+            <VideoWithContolsSC
+              // portrait={isPortrait}
+              playsInline
+              muted
+              loop
+              // controls
+              preload="auto"
+              // poster={posterProps}
+              ref={videoWithControlsRef}
+              onLoadedData={onLoadedData}
+              style={{
+                zIndex: 0,
+                // marginTop: "40px",
+                opacity: hasStartedPlaying ? 1 : 0,
+                position: hasStartedPlaying ? "relative" : "absolute",
+                // opacity: 0,
+                // position: "absolute",
+              }}
+            >
+              <source type="video/mp4" src={videoSrcState} />
+            </VideoWithContolsSC>
+            <PaginationCon>
+              <p>
+                <span className="active">01</span> 02 03
+              </p>
+            </PaginationCon>
+            <PlayButtonCon
+              style={{
+                zIndex: 1,
+              }}
+            >
+              {/* <p onClick={playVideo}>&#9658; Play</p> */}
+              {isPlaying ? (
+                <p onClick={pauseVideo}>
+                  {/* <PauseButtonImg src={PauseButton} />  */}
+                  Pause
+                </p>
+              ) : (
+                <p onClick={playVideo}>&#9658; Play</p>
+              )}
+            </PlayButtonCon>
+          </VideoConInner>
+        </VideoCon>
+        {/* <PauseButtonImg src={PauseButton} />{" "} */}
+      </>
+    );
+  };
   const FilmLeadCarousel = ({ children }) => {
     const FilmsLeadCarouselRef = React.useRef(null);
     const FilmsLeadCarouselRefCon = React.useRef(null);
@@ -920,9 +1040,9 @@ const Index = ({ data }) => {
 
     useEffect(() => {
       if (divIsOnScreen == true) {
-        console.log("div on screen");
+        // console.log("div on screen");
       } else if (divIsOnScreen == false) {
-        console.log("div is not on screen");
+        // console.log("div is not on screen");
       }
     }, [divIsOnScreen]);
 
@@ -971,10 +1091,10 @@ const Index = ({ data }) => {
           (content_three, index) => {
             if (content_three.slice_type == "video_with_play_button") {
               return (
-                <VideoWithControls
+                <VideoWithControlsImg
                   srcProps={content_three.primary.video_with_play_button.url}
                   posterProps={content_three.primary.video_thumbnail.fluid.src}
-                ></VideoWithControls>
+                ></VideoWithControlsImg>
               );
             }
           }
