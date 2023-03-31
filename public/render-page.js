@@ -35660,9 +35660,14 @@ h1.navRight {
 
 
 .shrink {
-    width: calc(37.5% - 6.25px) !important;
-  }
+  width: calc(37.5% - 6.25px) !important;
+}
 
+  @media (max-width: 668px) {
+    .shrink {
+      width: calc(75% - 6.25px) !important;
+    }
+  }
 
 /* .films-slider .slick-slide div {
   display: grid;

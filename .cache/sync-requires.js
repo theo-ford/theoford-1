@@ -6,7 +6,12 @@ const preferDefault = m => (m && m.default) || m
 
 exports.components = {
   "component---cache-dev-404-page-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/.cache/dev-404-page.js"))),
+  "component---src-pages-1-24-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/1-24.js"))),
+  "component---src-pages-2-68-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/2-68.js"))),
+  "component---src-pages-3-44-w-margin-black-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/3-44wMarginBlack.js"))),
+  "component---src-pages-4-44-no-margin-white-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/4-44noMarginWhite.js"))),
   "component---src-pages-404-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/404.js"))),
+  "component---src-pages-5-44-w-margin-white-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/5-44wMarginWhite.js"))),
   "component---src-pages-cat-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/cat.js"))),
   "component---src-pages-film-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/film.js"))),
   "component---src-pages-index-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index.js"))),

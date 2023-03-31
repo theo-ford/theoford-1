@@ -133,14 +133,15 @@ const SquareCarouselCon = styled.div`
 `;
 const ProjectCon = styled.div`
   /* margin-top: 100px; */
-  /* margin-bottom: 200px; */
-  padding-top: 200px;
+  margin-bottom: 100px;
+  /* padding-top: 200px;
   @media (max-width: 666px) {
     padding-top: 200px;
-  }
+  } */
 `;
 const VideoProjectCon = styled.div`
-  padding-top: 200px;
+  /* margin-bottom: 200px; */
+  /* padding-top: 200px; */
 `;
 
 const AutoplayVideoCon = styled.div`
@@ -276,26 +277,7 @@ const VideoCarouselCon = styled.div`
     /* padding-top: 200px; */
   }
 `;
-const FilmLeadCarouselConCon = styled.div`
-  /* display: grid;
-  top: 12.5px;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 10px;
-  margin-left: 10px;
-  grid-row-gap: 0;
-  width: calc(100% - 20px);
-  z-index: 20000;
-  align-items: center;
-  height: 110vh; */
-`;
-const FilmLeadCarouselCon = styled.div`
-  grid-column: span 2;
-`;
 
-const DesktopFilmLeadCarouselCon = styled.div`
-  grid-column: 5 / span 8;
-  align-self: center;
-`;
 const VideoCon = styled.div`
   // grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
   display: grid;
@@ -308,12 +290,52 @@ const VideoCon = styled.div`
   z-index: 20000;
   align-items: center;
   height: 110vh;
+  @media (max-width: 666px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    margin-left: 10px;
+    grid-row-gap: 0;
+    width: calc(100% - 20px);
+    z-index: 20000;
+    align-items: center;
+    height: 110vh;
+  }
 `;
 const VideoConInner = styled.div`
-  grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
+  /* grid-column: ${props =>
+    props.portrait ? "7 / span 4;" : "5 / span 8;"}; */
+ 
+  &.sml-portrait {
+    grid-column: 7 / span 4;
+  }
+  &.lrg-portrait {
+    grid-column: 8 / span 2;
+  }  
+  &.square {
+    grid-column: 6 /span 6;
+  }
+  &.landscape {
+    grid-column: 5 / span 8;
+  }
+  
+  
   @media (max-width: 666px) {
     grid-column: span 16;
+    
+    &.sml-portrait {
+    grid-column: 2 / span 6;
+    }
+    &.lrg-portrait {
+      grid-column: 3 / span 4;
+    }  
+    &.square {
+      grid-column: span 8;
+    }
+    &.landscape {
+      grid-column:span 8;
+    }    
   }
+
 `;
 const VideoWithContolsSC = styled.video`
   // grid-column: 5 / span 8;
@@ -920,7 +942,7 @@ const Index = ({ data }) => {
     const isOnScreen = useOnScreen(videoWithControlsRef);
     const [videoSrcState, setVideoSrcState] = useState("");
     const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-    const [isPortrait, setOrientationState] = useState("");
+    const [imgOrientation, setOrientationState] = useState("");
     const [isPlaying, setPlayingStatus] = useState(false);
     const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
 
@@ -929,12 +951,22 @@ const Index = ({ data }) => {
     };
 
     useEffect(() => {
-      console.log(imgRef.current.height);
-      console.log(imgRef.current.width);
+      // console.log(imgRef.current.height);
+      // console.log(imgRef.current.width);
       var width = imgRef.current.width;
       var height = imgRef.current.height;
-      if (height >= width) {
-        setOrientationState(true);
+      // var smlPortrait = width * 1.25;
+      // var lrgPortrait = width * 1.777;
+      var x = height / width;
+      console.log(x);
+      if (x > 1.76) {
+        setOrientationState("lrg-portrait");
+      } else if (x > 1.25) {
+        setOrientationState("sml-portrait");
+      } else if (height == width) {
+        setOrientationState("square");
+      } else if (width > height) {
+        setOrientationState("landscape");
       }
     }, [imgRef]);
     // console.log(imgRef);
@@ -966,7 +998,7 @@ const Index = ({ data }) => {
     return (
       <>
         <VideoCon>
-          <VideoConInner portrait={isPortrait}>
+          <VideoConInner className={imgOrientation}>
             <VideoControlsImgCon
               style={{
                 opacity: hasStartedPlaying ? 0 : 1,
@@ -1065,9 +1097,9 @@ const Index = ({ data }) => {
       <>
         <VideoProjectCon ref={FilmsLeadCarouselRefCon}>
           <VideoCarouselCon>
-            <NextButtonCon>
+            {/* <NextButtonCon>
               <p onClick={filmsLeadCarouselNextImg}>Next</p>
-            </NextButtonCon>
+            </NextButtonCon> */}
 
             <Slider {...settings} ref={FilmsLeadCarouselRef}>
               {React.Children.map(children, child =>
@@ -1102,54 +1134,20 @@ const Index = ({ data }) => {
         if (isPageWide) {
           return (
             <>
-              <DesktopFilmLeadCarouselCon>
+              <ProjectCon>
                 <FilmLeadCarousel>
                   {/* {React.Children.map(filmLeadProject, child =>
                     React.cloneElement(child, {
                       divIsInView: false,
                     })
                   )} */}
-                  {filmLeadProject}
+                  {React.Children.map(filmLeadProject, child =>
+                    React.cloneElement(child, {
+                      divIsInView: false,
+                    })
+                  )}
                 </FilmLeadCarousel>
-              </DesktopFilmLeadCarouselCon>
 
-              <ProjectInfo
-                title={
-                  content.project_relationship_field.document.data.project_title
-                    .text
-                }
-                client={
-                  content.project_relationship_field.document.data.client.text
-                }
-                year={
-                  content.project_relationship_field.document.data.year.text
-                }
-                location={
-                  content.project_relationship_field.document.data.location.text
-                }
-                homepage_intro={
-                  content.project_relationship_field.document.data
-                    .homepage_intro.text
-                }
-              ></ProjectInfo>
-            </>
-          );
-        }
-        if (!isPageWide) {
-          return (
-            <>
-              <VideoCarouselCon>
-                <FilmLeadCarouselConCon>
-                  <FilmLeadCarouselCon>
-                    <FilmLeadCarousel>
-                      {React.Children.map(filmLeadProject, child =>
-                        React.cloneElement(child, {
-                          divIsInView: false,
-                        })
-                      )}
-                    </FilmLeadCarousel>
-                  </FilmLeadCarouselCon>
-                </FilmLeadCarouselConCon>
                 <ProjectInfo
                   title={
                     content.project_relationship_field.document.data
@@ -1170,7 +1168,48 @@ const Index = ({ data }) => {
                       .homepage_intro.text
                   }
                 ></ProjectInfo>
-              </VideoCarouselCon>
+              </ProjectCon>
+            </>
+          );
+        }
+        if (!isPageWide) {
+          return (
+            <>
+              <ProjectCon>
+                <FilmLeadCarousel>
+                  {/* {React.Children.map(filmLeadProject, child =>
+                    React.cloneElement(child, {
+                      divIsInView: false,
+                    })
+                  )} */}
+                  {React.Children.map(filmLeadProject, child =>
+                    React.cloneElement(child, {
+                      divIsInView: false,
+                    })
+                  )}
+                </FilmLeadCarousel>
+
+                <ProjectInfo
+                  title={
+                    content.project_relationship_field.document.data
+                      .project_title.text
+                  }
+                  client={
+                    content.project_relationship_field.document.data.client.text
+                  }
+                  year={
+                    content.project_relationship_field.document.data.year.text
+                  }
+                  location={
+                    content.project_relationship_field.document.data.location
+                      .text
+                  }
+                  homepage_intro={
+                    content.project_relationship_field.document.data
+                      .homepage_intro.text
+                  }
+                ></ProjectInfo>
+              </ProjectCon>
             </>
           );
         }

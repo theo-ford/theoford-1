@@ -3,7 +3,12 @@ const preferDefault = m => (m && m.default) || m
 
 exports.components = {
   "component---cache-dev-404-page-js": () => import("./../../dev-404-page.js" /* webpackChunkName: "component---cache-dev-404-page-js" */),
+  "component---src-pages-1-24-js": () => import("./../../../src/pages/1-24.js" /* webpackChunkName: "component---src-pages-1-24-js" */),
+  "component---src-pages-2-68-js": () => import("./../../../src/pages/2-68.js" /* webpackChunkName: "component---src-pages-2-68-js" */),
+  "component---src-pages-3-44-w-margin-black-js": () => import("./../../../src/pages/3-44wMarginBlack.js" /* webpackChunkName: "component---src-pages-3-44-w-margin-black-js" */),
+  "component---src-pages-4-44-no-margin-white-js": () => import("./../../../src/pages/4-44noMarginWhite.js" /* webpackChunkName: "component---src-pages-4-44-no-margin-white-js" */),
   "component---src-pages-404-js": () => import("./../../../src/pages/404.js" /* webpackChunkName: "component---src-pages-404-js" */),
+  "component---src-pages-5-44-w-margin-white-js": () => import("./../../../src/pages/5-44wMarginWhite.js" /* webpackChunkName: "component---src-pages-5-44-w-margin-white-js" */),
   "component---src-pages-cat-js": () => import("./../../../src/pages/cat.js" /* webpackChunkName: "component---src-pages-cat-js" */),
   "component---src-pages-film-js": () => import("./../../../src/pages/film.js" /* webpackChunkName: "component---src-pages-film-js" */),
   "component---src-pages-index-js": () => import("./../../../src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */),
