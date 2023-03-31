@@ -62,7 +62,10 @@ const LogoGridCon = styled.div`
   top: 12.5px;
   z-index: 300000;
   mix-blend-mode: exclusion;
-  display: none;
+
+  @media (max-width: 666px) {
+    display: none;
+  }
 `;
 const LogoCon = styled.div`
   top: 12.5px;
@@ -131,11 +134,15 @@ const SquareCarouselCon = styled.div`
 const ProjectCon = styled.div`
   /* margin-top: 100px; */
   /* margin-bottom: 200px; */
-  margin-bottom: 200px;
+  padding-top: 200px;
   @media (max-width: 666px) {
-    margin-bottom: 200px;
+    padding-top: 200px;
   }
 `;
+const VideoProjectCon = styled.div`
+  padding-top: 200px;
+`;
+
 const AutoplayVideoCon = styled.div`
   position: relative;
   width: calc(100% - 12.5px);
@@ -264,9 +271,9 @@ const VideoCarouselCon = styled.div`
   width: 100%;
   height: 110vh;
   background-color: black;
-  margin-bottom: 200px;
+  /* padding-top: 200px; */
   @media (max-width: 666px) {
-    margin-bottom: 200px;
+    /* padding-top: 200px; */
   }
 `;
 const FilmLeadCarouselConCon = styled.div`
@@ -284,19 +291,7 @@ const FilmLeadCarouselConCon = styled.div`
 const FilmLeadCarouselCon = styled.div`
   grid-column: span 2;
 `;
-const DesktopFilmLeadCarouselConCon = styled.div`
-  /* display: grid;
-  top: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 12.5px;
-  margin-left: 12.5px;
-  grid-row-gap: 0;
-  width: calc(100% - 25px);
-  z-index: 20000;
-  align-items: center;
-  height: 100%; */
-  width: 100%;
-`;
+
 const DesktopFilmLeadCarouselCon = styled.div`
   grid-column: 5 / span 8;
   align-self: center;
@@ -746,7 +741,7 @@ const Index = ({ data }) => {
       </>
     );
   };
-  const VideoWithControls = ({ srcProps, posterProps }) => {
+  const VideoWithControls = ({ srcProps, posterProps, divIsInView }) => {
     const videoWithControlsRef = useRef(null);
     // const height = videoWithControlsRef.current.dimensions.height;
 
@@ -756,45 +751,84 @@ const Index = ({ data }) => {
     const [isPortrait, setOrientationState] = useState("");
     const [isPlaying, setPlayingStatus] = useState(false);
 
-    console.log("video with controls ref");
-    console.log(videoWithControlsRef);
+    // console.log("video with controls ref");
+    // console.log(videoWithControlsRef);
 
     const onLoadedData = () => {
       setIsVideoLoaded(true);
     };
 
+    // console.log(divIsInView);
+
     useEffect(() => {
-      if (isOnScreen == true) {
-        // console.log(srcProps);
-        // console.log("on screen");
+      console.log(videoSrcState);
+      if (divIsInView) {
+        console.log("div on screen at video level");
         setVideoSrcState(srcProps);
         videoWithControlsRef.current.load();
-        // videoWithControlsRef.current.play();
-      } else if (isOnScreen === false) {
-        // console.log(srcProps);
-        // console.log("off screen");
+        const height = videoWithControlsRef.current.clientHeight;
+
+        const width = videoWithControlsRef.current.clientWidth;
+
+        if (width > height) {
+          setOrientationState(false);
+        } else if (height >= width) {
+          setOrientationState(true);
+        }
+      } else if (!divIsInView) {
+        console.log("div is NOT screen at video level");
         setIsVideoLoaded(false);
         setVideoSrcState("");
       }
-    }, [isOnScreen]);
+      // console.log(divIsInView);
+    }, [divIsInView, videoSrcState]);
 
-    useEffect(() => {
-      if (isVideoLoaded) {
-        console.log(videoSrcState);
-        console.log("video has loaded");
-        const height = videoWithControlsRef.current.clientHeight;
-        console.log(height);
-        const width = videoWithControlsRef.current.clientWidth;
-        console.log(width);
-        if (width > height) {
-          console.log("landscape");
-          setOrientationState(false);
-        } else if (height >= width) {
-          console.log("portrait");
-          setOrientationState(true);
-        }
-      }
-    }, [videoSrcState, isVideoLoaded]);
+    // useEffect(() => {
+    //   if (isOnScreen == true) {
+    //     // console.log(srcProps);
+    //     // console.log("on screen");
+    //     setVideoSrcState(srcProps);
+    //     videoWithControlsRef.current.load();
+    //     // videoWithControlsRef.current.play();
+
+    //     // console.log(videoSrcState);
+    //     // console.log("video has loaded");
+    //     const height = videoWithControlsRef.current.clientHeight;
+    //     // console.log(height);
+    //     const width = videoWithControlsRef.current.clientWidth;
+    //     // console.log(width);
+    //     if (width > height) {
+    //       // console.log("landscape");
+    //       setOrientationState(false);
+    //     } else if (height >= width) {
+    //       // console.log("portrait");
+    //       setOrientationState(true);
+    //     }
+    //   } else if (isOnScreen === false) {
+    //     // console.log(srcProps);
+    //     // console.log("off screen");
+    //     setIsVideoLoaded(false);
+    //     setVideoSrcState("");
+    //   }
+    // }, [isOnScreen, videoSrcState, isVideoLoaded]);
+
+    // useEffect(() => {
+    //   if (isVideoLoaded) {
+    //     console.log(videoSrcState);
+    //     console.log("video has loaded");
+    //     const height = videoWithControlsRef.current.clientHeight;
+    //     console.log(height);
+    //     const width = videoWithControlsRef.current.clientWidth;
+    //     console.log(width);
+    //     if (width > height) {
+    //       console.log("landscape");
+    //       setOrientationState(false);
+    //     } else if (height >= width) {
+    //       console.log("portrait");
+    //       setOrientationState(true);
+    //     }
+    //   }
+    // }, [videoSrcState, isVideoLoaded]);
 
     // if (isPortrait) {
     //   return (
@@ -881,6 +915,17 @@ const Index = ({ data }) => {
 
   const FilmLeadCarousel = ({ children }) => {
     const FilmsLeadCarouselRef = React.useRef(null);
+    const FilmsLeadCarouselRefCon = React.useRef(null);
+    const divIsOnScreen = useOnScreen(FilmsLeadCarouselRefCon);
+
+    useEffect(() => {
+      if (divIsOnScreen == true) {
+        console.log("div on screen");
+      } else if (divIsOnScreen == false) {
+        console.log("div is not on screen");
+      }
+    }, [divIsOnScreen]);
+
     function filmsLeadCarouselNextImg() {
       FilmsLeadCarouselRef.current.slickNext();
     }
@@ -898,15 +943,25 @@ const Index = ({ data }) => {
     };
     return (
       <>
-        {/* <NextButtonCon>
-          <p onClick={filmsLeadCarouselNextImg}>Next</p>
-        </NextButtonCon> */}
-        <Slider {...settings} ref={FilmsLeadCarouselRef}>
-          {children}
-        </Slider>
+        <VideoProjectCon ref={FilmsLeadCarouselRefCon}>
+          <VideoCarouselCon>
+            <NextButtonCon>
+              <p onClick={filmsLeadCarouselNextImg}>Next</p>
+            </NextButtonCon>
+
+            <Slider {...settings} ref={FilmsLeadCarouselRef}>
+              {React.Children.map(children, child =>
+                React.cloneElement(child, {
+                  divIsInView: divIsOnScreen,
+                })
+              )}
+            </Slider>
+          </VideoCarouselCon>
+        </VideoProjectCon>
       </>
     );
   };
+
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
     (content, index) => {
       if (
@@ -927,33 +982,36 @@ const Index = ({ data }) => {
         if (isPageWide) {
           return (
             <>
-              <VideoCarouselCon>
-                <DesktopFilmLeadCarouselConCon>
-                  <DesktopFilmLeadCarouselCon>
-                    <FilmLeadCarousel>{filmLeadProject}</FilmLeadCarousel>
-                  </DesktopFilmLeadCarouselCon>
-                </DesktopFilmLeadCarouselConCon>
-                <ProjectInfo
-                  title={
-                    content.project_relationship_field.document.data
-                      .project_title.text
-                  }
-                  client={
-                    content.project_relationship_field.document.data.client.text
-                  }
-                  year={
-                    content.project_relationship_field.document.data.year.text
-                  }
-                  location={
-                    content.project_relationship_field.document.data.location
-                      .text
-                  }
-                  homepage_intro={
-                    content.project_relationship_field.document.data
-                      .homepage_intro.text
-                  }
-                ></ProjectInfo>
-              </VideoCarouselCon>
+              <DesktopFilmLeadCarouselCon>
+                <FilmLeadCarousel>
+                  {/* {React.Children.map(filmLeadProject, child =>
+                    React.cloneElement(child, {
+                      divIsInView: false,
+                    })
+                  )} */}
+                  {filmLeadProject}
+                </FilmLeadCarousel>
+              </DesktopFilmLeadCarouselCon>
+
+              <ProjectInfo
+                title={
+                  content.project_relationship_field.document.data.project_title
+                    .text
+                }
+                client={
+                  content.project_relationship_field.document.data.client.text
+                }
+                year={
+                  content.project_relationship_field.document.data.year.text
+                }
+                location={
+                  content.project_relationship_field.document.data.location.text
+                }
+                homepage_intro={
+                  content.project_relationship_field.document.data
+                    .homepage_intro.text
+                }
+              ></ProjectInfo>
             </>
           );
         }
@@ -963,7 +1021,13 @@ const Index = ({ data }) => {
               <VideoCarouselCon>
                 <FilmLeadCarouselConCon>
                   <FilmLeadCarouselCon>
-                    <FilmLeadCarousel>{filmLeadProject}</FilmLeadCarousel>
+                    <FilmLeadCarousel>
+                      {React.Children.map(filmLeadProject, child =>
+                        React.cloneElement(child, {
+                          divIsInView: false,
+                        })
+                      )}
+                    </FilmLeadCarousel>
                   </FilmLeadCarouselCon>
                 </FilmLeadCarouselConCon>
                 <ProjectInfo
