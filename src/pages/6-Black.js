@@ -162,6 +162,10 @@ const ProjectCon = styled.div`
   @media (max-width: 666px) {
     padding-top: 200px;
   } */
+  @media (max-width: 666px) {
+    /* display: none; */
+    margin-bottom: 200px;
+  }
 `;
 const VideoProjectCon = styled.div`
   /* margin-bottom: 200px; */
@@ -812,177 +816,6 @@ const Index = ({ data }) => {
       </>
     );
   };
-  const VideoWithControls = ({ srcProps, posterProps, divIsInView }) => {
-    const videoWithControlsRef = useRef(null);
-    // const height = videoWithControlsRef.current.dimensions.height;
-
-    const isOnScreen = useOnScreen(videoWithControlsRef);
-    const [videoSrcState, setVideoSrcState] = useState("");
-    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-    const [isPortrait, setOrientationState] = useState("");
-    const [isPlaying, setPlayingStatus] = useState(false);
-
-    // console.log("video with controls ref");
-    // console.log(videoWithControlsRef);
-
-    const onLoadedData = () => {
-      setIsVideoLoaded(true);
-    };
-
-    // console.log(divIsInView);
-
-    // useEffect(() => {
-    //   console.log(videoSrcState);
-    //   if (divIsInView) {
-    //     console.log("div on screen at video level");
-    //     setVideoSrcState(srcProps);
-    //     videoWithControlsRef.current.load();
-    //     const height = videoWithControlsRef.current.clientHeight;
-
-    //     const width = videoWithControlsRef.current.clientWidth;
-
-    //     if (width > height) {
-    //       setOrientationState(false);
-    //     } else if (height >= width) {
-    //       setOrientationState(true);
-    //     }
-    //   } else if (!divIsInView) {
-    //     console.log("div is NOT screen at video level");
-    //     setIsVideoLoaded(false);
-    //     setVideoSrcState("");
-    //   }
-    //   // console.log(divIsInView);
-    // }, [divIsInView, videoSrcState]);
-
-    useEffect(() => {
-      if (isOnScreen == true) {
-        // console.log(srcProps);
-        // console.log("on screen");
-        setVideoSrcState(srcProps);
-        videoWithControlsRef.current.load();
-        // videoWithControlsRef.current.play();
-
-        // console.log(videoSrcState);
-        // console.log("video has loaded");
-        const height = videoWithControlsRef.current.clientHeight;
-        // console.log(height);
-        const width = videoWithControlsRef.current.clientWidth;
-        // console.log(width);
-        if (width > height) {
-          // console.log("landscape");
-          setOrientationState(false);
-        } else if (height >= width) {
-          // console.log("portrait");
-          setOrientationState(true);
-        }
-      } else if (isOnScreen === false) {
-        // console.log(srcProps);
-        // console.log("off screen");
-        setIsVideoLoaded(false);
-        setVideoSrcState("");
-      }
-    }, [isOnScreen, videoSrcState, isVideoLoaded]);
-
-    // useEffect(() => {
-    //   if (isVideoLoaded) {
-    //     console.log(videoSrcState);
-    //     console.log("video has loaded");
-    //     const height = videoWithControlsRef.current.clientHeight;
-    //     console.log(height);
-    //     const width = videoWithControlsRef.current.clientWidth;
-    //     console.log(width);
-    //     if (width > height) {
-    //       console.log("landscape");
-    //       setOrientationState(false);
-    //     } else if (height >= width) {
-    //       console.log("portrait");
-    //       setOrientationState(true);
-    //     }
-    //   }
-    // }, [videoSrcState, isVideoLoaded]);
-
-    // if (isPortrait) {
-    //   return (
-    //     <PortraitVideo
-    //       // portrait={isPortrait}
-    //       playsInline
-    //       muted
-    //       loop
-    //       // controls
-    //       preload="none"
-    //       poster={posterProps}
-    //       ref={videoWithControlsRef}
-    //       onLoadedData={onLoadedData}
-    //       // className={isPortrait ? "portrait" : "landscape"}
-    //     >
-    //       <source type="video/mp4" src={videoSrcState} />
-    //     </PortraitVideo>
-    //   );
-    // } else if (!isPortrait) {
-    //   return (
-    //     <LandscapeVideo
-    //       // portrait={isPortrait}
-    //       playsInline
-    //       muted
-    //       loop
-    //       // controls
-    //       preload="none"
-    //       poster={posterProps}
-    //       ref={videoWithControlsRef}
-    //       onLoadedData={onLoadedData}
-    //       // className={isPortrait ? "portrait" : "landscape"}
-    //     >
-    //       <source type="video/mp4" src={videoSrcState} />
-    //     </LandscapeVideo>
-    //   );
-    // }
-    const playVideo = () => {
-      videoWithControlsRef.current.play();
-      setPlayingStatus(true);
-    };
-    const pauseVideo = () => {
-      videoWithControlsRef.current.pause();
-      setPlayingStatus(false);
-    };
-    return (
-      <>
-        <VideoCon>
-          <VideoConInner portrait={isPortrait}>
-            <VideoWithContolsSC
-              // portrait={isPortrait}
-              playsInline
-              muted
-              loop
-              // controls
-              preload="auto"
-              poster={posterProps}
-              ref={videoWithControlsRef}
-              onLoadedData={onLoadedData}
-            >
-              <source type="video/mp4" src={videoSrcState} />
-            </VideoWithContolsSC>
-            <PaginationCon>
-              <p>
-                <span className="active">01</span> 02 03
-              </p>
-            </PaginationCon>
-            <PlayButtonCon>
-              {/* <p onClick={playVideo}>&#9658; Play</p> */}
-              {isPlaying ? (
-                <p onClick={pauseVideo}>
-                  {/* <PauseButtonImg src={PauseButton} />  */}
-                  Pause
-                </p>
-              ) : (
-                <p onClick={playVideo}>&#9658; Play</p>
-              )}
-            </PlayButtonCon>
-          </VideoConInner>
-        </VideoCon>
-        {/* <PauseButtonImg src={PauseButton} />{" "} */}
-      </>
-    );
-  };
 
   const VideoWithControlsImg = ({ srcProps, posterProps, divIsInView }) => {
     const videoWithControlsRef = useRef(null);
@@ -1010,9 +843,7 @@ const Index = ({ data }) => {
       console.log(x);
       if (x > 1.76) {
         setOrientationState("lrg-portrait");
-      } else if (x > 1.25) {
-        setOrientationState("sml-portrait");
-      } else if (height == width) {
+      } else if (height >= width) {
         setOrientationState("square");
       } else if (width > height) {
         setOrientationState("landscape");
@@ -1407,7 +1238,7 @@ const Index = ({ data }) => {
     <>
       <GlobalStyle />
       <Helmet>
-        <title>(3) 4/4 wMargin Black</title>
+        <title>(6) Black Mixed</title>
       </Helmet>
       <IntroCon>
         <Grid16>
