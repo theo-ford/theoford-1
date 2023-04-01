@@ -16,6 +16,7 @@ import ReactPlayer from "react-player";
 import Icon from "../../assets/WhiteLogo.svg";
 // import PauseButton from "../../assets/PauseButton.png";
 // import PauseButton from "../../public/icons/PauseButton.png";
+// import PlayButton from "../../public/icons/PlayButton.png";
 
 const GlobalStyle = createGlobalStyle`
   html {
