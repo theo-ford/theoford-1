@@ -14,8 +14,8 @@ import "../components/slick/slick-theme.css";
 import { useOnScreen } from "../components/hooks/useOnScreen";
 import ReactPlayer from "react-player";
 import Icon from "../../assets/WhiteLogo.svg";
-// import PauseButton from "../../assets/PauseButton.png";
-// import PauseButton from "../../public/icons/PauseButton.png";
+import PauseButton from "../../public/icons/Pause.png";
+import PlayButton from "../../public/icons/Play.png";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -406,9 +406,13 @@ const PaginationCon = styled.p`
     }
   }
 `;
-
 const PauseButtonImg = styled.img`
-  width: 6.5px;
+  width: 10px;
+  display: inline-block !important;
+  margin-right: 5px;
+`;
+const PlayButtonImg = styled.img`
+  width: 10px;
   display: inline-block !important;
 `;
 
@@ -1097,11 +1101,13 @@ const Index = ({ data }) => {
               {/* <p onClick={playVideo}>&#9658; Play</p> */}
               {isPlaying ? (
                 <p onClick={pauseVideo}>
-                  {/* <PauseButtonImg src={PauseButton} />  */}
+                  <PauseButtonImg src={PauseButton} />
                   Pause
                 </p>
               ) : (
-                <p onClick={playVideo}>&#9658; Play</p>
+                <p onClick={playVideo}>
+                  <PlayButtonImg src={PlayButton} /> Play
+                </p>
               )}
             </PlayButtonCon>
           </VideoConInner>

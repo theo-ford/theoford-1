@@ -344,8 +344,10 @@ const VideoConInner = styled.div`
   }
   
   
-  @media (max-width: 666px) {    
-    &.sml-portrait {
+  @media (max-width: 666px) {  
+    grid-column: span 4;
+
+    /* &.sml-portrait {
       grid-column: span 4;
     }
     &.lrg-portrait {
@@ -356,7 +358,7 @@ const VideoConInner = styled.div`
     }
     &.landscape {
       grid-column:span 4;
-    }    
+    }     */
   }
 
 `;
@@ -1006,25 +1008,25 @@ const Index = ({ data }) => {
       setIsVideoLoaded(true);
     };
 
-    useEffect(() => {
-      // console.log(imgRef.current.height);
-      // console.log(imgRef.current.width);
-      var width = imgRef.current.width;
-      var height = imgRef.current.height;
-      // var smlPortrait = width * 1.25;
-      // var lrgPortrait = width * 1.777;
-      var x = height / width;
-      console.log(x);
-      if (x > 1.76) {
-        setOrientationState("lrg-portrait");
-      } else if (x > 1.25) {
-        setOrientationState("sml-portrait");
-      } else if (height == width) {
-        setOrientationState("square");
-      } else if (width > height) {
-        setOrientationState("landscape");
-      }
-    }, [imgRef]);
+    // useEffect(() => {
+    //   // console.log(imgRef.current.height);
+    //   // console.log(imgRef.current.width);
+    //   var width = imgRef.current.width;
+    //   var height = imgRef.current.height;
+    //   // var smlPortrait = width * 1.25;
+    //   // var lrgPortrait = width * 1.777;
+    //   var x = height / width;
+    //   console.log(x);
+    //   if (x > 1.76) {
+    //     setOrientationState("lrg-portrait");
+    //   } else if (x > 1.25) {
+    //     setOrientationState("sml-portrait");
+    //   } else if (height == width) {
+    //     setOrientationState("square");
+    //   } else if (width > height) {
+    //     setOrientationState("landscape");
+    //   }
+    // }, [imgRef]);
     // console.log(imgRef);
 
     useEffect(() => {
