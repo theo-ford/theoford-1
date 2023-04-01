@@ -408,12 +408,12 @@ const PaginationCon = styled.p`
 `;
 
 const PauseButtonImg = styled.img`
-  width: 10px;
+  width: 8px;
   display: inline-block !important;
   margin-right: 5px;
 `;
 const PlayButtonImg = styled.img`
-  width: 10px;
+  width: 8px;
   display: inline-block !important;
 `;
 const PlayerControlP = styled.p`
