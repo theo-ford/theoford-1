@@ -344,11 +344,9 @@ const VideoConInner = styled.div`
   }
   
   
-  @media (max-width: 666px) {
-    
-    
+  @media (max-width: 666px) {    
     &.sml-portrait {
-    grid-column: span 4;
+      grid-column: span 4;
     }
     &.lrg-portrait {
       grid-column: span 4;
