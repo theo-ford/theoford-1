@@ -335,6 +335,9 @@ const VideoConInner = styled.div`
   &.lrg-portrait {
     grid-column: 8 / span 2;
   }  
+  &.portrait {
+    grid-column: 8 / span 2;
+  }   
   &.square {
     grid-column: 6 /span 6;
   }
@@ -344,7 +347,6 @@ const VideoConInner = styled.div`
   
   
   @media (max-width: 666px) {
-    grid-column: span 16;
     
     &.sml-portrait {
     grid-column: 2 / span 6;
@@ -352,6 +354,9 @@ const VideoConInner = styled.div`
     &.lrg-portrait {
       grid-column: 2 / span 6;
     }  
+    &.portrait {
+      grid-column: 2 / span 6;
+    }      
     &.square {
       grid-column: 2 / span 6;
     }
@@ -1008,10 +1013,8 @@ const Index = ({ data }) => {
       // var lrgPortrait = width * 1.777;
       var x = height / width;
       console.log(x);
-      if (x > 1.76) {
-        setOrientationState("lrg-portrait");
-      } else if (x > 1.25) {
-        setOrientationState("sml-portrait");
+      if (height > width) {
+        setOrientationState("portrait");
       } else if (height == width) {
         setOrientationState("square");
       } else if (width > height) {
