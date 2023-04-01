@@ -334,7 +334,10 @@ const VideoConInner = styled.div`
   }
   &.lrg-portrait {
     grid-column: 8 / span 2;
-  }  
+  } 
+  &.portrait {
+    grid-column: 7 / span 4;
+  }   
   &.square {
     grid-column: 6 /span 6;
   }
@@ -352,6 +355,9 @@ const VideoConInner = styled.div`
     &.lrg-portrait {
       grid-column: 2 / span 2;
     }  
+    &.portrait {
+      grid-column: 2 / span 2;
+    }      
     &.square {
       grid-column: 2 / span 2;
     }
@@ -1008,10 +1014,8 @@ const Index = ({ data }) => {
       // var lrgPortrait = width * 1.777;
       var x = height / width;
       console.log(x);
-      if (x > 1.76) {
-        setOrientationState("lrg-portrait");
-      } else if (x > 1.25) {
-        setOrientationState("sml-portrait");
+      if (height > width) {
+        setOrientationState("portrait");
       } else if (height == width) {
         setOrientationState("square");
       } else if (width > height) {
