@@ -827,6 +827,7 @@ const Index = ({ data }) => {
     const [imgOrientation, setOrientationState] = useState("");
     const [isPlaying, setPlayingStatus] = useState(false);
     const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
+    const VideoConInnerRef = useRef(null);
 
     const onLoadedData = () => {
       setIsVideoLoaded(true);
@@ -840,15 +841,23 @@ const Index = ({ data }) => {
       // var smlPortrait = width * 1.25;
       // var lrgPortrait = width * 1.777;
       var x = height / width;
+      console.log(srcProps);
       console.log(x);
-      if (x > 1.76) {
+      if (x > 1.7) {
         setOrientationState("lrg-portrait");
-      } else if (height >= width) {
+        // VideoConInnerRef.current.classList.add("lrg-portrait");
+      }
+      // else if (x > 1.2) {
+      //   setOrientationState("sml-portrait");
+      // }
+      else if (height >= width) {
         setOrientationState("square");
+        // VideoConInnerRef.current.classList.add("square");
       } else if (width > height) {
         setOrientationState("landscape");
+        // VideoConInnerRef.current.classList.add("landscape");
       }
-    }, [imgRef]);
+    }, [imgRef, srcProps]);
     // console.log(imgRef);
 
     useEffect(() => {
@@ -878,7 +887,8 @@ const Index = ({ data }) => {
     return (
       <>
         <VideoCon>
-          <VideoConInner className={imgOrientation}>
+          <VideoConInner className={imgOrientation} ref={VideoConInnerRef}>
+            {/* <VideoConInner ref={VideoConInnerRef}> */}
             <VideoControlsImgCon
               style={{
                 opacity: hasStartedPlaying ? 0 : 1,
