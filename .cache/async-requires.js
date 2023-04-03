@@ -4,6 +4,7 @@ const preferDefault = m => (m && m.default) || m
 exports.components = {
   "component---cache-dev-404-page-js": () => import("./../../dev-404-page.js" /* webpackChunkName: "component---cache-dev-404-page-js" */),
   "component---src-pages-1-24-js": () => import("./../../../src/pages/1-24.js" /* webpackChunkName: "component---src-pages-1-24-js" */),
+  "component---src-pages-10-film-pagination-1-js": () => import("./../../../src/pages/10-film-pagination-1.js" /* webpackChunkName: "component---src-pages-10-film-pagination-1-js" */),
   "component---src-pages-2-68-js": () => import("./../../../src/pages/2-68.js" /* webpackChunkName: "component---src-pages-2-68-js" */),
   "component---src-pages-3-44-w-margin-black-js": () => import("./../../../src/pages/3-44wMarginBlack.js" /* webpackChunkName: "component---src-pages-3-44-w-margin-black-js" */),
   "component---src-pages-4-44-no-margin-white-js": () => import("./../../../src/pages/4-44noMarginWhite.js" /* webpackChunkName: "component---src-pages-4-44-no-margin-white-js" */),
