@@ -411,7 +411,7 @@ const PlayButtonCon = styled.div`
     font-size: 12px;
   }
 `;
-const PaginationCon = styled.p`
+const PaginationCon = styled.div`
   /* background-color: red; */
   margin-top: 5px;
   width: calc(50%);
