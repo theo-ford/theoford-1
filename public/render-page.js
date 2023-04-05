@@ -515,6 +515,114 @@ var plugins = [{
             }
           }
         }
+      },
+      "about": {
+        "Main": {
+          "uid": {
+            "type": "UID",
+            "config": {
+              "label": "slug"
+            }
+          },
+          "email": {
+            "type": "Link",
+            "config": {
+              "label": "email",
+              "select": null
+            }
+          },
+          "phone_number": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph,hyperlink",
+              "label": "Phone Number"
+            }
+          },
+          "website_url": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph,hyperlink",
+              "label": "Website URL"
+            }
+          },
+          "instagram": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph,hyperlink",
+              "label": "Instagram"
+            }
+          },
+          "address": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph",
+              "label": "Address"
+            }
+          },
+          "homepage_intro": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph,heading6,hyperlink",
+              "label": "Homepage Intro"
+            }
+          },
+          "upcoming_locations": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Upcoming Locations"
+            }
+          },
+          "current_location": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Current Location"
+            }
+          },
+          "previous_locations": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Previous Locations"
+            }
+          },
+          "about_page_intro": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph,hyperlink",
+              "label": "About Page Intro"
+            }
+          },
+          "clients": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph,list-item",
+              "label": "Clients"
+            }
+          },
+          "previous_employers": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph,hyperlink,list-item",
+              "label": "Previous Employers"
+            }
+          },
+          "services": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph,list-item",
+              "label": "Services"
+            }
+          },
+          "collaborators": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph,hyperlink,list-item",
+              "label": "Collaborators"
+            }
+          }
+        }
       }
     },
     "imageImgixParams": {

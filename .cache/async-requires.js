@@ -14,6 +14,7 @@ exports.components = {
   "component---src-pages-7-black-js": () => import("./../../../src/pages/7-Black.js" /* webpackChunkName: "component---src-pages-7-black-js" */),
   "component---src-pages-8-1016-js": () => import("./../../../src/pages/8-1016.js" /* webpackChunkName: "component---src-pages-8-1016-js" */),
   "component---src-pages-9-24-js": () => import("./../../../src/pages/9-24.js" /* webpackChunkName: "component---src-pages-9-24-js" */),
+  "component---src-pages-about-js": () => import("./../../../src/pages/about.js" /* webpackChunkName: "component---src-pages-about-js" */),
   "component---src-pages-cat-js": () => import("./../../../src/pages/cat.js" /* webpackChunkName: "component---src-pages-cat-js" */),
   "component---src-pages-film-js": () => import("./../../../src/pages/film.js" /* webpackChunkName: "component---src-pages-film-js" */),
   "component---src-pages-index-js": () => import("./../../../src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */),

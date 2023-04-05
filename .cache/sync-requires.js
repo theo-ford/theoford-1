@@ -17,6 +17,7 @@ exports.components = {
   "component---src-pages-7-black-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/7-Black.js"))),
   "component---src-pages-8-1016-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/8-1016.js"))),
   "component---src-pages-9-24-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/9-24.js"))),
+  "component---src-pages-about-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/about.js"))),
   "component---src-pages-cat-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/cat.js"))),
   "component---src-pages-film-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/film.js"))),
   "component---src-pages-index-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index.js"))),

@@ -1,4 +1,11 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  createContext,
+  useContext,
+  useMemo,
+} from "react";
 import ReactDOM, { findDOMNode } from "react-dom";
 import { graphql, Link, useScrollRestoration } from "gatsby";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
@@ -7,59 +14,130 @@ import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
 import "../components/styles/index.css";
 import { useMediaQuery } from "../components/tf/media-query";
-import Icon from "../../assets/WhiteLogo.svg";
+// import Icon from "../../assets/White Logo No TF.svg";
 import Slider from "react-slick";
 import "../components/slick/slick.css";
 import "../components/slick/slick-theme.css";
 import { useOnScreen } from "../components/hooks/useOnScreen";
 import ReactPlayer from "react-player";
+import Icon from "../../assets/WhiteLogo.svg";
+import PauseButton from "../../public/icons/Pause.png";
+import PlayButton from "../../public/icons/Play.png";
 
 const GlobalStyle = createGlobalStyle`
   html {
     background-color: white;
+    overflow-x: clip;
+    max-width: 100vw;
   }
   body {
+    // https://stackoverflow.com/questions/47095596/body-overflow-x-hidden-breaks-position-sticky
     background-color: white;
+    overflow-x: clip;
+    max-width: 100vw;
   }
 `;
-const NavSpacer = styled.div`
-  height: 24vh;
-  width: 100%;
+const IntroCon = styled.div`
+  margin-top: 10px;
+  span.grey {
+    color: #d4d4d4;
+  }
+  @media (max-width: 666px) {
+    display: none;
+  }
 `;
-
-const LogoGridCon = styled.div`
+const AboutCon = styled.div`
+  grid-column: span 6;
+`;
+const LocationCon = styled.div`
+  grid-column: 9 / span 5;
+  span.grey {
+    color: #d4d4d4;
+  }
+`;
+const ContactCon = styled.div`
+  grid-column: 15 / span 2;
+`;
+const NavSpacer = styled.div`
+  height: 14vh;
   width: 100%;
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
+const LogoGridCon = styled.div`
+  width: calc(100% - 25px);
+  margin-left: 12.5px;
   position: sticky;
   top: 12.5px;
   z-index: 300000;
   mix-blend-mode: exclusion;
-`;
 
+  @media (max-width: 666px) {
+    /* display: none; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    width: calc(100% - 20px);
+    margin-left: 10px;
+  }
+`;
 const LogoCon = styled.div`
   top: 12.5px;
   mix-blend-mode: exclusion;
-  grid-column: span 6;
+  /* grid-column: span 6; */
+  width: calc(50% - 6.25px);
+  display: inline-block;
+  vertical-align: top;
+  transition: all 1s;
+
+  .shrink {
+    width: calc(37.5% - 6.25px);
+  }
+  @media (max-width: 666px) {
+    /* display: none; */
+    width: calc(75% - 6.25px);
+    margin-top: 14vh;
+    margin-left: 10px;
+    .shrink {
+      width: calc(75% - 6.25px);
+    }
+  }
 `;
 const NavCon1 = styled.div`
-  grid-column: span 1;
+  display: inline-block;
+  margin-left: 12.5px;
   p {
     color: #878787;
   }
   p.selected {
     color: white;
+  }
+  @media (max-width: 666px) {
+    /* display: none; */
+    margin-left: 0px;
+    grid-column: span 1;
   }
 `;
 const NavCon2 = styled.div`
-  grid-column: span 1;
+  display: inline-block;
+  margin-left: 12.5px;
   p {
     color: #878787;
   }
   p.selected {
     color: white;
   }
+  @media (max-width: 666px) {
+    /* display: none; */
+    margin-left: 0px;
+    grid-column: span 1;
+  }
 `;
 const PageCon = styled.div`
-  margin-top: 24vh;
+  margin-top: 28vh;
+  /* overflow-x: hidden;
+  max-width: 100vw; */
 `;
 const Grid2 = styled.div`
   display: grid;
@@ -84,60 +162,23 @@ const NextButtonCon = styled.div`
 const SquareCarouselCon = styled.div`
   grid-column: span 2;
 `;
-
 const ProjectCon = styled.div`
   /* margin-top: 100px; */
-  /* margin-bottom: 200px; */
-  margin-bottom: 200px;
+  margin-bottom: 100px;
+  /* padding-top: 200px;
   @media (max-width: 666px) {
+    padding-top: 200px;
+  } */
+  @media (max-width: 666px) {
+    /* display: none; */
     margin-bottom: 200px;
   }
 `;
-const VideoCarouselCon = styled.div`
-  width: 100%;
-  height: 100vh;
-  background-color: black;
-  margin-bottom: 200px;
-  @media (max-width: 666px) {
-    margin-bottom: 200px;
-  }
+const VideoProjectCon = styled.div`
   /* margin-bottom: 200px; */
+  /* padding-top: 200px; */
 `;
-const FilmLeadCarouselConCon = styled.div`
-  display: grid;
-  top: 12.5px;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 10px;
-  margin-left: 10px;
-  grid-row-gap: 0;
-  width: calc(100% - 20px);
-  z-index: 20000;
-  align-items: center;
-  height: 100vh;
-`;
-const FilmLeadCarouselCon = styled.div`
-  grid-column: span 2;
-`;
-const DesktopFilmLeadCarouselConCon = styled.div`
-  display: grid;
-  top: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 12.5px;
-  margin-left: 12.5px;
-  grid-row-gap: 0;
-  width: calc(100% - 25px);
-  z-index: 20000;
-  align-items: center;
-  height: 100%;
-`;
-const DesktopFilmLeadCarouselCon = styled.div`
-  grid-column: 5 / span 8;
-  align-self: center;
-`;
-const VideoWithContolsSC = styled.video`
-  grid-column: 5 / span 8;
-  width: 100%;
-`;
+
 const AutoplayVideoCon = styled.div`
   position: relative;
   width: calc(100% - 12.5px);
@@ -145,7 +186,6 @@ const AutoplayVideoCon = styled.div`
     width: 100%;
   }
 `;
-
 const AutoplayVideoImg = styled.img`
   /* position: absolute; */
   width: 100%;
@@ -158,9 +198,9 @@ const AutoplayVideoVideo = styled.video`
 `;
 const AutoplayVideoImgCon = styled.div``;
 const breatheAnimation = keyframes`
-0% {opacity: 0} 
-50% {opacity: 1}
-100% {opacity:0}
+  0% {opacity: 0} 
+  50% {opacity: 1}
+  100% {opacity:0}
 `;
 const AutoplayVideoTextCon = styled.div`
   position: absolute;
@@ -183,14 +223,12 @@ const AutoplayVideoTextCon = styled.div`
     animation-iteration-count: infinite;
   }
 `;
-
 const SquareImage = styled.img`
   width: calc(100% - 12.5px);
   @media (max-width: 666px) {
     width: 100%;
   }
 `;
-
 const Grid16 = styled.div`
   display: grid;
   top: 12.5px;
@@ -220,12 +258,11 @@ const TwoUpCarouselNextButtonCon = styled.div`
     color: #cfcfcf;
   }
 `;
-
 const SingleImgProjectAssetCon = styled.div`
   grid-column: span 8;
 `;
-
 const ProjectInfoCon = styled.div`
+  height: 80px;
   margin-top: 8px;
   @media (max-width: 666px) {
     margin-top: 4px;
@@ -241,7 +278,6 @@ const ProjectTitleCon = styled.div`
     }
   }
 `;
-
 const ProjectLocationYearCon = styled.div`
   grid-column: span 4;
   @media (max-width: 666px) {
@@ -267,10 +303,228 @@ const ProjectLink = styled.div`
     display: none;
   }
 `;
+const VideoCarouselCon = styled.div`
+  width: 100%;
+  height: 110vh;
+  background-color: black;
+  /* padding-top: 200px; */
+  @media (max-width: 666px) {
+    /* padding-top: 200px; */
+  }
+`;
+
+const VideoCon = styled.div`
+  // grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 12.5px;
+  margin-left: 12.5px;
+  grid-row-gap: 0;
+  width: calc(100% - 25px);
+  z-index: 20000;
+  align-items: center;
+  height: 110vh;
+  @media (max-width: 666px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    margin-left: 10px;
+    grid-row-gap: 0;
+    width: calc(100% - 20px);
+    z-index: 20000;
+    align-items: center;
+    height: 110vh;
+  }
+`;
+const VideoConInner = styled.div`
+  /* grid-column: ${props =>
+    props.portrait ? "7 / span 4;" : "5 / span 8;"}; */
+ 
+  &.sml-portrait {
+    grid-column:  10 / span 6;
+  }
+  &.lrg-portrait {
+    grid-column:  10 / span 6;
+  }  
+  &.square {
+    grid-column:  9 / span 8;
+  }
+  &.landscape {
+    grid-column: 7 / span 12;
+  }
+  
+  
+  @media (max-width: 666px) {
+    
+    
+    &.sml-portrait {
+    grid-column:  5 / span 16;
+    }
+    &.lrg-portrait {
+      grid-column:  6 / span 14;
+    }  
+    &.square {
+      grid-column:  4 / span 18;
+    }
+    &.landscape {
+      grid-column: span 24;
+    }    
+  }
+
+`;
+const VideoWithContolsSC = styled.video`
+  // grid-column: 5 / span 8;
+  // grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
+  width: 100%;
+`;
+const PortraitVideo = styled.video`
+   grid-column: 7 / span 4;
+  // grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
+  width: 100%;
+`;
+const LandscapeVideo = styled.video`
+   grid-column: 5 / span 8;
+  // grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
+  width: 100%;
+`;
+const ControlsCon = styled.div`
+  z-index: 1;
+  /* position: absolute; */
+  /* background-color: blue; */
+
+  &.landscape {
+    width: 50%;
+  }
+`;
+const PlayButtonCon = styled.div`
+  /* background-color: red; */
+  margin-top: 5px;
+  /* grid-column: 5 / span 1; */
+  /* height: 10px; */
+  width: calc(50%);
+  /* margin-left: calc(6.25px); */
+  display: inline-block;
+
+  /* background-color: green; */
+  p {
+    color: #d4d4d4;
+    font-size: 12px;
+  }
+`;
+const PaginationCon = styled.div`
+  /* background-color: red; */
+  margin-top: 5px;
+  width: calc(50%);
+  /* grid-column: 5 / span 1; */
+  /* height: 10px; */
+  /* width: calc(50%); */
+  display: inline-block;
+  /* background-color: red; */
+`;
+
+const PauseButtonImg = styled.img`
+  width: 8px;
+  display: inline-block !important;
+  margin-right: 5px;
+`;
+const PlayButtonImg = styled.img`
+  width: 8px;
+  display: inline-block !important;
+`;
+const PaginationControlP = styled.p`
+  display: inline-block;
+  color: #545454;
+  font-size: 12px;
+  &.active {
+    color: white;
+  }
+`;
+const VideoControlsImgCon = styled.div``;
+const VideoControlsImg = styled.img`
+  width: 100%;
+  height: 100%;
+`;
 
 const Index = ({ data }) => {
-  let isPageWide = useMediaQuery("(min-width: 667px)");
+  const CarouselLengthContext = createContext();
+  const CarouselIndexClicked = createContext({
+    slideGoTo: 0,
+    setSlideGoTo: () => {},
+  });
 
+  let isPageWide = useMediaQuery("(min-width: 667px)");
+  const LogoConRef = useRef(null);
+
+  const LogoNav = scrollPosition => {
+    if (isPageWide) {
+      return (
+        <>
+          <NavSpacer></NavSpacer>
+          <LogoGridCon>
+            <LogoCon ref={LogoConRef}>
+              <Icon />
+            </LogoCon>
+            <NavCon1>
+              <Link to="/">
+                <p className="selected">Selected</p>
+              </Link>
+              <p>Index</p>
+            </NavCon1>
+            <NavCon2>
+              <Link to="/about">
+                <p>About</p>
+              </Link>
+              <p>Instagram</p>
+            </NavCon2>
+          </LogoGridCon>
+        </>
+      );
+    }
+    if (!isPageWide) {
+      return (
+        <>
+          <LogoGridCon>
+            <NavCon1>
+              <Link to="/">
+                <p className="selected">Selected</p>
+              </Link>
+              <p>Index</p>
+            </NavCon1>
+            <NavCon2>
+              <Link to="/about">
+                <p>About</p>
+              </Link>
+              <p>Instagram</p>
+            </NavCon2>
+          </LogoGridCon>
+          <LogoCon ref={LogoConRef}>
+            <Icon />
+          </LogoCon>
+        </>
+      );
+    }
+  };
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    // console.log(position);
+    if (position > 25) {
+      // console.log("greater than 100");
+      LogoConRef.current.classList.add("shrink");
+    } else if (position < 25) {
+      // console.log("less than 100");
+      LogoConRef.current.classList.remove("shrink");
+    }
+  };
+  // scroll use effect
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const ProjectInfo = ({
     title,
     year,
@@ -317,139 +571,7 @@ const Index = ({ data }) => {
   };
 
   const ImgComponent = ({ srcProps, videoLoad }) => {
-    return <SquareImage src={srcProps} />;
-  };
-
-  const VideoWithControls = ({ srcProps, posterProps }) => {
-    const videoWithControlsRef = useRef(null);
-    // const height = videoWithControlsRef.current.dimensions.height;
-
-    const isOnScreen = useOnScreen(videoWithControlsRef);
-    const [videoSrcState, setVideoSrcState] = useState("");
-    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-
-    console.log("video with controls ref");
-    console.log(videoWithControlsRef);
-
-    const onLoadedData = () => {
-      setIsVideoLoaded(true);
-    };
-
-    if (isVideoLoaded) {
-      console.log("video has loaded");
-      const height = videoWithControlsRef.current.clientHeight;
-      console.log(height);
-      const width = videoWithControlsRef.current.clientWidth;
-      console.log(width);
-    }
-
-    useEffect(() => {
-      if (isOnScreen == true) {
-        // console.log(srcProps);
-        // console.log("on screen");
-        setVideoSrcState(srcProps);
-        videoWithControlsRef.current.load();
-        // videoWithControlsRef.current.play();
-      } else if (isOnScreen === false) {
-        // console.log(srcProps);
-        // console.log("off screen");
-        setIsVideoLoaded(false);
-        setVideoSrcState("");
-      }
-    }, [isOnScreen]);
-
-    return (
-      <VideoWithContolsSC
-        playsInline
-        muted
-        loop
-        controls
-        preload="none"
-        poster={posterProps}
-        ref={videoWithControlsRef}
-        onLoadedData={onLoadedData}
-      >
-        <source type="video/mp4" src={videoSrcState} />
-      </VideoWithContolsSC>
-    );
-  };
-
-  const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
-    // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
-    // https://frontend-digest.com/responsive-and-progressive-video-loading-in-react-e8753315af51
-    const autoplayVideoRef = useRef(null);
-    const isOnScreen = useOnScreen(autoplayVideoRef);
-    const [videoSrcState, setVideoSrcState] = useState("");
-    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-
-    console.log("autoplay Video Ref");
-    console.log(autoplayVideoRef);
-
-    const onLoadedData = () => {
-      setIsVideoLoaded(true);
-    };
-
-    useEffect(() => {
-      if (isOnScreen == true) {
-        // console.log(srcProps);
-        // console.log("on screen");
-        setVideoSrcState(srcProps);
-        autoplayVideoRef.current.load();
-        autoplayVideoRef.current.play();
-      } else if (isOnScreen === false) {
-        // console.log(srcProps);
-        // console.log("off screen");
-        setIsVideoLoaded(false);
-        setVideoSrcState("");
-      }
-    }, [isOnScreen]);
-
-    return (
-      <>
-        <AutoplayVideoCon>
-          <AutoplayVideoImgCon
-            style={{
-              opacity: isVideoLoaded ? 0 : 1,
-              position: isVideoLoaded ? "absolute" : "relative",
-              // opacity: 1,
-              // position: "relative",
-            }}
-          >
-            <AutoplayVideoTextCon>
-              <p>Video Loading</p>
-            </AutoplayVideoTextCon>
-
-            <AutoplayVideoImg
-              src={posterProps}
-              style={{
-                opacity: isVideoLoaded ? 0 : 1,
-                position: isVideoLoaded ? "absolute" : "relative",
-                // opacity: 1,
-                // position: "relative",
-              }}
-            />
-          </AutoplayVideoImgCon>
-
-          <AutoplayVideoVideo
-            playsInline
-            autoPlay
-            muted
-            loop
-            ref={autoplayVideoRef}
-            // onCanPlayThrough={onLoadedData}
-            onLoadedData={onLoadedData}
-            style={{
-              opacity: isVideoLoaded ? 1 : 0,
-              position: isVideoLoaded ? "relative" : "absolute",
-              // opacity: 0,
-              // position: "absolute",
-            }}
-          >
-            <source type="video/mp4" src={videoSrcState} />
-          </AutoplayVideoVideo>
-        </AutoplayVideoCon>
-      </>
-    );
+    return <SquareImage srcSet={srcProps} />;
   };
 
   const TwoUpProjectCarousel = ({
@@ -540,7 +662,6 @@ const Index = ({ data }) => {
       </>
     );
   };
-
   const ProjectCarousel = ({
     children,
 
@@ -650,8 +771,274 @@ const Index = ({ data }) => {
       </>
     );
   };
+
+  const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
+    // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
+    // https://frontend-digest.com/responsive-and-progressive-video-loading-in-react-e8753315af51
+    const autoplayVideoRef = useRef(null);
+    const isOnScreen = useOnScreen(autoplayVideoRef);
+    const [videoSrcState, setVideoSrcState] = useState("");
+    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+
+    // console.log("autoplay Video Ref");
+    // console.log(autoplayVideoRef);
+
+    const onLoadedData = () => {
+      setIsVideoLoaded(true);
+    };
+
+    useEffect(() => {
+      if (isOnScreen == true) {
+        // console.log(srcProps);
+        // console.log("on screen");
+        setVideoSrcState(srcProps);
+        autoplayVideoRef.current.load();
+        autoplayVideoRef.current.play();
+      } else if (isOnScreen === false) {
+        // console.log(srcProps);
+        // console.log("off screen");
+        setIsVideoLoaded(false);
+        setVideoSrcState("");
+      }
+    }, [isOnScreen]);
+
+    return (
+      <>
+        <AutoplayVideoCon>
+          <AutoplayVideoImgCon
+            style={{
+              opacity: isVideoLoaded ? 0 : 1,
+              position: isVideoLoaded ? "absolute" : "relative",
+              // opacity: 1,
+              // position: "relative",
+            }}
+          >
+            <AutoplayVideoTextCon>
+              <p>Video Loading</p>
+            </AutoplayVideoTextCon>
+
+            <AutoplayVideoImg
+              src={posterProps}
+              style={{
+                opacity: isVideoLoaded ? 0 : 1,
+                position: isVideoLoaded ? "absolute" : "relative",
+                // opacity: 1,
+                // position: "relative",
+              }}
+            />
+          </AutoplayVideoImgCon>
+
+          <AutoplayVideoVideo
+            playsInline
+            autoPlay
+            muted
+            loop
+            ref={autoplayVideoRef}
+            // onCanPlayThrough={onLoadedData}
+            onLoadedData={onLoadedData}
+            style={{
+              opacity: isVideoLoaded ? 1 : 0,
+              position: isVideoLoaded ? "relative" : "absolute",
+              // opacity: 0,
+              // position: "absolute",
+            }}
+          >
+            <source type="video/mp4" src={videoSrcState} />
+          </AutoplayVideoVideo>
+        </AutoplayVideoCon>
+      </>
+    );
+  };
+
+  const VideoWithControlsImg = ({
+    srcProps,
+    posterProps,
+    // filmsLeadCarouselNextImg,
+    // test,
+    // onChild2Event,
+  }) => {
+    const videoWithControlsRef = useRef(null);
+    // const height = videoWithControlsRef.current.dimensions.height;
+    const imgRef = useRef(null);
+    const isOnScreen = useOnScreen(videoWithControlsRef);
+    const [videoSrcState, setVideoSrcState] = useState("");
+    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+    const [imgOrientation, setOrientationState] = useState("");
+    const [isPlaying, setPlayingStatus] = useState(false);
+    const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
+    const VideoConInnerRef = useRef(null);
+    const carouselLength = useContext(CarouselLengthContext);
+    const { slideGoTo, setSlideGoTo } = useContext(CarouselIndexClicked);
+    // console.log(carouselLength);
+    // console.log(CarouselLengthContext);
+
+    const onLoadedData = () => {
+      setIsVideoLoaded(true);
+    };
+
+    const Pagination = ({ carouselLength }) => {
+      // console.log(carouselLength);
+      const array = [...Array(carouselLength)];
+      // console.log(array);
+      const handleClick = index => {
+        // console.log(index);
+        setSlideGoTo(index);
+      };
+      const items = array.map((child, index) => {
+        // console.log(index);
+        return (
+          <>
+            <PaginationControlP
+              className={slideGoTo == index ? "active" : ""}
+              onClick={() => handleClick(index)}
+            >
+              {/* {index + 1} */}
+              {("0" + (index + 1)).slice(-2)}
+            </PaginationControlP>
+            {"    "}
+          </>
+        );
+      });
+      return <div>{items}</div>;
+    };
+
+    useEffect(() => {
+      // console.log(imgRef.current.height);
+      // console.log(imgRef.current.width);
+      var width = imgRef.current.width;
+      var height = imgRef.current.height;
+      // var smlPortrait = width * 1.25;
+      // var lrgPortrait = width * 1.777;
+      var x = height / width;
+      console.log(srcProps);
+      console.log(x);
+      if (x > 1.7) {
+        setOrientationState("lrg-portrait");
+        // VideoConInnerRef.current.classList.add("lrg-portrait");
+      } else if (x > 1.2) {
+        setOrientationState("sml-portrait");
+      } else if (height >= width) {
+        setOrientationState("square");
+        // VideoConInnerRef.current.classList.add("square");
+      } else if (width > height) {
+        setOrientationState("landscape");
+        // VideoConInnerRef.current.classList.add("landscape");
+      }
+    }, [imgRef, srcProps]);
+    // console.log(imgRef);
+
+    useEffect(() => {
+      if (isOnScreen == true) {
+        // console.log(srcProps);
+        // console.log("on screen");
+        setVideoSrcState(srcProps);
+        videoWithControlsRef.current.load();
+        // videoWithControlsRef.current.play();
+      } else if (isOnScreen === false) {
+        // console.log(srcProps);
+        // console.log("off screen");
+        setIsVideoLoaded(false);
+        setVideoSrcState("");
+      }
+    }, [isOnScreen, videoSrcState]);
+
+    const playVideo = () => {
+      videoWithControlsRef.current.play();
+      setPlayingStatus(true);
+      setHasStartedPlaying(true);
+    };
+    const pauseVideo = () => {
+      videoWithControlsRef.current.pause();
+      setPlayingStatus(false);
+    };
+    const handleClick = event => {
+      console.log("pagination clicked");
+    };
+    return (
+      <>
+        <CarouselLengthContext.Provider>
+          <VideoCon>
+            <VideoConInner className={imgOrientation}>
+              <VideoControlsImgCon
+                style={{
+                  opacity: hasStartedPlaying ? 0 : 1,
+                  position: hasStartedPlaying ? "absolute" : "relative",
+                }}
+              >
+                <VideoControlsImg
+                  ref={imgRef}
+                  src={posterProps}
+                  style={{
+                    opacity: hasStartedPlaying ? 0 : 1,
+                    position: hasStartedPlaying ? "absolute" : "relative",
+                  }}
+                ></VideoControlsImg>
+              </VideoControlsImgCon>
+              <VideoWithContolsSC
+                playsInline
+                muted
+                loop
+                preload="auto"
+                ref={videoWithControlsRef}
+                onLoadedData={onLoadedData}
+                style={{
+                  zIndex: 0,
+
+                  opacity: hasStartedPlaying ? 1 : 0,
+                  position: hasStartedPlaying ? "relative" : "absolute",
+                  // https://stackoverflow.com/questions/3680429/click-through-div-to-underlying-elements
+                  // click through video to controls
+                  pointerEvents: "none",
+                }}
+              >
+                <source type="video/mp4" src={videoSrcState} />
+              </VideoWithContolsSC>
+              <ControlsCon>
+                <PaginationCon>
+                  {/* <p onClick={handleClick}>
+                    <span className="active">01</span> 02 03
+                  </p> */}
+                  <Pagination carouselLength={carouselLength}></Pagination>
+                </PaginationCon>
+                <PlayButtonCon
+                  style={{
+                    zIndex: 1,
+                  }}
+                >
+                  {isPlaying ? (
+                    <p onClick={pauseVideo}>
+                      <PauseButtonImg src={PauseButton} />
+                      Pause
+                    </p>
+                  ) : (
+                    <p onClick={playVideo}>
+                      <PlayButtonImg src={PlayButton} /> Play
+                    </p>
+                  )}
+                </PlayButtonCon>
+              </ControlsCon>
+            </VideoConInner>
+          </VideoCon>
+        </CarouselLengthContext.Provider>
+      </>
+    );
+  };
+
   const FilmLeadCarousel = ({ children }) => {
     const FilmsLeadCarouselRef = React.useRef(null);
+    const FilmsLeadCarouselRefCon = React.useRef(null);
+    const divIsOnScreen = useOnScreen(FilmsLeadCarouselRefCon);
+    const [carouselLength, setCarouselLength] = useState(children.length);
+    const [slideGoTo, setSlideGoTo] = useState(0);
+    const value = useMemo(() => ({ slideGoTo, setSlideGoTo }), [slideGoTo]);
+    useEffect(() => {
+      if (divIsOnScreen == true) {
+        // console.log("div on screen");
+      } else if (divIsOnScreen == false) {
+        // console.log("div is not on screen");
+      }
+    }, [divIsOnScreen]);
+
     function filmsLeadCarouselNextImg() {
       FilmsLeadCarouselRef.current.slickNext();
     }
@@ -665,101 +1052,142 @@ const Index = ({ data }) => {
       arrows: false,
       swipe: false,
       swipeToSlide: false,
+      className: "films-slider",
+    };
+
+    console.log(slideGoTo);
+    useEffect(() => {
+      FilmsLeadCarouselRef.current.slickGoTo(slideGoTo);
+    }, [slideGoTo]);
+
+    const Pagination = ({ children }) => {
+      // console.log("hello");
+      // console.log(children.length);
+      const handleClick = index => {
+        // console.log("hello");
+        // console.log(index);
+        FilmsLeadCarouselRef.current.slickGoTo(index);
+      };
+      const items = children.map((child, index) => {
+        return (
+          <>
+            <PaginationControlP onClick={() => handleClick(index)}>
+              {index + 1}
+            </PaginationControlP>
+            {"    "}
+          </>
+        );
+      });
+      return <div>{items}</div>;
     };
     return (
       <>
-        <NextButtonCon>
-          <p onClick={filmsLeadCarouselNextImg}>Next</p>
-        </NextButtonCon>
-        <Slider {...settings} ref={FilmsLeadCarouselRef}>
-          {children}
-        </Slider>
+        <CarouselLengthContext.Provider value={carouselLength}>
+          <CarouselIndexClicked.Provider value={value}>
+            {useMemo(
+              () => (
+                <>
+                  <VideoProjectCon ref={FilmsLeadCarouselRefCon}>
+                    <VideoCarouselCon>
+                      {/* <NextButtonCon>
+                        <p onClick={filmsLeadCarouselNextImg}>Next</p>
+                      </NextButtonCon>
+                      <Pagination>{children}</Pagination> */}
+
+                      <Slider
+                        {...settings}
+                        ref={FilmsLeadCarouselRef}
+                        // onChild1Event={handleEvent}
+                      >
+                        {/* {React.Children.map(children, child =>
+                            React.cloneElement(child, {
+                              // onChild1Event: onChild1Event,
+                              // fct: filmsLeadCarouselNextImg,
+                              // test: false,
+                            })
+                          )} */}
+                        {children}
+                      </Slider>
+                    </VideoCarouselCon>
+                  </VideoProjectCon>
+                </>
+              ),
+              []
+            )}
+          </CarouselIndexClicked.Provider>
+        </CarouselLengthContext.Provider>
       </>
     );
   };
+
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
     (content, index) => {
       if (
         content.project_relationship_field.document.type == "film_lead_project"
       ) {
         const filmLeadProject = content.project_relationship_field.document.data.body.map(
-          (content_three, index) => {
+          (content_three, index, onChild1Event) => {
+            // const handleEvent = event => {
+            //   console.log("handled");
+            //   onChild1Event(event);
+            // };
             if (content_three.slice_type == "video_with_play_button") {
               return (
-                <VideoWithControls
+                <VideoWithControlsImg
                   srcProps={content_three.primary.video_with_play_button.url}
                   posterProps={content_three.primary.video_thumbnail.fluid.src}
-                ></VideoWithControls>
+                  // fct={filmsLeadCarouselNextImg}
+                  // onChild2Event={handleEvent}
+                ></VideoWithControlsImg>
               );
             }
           }
         );
-        if (isPageWide) {
-          return (
-            <>
-              <VideoCarouselCon>
-                <DesktopFilmLeadCarouselConCon>
-                  <DesktopFilmLeadCarouselCon>
-                    <FilmLeadCarousel>{filmLeadProject}</FilmLeadCarousel>
-                  </DesktopFilmLeadCarouselCon>
-                </DesktopFilmLeadCarouselConCon>
-                <ProjectInfo
-                  title={
-                    content.project_relationship_field.document.data
-                      .project_title.text
-                  }
-                  client={
-                    content.project_relationship_field.document.data.client.text
-                  }
-                  year={
-                    content.project_relationship_field.document.data.year.text
-                  }
-                  location={
-                    content.project_relationship_field.document.data.location
-                      .text
-                  }
-                  homepage_intro={
-                    content.project_relationship_field.document.data
-                      .homepage_intro.text
-                  }
-                ></ProjectInfo>
-              </VideoCarouselCon>
-            </>
-          );
-        }
-        if (!isPageWide) {
-          return (
-            <>
-              <VideoCarouselCon>
-                <FilmLeadCarouselConCon>
-                  <FilmLeadCarouselCon>
-                    <FilmLeadCarousel>{filmLeadProject}</FilmLeadCarousel>
-                  </FilmLeadCarouselCon>
-                </FilmLeadCarouselConCon>
-                <ProjectInfo
-                  title={
-                    content.project_relationship_field.document.data
-                      .project_title.text
-                  }
-                  client={
-                    content.project_relationship_field.document.data.client.text
-                  }
-                  year={
-                    content.project_relationship_field.document.data.year.text
-                  }
-                  location={
-                    content.project_relationship_field.document.data.location
-                      .text
-                  }
-                  homepage_intro={
-                    content.project_relationship_field.document.data
-                      .homepage_intro.text
-                  }
-                ></ProjectInfo>
-              </VideoCarouselCon>
-            </>
-          );
-        }
+        // console.log(test);
+        // const handleEvent = event => {
+        //   console.log("handled2");
+        //   // onChild1Event(event);
+        // };
+        return (
+          <>
+            <ProjectCon>
+              <FilmLeadCarousel>
+                {/* {React.Children.map(filmLeadProject, child =>
+                    React.cloneElement(child, {
+                      divIsInView: false,
+                    })
+                  )} */}
+                {React.Children.map(filmLeadProject, child =>
+                  React.cloneElement(child, {
+                    // onChild1Event: onChild1Event,
+                    // onChild1Event: handleEvent
+                    // fct: filmsLeadCarouselNextImg,
+                  })
+                )}
+              </FilmLeadCarousel>
+
+              <ProjectInfo
+                title={
+                  content.project_relationship_field.document.data.project_title
+                    .text
+                }
+                client={
+                  content.project_relationship_field.document.data.client.text
+                }
+                year={
+                  content.project_relationship_field.document.data.year.text
+                }
+                location={
+                  content.project_relationship_field.document.data.location.text
+                }
+                homepage_intro={
+                  content.project_relationship_field.document.data
+                    .homepage_intro.text
+                }
+              ></ProjectInfo>
+            </ProjectCon>
+          </>
+        );
       }
       if (content.project_relationship_field.document.type == "project") {
         const projectLength =
@@ -769,7 +1197,7 @@ const Index = ({ data }) => {
             if (content_four.slice_type == "image") {
               return (
                 <ImgComponent
-                  srcProps={content_four.primary.image.fluid.srcWebp}
+                  srcProps={content_four.primary.image.fluid.srcSetWebp}
                 />
               );
             }
@@ -901,26 +1329,48 @@ const Index = ({ data }) => {
 
   return (
     <>
-      <Helmet>
-        <title>sml logo, info below, no intro</title>
-      </Helmet>
       <GlobalStyle />
-      <NavSpacer></NavSpacer>
-      <LogoGridCon>
+      <Helmet>
+        <title>(10) Pagination 1</title>
+      </Helmet>
+      <IntroCon>
         <Grid16>
-          <LogoCon>
-            <Icon />
-          </LogoCon>
-          <NavCon1>
-            <p className="selected">Selected</p>
-            <p>Index</p>
-          </NavCon1>
-          <NavCon2>
-            <p>About</p>
-            <p>Instagram</p>
-          </NavCon2>
+          <AboutCon>
+            <p>
+              The design office of Theo Ford. Specialising in graphic design,
+              art direction, moving-image and web development. Recent commisions
+              and collaborations include identites for{" "}
+              <span className="grey">Tesla</span>, adverts for{" "}
+              <span className="grey">American Apparel</span>, and printed matter
+              for <span className="grey">COS</span>.<br />
+            </p>
+          </AboutCon>
+          <LocationCon>
+            <p>
+              Current Location: <span className="grey">New York,</span> London,
+              <span className="grey">
+                {" "}
+                Los Angeles, Beijing, Stockholm, Gothenburg, Glasgow, Falmouth,
+                Philadelphia.
+              </span>{" "}
+              2023/03/23 21:32.
+            </p>
+          </LocationCon>
+          <ContactCon>
+            <p class="">
+              <span>
+                info@theoford.com
+                <br />
+                +44 7599 759 529
+                <br />
+                @tf.public
+              </span>
+            </p>
+          </ContactCon>
         </Grid16>
-      </LogoGridCon>
+      </IntroCon>
+      <NavSpacer></NavSpacer>
+      <LogoNav></LogoNav>
       <PageCon>{overview}</PageCon>
     </>
   );
@@ -929,7 +1379,7 @@ const Index = ({ data }) => {
 export default withPreview(Index);
 
 export const query = graphql`
-  query MyQuery {
+  query IndexQuery21 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {
@@ -963,7 +1413,7 @@ export const query = graphql`
                       slice_type
                       primary {
                         image {
-                          fluid {
+                          fluid(srcSetBreakpoints: [1400, 1600, 2400, 3600]) {
                             srcWebp
                             srcSetWebp
                           }
@@ -1025,6 +1475,10 @@ export const query = graphql`
                             src
                             srcSetWebp
                             srcWebp
+                          }
+                          dimensions {
+                            height
+                            width
                           }
                         }
                       }

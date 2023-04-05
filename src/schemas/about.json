@@ -9,80 +9,98 @@
     "email": {
       "type": "Link",
       "config": {
-        "label": "email"
+        "label": "email",
+        "select": null
       }
     },
     "phone_number": {
-      "type": "Number",
+      "type": "StructuredText",
       "config": {
+        "multi": "paragraph,hyperlink",
         "label": "Phone Number"
       }
     },
     "website_url": {
-      "type": "Link",
+      "type": "StructuredText",
       "config": {
+        "single": "paragraph,hyperlink",
         "label": "Website URL"
       }
     },
     "instagram": {
-      "type": "Link",
+      "type": "StructuredText",
       "config": {
+        "single": "paragraph,hyperlink",
         "label": "Instagram"
       }
     },
     "address": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph",
+        "multi": "paragraph",
         "label": "Address"
       }
     },
     "homepage_intro": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, heading6, hyperlink",
+        "multi": "paragraph,heading6,hyperlink",
         "label": "Homepage Intro"
       }
     },
-    "location": {
+    "upcoming_locations": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, heading6",
-        "label": "Location"
+        "single": "paragraph",
+        "label": "Upcoming Locations"
+      }
+    },
+    "current_location": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Current Location"
+      }
+    },
+    "previous_locations": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Previous Locations"
       }
     },
     "about_page_intro": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, hyperlink",
+        "multi": "paragraph,hyperlink",
         "label": "About Page Intro"
       }
     },
     "clients": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, list-item",
+        "single": "paragraph,list-item",
         "label": "Clients"
       }
     },
     "previous_employers": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, hyperlink, list-item",
+        "single": "paragraph,hyperlink,list-item",
         "label": "Previous Employers"
       }
     },
     "services": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, list-item",
+        "multi": "paragraph,list-item",
         "label": "Services"
       }
     },
     "collaborators": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, embed, list-item",
+        "multi": "paragraph,hyperlink,list-item",
         "label": "Collaborators"
       }
     }
