@@ -37,7 +37,13 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100vw;
   }
 `;
-
+const NavSpacer = styled.div`
+  height: 24vh;
+  width: 100%;
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
   margin-left: 12.5px;
@@ -60,7 +66,9 @@ const LogoCon = styled.div`
   top: 12.5px;
   mix-blend-mode: exclusion;
   /* grid-column: span 6; */
+  /* width: calc(50% - 6.25px); */
   width: calc(37.5% - 6.25px);
+  /* width: calc(72.5% - 6.25px); */
   display: inline-block;
   vertical-align: top;
   transition: all 1s;
@@ -108,8 +116,44 @@ const NavCon2 = styled.div`
     grid-column: span 1;
   }
 `;
+const Rectangle = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: #b4b4b4;
+  left: calc(76vw - 6.25px);
+  position: absolute;
+  top: 22vh;
+  border-radius: 50%;
+`;
+const Rectangle4 = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: #b4b4b4;
+  left: calc(76vw - 6.25px);
+  position: absolute;
+  top: 26vh;
+  border-radius: 50%;
+`;
+const Rectangle2 = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: #b4b4b4;
+  /* left: calc(76vw - 6.25px);
+  position: absolute; */
+  margin-top: 22vh;
+  border-radius: 50%;
+`;
+const Rectangle3 = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: #b4b4b4;
+  /* left: calc(76vw - 6.25px);
+  position: absolute; */
+  margin-top: 32vh;
+  border-radius: 50%;
+`;
 const PageCon = styled.div`
-  /* margin-top: 28vh; */
+  margin-top: 34vh;
   /* overflow-x: hidden;
   max-width: 100vw; */
   margin-bottom: 100px;
@@ -138,7 +182,7 @@ const Grid16 = styled.div`
 
 const AboutTextCon = styled.div`
   grid-column: span 12;
-  margin-top: 27vh;
+  /* margin-top: 27vh; */
   /* p {
     font-size: 42px;
     line-height: 110%;
@@ -148,6 +192,7 @@ const AboutTextCon = styled.div`
     font-style: normal;
     letter-spacing: -5.3% !important;
   } */
+
   @media (max-width: 666px) {
     /* display: none; */
     margin-left: 0px;
@@ -163,7 +208,7 @@ const AboutP = styled.p`
 
   font-weight: 300;
   font-style: normal;
-
+  text-indent: 50px;
   letter-spacing: -1.3px !important;
   @media (max-width: 666px) {
     /* display: none; */
@@ -171,8 +216,9 @@ const AboutP = styled.p`
   }
 `;
 const ContactCon = styled.div`
-  margin-top: 27vh;
+  /* margin-top: 27vh; */
   /* margin-top: 7vh; */
+  margin-top: 20px;
   grid-column: 13 / span 3;
   p {
     color: white;
@@ -219,6 +265,7 @@ const CopyrightSpan = styled.span`
   line-height: 110%;
   letter-spacing: -0.5px;
   display: inline-block;
+  text-indent: 0px;
 `;
 
 const ClientCon = styled.div`
@@ -346,6 +393,7 @@ const About = ({ data }) => {
     if (isPageWide) {
       return (
         <>
+          {/* <NavSpacer></NavSpacer> */}
           <LogoGridCon>
             <LogoCon ref={LogoConRef}>
               <Icon />
@@ -390,7 +438,27 @@ const About = ({ data }) => {
       );
     }
   };
+  // const handleScroll = () => {
+  //   const position = window.pageYOffset;
+  //   // console.log(position);
+  //   if (position > 25) {
+  //     // console.log("greater than 100");
+  //     LogoConRef.current.classList.add("shrink");
+  //   } else if (position < 25) {
+  //     // console.log("less than 100");
+  //     LogoConRef.current.classList.remove("shrink");
+  //   }
+  // };
+  // // scroll use effect
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll, {
+  //     passive: true,
+  //   });
 
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
   return (
     <>
       <GlobalStyle />
@@ -398,7 +466,8 @@ const About = ({ data }) => {
         <title>(10) Pagination 1</title>
       </Helmet>
       <LogoNav></LogoNav>
-
+      <Rectangle></Rectangle>
+      <Rectangle4></Rectangle4>
       <PageCon>
         <Grid16>
           <AboutTextCon>
@@ -440,6 +509,8 @@ const About = ({ data }) => {
                   __html: data.prismicAbout.data.address.html,
                 }}
               />
+              <Rectangle2></Rectangle2>
+              <Rectangle2></Rectangle2>
             </ContactCon>
           ) : (
             <>
@@ -515,6 +586,7 @@ const About = ({ data }) => {
               Beijing<br></br>
               Philadelphia
             </p>
+            <Rectangle3></Rectangle3>
           </LocationCon>
         </Grid16>
       </PageCon>
