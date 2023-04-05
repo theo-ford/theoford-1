@@ -6,25 +6,84 @@
         "label": "slug"
       }
     },
-    "about_page_text_top": {
-      "type": "StructuredText",
+    "email": {
+      "type": "Link",
       "config": {
-        "multi": "paragraph, hyperlink",
-        "label": "About Page Text Top"
+        "label": "email"
       }
     },
-    "about_page_text_indent": {
-      "type": "StructuredText",
+    "phone_number": {
+      "type": "Number",
       "config": {
-        "multi": "paragraph, hyperlink",
-        "label": "About Page Text Indent"
+        "label": "Phone Number"
       }
     },
-    "about_page_text_bottom": {
+    "website_url": {
+      "type": "Link",
+      "config": {
+        "label": "Website URL"
+      }
+    },
+    "instagram": {
+      "type": "Link",
+      "config": {
+        "label": "Instagram"
+      }
+    },
+    "address": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Address"
+      }
+    },
+    "homepage_intro": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, heading6, hyperlink",
+        "label": "Homepage Intro"
+      }
+    },
+    "location": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, heading6",
+        "label": "Location"
+      }
+    },
+    "about_page_intro": {
       "type": "StructuredText",
       "config": {
         "multi": "paragraph, hyperlink",
-        "label": "About Page Text Bottom"
+        "label": "About Page Intro"
+      }
+    },
+    "clients": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, list-item",
+        "label": "Clients"
+      }
+    },
+    "previous_employers": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph, hyperlink, list-item",
+        "label": "Previous Employers"
+      }
+    },
+    "services": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, list-item",
+        "label": "Services"
+      }
+    },
+    "collaborators": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, embed, list-item",
+        "label": "Collaborators"
       }
     }
   }

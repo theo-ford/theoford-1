@@ -58,7 +58,7 @@ module.exports = {
           project: require("./src/schemas/project.json"),
           film_lead_project: require("./src/schemas/film_lead_project.json"),
           featured_projects: require("./src/schemas/featured_projects.json"),
-          // about: require("./src/schemas/about.json"),
+          about: require("./src/schemas/about.json"),
           // category: require("./src/schemas/category.json"),
           // overview: require("./src/schemas/overview.json"),
           // now: require("./src/schemas/now.json"),
