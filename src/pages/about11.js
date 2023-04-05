@@ -68,6 +68,7 @@ const LogoCon = styled.div`
   /* grid-column: span 6; */
   /* width: calc(50% - 6.25px); */
   width: calc(37.5% - 6.25px);
+  /* width: calc(42.5% - 6.25px); */
   /* width: calc(72.5% - 6.25px); */
   display: inline-block;
   vertical-align: top;
@@ -129,18 +130,41 @@ const RectangleCon = styled.div`
   background-repeat: repeat-y;
   padding-left: 12.5px; */
   margin-bottom: 100px;
+  /* background-color: #b4b4b4; */
+  /* border-radius: 5px; */
 `;
 const Rectangle = styled.div`
-  width: 12.5px;
-  height: 12.5px;
-  background-color: white;
+  width: 90px;
+  height: 90px;
+  background-color: red;
   /* left: calc(76vw - 6.25px); */
   position: absolute;
   /* top: 15vh; */
-  /* border-radius: 5px; */
+  border-radius: 50%;
   opacity: 1;
   mix-blend-mode: exclusion;
+  transition: 0.5s ease;
   :hover {
+    border-radius: 10px;
+    /* background-color: blue; */
+  }
+`;
+const Rectangle5 = styled.div`
+  width: 90px;
+  height: 90px;
+  background-color: blue;
+  /* left: calc(76vw - 6.25px); */
+  /* position: absolute; */
+  /* top: 15vh; */
+  border-radius: 50%;
+  margin-left: 102.5px;
+  /* margin-left: 135px; */
+  opacity: 1;
+  transition: 0.5s ease;
+  opacity: 0;
+  :hover {
+    border-radius: 5px;
+    /* background-color: red; */
   }
 `;
 const Rectangle4 = styled.div`
@@ -166,18 +190,6 @@ const Rectangle7 = styled.div`
   opacity: 0;
 `;
 
-const Rectangle5 = styled.div`
-  width: 12.5px;
-  height: 12.5px;
-  background-color: white;
-  /* left: calc(76vw - 6.25px); */
-  /* position: absolute; */
-  /* top: 15vh; */
-  border-radius: 50%;
-  margin-left: 25px;
-  /* margin-left: 135px; */
-  opacity: 1;
-`;
 const Rectangle6 = styled.div`
   width: 12.5px;
   height: 12.5px;
@@ -533,8 +545,7 @@ const About = ({ data }) => {
       <Helmet>
         <title>(10) Pagination 1</title>
       </Helmet>
-      <LogoNav></LogoNav>
-      <Grid16 style={{ position: "fixed" }}>
+      <Grid16 style={{ position: "fixed", zIndex: 500000 }}>
         <RectangleCon>
           <Rectangle></Rectangle>
           <Rectangle5></Rectangle5>
@@ -542,6 +553,7 @@ const About = ({ data }) => {
           <Rectangle7></Rectangle7>
         </RectangleCon>
       </Grid16>
+      <LogoNav></LogoNav>
 
       <Rectangle6></Rectangle6>
       <PageCon>
@@ -684,7 +696,7 @@ const About = ({ data }) => {
 export default withPreview(About);
 
 export const query = graphql`
-  query aboutQuery9 {
+  query aboutQuery11 {
     prismicAbout {
       data {
         website_url {

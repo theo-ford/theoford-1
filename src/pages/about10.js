@@ -142,6 +142,20 @@ const Rectangle = styled.div`
   mix-blend-mode: exclusion;
   :hover {
   }
+  background-color: red;
+`;
+const Rectangle5 = styled.div`
+  width: 12.5px;
+  height: 12.5px;
+  background-color: white;
+  /* left: calc(76vw - 6.25px); */
+  /* position: absolute; */
+  /* top: 15vh; */
+  border-radius: 50%;
+  margin-left: 25px;
+  /* margin-left: 135px; */
+  opacity: 1;
+  background-color: blue;
 `;
 const Rectangle4 = styled.div`
   width: 12.5px;
@@ -166,18 +180,6 @@ const Rectangle7 = styled.div`
   opacity: 0;
 `;
 
-const Rectangle5 = styled.div`
-  width: 12.5px;
-  height: 12.5px;
-  background-color: white;
-  /* left: calc(76vw - 6.25px); */
-  /* position: absolute; */
-  /* top: 15vh; */
-  border-radius: 50%;
-  margin-left: 25px;
-  /* margin-left: 135px; */
-  opacity: 1;
-`;
 const Rectangle6 = styled.div`
   width: 12.5px;
   height: 12.5px;
@@ -684,7 +686,7 @@ const About = ({ data }) => {
 export default withPreview(About);
 
 export const query = graphql`
-  query aboutQuery9 {
+  query aboutQuery10 {
     prismicAbout {
       data {
         website_url {
