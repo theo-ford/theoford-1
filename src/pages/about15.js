@@ -206,6 +206,7 @@ const Rectangle2 = styled.div`
   position: absolute; */
   margin-top: 22vh;
   border-radius: 50%;
+  display: none;
 `;
 const Rectangle3 = styled.div`
   width: 12.5px;
@@ -215,6 +216,7 @@ const Rectangle3 = styled.div`
   position: absolute; */
   margin-top: 32vh;
   border-radius: 50%;
+  display: none;
 `;
 const PageCon = styled.div`
   /* margin-top: 34vh; */
@@ -248,7 +250,6 @@ const Grid16 = styled.div`
 
 const AboutTextCon = styled.div`
   grid-column: span 12;
-  /* margin-top: -160px; */
   /* margin-top: 27vh; */
   /* p {
     font-size: 42px;
@@ -696,7 +697,7 @@ const About = ({ data }) => {
 export default withPreview(About);
 
 export const query = graphql`
-  query aboutQuery14 {
+  query aboutQuery15 {
     prismicAbout {
       data {
         website_url {

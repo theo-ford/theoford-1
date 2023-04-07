@@ -248,7 +248,7 @@ const Grid16 = styled.div`
 
 const AboutTextCon = styled.div`
   grid-column: span 12;
-  /* margin-top: -160px; */
+  margin-top: -160px;
   /* margin-top: 27vh; */
   /* p {
     font-size: 42px;
@@ -696,7 +696,7 @@ const About = ({ data }) => {
 export default withPreview(About);
 
 export const query = graphql`
-  query aboutQuery14 {
+  query aboutQuery16 {
     prismicAbout {
       data {
         website_url {
