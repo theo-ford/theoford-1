@@ -47,6 +47,7 @@ exports.components = {
   "component---src-pages-project-info-above-img-w-large-logo-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/project_info_above_img_wLargeLogo.js"))),
   "component---src-pages-project-info-below-img-w-intro-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/project_info_below_img_wIntro.js"))),
   "component---src-pages-project-info-below-img-w-intro-w-large-logo-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/project_info_below_img_wIntro_wLargeLogo.js"))),
+  "component---src-templates-film-lead-project-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/templates/film_lead_project.js"))),
   "component---src-templates-project-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/templates/project.js")))
 }
 

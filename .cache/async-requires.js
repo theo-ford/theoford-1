@@ -44,6 +44,7 @@ exports.components = {
   "component---src-pages-project-info-above-img-w-large-logo-js": () => import("./../../../src/pages/project_info_above_img_wLargeLogo.js" /* webpackChunkName: "component---src-pages-project-info-above-img-w-large-logo-js" */),
   "component---src-pages-project-info-below-img-w-intro-js": () => import("./../../../src/pages/project_info_below_img_wIntro.js" /* webpackChunkName: "component---src-pages-project-info-below-img-w-intro-js" */),
   "component---src-pages-project-info-below-img-w-intro-w-large-logo-js": () => import("./../../../src/pages/project_info_below_img_wIntro_wLargeLogo.js" /* webpackChunkName: "component---src-pages-project-info-below-img-w-intro-w-large-logo-js" */),
+  "component---src-templates-film-lead-project-js": () => import("./../../../src/templates/film_lead_project.js" /* webpackChunkName: "component---src-templates-film-lead-project-js" */),
   "component---src-templates-project-js": () => import("./../../../src/templates/project.js" /* webpackChunkName: "component---src-templates-project-js" */)
 }
 

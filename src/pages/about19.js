@@ -224,7 +224,7 @@ const FollowCon = styled.div`
   }
 `;
 const ListCol1 = styled.div`
-  grid-column: 3 / span 3;
+  grid-column: 5 / span 4;
   color: white;
   font-family: "Helvetica Now Var Roman";
   font-variation-settings: "wght" 390;
@@ -244,9 +244,13 @@ const ListCol1 = styled.div`
   a {
     color: white;
   }
+  @media (max-width: 666px) {
+    /* display: none; */
+    grid-column: span 8;
+  }
 `;
 const ListCol2 = styled.div`
-  grid-column: 6 / span 3;
+  grid-column: 9 / span 4;
   color: white;
   font-family: "Helvetica Now Var Roman";
   font-variation-settings: "wght" 390;
@@ -264,6 +268,10 @@ const ListCol2 = styled.div`
   }
   a {
     color: white;
+  }
+  @media (max-width: 666px) {
+    /* display: none; */
+    grid-column: 9 / span 8;
   }
 `;
 const ListCol3 = styled.div`
@@ -421,14 +429,6 @@ const About = ({ data }) => {
                 __html: data.prismicAbout.data.clients.html,
               }}
             />
-          </ListCol1>
-          <ListCol2>
-            <h5>Previous Employeres</h5>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: data.prismicAbout.data.previous_employers.html,
-              }}
-            />
             <br></br>
             <br></br>
             <h5>Press</h5>
@@ -436,22 +436,6 @@ const About = ({ data }) => {
               It's Nice That<br></br>
               It's Nice That<br></br>
             </p>
-          </ListCol2>
-          <ListCol3>
-            <h5>Services</h5>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: data.prismicAbout.data.services.html,
-              }}
-            />
-          </ListCol3>
-          <ListCol4>
-            <h5>Collaborators</h5>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: data.prismicAbout.data.collaborators.html,
-              }}
-            />
             <br></br>
             <br></br>
             <h5>Location</h5>
@@ -465,7 +449,31 @@ const About = ({ data }) => {
               Beijing<br></br>
               Philadelphia
             </p>
-          </ListCol4>
+          </ListCol1>
+          <ListCol2>
+            <h5>Previous Employeres</h5>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.prismicAbout.data.previous_employers.html,
+              }}
+            />
+            <br></br>
+            <br></br>
+            <h5>Collaborators</h5>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.prismicAbout.data.collaborators.html,
+              }}
+            />
+            <br></br>
+            <br></br>
+            <h5>Services</h5>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.prismicAbout.data.services.html,
+              }}
+            />
+          </ListCol2>
         </Grid16>
       </PageCon>
     </>

@@ -273,7 +273,7 @@ const ProjectTitleCon = styled.div`
 
   @media (max-width: 666px) {
     grid-column: span 1;
-    p {
+    a {
       color: #d4d4d4;
     }
   }
@@ -471,7 +471,7 @@ const Index = ({ data }) => {
               <p>Index</p>
             </NavCon1>
             <NavCon2>
-              <Link to="/about">
+              <Link to="/about17">
                 <p>About</p>
               </Link>
               <p>Instagram</p>
@@ -491,7 +491,7 @@ const Index = ({ data }) => {
               <p>Index</p>
             </NavCon1>
             <NavCon2>
-              <Link to="/about">
+              <Link to="/about17">
                 <p>About</p>
               </Link>
               <p>Instagram</p>
@@ -538,7 +538,7 @@ const Index = ({ data }) => {
         <ProjectInfoCon>
           <Grid16>
             <ProjectTitleCon>
-              <p>{title}</p>
+              <Link to={uid}>{title}</Link>
             </ProjectTitleCon>
             <ProjectLocationYearCon>
               <p>{location}</p>
@@ -548,7 +548,7 @@ const Index = ({ data }) => {
               <p>{homepage_intro}</p>
             </ProjectIndexAbout>
             <ProjectLink>
-              <a>More Info</a>
+              <Link to={uid}>More Info</Link>
             </ProjectLink>
           </Grid16>
         </ProjectInfoCon>
@@ -558,7 +558,7 @@ const Index = ({ data }) => {
         <ProjectInfoCon>
           <Grid2>
             <ProjectTitleCon>
-              <p>{title}</p>
+              <Link to={uid}>{title}</Link>
             </ProjectTitleCon>
             <ProjectLocationYearCon>
               <p>{location}</p>
@@ -1184,6 +1184,7 @@ const Index = ({ data }) => {
                   content.project_relationship_field.document.data
                     .homepage_intro.text
                 }
+                uid={content.project_relationship_field.document.uid}
               ></ProjectInfo>
             </ProjectCon>
           </>
@@ -1244,6 +1245,7 @@ const Index = ({ data }) => {
                   content.project_relationship_field.document.data
                     .homepage_intro.text
                 }
+                uid={content.project_relationship_field.document.uid}
               ></ProjectInfo>
             </ProjectCon>
           );
@@ -1286,6 +1288,7 @@ const Index = ({ data }) => {
                     content.project_relationship_field.document.data
                       .homepage_intro.text
                   }
+                  uid={content.project_relationship_field.document.uid}
                 ></ProjectInfo>
               </ProjectCon>
             </>
@@ -1319,6 +1322,7 @@ const Index = ({ data }) => {
                   content.project_relationship_field.document.data
                     .homepage_intro.text
                 }
+                uid={content.project_relationship_field.document.uid}
               ></ProjectInfo>
             </ProjectCon>
           );
@@ -1388,6 +1392,7 @@ export const query = graphql`
               ... on PrismicProject {
                 id
                 type
+                uid
                 data {
                   project_title {
                     html
@@ -1442,6 +1447,7 @@ export const query = graphql`
               ... on PrismicFilmLeadProject {
                 id
                 type
+                uid
                 data {
                   project_title {
                     html
