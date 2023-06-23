@@ -797,6 +797,15 @@ const Index = ({ data }) => {
       } else if (isOnScreen === false) {
         // console.log(srcProps);
         // console.log("off screen");
+        // caches.delete();
+        // var x = srcProps;
+        // var y = x.replace("https://theoford-1.cdn.prismic.io/theoford-1/", "");
+        // console.log(y);
+        // caches.delete(y);
+        // console.log(caches.keys());
+        // caches.keys().then(function(names) {
+        //   for (let name of names) caches.delete(name);
+        // });
         setIsVideoLoaded(false);
         setVideoSrcState("");
       }
@@ -839,6 +848,7 @@ const Index = ({ data }) => {
             style={{
               opacity: isVideoLoaded ? 1 : 0,
               position: isVideoLoaded ? "relative" : "absolute",
+              // display: isOnScreen ? "block" : "none",
               // opacity: 0,
               // position: "absolute",
             }}
@@ -910,8 +920,8 @@ const Index = ({ data }) => {
       // var smlPortrait = width * 1.25;
       // var lrgPortrait = width * 1.777;
       var x = height / width;
-      console.log(srcProps);
-      console.log(x);
+      // console.log(srcProps);
+      // console.log(x);
       if (x > 1.7) {
         setOrientationState("lrg-portrait");
         // VideoConInnerRef.current.classList.add("lrg-portrait");
@@ -952,7 +962,7 @@ const Index = ({ data }) => {
       setPlayingStatus(false);
     };
     const handleClick = event => {
-      console.log("pagination clicked");
+      // console.log("pagination clicked");
     };
     return (
       <>
@@ -1055,7 +1065,7 @@ const Index = ({ data }) => {
       className: "films-slider",
     };
 
-    console.log(slideGoTo);
+    // console.log(slideGoTo);
     useEffect(() => {
       FilmsLeadCarouselRef.current.slickGoTo(slideGoTo);
     }, [slideGoTo]);
@@ -1203,13 +1213,30 @@ const Index = ({ data }) => {
               );
             }
             if (content_four.slice_type == "video") {
-              return (
-                <AutoPlayVideo
-                  srcProps={content_four.primary.video.url}
-                  posterProps={content_four.primary.index_image.fluid.src}
-                />
-              );
+              if (isPageWide) {
+                return (
+                  <AutoPlayVideo
+                    srcProps={content_four.primary.video.url}
+                    posterProps={content_four.primary.index_image.fluid.src}
+                  />
+                );
+              } else {
+                return (
+                  <AutoPlayVideo
+                    srcProps={content_four.primary.sml_video.url}
+                    posterProps={content_four.primary.index_image.fluid.src}
+                  />
+                );
+              }
             }
+            // if (content_four.slice_type == "video") {
+            //   return (
+            //     <AutoPlayVideo
+            //       srcProps={content_four.primary.video.url}
+            //       posterProps={content_four.primary.index_image.fluid.src}
+            //     />
+            //   );
+            // }
           }
         );
         if (isPageWide && projectLength > 1) {
@@ -1430,6 +1457,9 @@ export const query = graphql`
                       slice_type
                       primary {
                         video {
+                          url
+                        }
+                        sml_video {
                           url
                         }
                         index_image {

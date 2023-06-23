@@ -242,6 +242,13 @@ var plugins = [{
                         "select": null
                       }
                     },
+                    "sml_video": {
+                      "type": "Link",
+                      "config": {
+                        "select": "media",
+                        "label": "Sml Video"
+                      }
+                    },
                     "index_image": {
                       "type": "Image",
                       "config": {
