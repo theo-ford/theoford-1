@@ -35895,6 +35895,21 @@ h1.navRight {
     }
   }
 
+  .shrink-b {
+  width: calc(37.5% - 6.25px) !important;
+  /* width: calc(25% - 6.25px) !important; */
+  /* width: calc(50% - 6.25px) !important; */
+  vertical-align: top;
+}
+
+.shrink-c {
+  width: calc(25% - 6.25px) !important;
+  /* width: calc(25% - 6.25px) !important; */
+  /* width: calc(50% - 6.25px) !important; */
+  vertical-align: top;
+}
+
+
 /* .films-slider .slick-slide div {
   display: grid;
   top: 12.5px;

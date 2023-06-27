@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
-html {
+/* html {
   main{
     opacity: 0;
     transition: 250ms opacity ease;
@@ -15,10 +15,7 @@ html.wf-inactive {
   main{
     opacity: 1;
   }
-//   // .artist-list {
-//   //   opacity: 1;    
-//   // }
- }
+ } */
 
 body {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);

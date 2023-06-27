@@ -45,6 +45,7 @@ exports.components = {
   "component---src-pages-index-nav-d-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_nav_d.js"))),
   "component---src-pages-index-nav-e-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_nav_e.js"))),
   "component---src-pages-index-nav-f-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_nav_f.js"))),
+  "component---src-pages-index-nav-g-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_nav_g.js"))),
   "component---src-pages-logo-scale-1-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/logo_scale_1.js"))),
   "component---src-pages-preview-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/preview.js"))),
   "component---src-pages-project-info-above-img-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/project_info_above_img.js"))),

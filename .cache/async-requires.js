@@ -42,6 +42,7 @@ exports.components = {
   "component---src-pages-index-nav-d-js": () => import("./../../../src/pages/index_nav_d.js" /* webpackChunkName: "component---src-pages-index-nav-d-js" */),
   "component---src-pages-index-nav-e-js": () => import("./../../../src/pages/index_nav_e.js" /* webpackChunkName: "component---src-pages-index-nav-e-js" */),
   "component---src-pages-index-nav-f-js": () => import("./../../../src/pages/index_nav_f.js" /* webpackChunkName: "component---src-pages-index-nav-f-js" */),
+  "component---src-pages-index-nav-g-js": () => import("./../../../src/pages/index_nav_g.js" /* webpackChunkName: "component---src-pages-index-nav-g-js" */),
   "component---src-pages-logo-scale-1-js": () => import("./../../../src/pages/logo_scale_1.js" /* webpackChunkName: "component---src-pages-logo-scale-1-js" */),
   "component---src-pages-preview-js": () => import("./../../../src/pages/preview.js" /* webpackChunkName: "component---src-pages-preview-js" */),
   "component---src-pages-project-info-above-img-js": () => import("./../../../src/pages/project_info_above_img.js" /* webpackChunkName: "component---src-pages-project-info-above-img-js" */),
