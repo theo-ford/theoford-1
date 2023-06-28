@@ -185,7 +185,7 @@ const LogoCon = styled.div`
     opacity: 0;
     animation-name: opacityAni;
     animation-duration: 1s;
-    animation-delay: 3s;
+    animation-delay: 2s;
     animation-fill-mode: forwards;
 
     @keyframes opacityAni {
