@@ -74,6 +74,7 @@ const LoadingBlock = styled.div`
 `;
 const FadeInCon = styled.div`
   background-color: white;
+  position: relative;
   @media (min-width: 666px) {
     opacity: 0;
     animation-name: opacityAni;
