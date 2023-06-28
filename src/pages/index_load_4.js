@@ -53,7 +53,7 @@ const LoadingBlock = styled.div`
   }
   @media (min-width: 666px) {
     animation-name: widthAni;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
 
     @keyframes widthAni {
@@ -79,7 +79,7 @@ const FadeInCon = styled.div`
     opacity: 0;
     animation-name: opacityAni;
     animation-duration: 1s;
-    animation-delay: 4s;
+    animation-delay: 3s;
     animation-fill-mode: forwards;
 
     @keyframes opacityAni {
