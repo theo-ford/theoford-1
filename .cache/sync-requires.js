@@ -12,6 +12,7 @@ exports.components = {
   "component---src-pages-index-load-1-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_load_1.js"))),
   "component---src-pages-index-load-2-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_load_2.js"))),
   "component---src-pages-index-load-3-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_load_3.js"))),
+  "component---src-pages-index-load-4-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_load_4.js"))),
   "component---src-pages-index-nav-e-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_nav_e.js"))),
   "component---src-pages-index-nav-g-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_nav_g.js"))),
   "component---src-pages-preview-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/preview.js"))),

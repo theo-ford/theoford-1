@@ -9,6 +9,7 @@ exports.components = {
   "component---src-pages-index-load-1-js": () => import("./../../../src/pages/index_load_1.js" /* webpackChunkName: "component---src-pages-index-load-1-js" */),
   "component---src-pages-index-load-2-js": () => import("./../../../src/pages/index_load_2.js" /* webpackChunkName: "component---src-pages-index-load-2-js" */),
   "component---src-pages-index-load-3-js": () => import("./../../../src/pages/index_load_3.js" /* webpackChunkName: "component---src-pages-index-load-3-js" */),
+  "component---src-pages-index-load-4-js": () => import("./../../../src/pages/index_load_4.js" /* webpackChunkName: "component---src-pages-index-load-4-js" */),
   "component---src-pages-index-nav-e-js": () => import("./../../../src/pages/index_nav_e.js" /* webpackChunkName: "component---src-pages-index-nav-e-js" */),
   "component---src-pages-index-nav-g-js": () => import("./../../../src/pages/index_nav_g.js" /* webpackChunkName: "component---src-pages-index-nav-g-js" */),
   "component---src-pages-preview-js": () => import("./../../../src/pages/preview.js" /* webpackChunkName: "component---src-pages-preview-js" */),
