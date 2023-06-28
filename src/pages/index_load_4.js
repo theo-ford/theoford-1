@@ -72,17 +72,8 @@ const LoadingBlock = styled.div`
     }
   }
 `;
-const IntroCon = styled.div`
-  margin-top: 10px;
-  span.grey {
-    color: #d4d4d4;
-  }
-  @media (max-width: 666px) {
-    display: none;
-  }
-  /* opacity: 0;
-  transition: 250ms opacity ease; */
-
+const FadeInCon = styled.div`
+  background-color: white;
   @media (min-width: 666px) {
     opacity: 0;
     animation-name: opacityAni;
@@ -99,6 +90,17 @@ const IntroCon = styled.div`
       }
     }
   }
+`;
+const IntroCon = styled.div`
+  margin-top: 10px;
+  span.grey {
+    color: #d4d4d4;
+  }
+  @media (max-width: 666px) {
+    display: none;
+  }
+  /* opacity: 0;
+  transition: 250ms opacity ease; */
 `;
 
 const AboutCon = styled.div`
@@ -181,22 +183,6 @@ const LogoCon = styled.div`
       width: calc(75% - 6.25px);
     }
   }
-  @media (min-width: 666px) {
-    opacity: 0;
-    animation-name: opacityAni;
-    animation-duration: 1s;
-    animation-delay: 4s;
-    animation-fill-mode: forwards;
-
-    @keyframes opacityAni {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-  }
 `;
 const NavCon1 = styled.div`
   display: inline-block;
@@ -226,22 +212,6 @@ const NavCon1 = styled.div`
     margin-left: 0px;
     grid-column: span 1;
   }
-  @media (min-width: 666px) {
-    opacity: 0;
-    animation-name: opacityAni;
-    animation-duration: 1s;
-    animation-delay: 4s;
-    animation-fill-mode: forwards;
-
-    @keyframes opacityAni {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-  }
 `;
 const NavCon2 = styled.div`
   display: none;
@@ -269,22 +239,6 @@ const PageCon = styled.div`
   margin-top: 28vh;
   /* overflow-x: hidden;
   max-width: 100vw; */
-  @media (min-width: 666px) {
-    opacity: 0;
-    animation-name: opacityAni;
-    animation-duration: 1s;
-    animation-delay: 4s;
-    animation-fill-mode: forwards;
-
-    @keyframes opacityAni {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-  }
 `;
 const Grid2 = styled.div`
   display: grid;
@@ -1523,46 +1477,49 @@ const Index = ({ data }) => {
         <title>(10) Pagination 1</title>
       </Helmet>
       <LoadingBlock></LoadingBlock>
-      <IntroCon>
-        <Grid16>
-          <AboutCon>
-            <p>
-              The design office of Theo Ford. Specialising in graphic design,
-              art direction, moving-image and web development. Recent commisions
-              and collaborations include identites for{" "}
-              <span className="grey">Tesla</span>, adverts for{" "}
-              <span className="grey">American Apparel</span>, and printed matter
-              for <span className="grey">COS</span>.<br />
-            </p>
-          </AboutCon>
-          <LocationCon>
-            <p>
-              Current Location: <span className="grey">New York,</span> London,
-              <span className="grey">
-                {" "}
-                Los Angeles, Beijing, Stockholm, Gothenburg, Glasgow, Falmouth,
-                Philadelphia.
-              </span>{" "}
-              2023/03/23 21:32.
-            </p>
-          </LocationCon>
-          <ContactCon>
-            <p class="">
-              <span>
-                info@theoford.com
-                <br />
-                +44 7599 759 529
-                <br />
-                @tf.public
-              </span>
-            </p>
-          </ContactCon>
-        </Grid16>
-      </IntroCon>
-      <NavSpacer></NavSpacer>
-      <LogoNav></LogoNav>
+      <FadeInCon>
+        <IntroCon>
+          <Grid16>
+            <AboutCon>
+              <p>
+                The design office of Theo Ford. Specialising in graphic design,
+                art direction, moving-image and web development. Recent
+                commisions and collaborations include identites for{" "}
+                <span className="grey">Tesla</span>, adverts for{" "}
+                <span className="grey">American Apparel</span>, and printed
+                matter for <span className="grey">COS</span>.<br />
+              </p>
+            </AboutCon>
+            <LocationCon>
+              <p>
+                Current Location: <span className="grey">New York,</span>{" "}
+                London,
+                <span className="grey">
+                  {" "}
+                  Los Angeles, Beijing, Stockholm, Gothenburg, Glasgow,
+                  Falmouth, Philadelphia.
+                </span>{" "}
+                2023/03/23 21:32.
+              </p>
+            </LocationCon>
+            <ContactCon>
+              <p class="">
+                <span>
+                  info@theoford.com
+                  <br />
+                  +44 7599 759 529
+                  <br />
+                  @tf.public
+                </span>
+              </p>
+            </ContactCon>
+          </Grid16>
+        </IntroCon>
+        <NavSpacer></NavSpacer>
+        <LogoNav></LogoNav>
 
-      <PageCon>{overview}</PageCon>
+        <PageCon>{overview}</PageCon>
+      </FadeInCon>
     </>
   );
 };
