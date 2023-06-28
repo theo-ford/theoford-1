@@ -244,7 +244,7 @@ const NavCon1 = styled.div`
   }
 `;
 const NavCon2 = styled.div`
-  display: inline-block;
+  display: none;
   position: sticky;
   top: 12.5px;
   margin-left: 12.5px;
@@ -258,8 +258,9 @@ const NavCon2 = styled.div`
   p.selected {
     color: white;
   }
+
   @media (max-width: 666px) {
-    /* display: none; */
+    display: block;
     margin-left: 0px;
     grid-column: span 1;
   }
