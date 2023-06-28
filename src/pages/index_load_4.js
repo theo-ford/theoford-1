@@ -53,7 +53,7 @@ const LoadingBlock = styled.div`
   }
   @media (min-width: 666px) {
     animation-name: widthAni;
-    animation-duration: 3s;
+    animation-duration: 5s;
     animation-fill-mode: forwards;
 
     @keyframes widthAni {
@@ -87,7 +87,7 @@ const IntroCon = styled.div`
     opacity: 0;
     animation-name: opacityAni;
     animation-duration: 1s;
-    animation-delay: 3s;
+    animation-delay: 5s;
     animation-fill-mode: forwards;
 
     @keyframes opacityAni {
@@ -185,7 +185,7 @@ const LogoCon = styled.div`
     opacity: 0;
     animation-name: opacityAni;
     animation-duration: 1s;
-    animation-delay: 2s;
+    animation-delay: 5s;
     animation-fill-mode: forwards;
 
     @keyframes opacityAni {
@@ -230,7 +230,7 @@ const NavCon1 = styled.div`
     opacity: 0;
     animation-name: opacityAni;
     animation-duration: 1s;
-    animation-delay: 3s;
+    animation-delay: 5s;
     animation-fill-mode: forwards;
 
     @keyframes opacityAni {
@@ -273,7 +273,7 @@ const PageCon = styled.div`
     opacity: 0;
     animation-name: opacityAni;
     animation-duration: 1s;
-    animation-delay: 3s;
+    animation-delay: 5s;
     animation-fill-mode: forwards;
 
     @keyframes opacityAni {
