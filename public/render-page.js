@@ -35695,9 +35695,6 @@ html.wf-inactive {
   main{
     opacity: 1;
   }
-//   // .artist-list {
-//   //   opacity: 1;    
-//   // }
  }
 
 body {

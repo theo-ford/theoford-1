@@ -512,14 +512,16 @@ const Index = ({ data }) => {
               </Col1>
               <Col2>
                 <NavCon1>
-                  <Link to="/">
-                    <p>
+                  <p>
+                    <Link to="/">
                       <span className="selected">Select,</span>{" "}
-                      <span className="navItem">Index,</span>{" "}
+                    </Link>
+                    <span className="navItem">Index,</span>{" "}
+                    <Link to="/about17">
                       <span className="navItem">Office</span>
-                      {/* <br></br>Instagram, Twitter */}
-                    </p>
-                  </Link>
+                    </Link>
+                    {/* <br></br>Instagram, Twitter */}
+                  </p>
                 </NavCon1>
               </Col2>
             </Grid2B>
