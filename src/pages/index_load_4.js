@@ -128,22 +128,7 @@ const LogoGridCon = styled.div`
   top: 12.5px;
   z-index: 300000;
   mix-blend-mode: exclusion;
-  @media (min-width: 666px) {
-    opacity: 0;
-    animation-name: opacityAni;
-    animation-duration: 1s;
-    animation-delay: 4s;
-    animation-fill-mode: forwards;
 
-    @keyframes opacityAni {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-  }
   @media (max-width: 666px) {
     /* display: none; */
     display: grid;
@@ -196,6 +181,22 @@ const LogoCon = styled.div`
       width: calc(75% - 6.25px);
     }
   }
+  @media (min-width: 666px) {
+    opacity: 0;
+    animation-name: opacityAni;
+    animation-duration: 1s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+
+    @keyframes opacityAni {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
 `;
 const NavCon1 = styled.div`
   display: inline-block;
@@ -224,6 +225,22 @@ const NavCon1 = styled.div`
     /* display: none; */
     margin-left: 0px;
     grid-column: span 1;
+  }
+  @media (min-width: 666px) {
+    opacity: 0;
+    animation-name: opacityAni;
+    animation-duration: 1s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+
+    @keyframes opacityAni {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
   }
 `;
 const NavCon2 = styled.div`
