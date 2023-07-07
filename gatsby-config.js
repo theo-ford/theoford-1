@@ -64,7 +64,7 @@ module.exports = {
           // now: require("./src/schemas/now.json"),
         },
         imageImgixParams: {
-          auto: "format",
+          auto: "",
         },
       },
     },

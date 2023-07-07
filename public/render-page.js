@@ -745,7 +745,7 @@ var plugins = [{
       }
     },
     "imageImgixParams": {
-      "auto": "format"
+      "auto": ""
     }
   }
 }, {
@@ -35683,7 +35683,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const GlobalStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["createGlobalStyle"]`
 
-html {
+/* html {
   main{
     opacity: 0;
     transition: 250ms opacity ease;
@@ -35695,7 +35695,7 @@ html.wf-inactive {
   main{
     opacity: 1;
   }
- }
+ } */
 
 body {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);
