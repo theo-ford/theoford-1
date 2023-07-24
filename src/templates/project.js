@@ -9,6 +9,7 @@ import ReactPlayer from "react-player";
 import { VideoComponentNoControls } from "../components/tf/video-component-no-controls";
 import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
+import { AutoPlayVideo } from "../components/tf/autoplay-video";
 
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
@@ -159,24 +160,29 @@ const PageCon = styled.div`
     margin-top: 14vh;
   }
 `;
-const Img = styled.img`
-  width: 100%;
-  margin-bottom: 10px;
-`;
 const BodyTextCon = styled.div`
   margin-bottom: 20px;
   p {
     line-height: 125%;
   }
+  @media (max-width: 666px) {
+  }
 `;
 const SquareImage = styled.img`
   width: calc(100%);
-  margin-bottom: 10px;
+  margin-bottom: 12.5px;
+
   @media (max-width: 666px) {
     width: 100%;
+    margin-bottom: 10px;
   }
 `;
-
+const ProjectPageAutoPlayVideoCon = styled.div`
+  margin-bottom: 12.5px;
+  @media (max-width: 666px) {
+    margin-bottom: 10px;
+  }
+`;
 const Project = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef = useRef(null);
@@ -268,6 +274,27 @@ const Project = ({ data }) => {
           </BodyTextCon>
         </>
       );
+    }
+    if (content.slice_type == "video") {
+      if (isPageWide) {
+        return (
+          <ProjectPageAutoPlayVideoCon>
+            <AutoPlayVideo
+              srcProps={content.primary.video.url}
+              posterProps={content.primary.index_image.fluid.srcSetWebp}
+            />
+          </ProjectPageAutoPlayVideoCon>
+        );
+      } else {
+        return (
+          <ProjectPageAutoPlayVideoCon>
+            <AutoPlayVideo
+              srcProps={content.primary.sml_video.url}
+              posterProps={content.primary.index_image.fluid.srcSetWebp}
+            />
+          </ProjectPageAutoPlayVideoCon>
+        );
+      }
     }
   });
   return (
@@ -385,6 +412,24 @@ export const query = graphql`
               text {
                 html
                 text
+              }
+            }
+          }
+          ... on PrismicProjectBody1Video {
+            id
+            slice_type
+            primary {
+              index_image {
+                fluid {
+                  srcSetWebp
+                  srcWebp
+                }
+              }
+              sml_video {
+                url
+              }
+              video {
+                url
               }
             }
           }

@@ -24,6 +24,8 @@ import Icon from "../../assets/WhiteLogo.svg";
 import PauseButton from "../../public/icons/Pause.png";
 import PlayButton from "../../public/icons/Play.png";
 import TestVideo from "../../assets/G4C Web Desk 1500.mp4";
+import { AutoPlayVideo } from "../components/tf/autoplay-video";
+
 // import * as prismicH from "@prismicio/helpers";
 // import * as prismic from "@prismicio/client";
 
@@ -283,52 +285,15 @@ const VideoProjectCon = styled.div`
   /* padding-top: 200px; */
 `;
 
-const AutoplayVideoCon = styled.div`
-  position: relative;
+const SquareImage = styled.img`
   width: calc(100% - 12.5px);
   @media (max-width: 666px) {
     width: 100%;
   }
 `;
-const AutoplayVideoImg = styled.img`
-  /* position: absolute; */
-  width: 100%;
-  height: 100%;
-`;
-const AutoplayVideoVideo = styled.video`
-  /* position: absolute; */
-  width: 100%;
-  height: 100%;
-`;
-const AutoplayVideoImgCon = styled.div``;
-const breatheAnimation = keyframes`
-  0% {opacity: 0} 
-  50% {opacity: 1}
-  100% {opacity:0}
-`;
-const AutoplayVideoTextCon = styled.div`
-  position: absolute;
-  z-index: 10000;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  p {
-    color: black;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    background-color: white;
-    margin-top: -1px;
-    animation-name: ${breatheAnimation};
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-  }
-`;
-const SquareImage = styled.img`
-  width: calc(100% - 12.5px);
+const IndexAutoPlayVideoCon = styled.div`
+  position: relative;
+  width: calc(100% - 12.5px) !important;
   @media (max-width: 666px) {
     width: 100%;
   }
@@ -906,93 +871,93 @@ const Index = ({ data }) => {
     );
   };
 
-  const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
-    // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
-    // https://frontend-digest.com/responsive-and-progressive-video-loading-in-react-e8753315af51
-    const autoplayVideoRef = useRef(null);
-    const isOnScreen = useOnScreen(autoplayVideoRef);
-    const [videoSrcState, setVideoSrcState] = useState("");
-    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+  // const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
+  //   // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
+  //   // https://frontend-digest.com/responsive-and-progressive-video-loading-in-react-e8753315af51
+  //   const autoplayVideoRef = useRef(null);
+  //   const isOnScreen = useOnScreen(autoplayVideoRef);
+  //   const [videoSrcState, setVideoSrcState] = useState("");
+  //   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
 
-    // console.log("autoplay Video Ref");
-    // console.log(autoplayVideoRef);
+  //   // console.log("autoplay Video Ref");
+  //   // console.log(autoplayVideoRef);
 
-    const onLoadedData = () => {
-      setIsVideoLoaded(true);
-    };
+  //   const onLoadedData = () => {
+  //     setIsVideoLoaded(true);
+  //   };
 
-    useEffect(() => {
-      if (isOnScreen == true) {
-        // console.log(srcProps);
-        // console.log("on screen");
-        setVideoSrcState(srcProps);
-        autoplayVideoRef.current.load();
-        autoplayVideoRef.current.play();
-      } else if (isOnScreen === false) {
-        // console.log(srcProps);
-        // console.log("off screen");
-        // caches.delete();
-        // var x = srcProps;
-        // var y = x.replace("https://theoford-1.cdn.prismic.io/theoford-1/", "");
-        // console.log(y);
-        // caches.delete(y);
-        // console.log(caches.keys());
-        // caches.keys().then(function(names) {
-        //   for (let name of names) caches.delete(name);
-        // });
-        setIsVideoLoaded(false);
-        setVideoSrcState("");
-      }
-    }, [isOnScreen]);
+  //   useEffect(() => {
+  //     if (isOnScreen == true) {
+  //       // console.log(srcProps);
+  //       // console.log("on screen");
+  //       setVideoSrcState(srcProps);
+  //       autoplayVideoRef.current.load();
+  //       autoplayVideoRef.current.play();
+  //     } else if (isOnScreen === false) {
+  //       // console.log(srcProps);
+  //       // console.log("off screen");
+  //       // caches.delete();
+  //       // var x = srcProps;
+  //       // var y = x.replace("https://theoford-1.cdn.prismic.io/theoford-1/", "");
+  //       // console.log(y);
+  //       // caches.delete(y);
+  //       // console.log(caches.keys());
+  //       // caches.keys().then(function(names) {
+  //       //   for (let name of names) caches.delete(name);
+  //       // });
+  //       setIsVideoLoaded(false);
+  //       setVideoSrcState("");
+  //     }
+  //   }, [isOnScreen]);
 
-    return (
-      <>
-        <AutoplayVideoCon>
-          <AutoplayVideoImgCon
-            style={{
-              opacity: isVideoLoaded ? 0 : 1,
-              position: isVideoLoaded ? "absolute" : "relative",
-              // opacity: 1,
-              // position: "relative",
-            }}
-          >
-            <AutoplayVideoTextCon>
-              <p>Video Loading</p>
-            </AutoplayVideoTextCon>
+  //   return (
+  //     <>
+  //       <AutoplayVideoCon>
+  //         <AutoplayVideoImgCon
+  //           style={{
+  //             opacity: isVideoLoaded ? 0 : 1,
+  //             position: isVideoLoaded ? "absolute" : "relative",
+  //             // opacity: 1,
+  //             // position: "relative",
+  //           }}
+  //         >
+  //           <AutoplayVideoTextCon>
+  //             <p>Video Loading</p>
+  //           </AutoplayVideoTextCon>
 
-            <AutoplayVideoImg
-              srcSet={posterProps}
-              style={{
-                opacity: isVideoLoaded ? 0 : 1,
-                position: isVideoLoaded ? "absolute" : "relative",
-                // opacity: 1,
-                // position: "relative",
-              }}
-            />
-          </AutoplayVideoImgCon>
+  //           <AutoplayVideoImg
+  //             srcSet={posterProps}
+  //             style={{
+  //               opacity: isVideoLoaded ? 0 : 1,
+  //               position: isVideoLoaded ? "absolute" : "relative",
+  //               // opacity: 1,
+  //               // position: "relative",
+  //             }}
+  //           />
+  //         </AutoplayVideoImgCon>
 
-          <AutoplayVideoVideo
-            playsInline
-            autoPlay
-            muted
-            loop
-            ref={autoplayVideoRef}
-            // onCanPlayThrough={onLoadedData}
-            onLoadedData={onLoadedData}
-            style={{
-              opacity: isVideoLoaded ? 1 : 0,
-              position: isVideoLoaded ? "relative" : "absolute",
-              // display: isOnScreen ? "block" : "none",
-              // opacity: 0,
-              // position: "absolute",
-            }}
-          >
-            <source type="video/mp4" src={videoSrcState} />
-          </AutoplayVideoVideo>
-        </AutoplayVideoCon>
-      </>
-    );
-  };
+  //         <AutoplayVideoVideo
+  //           playsInline
+  //           autoPlay
+  //           muted
+  //           loop
+  //           ref={autoplayVideoRef}
+  //           // onCanPlayThrough={onLoadedData}
+  //           onLoadedData={onLoadedData}
+  //           style={{
+  //             opacity: isVideoLoaded ? 1 : 0,
+  //             position: isVideoLoaded ? "relative" : "absolute",
+  //             // display: isOnScreen ? "block" : "none",
+  //             // opacity: 0,
+  //             // position: "absolute",
+  //           }}
+  //         >
+  //           <source type="video/mp4" src={videoSrcState} />
+  //         </AutoplayVideoVideo>
+  //       </AutoplayVideoCon>
+  //     </>
+  //   );
+  // };
 
   const VideoWithControlsImg = ({
     srcProps,
@@ -1352,12 +1317,14 @@ const Index = ({ data }) => {
             if (content_four.slice_type == "video") {
               if (isPageWide) {
                 return (
-                  <AutoPlayVideo
-                    srcProps={content_four.primary.video.url}
-                    posterProps={
-                      content_four.primary.index_image.fluid.srcSetWebp
-                    }
-                  />
+                  <IndexAutoPlayVideoCon>
+                    <AutoPlayVideo
+                      srcProps={content_four.primary.video.url}
+                      posterProps={
+                        content_four.primary.index_image.fluid.srcSetWebp
+                      }
+                    />
+                  </IndexAutoPlayVideoCon>
                 );
               } else {
                 return (
