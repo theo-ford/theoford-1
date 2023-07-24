@@ -38,18 +38,18 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 const NavSpacer = styled.div`
-  height: 24vh;
+  height: 0vh;
   width: 100%;
   @media (max-width: 666px) {
     display: none;
   }
+  /* background-color: green; */
 `;
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
   margin-left: 12.5px;
   position: sticky;
   top: 12.5px;
-  margin-top: 10px;
   z-index: 300000;
   mix-blend-mode: exclusion;
 
@@ -62,17 +62,37 @@ const LogoGridCon = styled.div`
     margin-left: 10px;
   }
 `;
+const Grid2B = styled.div`
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 12.5px;
+  grid-row-gap: 0;
+  width: calc(100% - 20px);
+  z-index: 20000;
+`;
+const Col1 = styled.div`
+  grid-column: span 1;
+`;
+const Col2 = styled.div`
+  grid-column: span 1;
+`;
 const LogoCon = styled.div`
   top: 12.5px;
   mix-blend-mode: exclusion;
   /* grid-column: span 6; */
-  /* width: calc(50% - 6.25px); */
-  width: calc(37.5% - 6.25px);
-  /* width: calc(42.5% - 6.25px); */
-  /* width: calc(72.5% - 6.25px); */
+  /* width: calc(50% - 6.25px); // (8col) */
+  // width: calc(37.5% - 6.25px); // (6col)
+  // width: calc(25% - 6.25px); // (4col)
+  /* width: calc(62.5% - 6.25px); // (10col) */
+  /* width: calc(75% - 6.25px); // (12col) */
+  width: calc(50% - 6.25px);
+  /* width: calc(100%); */
   display: inline-block;
   vertical-align: top;
-  transition: all 1s;
+  transition: all 2s;
+  vertical-align: top;
+  /* background-color: blue; */
 
   .shrink {
     width: calc(37.5% - 6.25px);
@@ -89,12 +109,26 @@ const LogoCon = styled.div`
 `;
 const NavCon1 = styled.div`
   display: inline-block;
-  margin-left: 12.5px;
+  position: sticky;
+  top: 12.5px;
+  z-index: 300000;
+  /* margin-left: 10px; */
+  margin-left: 11px;
+  /* margin-left: calc(50vw + 7px); */
+  /* margin-left: calc(25vw + 6.25px); */
+  /* margin-top: -118px; */
+  margin-top: -3px;
+  vertical-align: top;
+  mix-blend-mode: exclusion;
   p {
     color: #878787;
+    /* font-size: 12px; */
   }
-  p.selected {
+  span.selected {
     color: white;
+  }
+  span.navItem {
+    /* margin-left: 5px; */
   }
   @media (max-width: 666px) {
     /* display: none; */
@@ -104,9 +138,15 @@ const NavCon1 = styled.div`
 `;
 const NavCon2 = styled.div`
   display: inline-block;
+  position: sticky;
+  top: 12.5px;
   margin-left: 12.5px;
+  margin-top: -3px;
+  mix-blend-mode: exclusion;
+  z-index: 300000;
   p {
     color: #878787;
+    /* font-size: 12px; */
   }
   p.selected {
     color: white;
@@ -329,23 +369,29 @@ const About = ({ data }) => {
     if (isPageWide) {
       return (
         <>
-          {/* <NavSpacer></NavSpacer> */}
+          <NavSpacer></NavSpacer>
           <LogoGridCon>
-            <LogoCon ref={LogoConRef}>
-              <Icon />
-            </LogoCon>
-            <NavCon1>
-              <Link to="/">
-                <p>Selected</p>
-              </Link>
-              <p>Index</p>
-            </NavCon1>
-            <NavCon2>
-              <Link to="/about">
-                <p className="selected">About</p>
-              </Link>
-              <p>Instagram</p>
-            </NavCon2>
+            <Grid2B>
+              <Col1>
+                <LogoCon ref={LogoConRef}>
+                  <Icon />
+                </LogoCon>
+              </Col1>
+              <Col2>
+                <NavCon1>
+                  <p>
+                    <Link to="/">
+                      <span className="selected">Select,</span>{" "}
+                    </Link>
+                    <span className="navItem">Index,</span>{" "}
+                    <Link to="/about17">
+                      <span className="navItem">Office</span>
+                    </Link>
+                    {/* <br></br>Instagram, Twitter */}
+                  </p>
+                </NavCon1>
+              </Col2>
+            </Grid2B>
           </LogoGridCon>
         </>
       );
@@ -356,13 +402,13 @@ const About = ({ data }) => {
           <LogoGridCon>
             <NavCon1>
               <Link to="/">
-                <p>Selected</p>
+                <p className="selected">Selected</p>
               </Link>
               <p>Index</p>
             </NavCon1>
             <NavCon2>
-              <Link to="/about">
-                <p className="selected">About</p>
+              <Link to="/about17">
+                <p>About</p>
               </Link>
               <p>Instagram</p>
             </NavCon2>
@@ -374,6 +420,17 @@ const About = ({ data }) => {
       );
     }
   };
+  // const handleScroll = () => {
+  //   const position = window.pageYOffset;
+  //   // console.log(position);
+  //   if (position > 25) {
+  //     // console.log("greater than 100");
+  //     LogoConRef.current.classList.add("shrink");
+  //   } else if (position < 25) {
+  //     // console.log("less than 100");
+  //     LogoConRef.current.classList.remove("shrink");
+  //   }
+  // };
 
   return (
     <>

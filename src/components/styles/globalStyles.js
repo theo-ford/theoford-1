@@ -35,14 +35,14 @@ input {
 }
 
 h1,h2,h3,h4,h5, p{
-  font-family: "Helvetica Now Var Roman";
+  font-family: "Helvetica Now Var Roman", helvetica, sans-serif;
   margin: 0;
 }
 
 
 
 p, a {
-  font-family: "Helvetica Now Var Roman";
+  font-family: "Helvetica Now Var Roman", helvetica, sans-serif;
   font-variation-settings: "wght" 390;
   /* font-family: "HelveticaNowText"; */
   /* font-variation-settings: "wght" 351; */

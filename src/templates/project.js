@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { graphql, Link } from "gatsby";
 import { withPreview } from "gatsby-source-prismic";
 import { Helmet } from "react-helmet";
@@ -27,15 +27,40 @@ const LogoGridCon = styled.div`
     margin-left: 10px;
   }
 `;
+const Grid2B = styled.div`
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 12.5px;
+  grid-row-gap: 0;
+  width: calc(100% - 20px);
+  z-index: 20000;
+`;
+const Col1 = styled.div`
+  grid-column: span 1;
+`;
+const Col2 = styled.div`
+  grid-column: span 1;
+`;
 const LogoCon = styled.div`
   top: 12.5px;
   mix-blend-mode: exclusion;
   /* grid-column: span 6; */
-  width: calc(37.5% - 6.25px);
+  /* width: calc(50% - 6.25px); // (8col) */
+  // width: calc(37.5% - 6.25px); // (6col)
+  // width: calc(25% - 6.25px); // (4col)
+  /* width: calc(62.5% - 6.25px); // (10col) */
+  /* width: calc(75% - 6.25px); // (12col) */
+  width: calc(50% - 6.25px);
   display: inline-block;
   vertical-align: top;
-  transition: all 1s;
+  transition: all 2s;
+  vertical-align: top;
+  /* background-color: blue; */
 
+  .shrink {
+    width: calc(37.5% - 6.25px);
+  }
   @media (max-width: 666px) {
     /* display: none; */
     width: calc(75% - 6.25px);
@@ -48,12 +73,26 @@ const LogoCon = styled.div`
 `;
 const NavCon1 = styled.div`
   display: inline-block;
-  margin-left: 12.5px;
+  position: sticky;
+  top: 12.5px;
+  z-index: 300000;
+  /* margin-left: 10px; */
+  margin-left: 11px;
+  /* margin-left: calc(50vw + 7px); */
+  /* margin-left: calc(25vw + 6.25px); */
+  /* margin-top: -118px; */
+  margin-top: -3px;
+  vertical-align: top;
+  mix-blend-mode: exclusion;
   p {
     color: #878787;
+    /* font-size: 12px; */
   }
-  p.selected {
+  span.selected {
     color: white;
+  }
+  span.navItem {
+    /* margin-left: 5px; */
   }
   @media (max-width: 666px) {
     /* display: none; */
@@ -63,9 +102,15 @@ const NavCon1 = styled.div`
 `;
 const NavCon2 = styled.div`
   display: inline-block;
+  position: sticky;
+  top: 12.5px;
   margin-left: 12.5px;
+  margin-top: -3px;
+  mix-blend-mode: exclusion;
+  z-index: 300000;
   p {
     color: #878787;
+    /* font-size: 12px; */
   }
   p.selected {
     color: white;
@@ -84,7 +129,7 @@ const Grid8 = styled.div`
   width: calc(100%);
 `;
 const Table = styled.div`
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   border-bottom: 1px solid black;
 `;
 const TableRow = styled.div`
@@ -119,34 +164,48 @@ const Img = styled.img`
   margin-bottom: 10px;
 `;
 const BodyTextCon = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   p {
     line-height: 125%;
+  }
+`;
+const SquareImage = styled.img`
+  width: calc(100%);
+  margin-bottom: 10px;
+  @media (max-width: 666px) {
+    width: 100%;
   }
 `;
 
 const Project = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
-  const LogoNav = () => {
+  const LogoConRef = useRef(null);
+  const LogoNav = scrollPosition => {
     if (isPageWide) {
       return (
         <>
           <LogoGridCon>
-            <LogoCon>
-              <Icon />
-            </LogoCon>
-            <NavCon1>
-              <Link to="/">
-                <p className="selected">Selected</p>
-              </Link>
-              <p>Index</p>
-            </NavCon1>
-            <NavCon2>
-              <Link to="/about17">
-                <p>About</p>
-              </Link>
-              <p>Instagram</p>
-            </NavCon2>
+            <Grid2B>
+              <Col1>
+                <LogoCon ref={LogoConRef}>
+                  <Icon />
+                </LogoCon>
+              </Col1>
+              <Col2>
+                <NavCon1>
+                  <p>
+                    <Link to="/">
+                      <span className="selected">Select,</span>{" "}
+                    </Link>
+                    <span className="navItem">Index,</span>{" "}
+                    <Link to="/about17">
+                      <span className="navItem">Office</span>
+                    </Link>
+                    {/* <br></br>Instagram, Twitter */}
+                  </p>
+                </NavCon1>
+              </Col2>
+            </Grid2B>
           </LogoGridCon>
         </>
       );
@@ -168,15 +227,36 @@ const Project = ({ data }) => {
               <p>Instagram</p>
             </NavCon2>
           </LogoGridCon>
+          <LogoCon ref={LogoConRef}>
+            <Icon />
+          </LogoCon>
         </>
       );
     }
+  };
+  const ImgComponent = ({ srcProps, videoLoad }) => {
+    // console.log(srcProps);
+    var x = srcProps;
+    // console.log("x");
+    // console.log(x);
+    var y = x.replace(
+      /\?auto=&w=(800|1400|1600|2400|3600)&h=(800|1400|1600|2400|3600)/g,
+      ""
+    );
+    // console.log("y");
+    // console.log(y);
+    return <SquareImage srcSet={y} />;
+    //return <SquareImage src={srcProps} />;
   };
   const projectBody = data.prismicProject.data.body1.map((content, index) => {
     if (content.slice_type == "image") {
       return (
         <>
-          <Img src={content.primary.image.fluid.src} />
+          {/* <Img src={content.primary.image.fluid.src} /> */}
+          <ImgComponent
+            srcProps={content.primary.image.fluid.srcSetWebp}
+            // srcProps={content_four.primary.image.fluid.srcWebp}
+          />
         </>
       );
     }
