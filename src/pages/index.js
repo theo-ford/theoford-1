@@ -293,7 +293,7 @@ const SquareImage = styled.img`
 `;
 const IndexAutoPlayVideoCon = styled.div`
   position: relative;
-  width: calc(100% - 12.5px) !important;
+  width: calc(100% - 12.5px);
   @media (max-width: 666px) {
     width: 100%;
   }
@@ -515,6 +515,25 @@ const VideoControlsImg = styled.img`
 `;
 
 const Index = ({ data }) => {
+  // https://stackoverflow.com/questions/57729504/is-there-a-way-to-tell-when-your-react-app-page-is-done-loading-the-page-asset
+  // This will run one time after the component mounts
+  useEffect(() => {
+    // callback function to call when event triggers
+    const onPageLoad = () => {
+      console.log("page loaded");
+      // do something else
+    };
+
+    // Check if the page has already loaded
+    if (document.readyState === "complete") {
+      onPageLoad();
+    } else {
+      window.addEventListener("load", onPageLoad, false);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener("load", onPageLoad);
+    }
+  }, []);
+
   const CarouselLengthContext = createContext();
   const CarouselIndexClicked = createContext({
     slideGoTo: 0,
