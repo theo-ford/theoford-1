@@ -567,7 +567,10 @@ const Index = ({ data }) => {
                     <Link to="/">
                       <span className="selected">Select,</span>{" "}
                     </Link>
-                    <span className="navItem">Index,</span>{" "}
+                    <Link to="/project_index">
+                      <span className="navItem">Index,</span>{" "}
+                    </Link>
+
                     <Link to="/about17">
                       <span className="navItem">Office</span>
                     </Link>
@@ -595,7 +598,9 @@ const Index = ({ data }) => {
               <Link to="/">
                 <p className="selected">Selected</p>
               </Link>
-              <p>Index</p>
+              <Link to="/project_index">
+                <span className="navItem">Index,</span>{" "}
+              </Link>
             </NavCon1>
             <NavCon2>
               <Link to="/about17">
