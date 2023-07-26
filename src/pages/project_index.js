@@ -14,7 +14,8 @@ import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
 import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
-
+// import TestImg from "../../assets/Logo.jpg";
+import PlayButton from "../../public/icons/logo.jpg";
 const GlobalStyle = createGlobalStyle`
   html {
     background-color: black;
@@ -64,19 +65,11 @@ const Col2 = styled.div`
 const LogoCon = styled.div`
   top: 12.5px;
   mix-blend-mode: exclusion;
-  /* grid-column: span 6; */
-  /* width: calc(50% - 6.25px); // (8col) */
-  // width: calc(37.5% - 6.25px); // (6col)
-  // width: calc(25% - 6.25px); // (4col)
-  /* width: calc(62.5% - 6.25px); // (10col) */
-  /* width: calc(75% - 6.25px); // (12col) */
   width: calc(50% - 6.25px);
-  /* width: calc(100%); */
   display: inline-block;
   vertical-align: top;
   transition: all 2s;
   vertical-align: top;
-  /* background-color: blue; */
 
   .shrink {
     width: calc(37.5% - 6.25px);
@@ -96,23 +89,17 @@ const NavCon1 = styled.div`
   position: sticky;
   top: 12.5px;
   z-index: 300000;
-  /* margin-left: 10px; */
   margin-left: 11px;
-  /* margin-left: calc(50vw + 7px); */
-  /* margin-left: calc(25vw + 6.25px); */
-  /* margin-top: -118px; */
   margin-top: -3px;
   vertical-align: top;
   mix-blend-mode: exclusion;
   p {
     color: #878787;
-    /* font-size: 12px; */
   }
   span.selected {
     color: white;
   }
   span.navItem {
-    /* margin-left: 5px; */
   }
   @media (max-width: 666px) {
     /* display: none; */
@@ -144,7 +131,107 @@ const NavCon2 = styled.div`
 const WhiteText = styled.p`
   color: white;
 `;
+const TableCon = styled.div`
+  margin-top: 20px;
+`;
+const Grid16 = styled.div`
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 12.5px;
+  margin-left: 12.5px;
+  grid-row-gap: 0;
+  width: calc(100% - 25px);
+  z-index: 20000;
+`;
 
+const ImageBorderCon = styled.div`
+  height: 10px;
+`;
+
+const IndexImgCon = styled.div`
+  grid-column: span 2;
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
+const IndexImg = styled.img`
+  width: 100%;
+  opacity: 0;
+  /* position: absolute; */
+`;
+const ProjectCon = styled.div`
+  &:hover ${IndexImg} {
+    opacity: 1;
+  }
+`;
+const Border = styled.div`
+  grid-column: span 14;
+  border-top: 1px solid white;
+  @media (max-width: 666px) {
+    grid-column: span 16;
+  }
+`;
+const InformationCon = styled.div`
+  height: 20px;
+`;
+const ImgSpacer = styled.div`
+  grid-column: span 2;
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
+const ProjectTitleCon = styled.div`
+  grid-column: span 2;
+  @media (max-width: 666px) {
+    grid-column: span 8;
+  }
+`;
+const ClientCon = styled.div`
+  grid-column: span 2;
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
+const SectorCon = styled.div`
+  grid-column: span 2;
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
+const CategoryCon = styled.div`
+  grid-column: span 4;
+  @media (max-width: 666px) {
+    grid-column: span 8;
+  }
+`;
+const YearCon = styled.div`
+  grid-column: span 2;
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
+const LocationCon = styled.div`
+  grid-column: span 2;
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
+const IndexBodyP = styled.p`
+  color: white;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+`;
+const TableHeaderCon = styled.div`
+  margin-top: 200px;
+`;
+
+const IndexTitleP = styled.p`
+  font-size: 16px;
+  color: white;
+`;
 const ProjectIndex = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef = useRef(null);
@@ -223,8 +310,6 @@ const ProjectIndex = ({ data }) => {
       );
     }
   );
-  // console.log(typeof squareProjects);
-  // console.log(squareProjects);
   console.log("SQUARE PROJECTS");
   console.log(squareProjects);
 
@@ -247,10 +332,53 @@ const ProjectIndex = ({ data }) => {
     console.log(content);
     console.log(content.content.node.data.year.text);
     return (
-      <WhiteText>
-        {content.content.node.data.project_title.text},{" "}
-        {content.content.node.data.year.text}
-      </WhiteText>
+      <>
+        <Link to={`/${content.content.node.uid}`}>
+          <ProjectCon>
+            <ImageBorderCon>
+              <Grid16>
+                <IndexImgCon>
+                  <IndexImg src={PlayButton}></IndexImg>
+                </IndexImgCon>
+                <Border></Border>
+              </Grid16>
+            </ImageBorderCon>
+
+            <InformationCon>
+              <Grid16>
+                <ImgSpacer></ImgSpacer>
+                <ProjectTitleCon>
+                  <IndexBodyP>
+                    {content.content.node.data.project_title.text}
+                  </IndexBodyP>
+                </ProjectTitleCon>
+                <ClientCon>
+                  <IndexBodyP>
+                    {content.content.node.data.client.text}
+                  </IndexBodyP>
+                </ClientCon>
+                <SectorCon>
+                  <IndexBodyP>Sector</IndexBodyP>
+                </SectorCon>
+                <CategoryCon>
+                  <IndexBodyP>Category</IndexBodyP>
+                </CategoryCon>
+                <YearCon>
+                  <IndexBodyP>
+                    {" "}
+                    {content.content.node.data.year.text}
+                  </IndexBodyP>
+                </YearCon>
+                <LocationCon>
+                  <IndexBodyP>
+                    {content.content.node.data.location.text}
+                  </IndexBodyP>
+                </LocationCon>
+              </Grid16>
+            </InformationCon>
+          </ProjectCon>
+        </Link>
+      </>
     );
   });
   console.log("ORGANISED ARRAY MAP");
@@ -264,12 +392,30 @@ const ProjectIndex = ({ data }) => {
       </Helmet>
 
       <LogoNav></LogoNav>
-      {/* {squareProjects}
-      {filmsProjects} */}
-
-      {/* {dateSortArray} */}
-      {/* {organisedArray2} */}
-      {organisedArrayMap}
+      <TableHeaderCon>
+        <Grid16>
+          <ImgSpacer></ImgSpacer>
+          <ProjectTitleCon>
+            <IndexTitleP>Project</IndexTitleP>
+          </ProjectTitleCon>
+          <ClientCon>
+            <IndexTitleP>Client</IndexTitleP>
+          </ClientCon>
+          <SectorCon>
+            <IndexTitleP>Sector</IndexTitleP>
+          </SectorCon>
+          <CategoryCon>
+            <IndexTitleP>Category</IndexTitleP>
+          </CategoryCon>
+          <YearCon>
+            <IndexTitleP>Year</IndexTitleP>
+          </YearCon>
+          <LocationCon>
+            <IndexTitleP>Location</IndexTitleP>
+          </LocationCon>
+        </Grid16>
+      </TableHeaderCon>
+      <TableCon>{organisedArrayMap}</TableCon>
     </>
   );
 };
@@ -281,11 +427,18 @@ export const query = graphql`
     allPrismicProject {
       edges {
         node {
+          uid
           data {
             project_title {
               text
             }
             year {
+              text
+            }
+            client {
+              text
+            }
+            location {
               text
             }
           }
@@ -295,11 +448,18 @@ export const query = graphql`
     allPrismicFilmLeadProject {
       edges {
         node {
+          uid
           data {
             project_title {
               text
             }
             year {
+              text
+            }
+            client {
+              text
+            }
+            location {
               text
             }
           }
