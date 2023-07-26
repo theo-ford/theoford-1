@@ -293,7 +293,7 @@ const SquareImage = styled.img`
 `;
 const IndexAutoPlayVideoCon = styled.div`
   position: relative;
-  width: calc(100% - 12.5px);
+  width: calc(100% - 12.5px) !important;
   @media (max-width: 666px) {
     width: 100%;
   }
