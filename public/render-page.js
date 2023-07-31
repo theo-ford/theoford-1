@@ -466,6 +466,25 @@ var plugins = [{
               }
             }
           }
+        },
+        "Meta": {
+          "categories": {
+            "type": "Group",
+            "config": {
+              "fields": {
+                "category": {
+                  "type": "Link",
+                  "config": {
+                    "select": "document",
+                    "customtypes": ["category"],
+                    "label": "category",
+                    "placeholder": "Category"
+                  }
+                }
+              },
+              "label": "Categories"
+            }
+          }
         }
       },
       "film_lead_project": {
@@ -636,6 +655,25 @@ var plugins = [{
               }
             }
           }
+        },
+        "Meta": {
+          "categories": {
+            "type": "Group",
+            "config": {
+              "fields": {
+                "category": {
+                  "type": "Link",
+                  "config": {
+                    "select": "document",
+                    "customtypes": ["category"],
+                    "label": "category",
+                    "placeholder": "Category"
+                  }
+                }
+              },
+              "label": "Categories"
+            }
+          }
         }
       },
       "featured_projects": {
@@ -762,6 +800,17 @@ var plugins = [{
             "config": {
               "multi": "paragraph,hyperlink,list-item",
               "label": "Collaborators"
+            }
+          }
+        }
+      },
+      "category": {
+        "Main": {
+          "name": {
+            "type": "Text",
+            "config": {
+              "label": "name",
+              "placeholder": "Name of the category"
             }
           }
         }
@@ -35737,14 +35786,14 @@ input {
   border-radius: 0;
 }
 
-h1,h2,h3,h4,h5, p{
+h1,h2,h3,h4,h5, p, span{
   font-family: "Helvetica Now Var Roman", helvetica, sans-serif;
   margin: 0;
 }
 
 
 
-p, a {
+p, a, span {
   font-family: "Helvetica Now Var Roman", helvetica, sans-serif;
   font-variation-settings: "wght" 390;
   /* font-family: "HelveticaNowText"; */
