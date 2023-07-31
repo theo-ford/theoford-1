@@ -196,6 +196,14 @@ var plugins = [{
               "label": "Homepage Intro"
             }
           },
+          "index_preview_img": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Index Preview Img"
+            }
+          },
           "body": {
             "type": "Slices",
             "fieldset": "Slice zone",
@@ -508,6 +516,14 @@ var plugins = [{
             "config": {
               "single": "paragraph",
               "label": "Homepage Intro"
+            }
+          },
+          "index_preview_img": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Index Preview Img"
             }
           },
           "body": {

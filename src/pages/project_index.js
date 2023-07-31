@@ -342,6 +342,12 @@ const ProjectIndex = ({ data }) => {
             <ImageBorderCon>
               <Grid16>
                 <IndexImgCon>
+                  <IndexImg
+                    srcSet={
+                      content.content.node.data.index_preview_img.fluid
+                        .srcSetWebp
+                    }
+                  />
                   {/* <IndexImg src={PlayButton}></IndexImg> */}
                 </IndexImgCon>
                 <Border></Border>
@@ -445,6 +451,12 @@ export const query = graphql`
             location {
               text
             }
+            index_preview_img {
+              fluid {
+                srcSetWebp
+                srcWebp
+              }
+            }
           }
         }
       }
@@ -465,6 +477,12 @@ export const query = graphql`
             }
             location {
               text
+            }
+            index_preview_img {
+              fluid {
+                srcSetWebp
+                srcWebp
+              }
             }
           }
         }
