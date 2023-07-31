@@ -14,8 +14,8 @@ import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
 import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
-// import TestImg from "../../assets/Logo.jpg";
-import PlayButton from "../../public/icons/logo.jpg";
+// import PlayButton from "../../assets/Logo.jpg";
+// import PlayButton from "../../public/icons/logo.jpg";
 const GlobalStyle = createGlobalStyle`
   html {
     background-color: black;
@@ -342,7 +342,7 @@ const ProjectIndex = ({ data }) => {
             <ImageBorderCon>
               <Grid16>
                 <IndexImgCon>
-                  <IndexImg src={PlayButton}></IndexImg>
+                  {/* <IndexImg src={PlayButton}></IndexImg> */}
                 </IndexImgCon>
                 <Border></Border>
               </Grid16>
