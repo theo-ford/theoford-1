@@ -225,7 +225,7 @@ const FilmLeadProject = ({ data }) => {
             </NavCon1>
             <NavCon2>
               <Link to="/about17">
-                <p>About</p>
+                <p>Office</p>
               </Link>
               <p>Instagram</p>
             </NavCon2>
