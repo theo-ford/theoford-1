@@ -674,6 +674,151 @@ var plugins = [{
               "label": "Categories"
             }
           }
+        },
+        "Project Page Content": {
+          "body1": {
+            "type": "Slices",
+            "fieldset": "Slice zone",
+            "config": {
+              "labels": {},
+              "choices": {
+                "image": {
+                  "type": "Slice",
+                  "fieldset": "Image",
+                  "description": "Image",
+                  "icon": "add_box",
+                  "display": "list",
+                  "non-repeat": {
+                    "image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Image"
+                      }
+                    },
+                    "index_image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Index Image"
+                      }
+                    }
+                  },
+                  "repeat": {}
+                },
+                "video": {
+                  "type": "Slice",
+                  "fieldset": "Square Autoplay Video",
+                  "description": "Square Autoplay Video",
+                  "icon": "add_box",
+                  "display": "list",
+                  "non-repeat": {
+                    "video": {
+                      "type": "Link",
+                      "config": {
+                        "label": "Video",
+                        "select": null
+                      }
+                    },
+                    "sml_video": {
+                      "type": "Link",
+                      "config": {
+                        "select": "media",
+                        "label": "Sml Video"
+                      }
+                    },
+                    "index_image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Index Image"
+                      }
+                    }
+                  },
+                  "repeat": {}
+                },
+                "video_with_play_button": {
+                  "type": "Slice",
+                  "fieldset": "Video With Play Button",
+                  "description": "Video With Play Button",
+                  "icon": "add_box",
+                  "display": "list",
+                  "non-repeat": {
+                    "video_with_play_button": {
+                      "type": "Link",
+                      "config": {
+                        "select": "media",
+                        "label": "Video With Play Button"
+                      }
+                    },
+                    "video_thumbnail": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Video Thumbnail"
+                      }
+                    },
+                    "index_image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Index Image"
+                      }
+                    }
+                  },
+                  "repeat": {}
+                },
+                "non_square_image": {
+                  "type": "Slice",
+                  "fieldset": "Non Square Image",
+                  "description": "Non Square Image",
+                  "icon": "add_box",
+                  "display": "list",
+                  "non-repeat": {
+                    "non_square_image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Non Square Image"
+                      }
+                    },
+                    "index_image": {
+                      "type": "Image",
+                      "config": {
+                        "constraint": {},
+                        "thumbnails": [],
+                        "label": "Index Image"
+                      }
+                    }
+                  },
+                  "repeat": {}
+                },
+                "text": {
+                  "type": "Slice",
+                  "fieldset": "Text",
+                  "description": "Text",
+                  "icon": "add_box",
+                  "display": "list",
+                  "non-repeat": {
+                    "text": {
+                      "type": "StructuredText",
+                      "config": {
+                        "multi": "paragraph,hyperlink",
+                        "label": "Text"
+                      }
+                    }
+                  },
+                  "repeat": {}
+                }
+              }
+            }
+          }
         }
       },
       "featured_projects": {

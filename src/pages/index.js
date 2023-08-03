@@ -580,13 +580,6 @@ const Index = ({ data }) => {
               </Col2>
             </Grid2B>
           </LogoGridCon>
-
-          {/* <NavCon2>
-            <Link to="/about17">
-              <p>About</p>
-            </Link>
-            <p>Instagram</p>
-          </NavCon2> */}
         </>
       );
     }
@@ -1062,8 +1055,8 @@ const Index = ({ data }) => {
 
     useEffect(() => {
       if (isOnScreen == true) {
-        // console.log(srcProps);
-        // console.log("on screen");
+        console.log(srcProps);
+        console.log("on screen");
         setVideoSrcState(srcProps);
         videoWithControlsRef.current.load();
         // videoWithControlsRef.current.play();
@@ -1076,6 +1069,182 @@ const Index = ({ data }) => {
     }, [isOnScreen, videoSrcState]);
 
     const playVideo = () => {
+      videoWithControlsRef.current.play();
+      setPlayingStatus(true);
+      setHasStartedPlaying(true);
+    };
+    const pauseVideo = () => {
+      videoWithControlsRef.current.pause();
+      setPlayingStatus(false);
+    };
+    const handleClick = event => {
+      // console.log("pagination clicked");
+    };
+    return (
+      <>
+        <CarouselLengthContext.Provider>
+          <VideoCon>
+            <VideoConInner className={imgOrientation}>
+              <VideoControlsImgCon
+                style={{
+                  opacity: hasStartedPlaying ? 0 : 1,
+                  position: hasStartedPlaying ? "absolute" : "relative",
+                }}
+              >
+                <VideoControlsImg
+                  ref={imgRef}
+                  srcSet={posterProps}
+                  style={{
+                    opacity: hasStartedPlaying ? 0 : 1,
+                    position: hasStartedPlaying ? "absolute" : "relative",
+                  }}
+                ></VideoControlsImg>
+              </VideoControlsImgCon>
+              <VideoWithContolsSC
+                playsInline
+                muted
+                loop
+                preload="auto"
+                ref={videoWithControlsRef}
+                onLoadedData={onLoadedData}
+                style={{
+                  zIndex: 0,
+
+                  opacity: hasStartedPlaying ? 1 : 0,
+                  position: hasStartedPlaying ? "relative" : "absolute",
+                  // https://stackoverflow.com/questions/3680429/click-through-div-to-underlying-elements
+                  // click through video to controls
+                  pointerEvents: "none",
+                }}
+              >
+                <source type="video/mp4" src={videoSrcState} />
+              </VideoWithContolsSC>
+              <ControlsCon>
+                <PaginationCon>
+                  {/* <p onClick={handleClick}>
+                    <span className="active">01</span> 02 03
+                  </p> */}
+                  <Pagination carouselLength={carouselLength}></Pagination>
+                </PaginationCon>
+                <PlayButtonCon
+                  style={{
+                    zIndex: 1,
+                  }}
+                >
+                  {isPlaying ? (
+                    <p onClick={pauseVideo}>
+                      <PauseButtonImg src={PauseButton} />
+                      Pause
+                    </p>
+                  ) : (
+                    <p onClick={playVideo}>
+                      <PlayButtonImg src={PlayButton} /> Play
+                    </p>
+                  )}
+                </PlayButtonCon>
+              </ControlsCon>
+            </VideoConInner>
+          </VideoCon>
+        </CarouselLengthContext.Provider>
+      </>
+    );
+  };
+
+  const VideoWithControlsLoad = ({
+    srcProps,
+    posterProps,
+    // filmsLeadCarouselNextImg,
+    // test,
+    // onChild2Event,
+  }) => {
+    const videoWithControlsRef = useRef(null);
+    // const height = videoWithControlsRef.current.dimensions.height;
+    const imgRef = useRef(null);
+    const isOnScreen = useOnScreen(videoWithControlsRef);
+    const [videoSrcState, setVideoSrcState] = useState("");
+    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+    const [imgOrientation, setOrientationState] = useState("");
+    const [isPlaying, setPlayingStatus] = useState(false);
+    const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
+    const VideoConInnerRef = useRef(null);
+    const carouselLength = useContext(CarouselLengthContext);
+    const { slideGoTo, setSlideGoTo } = useContext(CarouselIndexClicked);
+    // console.log(carouselLength);
+    // console.log(CarouselLengthContext);
+
+    const onLoadedData = () => {
+      setIsVideoLoaded(true);
+    };
+
+    const Pagination = ({ carouselLength }) => {
+      // console.log(carouselLength);
+      const array = [...Array(carouselLength)];
+      // console.log(array);
+      const handleClick = index => {
+        // console.log(index);
+        setSlideGoTo(index);
+      };
+      const items = array.map((child, index) => {
+        // console.log(index);
+        return (
+          <>
+            <PaginationControlP
+              className={slideGoTo == index ? "active" : ""}
+              onClick={() => handleClick(index)}
+            >
+              {/* {index + 1} */}
+              {("0" + (index + 1)).slice(-2)}
+            </PaginationControlP>
+            {"    "}
+          </>
+        );
+      });
+      return <div>{items}</div>;
+    };
+
+    useEffect(() => {
+      // console.log(imgRef.current.height);
+      // console.log(imgRef.current.width);
+      var width = imgRef.current.width;
+      var height = imgRef.current.height;
+      // var smlPortrait = width * 1.25;
+      // var lrgPortrait = width * 1.777;
+      var x = height / width;
+      // console.log(srcProps);
+      // console.log(x);
+      if (x > 1.7) {
+        setOrientationState("lrg-portrait");
+        // VideoConInnerRef.current.classList.add("lrg-portrait");
+      } else if (x > 1.2) {
+        setOrientationState("sml-portrait");
+      } else if (height >= width) {
+        setOrientationState("square");
+        // VideoConInnerRef.current.classList.add("square");
+      } else if (width > height) {
+        setOrientationState("landscape");
+        // VideoConInnerRef.current.classList.add("landscape");
+      }
+    }, [imgRef, srcProps]);
+    // console.log(imgRef);
+
+    useEffect(() => {
+      if (isOnScreen == true) {
+        // console.log(srcProps);
+        // console.log("on screen");
+        // setVideoSrcState(srcProps);
+        // videoWithControlsRef.current.load();
+        // videoWithControlsRef.current.play();
+      } else if (isOnScreen === false) {
+        // console.log(srcProps);
+        // console.log("off screen");
+        setIsVideoLoaded(false);
+        setVideoSrcState("");
+      }
+    }, [isOnScreen, videoSrcState]);
+
+    const playVideo = () => {
+      setVideoSrcState(srcProps);
+      videoWithControlsRef.current.load();
       videoWithControlsRef.current.play();
       setPlayingStatus(true);
       setHasStartedPlaying(true);
