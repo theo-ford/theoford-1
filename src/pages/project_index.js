@@ -323,7 +323,9 @@ const ProjectIndex = ({ data }) => {
                 <p className="selected">Selected</p>
               </Link>
               <Link to="/project_index">
-                <span className="navItem">Index,</span>{" "}
+                <p>
+                  <span className="navItem">Index</span>
+                </p>
               </Link>
             </NavCon1>
             <NavCon2>
@@ -333,9 +335,9 @@ const ProjectIndex = ({ data }) => {
               <p>Instagram</p>
             </NavCon2>
           </LogoGridCon>
-          <LogoCon ref={LogoConRef}>
+          {/* <LogoCon ref={LogoConRef}>
             <Icon />
-          </LogoCon>
+          </LogoCon> */}
         </>
       );
     }

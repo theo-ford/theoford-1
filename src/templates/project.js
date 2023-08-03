@@ -157,7 +157,7 @@ const PageCon = styled.div`
     width: calc(100% - 20px);
     margin-left: 10px;
 
-    margin-top: 14vh;
+    margin-top: 10vh;
   }
 `;
 const BodyTextCon = styled.div`
@@ -182,6 +182,9 @@ const ProjectPageAutoPlayVideoCon = styled.div`
   @media (max-width: 666px) {
     margin-bottom: 10px;
   }
+`;
+const CategoryName = styled.span`
+  text-transform: capitalize;
 `;
 const Project = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
@@ -227,7 +230,9 @@ const Project = ({ data }) => {
                 <p className="selected">Selected</p>
               </Link>
               <Link to="/project_index">
-                <span className="navItem">Index,</span>{" "}
+                <p>
+                  <span className="navItem">Index</span>{" "}
+                </p>
               </Link>
             </NavCon1>
             <NavCon2>
@@ -237,9 +242,9 @@ const Project = ({ data }) => {
               <p>Instagram</p>
             </NavCon2>
           </LogoGridCon>
-          <LogoCon ref={LogoConRef}>
+          {/* <LogoCon ref={LogoConRef}>
             <Icon />
-          </LogoCon>
+          </LogoCon> */}
         </>
       );
     }
@@ -332,7 +337,17 @@ const Project = ({ data }) => {
                 <p>Category</p>
               </TableTitle>
               <TableContent>
-                <p>TBD</p>
+                <p>
+                  {data.prismicProject.data.categories.map(
+                    (category, index) => {
+                      return (
+                        <CategoryName key={index}>
+                          {(index ? ", " : "") + category.category.slug}
+                        </CategoryName>
+                      );
+                    }
+                  )}
+                </p>
               </TableContent>
             </Grid8>
           </TableRow>
@@ -394,6 +409,12 @@ export const query = graphql`
         year {
           html
           text
+        }
+        categories {
+          category {
+            slug
+            id
+          }
         }
         body1 {
           ... on PrismicProjectBody1Image {

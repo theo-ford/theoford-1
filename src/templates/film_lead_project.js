@@ -128,7 +128,7 @@ const PageCon = styled.div`
     width: calc(100% - 20px);
     margin-left: 10px;
 
-    margin-top: 14vh;
+    margin-top: 10vh;
   }
 `;
 const Grid8 = styled.div`
@@ -170,7 +170,9 @@ const Footer = styled.div`
   background-color: white;
   height: 400px;
 `;
-
+const CategoryName = styled.span`
+  text-transform: capitalize;
+`;
 const FilmLeadProject = ({ data }) => {
   // test
   let isPageWide = useMediaQuery("(min-width: 667px)");
@@ -216,7 +218,9 @@ const FilmLeadProject = ({ data }) => {
                 <p className="selected">Selected</p>
               </Link>
               <Link to="/project_index">
-                <span className="navItem">Index,</span>{" "}
+                <p>
+                  <span className="navItem">Index</span>
+                </p>
               </Link>
             </NavCon1>
             <NavCon2>
@@ -226,9 +230,9 @@ const FilmLeadProject = ({ data }) => {
               <p>Instagram</p>
             </NavCon2>
           </LogoGridCon>
-          <LogoCon ref={LogoConRef}>
+          {/* <LogoCon ref={LogoConRef}>
             <Icon />
-          </LogoCon>
+          </LogoCon> */}
         </>
       );
     }
@@ -285,10 +289,20 @@ const FilmLeadProject = ({ data }) => {
           <TableRow>
             <Grid8>
               <TableTitle>
-                <p>Category</p>
+                <p>Categories</p>
               </TableTitle>
               <TableContent>
-                <p>TBD</p>
+                <p>
+                  {data.prismicFilmLeadProject.data.categories.map(
+                    (category, index) => {
+                      return (
+                        <CategoryName key={index}>
+                          {(index ? ", " : "") + category.category.slug}
+                        </CategoryName>
+                      );
+                    }
+                  )}
+                </p>
               </TableContent>
             </Grid8>
           </TableRow>
@@ -351,6 +365,12 @@ export const query = graphql`
         year {
           html
           text
+        }
+        categories {
+          category {
+            slug
+            id
+          }
         }
         body1 {
           ... on PrismicFilmLeadProjectBody1VideoWithPlayButton {
