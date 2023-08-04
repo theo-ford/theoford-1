@@ -403,7 +403,7 @@ const About = ({ data }) => {
         <>
           <LogoGridCon>
             <NavCon1>
-              <Link to="/">
+              <Link to="/index2">
                 <p className="selected">Selected</p>
               </Link>
               <Link to="/project_index">

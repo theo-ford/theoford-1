@@ -288,7 +288,7 @@ const ProjectIndex = ({ data }) => {
               <Col2>
                 <NavCon1>
                   <p>
-                    <Link to="/">
+                    <Link to="/index2">
                       <span className="selected">Select,</span>{" "}
                     </Link>
                     <Link to="/project_index">
