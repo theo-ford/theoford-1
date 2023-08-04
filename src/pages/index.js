@@ -149,7 +149,7 @@ const LogoGridConMobile = styled.div`
     grid-column-gap: 10px;
     width: calc(100% - 20px);
     margin-left: 10px;
-    top: 10px;
+    margin-top: 10px;
   }
 `;
 const Col1 = styled.div`

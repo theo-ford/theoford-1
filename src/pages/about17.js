@@ -206,14 +206,15 @@ const AboutP = styled.p`
   /* text-indent: 50px; */
   letter-spacing: -1.3px !important;
   @media (max-width: 666px) {
-    /* display: none; */
-    font-size: 16px;
-    color: white;
+    /* times now; */
+    font-size: 28px;
+
+    /*helvetica; */
     font-family: "Helvetica Now Var Roman";
     font-variation-settings: "wght" 390;
     color: white;
-    line-height: 110%;
-    letter-spacing: -0.5px;
+    font-size: 16px;
+    letter-spacing: -0.5px !important;
   }
 `;
 const CopyrightSpan = styled.span`
