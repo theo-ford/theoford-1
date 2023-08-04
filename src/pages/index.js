@@ -137,7 +137,11 @@ const LogoGridCon = styled.div`
   top: 12.5px;
   z-index: 300000;
   mix-blend-mode: exclusion;
-
+  /* background-color: yellow; */
+  float: left;
+`;
+const LogoGridConMobile = styled.div`
+  display: none;
   @media (max-width: 666px) {
     /* display: none; */
     display: grid;
@@ -147,36 +151,27 @@ const LogoGridCon = styled.div`
     margin-left: 10px;
   }
 `;
-const Grid2B = styled.div`
-  display: grid;
-  top: 12.5px;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 12.5px;
-  grid-row-gap: 0;
-  width: calc(100% - 20px);
-  z-index: 20000;
-`;
 const Col1 = styled.div`
-  grid-column: span 1;
+  width: calc(50% - 6.26px);
+  display: inline-block;
+  /* background-color: red; */
+  float: left;
 `;
 const Col2 = styled.div`
-  grid-column: span 1;
+  width: calc(50% - 6.25px);
+  display: inline-block;
+  /* background-color: blue; */
+  float: left;
+  margin-left: 2.25px;
 `;
 const LogoCon = styled.div`
   top: 12.5px;
   mix-blend-mode: exclusion;
-  /* grid-column: span 6; */
-  /* width: calc(50% - 6.25px); // (8col) */
-  // width: calc(37.5% - 6.25px); // (6col)
-  // width: calc(25% - 6.25px); // (4col)
-  /* width: calc(62.5% - 6.25px); // (10col) */
-  /* width: calc(75% - 6.25px); // (12col) */
-  width: calc(100% + 6.25px);
+  width: calc(100%);
   display: inline-block;
   vertical-align: top;
   transition: all 2s;
   vertical-align: top;
-  /* background-color: blue; */
 
   .shrink {
     width: calc(37.5% - 6.25px);
@@ -242,7 +237,7 @@ const NavCon2 = styled.div`
   }
 `;
 const PageCon = styled.div`
-  margin-top: 28vh;
+  margin-top: 40vh;
   /* overflow-x: hidden;
   max-width: 100vw; */
 `;
@@ -516,12 +511,24 @@ const VideoControlsImg = styled.img`
 `;
 
 const Index = ({ data }) => {
+  const htmlRef = useRef(null);
+  const [pageLoad, setPageLoad] = useState(null);
+
+  useEffect(() => {
+    console.log(htmlRef);
+    // if (htmlRef.current.classList.contains("wf-loading")) {
+    //   console.log("has class");
+    // }
+  }, [htmlRef]);
+
   // https://stackoverflow.com/questions/57729504/is-there-a-way-to-tell-when-your-react-app-page-is-done-loading-the-page-asset
   // This will run one time after the component mounts
+
   useEffect(() => {
     // callback function to call when event triggers
     const onPageLoad = () => {
       console.log("page loaded");
+      setPageLoad(true);
       // do something else
     };
 
@@ -556,30 +563,28 @@ const Index = ({ data }) => {
         <>
           <NavSpacer></NavSpacer>
           <LogoGridCon>
-            <Grid2B>
-              <Col1>
-                <LogoCon ref={LogoConRef}>
-                  <Icon />
-                </LogoCon>
-              </Col1>
-              <Col2>
-                <NavCon1>
-                  <p>
-                    <Link to="/">
-                      <span className="selected">Select,</span>{" "}
-                    </Link>
-                    <Link to="/project_index">
-                      <span className="navItem">Index,</span>{" "}
-                    </Link>
+            <Col1>
+              <LogoCon ref={LogoConRef}>
+                <Icon style={{ opacity: pageLoad ? 1 : 0 }} />
+              </LogoCon>
+            </Col1>
+            <Col2>
+              <NavCon1 style={{ opacity: pageLoad ? 1 : 0 }}>
+                <p>
+                  <Link to="/">
+                    <span className="selected">Select,</span>{" "}
+                  </Link>
+                  <Link to="/project_index">
+                    <span className="navItem">Index,</span>{" "}
+                  </Link>
 
-                    <Link to="/about17">
-                      <span className="navItem">Office</span>
-                    </Link>
-                    {/* <br></br>Instagram, Twitter */}
-                  </p>
-                </NavCon1>
-              </Col2>
-            </Grid2B>
+                  <Link to="/about17">
+                    <span className="navItem">Office</span>
+                  </Link>
+                  {/* <br></br>Instagram, Twitter */}
+                </p>
+              </NavCon1>
+            </Col2>
           </LogoGridCon>
         </>
       );
@@ -587,7 +592,7 @@ const Index = ({ data }) => {
     if (!isPageWide) {
       return (
         <>
-          <LogoGridCon>
+          <LogoGridConMobile>
             <NavCon1>
               <Link to="/">
                 <p className="selected">Selected</p>
@@ -604,9 +609,9 @@ const Index = ({ data }) => {
               </Link>
               <p>Instagram</p>
             </NavCon2>
-          </LogoGridCon>
+          </LogoGridConMobile>
           <LogoCon ref={LogoConRef}>
-            <Icon />
+            <Icon style={{ opacity: pageLoad ? 1 : 0 }} />
           </LogoCon>
         </>
       );
@@ -1002,6 +1007,10 @@ const Index = ({ data }) => {
     // console.log(carouselLength);
     // console.log(CarouselLengthContext);
 
+    // console.log(imgRef);
+    // useEffect(() => {
+    //   console.log(imgRef);
+    // }, [imgRef]);
     const onLoadedData = () => {
       setIsVideoLoaded(true);
     };
@@ -1489,7 +1498,9 @@ const Index = ({ data }) => {
   return (
     <>
       <GlobalStyle />
+      {/* <Helmet htmlAttributes={{ ref: htmlRef }}> */}
       <Helmet>
+        <head ref={htmlRef}></head>
         <title>(10) Pagination 1</title>
       </Helmet>
       {/* <LoadingBlock></LoadingBlock> */}
@@ -1499,7 +1510,7 @@ const Index = ({ data }) => {
             <source src={TestVideo}></source>
           </video>
         </TestVideoCon> */}
-      <IntroCon>
+      <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}>
         <Grid16>
           <AboutCon>
             <p>
@@ -1537,7 +1548,7 @@ const Index = ({ data }) => {
       </IntroCon>
       <NavSpacer></NavSpacer>
       <LogoNav></LogoNav>
-      <PageCon>{overview}</PageCon>
+      <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
       {/* </FadeInCon> */}
     </>
   );
@@ -1546,7 +1557,7 @@ const Index = ({ data }) => {
 export default withPreview(Index);
 
 export const query = graphql`
-  query IndexQuery21 {
+  query IndexQuery40 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {

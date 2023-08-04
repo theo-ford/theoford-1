@@ -203,7 +203,7 @@ const Project = ({ data }) => {
               <Col2>
                 <NavCon1>
                   <p>
-                    <Link to="/index2">
+                    <Link to="/">
                       <span className="selected">Select,</span>{" "}
                     </Link>
                     <Link to="/project_index">
