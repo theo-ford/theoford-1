@@ -397,7 +397,7 @@ const About = ({ data }) => {
                 </LogoCon>
               </Col1>
               <Col2>
-                <NavCon1>
+                <NavCon1 ref={LogoConRef} style={{ opacity: pageLoad ? 1 : 0 }}>
                   <p>
                     <Link to="/">
                       <span className="selected">Select,</span>{" "}
