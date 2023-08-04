@@ -207,14 +207,14 @@ const AboutP = styled.p`
   letter-spacing: -1.3px !important;
   @media (max-width: 666px) {
     /* times now; */
-    font-size: 28px;
+    font-size: 26px;
 
     /*helvetica; */
-    font-family: "Helvetica Now Var Roman";
+    /* font-family: "Helvetica Now Var Roman";
     font-variation-settings: "wght" 390;
     color: white;
     font-size: 16px;
-    letter-spacing: -0.5px !important;
+    letter-spacing: -0.5px !important; */
   }
 `;
 const CopyrightSpan = styled.span`
