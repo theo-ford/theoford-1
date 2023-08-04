@@ -611,7 +611,7 @@ const Index = ({ data }) => {
             </NavCon2>
           </LogoGridConMobile>
           <LogoCon ref={LogoConRef}>
-            <Icon />
+            <Icon style={{ opacity: pageLoad ? 1 : 0 }} />
           </LogoCon>
         </>
       );
