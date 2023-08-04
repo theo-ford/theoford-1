@@ -185,7 +185,7 @@ const PageCon = styled.div`
   /* overflow-x: hidden;
   max-width: 100vw; */
   margin-bottom: 100px;
-  margin-top: 100px;
+  margin-top: 60px;
 `;
 const AboutTextCon = styled.div`
   grid-column: 3 / span 12;
@@ -445,9 +445,9 @@ const About = ({ data }) => {
               <p>Instagram</p>
             </NavCon2>
           </LogoGridCon>
-          <LogoCon ref={LogoConRef} style={{ opacity: pageLoad ? 1 : 0 }}>
+          {/* <LogoCon ref={LogoConRef} style={{ opacity: pageLoad ? 1 : 0 }}>
             <Icon />
-          </LogoCon>
+          </LogoCon> */}
         </>
       );
     }
