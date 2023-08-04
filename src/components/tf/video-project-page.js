@@ -10,6 +10,8 @@ import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { useOnScreen } from "../hooks/useOnScreen";
 import PauseButton from "../../../public/icons/Pause.png";
 import PlayButton from "../../../public/icons/Play.png";
+import { ImageOrientation } from "../utils/image-orientation";
+import { ImageOrientation2 } from "../utils/image-orientation2";
 
 const VideoCon = styled.div`
   margin-bottom: 200px;
@@ -20,12 +22,16 @@ const VideoCon = styled.div`
   width: 100%;
 `;
 const VideoConInner = styled.div`
+  /* &.portrait {
+    grid-column: 4 / span 6;
+  } */
+  &.lrg-portrait {
+    grid-column: 5 / span 4;
+  }
   &.sml-portrait {
     grid-column: 4 / span 6;
   }
-  &.lrg-portrait {
-    grid-column: 4 / span 6;
-  }
+
   &.square {
     grid-column: 3 / span 8;
   }
@@ -82,16 +88,17 @@ const Poster = styled.img`
   width: 100%;
   height: 100%;
 `;
-export const VideoProjectPage = ({ srcProps, posterProps }) => {
+export const VideoProjectPage = ({ srcProps, posterProps, img }) => {
   const VideoRef = useRef(null);
   const imgRef = useRef(null);
   const [isPlaying, setPlayingStatus] = useState(false);
   const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
   const [imgOrientation, setOrientationState] = useState("");
-
+  console.log(img);
+  console.log(ImageOrientation(img));
   useEffect(() => {
-    // console.log(imgRef.current.height);
-    // console.log(imgRef.current.width);
+    console.log(imgRef.current.height);
+    console.log(imgRef.current.width);
     var width = imgRef.current.width;
     var height = imgRef.current.height;
     // var smlPortrait = width * 1.25;
@@ -111,7 +118,8 @@ export const VideoProjectPage = ({ srcProps, posterProps }) => {
       setOrientationState("landscape");
       // VideoConInnerRef.current.classList.add("landscape");
     }
-  }, [imgRef, srcProps]);
+    // setOrientationState(ImageOrientation(img));
+  }, [imgRef, srcProps, img]);
 
   const playVideo = () => {
     VideoRef.current.play();
@@ -125,7 +133,7 @@ export const VideoProjectPage = ({ srcProps, posterProps }) => {
   return (
     <>
       <VideoCon>
-        <VideoConInner className={imgOrientation}>
+        <VideoConInner className={ImageOrientation2(img)}>
           <Poster
             ref={imgRef}
             style={{

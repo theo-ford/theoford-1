@@ -240,13 +240,14 @@ const FilmLeadProject = ({ data }) => {
 
   const work = data.prismicFilmLeadProject.data.body1.map((content, index) => {
     if (content.slice_type == "video_with_play_button") {
-      console.log(content);
-      console.log(content.primary.video_thumbnail.fluid.srcSetWebp);
+      // console.log(content);
+      // console.log(content.primary.video_thumbnail.fluid.srcSetWebp);
       return (
         <>
           <VideoProjectPage
             srcProps={content.primary.video_with_play_button.url}
             posterProps={content.primary.video_thumbnail.fluid.srcSetWebp}
+            img={content.primary.video_thumbnail}
           ></VideoProjectPage>
         </>
       );
@@ -382,6 +383,10 @@ export const query = graphql`
                   srcSetWebp
                   srcWebp
                   src
+                }
+                dimensions {
+                  width
+                  height
                 }
               }
               video_with_play_button {
