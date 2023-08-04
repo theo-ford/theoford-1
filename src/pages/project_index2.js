@@ -66,6 +66,9 @@ const Col2 = styled.div`
 `;
 const Col3 = styled.div`
   grid-column: span 1;
+  p {
+    color: #878787;
+  }
 `;
 const Col4 = styled.div`
   grid-column: span 4;
@@ -322,6 +325,7 @@ const ProjectIndex = ({ data }) => {
                 </NavCon1>
               </Col2>
               <Col3>
+                <p>{/* <span>Type:</span> */}</p>
                 {/* <TextImgToggleP>
                   <span
                     class="active"
@@ -464,7 +468,9 @@ const ProjectIndex = ({ data }) => {
                     </IndexBodyP>
                   </ClientCon>
                   <SectorCon>
-                    <IndexBodyP>Sector</IndexBodyP>
+                    <IndexBodyP>
+                      {content.content.node.data.sector.text}
+                    </IndexBodyP>
                   </SectorCon>
                   <CategoryCon>
                     <IndexBodyP>
@@ -709,6 +715,9 @@ export const query = graphql`
                 srcWebp
               }
             }
+            sector {
+              text
+            }
             body1 {
               ... on PrismicProjectBody1Image {
                 id
@@ -774,6 +783,9 @@ export const query = graphql`
               text
             }
             location {
+              text
+            }
+            sector {
               text
             }
             index_preview_img {

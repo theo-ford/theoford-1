@@ -188,6 +188,13 @@ var plugins = [{
               "label": "Team"
             }
           },
+          "sector": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Sector"
+            }
+          },
           "homepage_intro": {
             "type": "StructuredText",
             "config": {
@@ -528,6 +535,13 @@ var plugins = [{
             "config": {
               "single": "paragraph",
               "label": "Team"
+            }
+          },
+          "sector": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Sector"
             }
           },
           "homepage_intro": {

@@ -41,6 +41,13 @@
         "label": "Team"
       }
     },
+    "sector": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Sector"
+      }
+    },
     "homepage_intro": {
       "type": "StructuredText",
       "config": {

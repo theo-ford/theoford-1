@@ -302,9 +302,9 @@ const ProjectIndex = ({ data }) => {
                 </NavCon1>
               </Col2>
               <Col3>
-                <TextImgToggleP>
+                {/* <TextImgToggleP>
                   <span class="active">Text</span>, Img
-                </TextImgToggleP>
+                </TextImgToggleP> */}
               </Col3>
               <Col4>
                 <Categories></Categories>
@@ -431,7 +431,9 @@ const ProjectIndex = ({ data }) => {
                     </IndexBodyP>
                   </ClientCon>
                   <SectorCon>
-                    <IndexBodyP>Sector</IndexBodyP>
+                    <IndexBodyP>
+                      {content.content.node.data.sector.text}
+                    </IndexBodyP>
                   </SectorCon>
                   <CategoryCon>
                     <IndexBodyP>
@@ -574,6 +576,9 @@ export const query = graphql`
             location {
               text
             }
+            sector {
+              text
+            }
             index_preview_img {
               fluid {
                 srcSetWebp
@@ -605,6 +610,9 @@ export const query = graphql`
               text
             }
             location {
+              text
+            }
+            sector {
               text
             }
             index_preview_img {
