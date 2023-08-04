@@ -94,33 +94,52 @@ export const VideoProjectPage = ({ srcProps, posterProps, img }) => {
   const [isPlaying, setPlayingStatus] = useState(false);
   const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
   const [imgOrientation, setOrientationState] = useState("");
-  console.log(img);
-  console.log(ImageOrientation(img));
-  useEffect(() => {
-    console.log(imgRef.current.height);
-    console.log(imgRef.current.width);
-    var width = imgRef.current.width;
-    var height = imgRef.current.height;
-    // var smlPortrait = width * 1.25;
-    // var lrgPortrait = width * 1.777;
-    var x = height / width;
-    // console.log(srcProps);
-    // console.log(x);
-    if (x > 1.7) {
-      setOrientationState("lrg-portrait");
-      // VideoConInnerRef.current.classList.add("lrg-portrait");
-    } else if (x > 1.2) {
-      setOrientationState("sml-portrait");
-    } else if (height >= width) {
-      setOrientationState("square");
-      // VideoConInnerRef.current.classList.add("square");
-    } else if (width > height) {
-      setOrientationState("landscape");
-      // VideoConInnerRef.current.classList.add("landscape");
-    }
-    // setOrientationState(ImageOrientation(img));
-  }, [imgRef, srcProps, img]);
+  const [vidDuration, setVidDuration] = useState("");
 
+  // useEffect(() => {
+  //   // Update the document title using the browser API
+  //   console.log(VideoRef.current.duration);
+  //   console.log(format(VideoRef.current.duration));
+  //   setVidDuration(format(VideoRef.current.duration));
+  // }, [VideoRef, vidDuration]);
+  // function y(seconds) {
+  //   const minutes = Math.floor(time / 60);
+  //   const seconds = time - minutes * 60;
+
+  //   function str_pad_left(string, pad, length) {
+  //     return (new Array(length + 1).join(pad) + string).slice(-length);
+  //   }
+
+  //   const finalTime =
+  //     str_pad_left(minutes, "0", 2) + ":" + str_pad_left(seconds, "0", 2);
+  //   return finalTime;
+  // }
+
+  // console.log(y(VideoRef.current.duration));
+
+  function format(time) {
+    // Hours, minutes and seconds
+    var hrs = ~~(time / 3600);
+    var mins = ~~((time % 3600) / 60);
+    var secs = ~~time % 60;
+
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    var ret = "";
+    if (hrs > 0) {
+      ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+    }
+    ret += "" + String(mins).padStart(2, "0") + ":" + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
+  }
+
+  // console.log(format(VideoRef.current.duration));
+
+  const handleLoadedMetadata = () => {
+    console.log(VideoRef.current.duration);
+    console.log(format(VideoRef.current.duration));
+    setVidDuration(format(VideoRef.current.duration));
+  };
   const playVideo = () => {
     VideoRef.current.play();
     setPlayingStatus(true);
@@ -158,12 +177,14 @@ export const VideoProjectPage = ({ srcProps, posterProps, img }) => {
               // click through video to controls
               pointerEvents: "none",
             }}
+            onLoadedMetadata={handleLoadedMetadata}
           >
             <source src={srcProps}></source>
           </video>
           <ControlsCon>
             <LengthCon>
-              <p>12:23</p>
+              <p>{vidDuration}</p>
+              {/* <p>TEST</p> */}
             </LengthCon>
             <PlayCon>
               {isPlaying ? (
