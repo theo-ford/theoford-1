@@ -426,17 +426,19 @@ const About = ({ data }) => {
                 <p className="selected">Selected</p>
               </Link>
               <Link to="/project_index">
-                <span className="navItem">Index,</span>{" "}
+                <p>
+                  <span className="navItem">Index</span>
+                </p>
               </Link>
             </NavCon1>
             <NavCon2>
               <Link to="/about17">
-                <p>About</p>
+                <p>Office</p>
               </Link>
               <p>Instagram</p>
             </NavCon2>
           </LogoGridCon>
-          <LogoCon ref={LogoConRef}>
+          <LogoCon ref={LogoConRef} style={{ opacity: pageLoad ? 1 : 0 }}>
             <Icon />
           </LogoCon>
         </>
