@@ -13,6 +13,7 @@ exports.components = {
   "component---src-pages-index-nav-e-js": () => import("./../../../src/pages/index_nav_e.js" /* webpackChunkName: "component---src-pages-index-nav-e-js" */),
   "component---src-pages-index-nav-g-js": () => import("./../../../src/pages/index_nav_g.js" /* webpackChunkName: "component---src-pages-index-nav-g-js" */),
   "component---src-pages-preview-js": () => import("./../../../src/pages/preview.js" /* webpackChunkName: "component---src-pages-preview-js" */),
+  "component---src-pages-project-index-2-js": () => import("./../../../src/pages/project_index2.js" /* webpackChunkName: "component---src-pages-project-index-2-js" */),
   "component---src-pages-project-index-js": () => import("./../../../src/pages/project_index.js" /* webpackChunkName: "component---src-pages-project-index-js" */),
   "component---src-templates-film-lead-project-js": () => import("./../../../src/templates/film_lead_project.js" /* webpackChunkName: "component---src-templates-film-lead-project-js" */),
   "component---src-templates-project-js": () => import("./../../../src/templates/project.js" /* webpackChunkName: "component---src-templates-project-js" */)
