@@ -51,36 +51,36 @@ const GlobalStyle = createGlobalStyle`
 const TestVideoCon = styled.div`
   width: 500px;
 `;
-// const LoadingBlock = styled.div`
-//   height: 15px;
-//   width: 100vw;
-//   background-color: black;
-//   position: fixed;
-//   /* z-index: -1000; */
-//   @media (max-width: 666px) {
-//     display: none;
-//   }
-//   @media (min-width: 666px) {
-//     animation-name: widthAni;
-//     animation-duration: 3s;
-//     animation-fill-mode: forwards;
+const LoadingBlock = styled.div`
+  height: 5px;
+  width: 100vw;
+  background-color: black;
+  position: fixed;
+  /* z-index: -1000; */
+  @media (max-width: 666px) {
+    display: none;
+  }
+  @media (min-width: 666px) {
+    animation-name: widthAni;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 
-//     @keyframes widthAni {
-//       /* 0% {
-//         width: 100vw;
-//       }
-//       100% {
-//         width: 0vw;
-//       } */
-//       0% {
-//         margin-left: 0vw;
-//       }
-//       100% {
-//         margin-left: 100vw;
-//       }
-//     }
-//   }
-// `;
+    @keyframes widthAni {
+      /* 0% {
+        width: 100vw;
+      }
+      100% {
+        width: 0vw;
+      } */
+      0% {
+        margin-left: 0vw;
+      }
+      100% {
+        margin-left: 100vw;
+      }
+    }
+  }
+`;
 // const FadeInCon = styled.div`
 //   background-color: white;
 //   position: relative;
@@ -1503,7 +1503,7 @@ const Index = ({ data }) => {
         <head ref={htmlRef}></head>
         <title>(10) Pagination 1</title>
       </Helmet>
-      {/* <LoadingBlock></LoadingBlock> */}
+      <LoadingBlock></LoadingBlock>
       {/* <FadeInCon> */}
       {/* <TestVideoCon>
           <video autplay muted>
