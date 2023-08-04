@@ -569,7 +569,7 @@ const Index = ({ data }) => {
               </LogoCon>
             </Col1>
             <Col2>
-              <NavCon1>
+              <NavCon1 style={{ opacity: pageLoad ? 1 : 0 }}>
                 <p>
                   <Link to="/">
                     <span className="selected">Select,</span>{" "}
@@ -1510,7 +1510,7 @@ const Index = ({ data }) => {
             <source src={TestVideo}></source>
           </video>
         </TestVideoCon> */}
-      <IntroCon>
+      <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}>
         <Grid16>
           <AboutCon>
             <p>
