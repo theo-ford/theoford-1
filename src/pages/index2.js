@@ -139,7 +139,9 @@ const LogoGridCon = styled.div`
   mix-blend-mode: exclusion;
   /* background-color: yellow; */
   float: left;
-
+`;
+const LogoGridConMobile = styled.div`
+  display: none;
   @media (max-width: 666px) {
     /* display: none; */
     display: grid;
@@ -590,7 +592,7 @@ const Index = ({ data }) => {
     if (!isPageWide) {
       return (
         <>
-          <LogoGridCon>
+          <LogoGridConMobile>
             <NavCon1>
               <Link to="/">
                 <p className="selected">Selected</p>
@@ -607,7 +609,7 @@ const Index = ({ data }) => {
               </Link>
               <p>Instagram</p>
             </NavCon2>
-          </LogoGridCon>
+          </LogoGridConMobile>
           <LogoCon ref={LogoConRef}>
             <Icon />
           </LogoCon>
