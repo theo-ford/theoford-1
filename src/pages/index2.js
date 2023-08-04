@@ -237,7 +237,7 @@ const NavCon2 = styled.div`
   }
 `;
 const PageCon = styled.div`
-  margin-top: 28vh;
+  margin-top: 40vh;
   /* overflow-x: hidden;
   max-width: 100vw; */
 `;
@@ -1548,7 +1548,7 @@ const Index = ({ data }) => {
       </IntroCon>
       <NavSpacer></NavSpacer>
       <LogoNav></LogoNav>
-      <PageCon>{overview}</PageCon>
+      <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
       {/* </FadeInCon> */}
     </>
   );
