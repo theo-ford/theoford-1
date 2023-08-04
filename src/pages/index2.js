@@ -509,12 +509,24 @@ const VideoControlsImg = styled.img`
 `;
 
 const Index = ({ data }) => {
+  const htmlRef = useRef(null);
+  const [pageLoad, setPageLoad] = useState(null);
+
+  useEffect(() => {
+    console.log(htmlRef);
+    // if (htmlRef.current.classList.contains("wf-loading")) {
+    //   console.log("has class");
+    // }
+  }, [htmlRef]);
+
   // https://stackoverflow.com/questions/57729504/is-there-a-way-to-tell-when-your-react-app-page-is-done-loading-the-page-asset
   // This will run one time after the component mounts
+
   useEffect(() => {
     // callback function to call when event triggers
     const onPageLoad = () => {
       console.log("page loaded");
+      setPageLoad(true);
       // do something else
     };
 
@@ -551,7 +563,7 @@ const Index = ({ data }) => {
           <LogoGridCon>
             <Col1>
               <LogoCon ref={LogoConRef}>
-                <Icon />
+                <Icon style={{ opacity: pageLoad ? 1 : 0 }} />
               </LogoCon>
             </Col1>
             <Col2>
@@ -993,6 +1005,10 @@ const Index = ({ data }) => {
     // console.log(carouselLength);
     // console.log(CarouselLengthContext);
 
+    // console.log(imgRef);
+    // useEffect(() => {
+    //   console.log(imgRef);
+    // }, [imgRef]);
     const onLoadedData = () => {
       setIsVideoLoaded(true);
     };
@@ -1480,7 +1496,9 @@ const Index = ({ data }) => {
   return (
     <>
       <GlobalStyle />
+      {/* <Helmet htmlAttributes={{ ref: htmlRef }}> */}
       <Helmet>
+        <head ref={htmlRef}></head>
         <title>(10) Pagination 1</title>
       </Helmet>
       {/* <LoadingBlock></LoadingBlock> */}
