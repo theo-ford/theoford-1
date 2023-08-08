@@ -69,9 +69,13 @@ const MobileRightCol = styled.div`
   grid-column: span 1;
 `;
 const MobileNavP = styled.p`
+  display: none;
   color: #878787;
   &.selected {
     color: white;
+  }
+  @media (max-width: 666px) {
+    display: block;
   }
 `;
 
