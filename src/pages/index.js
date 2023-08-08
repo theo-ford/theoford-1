@@ -644,7 +644,7 @@ const Index = ({ data }) => {
     if (isPageWide) {
       return (
         <>
-          <LogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
+          <LogoGridCon style={{ opacity: pageLoad ? 1 : 0 }}>
             <LogoConCon>
               <LogoCon ref={LogoConRef}>
                 <Link to="/">
@@ -652,7 +652,7 @@ const Index = ({ data }) => {
                 </Link>
               </LogoCon>
             </LogoConCon>
-            <MenuCon style={{ opacity: PageLoad ? 1 : 0 }}>
+            <MenuCon style={{ opacity: pageLoad ? 1 : 0 }}>
               <DesktopNavP>
                 <Link to="/" className="selected">
                   Select,{" "}
@@ -1565,7 +1565,7 @@ const Index = ({ data }) => {
             <source src={TestVideo}></source>
           </video>
         </TestVideoCon> */}
-      <IntroCon style={{ opacity: PageLoad ? 1 : 0 }}>
+      <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}>
         {/* <IntroCon> */}
         <Grid16>
           <AboutCon>
@@ -1605,7 +1605,7 @@ const Index = ({ data }) => {
       <NavSpacer></NavSpacer>
       <NavIndexGridIndex></NavIndexGridIndex>
       {/* <LogoNav></LogoNav> */}
-      <PageCon style={{ opacity: PageLoad ? 1 : 0 }}>{overview}</PageCon>
+      <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
       {/* </FadeInCon> */}
     </>
   );
