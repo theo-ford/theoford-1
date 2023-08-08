@@ -123,10 +123,10 @@ export const NavIndexGrid = () => {
         <LogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
           <LogoConCon>
             <LogoCon ref={LogoConRef}>
-              <Icon />
+              <Icon style={{ opacity: PageLoad ? 1 : 0 }} />
             </LogoCon>
           </LogoConCon>
-          <MenuCon>
+          <MenuCon style={{ opacity: PageLoad ? 1 : 0 }}>
             <DesktopNavP>
               <Link to="/">Select, </Link>
               <Link

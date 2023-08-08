@@ -105,7 +105,7 @@ const TestVideoCon = styled.div`
 const IntroCon = styled.div`
   margin-top: 10px;
   span.grey {
-    color: #d4d4d4;
+    color: #878787;
   }
   @media (max-width: 666px) {
     display: none;
@@ -117,7 +117,7 @@ const AboutCon = styled.div`
 const LocationCon = styled.div`
   grid-column: 9 / span 5;
   span.grey {
-    color: #d4d4d4;
+    color: #878787;
   }
 `;
 const ContactCon = styled.div`
