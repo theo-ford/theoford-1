@@ -144,22 +144,33 @@ export const NavGrid = () => {
   if (!isPageWide) {
     return (
       <>
-        <LogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
+        <LogoGridCon>
           <NavCon1>
             <Link to="/">
-              <MobileNavP className="selected">Selected</MobileNavP>
+              <MobileNavP
+                className="selected"
+                style={{ opacity: PageLoad ? 1 : 0 }}
+              >
+                Selected
+              </MobileNavP>
             </Link>
             <Link to="/project_index">
               <MobileNavP>
-                <span className="navItem">Index</span>{" "}
+                <span className="navItem" style={{ opacity: PageLoad ? 1 : 0 }}>
+                  Index
+                </span>{" "}
               </MobileNavP>
             </Link>
           </NavCon1>
           <NavCon2>
             <Link to="/about17">
-              <MobileNavP>Office</MobileNavP>
+              <MobileNavP style={{ opacity: PageLoad ? 1 : 0 }}>
+                Office
+              </MobileNavP>
             </Link>
-            <MobileNavP>Instagram</MobileNavP>
+            <MobileNavP style={{ opacity: PageLoad ? 1 : 0 }}>
+              Instagram
+            </MobileNavP>
           </NavCon2>
         </LogoGridCon>
         {/* <LogoCon ref={LogoConRef}>
