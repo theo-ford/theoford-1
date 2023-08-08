@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import { useMediaQuery } from "../media-query";
 import Icon from "../../../../assets/WhiteLogo.svg";
 import { graphql, Link } from "gatsby";
+import { PageLoad } from "../page-load";
 
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
@@ -106,10 +107,11 @@ const NavCon2 = styled.div`
 export const NavGrid = () => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef = useRef(null);
+
   if (isPageWide) {
     return (
       <>
-        <LogoGridCon>
+        <LogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
           <LogoConCon>
             <LogoCon ref={LogoConRef}>
               <Icon />
@@ -138,7 +140,7 @@ export const NavGrid = () => {
   if (!isPageWide) {
     return (
       <>
-        <LogoGridCon>
+        <LogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
           <NavCon1>
             <Link to="/">
               <p className="selected">Selected</p>
