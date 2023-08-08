@@ -519,6 +519,24 @@ const Index = ({ data }) => {
   // https://stackoverflow.com/questions/57729504/is-there-a-way-to-tell-when-your-react-app-page-is-done-loading-the-page-asset
   // This will run one time after the component mounts
 
+  useEffect(() => {
+    // callback function to call when event triggers
+    const onPageLoad = () => {
+      console.log("page loaded");
+      setPageLoad(true);
+      // do something else
+    };
+
+    // Check if the page has already loaded
+    if (document.readyState === "complete") {
+      onPageLoad();
+    } else {
+      window.addEventListener("load", onPageLoad, false);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener("load", onPageLoad);
+    }
+  }, []);
+
   const CarouselLengthContext = createContext();
   const CarouselIndexClicked = createContext({
     slideGoTo: 0,
@@ -1488,7 +1506,7 @@ const Index = ({ data }) => {
             <source src={TestVideo}></source>
           </video>
         </TestVideoCon> */}
-      <IntroCon style={{ opacity: PageLoad ? 1 : 0 }}>
+      <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}>
         {/* <IntroCon> */}
         <Grid16>
           <AboutCon>
@@ -1528,7 +1546,7 @@ const Index = ({ data }) => {
       <NavSpacer></NavSpacer>
       <NavIndexGrid></NavIndexGrid>
       {/* <LogoNav></LogoNav> */}
-      <PageCon style={{ opacity: PageLoad ? 1 : 0 }}>{overview}</PageCon>
+      <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
       {/* </FadeInCon> */}
     </>
   );
