@@ -1504,8 +1504,8 @@ const Index = ({ data }) => {
             <source src={TestVideo}></source>
           </video>
         </TestVideoCon> */}
-      <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}>
-        {/* <IntroCon> */}
+      {/* <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}> */}
+      <IntroCon>
         <Grid16>
           <AboutCon>
             <p>
