@@ -119,16 +119,23 @@ const NavCon2 = styled.div`
     grid-column: span 1;
   }
 `;
+const PageConCon = styled.div`
+  width: calc(100% - 25px);
+  margin: 12.5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr /* 1 */ 1fr 1fr 1fr 1fr /* 2 */ 1fr 1fr 1fr 1fr /* 3 */ 1fr 1fr 1fr 1fr /* 4 */;
+  grid-gap: 12.5px;
+`;
 const PageCon = styled.div`
-  width: 50%;
-  margin-left: 25%;
+  /* width: calc(50% - 12.5px);
+  margin-left: 25%; */
+  grid-column: 5 / span 8;
   margin-top: 20vh;
-
   @media (max-width: 666px) {
     /* display: none; */
-    width: calc(100% - 20px);
-    margin-left: 10px;
-
+    /* width: calc(100% - 20px);
+    margin-left: 10px; */
+    grid-column: span 16;
     margin-top: 10vh;
   }
 `;
@@ -358,76 +365,78 @@ const FilmLeadProject = ({ data }) => {
       <GlobalStyle />
       {/* <LogoNav></LogoNav> */}
       <NavGrid></NavGrid>
-      <PageCon>
-        <Table>
-          <TableRow>
-            <Grid8>
-              <TableTitle>
-                <p>Project</p>
-              </TableTitle>
-              <TableContent>
-                <p>{data.prismicFilmLeadProject.data.project_title.text}</p>
-              </TableContent>
-            </Grid8>
-          </TableRow>
-          <TableRow>
-            <Grid8>
-              <TableTitle>
-                <p>Location</p>
-              </TableTitle>
-              <TableContent>
-                <p>{data.prismicFilmLeadProject.data.location.text}</p>
-              </TableContent>
-            </Grid8>
-          </TableRow>
-          <TableRow>
-            <Grid8>
-              <TableTitle>
-                <p>Categories</p>
-              </TableTitle>
-              <TableContent>
-                <p>
-                  {data.prismicFilmLeadProject.data.categories.map(
-                    (category, index) => {
-                      return (
-                        <CategoryName key={index}>
-                          {(index ? ", " : "") + category.category.slug}
-                        </CategoryName>
-                      );
-                    }
-                  )}
-                </p>
-              </TableContent>
-            </Grid8>
-          </TableRow>
-          <TableRow>
-            <Grid8>
-              <TableTitle>
-                <p>Client</p>
-              </TableTitle>
-              <TableContent>
-                <p> {data.prismicFilmLeadProject.data.client.text}</p>
-              </TableContent>
-            </Grid8>
-          </TableRow>
-          <TableRow>
-            <Grid8>
-              <TableTitle>
-                <p>Team</p>
-              </TableTitle>
-              <TableContent>
-                <p>{data.prismicFilmLeadProject.data.team.text}</p>
-              </TableContent>
-            </Grid8>
-          </TableRow>
-        </Table>
-        {work}
-        <RelatedProjectsCon>
-          <RelatedProjectsTitle>Related Projects</RelatedProjectsTitle>
-          <RelatedProjects2 />
-        </RelatedProjectsCon>
-        {/* <Footer></Footer> */}
-      </PageCon>
+      <PageConCon>
+        <PageCon>
+          <Table>
+            <TableRow>
+              <Grid8>
+                <TableTitle>
+                  <p>Project</p>
+                </TableTitle>
+                <TableContent>
+                  <p>{data.prismicFilmLeadProject.data.project_title.text}</p>
+                </TableContent>
+              </Grid8>
+            </TableRow>
+            <TableRow>
+              <Grid8>
+                <TableTitle>
+                  <p>Location</p>
+                </TableTitle>
+                <TableContent>
+                  <p>{data.prismicFilmLeadProject.data.location.text}</p>
+                </TableContent>
+              </Grid8>
+            </TableRow>
+            <TableRow>
+              <Grid8>
+                <TableTitle>
+                  <p>Categories</p>
+                </TableTitle>
+                <TableContent>
+                  <p>
+                    {data.prismicFilmLeadProject.data.categories.map(
+                      (category, index) => {
+                        return (
+                          <CategoryName key={index}>
+                            {(index ? ", " : "") + category.category.slug}
+                          </CategoryName>
+                        );
+                      }
+                    )}
+                  </p>
+                </TableContent>
+              </Grid8>
+            </TableRow>
+            <TableRow>
+              <Grid8>
+                <TableTitle>
+                  <p>Client</p>
+                </TableTitle>
+                <TableContent>
+                  <p> {data.prismicFilmLeadProject.data.client.text}</p>
+                </TableContent>
+              </Grid8>
+            </TableRow>
+            <TableRow>
+              <Grid8>
+                <TableTitle>
+                  <p>Team</p>
+                </TableTitle>
+                <TableContent>
+                  <p>{data.prismicFilmLeadProject.data.team.text}</p>
+                </TableContent>
+              </Grid8>
+            </TableRow>
+          </Table>
+          {work}
+          <RelatedProjectsCon>
+            <RelatedProjectsTitle>Related Projects</RelatedProjectsTitle>
+            <RelatedProjects2 />
+          </RelatedProjectsCon>
+          {/* <Footer></Footer> */}
+        </PageCon>
+      </PageConCon>
     </>
   );
 };

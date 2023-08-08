@@ -27,9 +27,11 @@ const LogoGridCon = styled.div`
 /* DESKTOP */
 const LogoConCon = styled.div`
   grid-column: span 1;
+  mix-blend-mode: exclusion;
 `;
 const MenuCon = styled.div`
   grid-column: 3 / span 2;
+  mix-blend-mode: exclusion;
 `;
 const LogoCon = styled.div`
   mix-blend-mode: exclusion;
@@ -40,9 +42,14 @@ const LogoCon = styled.div`
 `;
 const DesktopNavP = styled.p`
   color: #878787;
-  &.selected {
+  mix-blend-mode: exclusion;
+  /* span.selected {
     color: white;
-  }
+  } */
+  /* a:[aria-current] : {
+    color: white;
+  } */
+
   @media (max-width: 666px) {
     display: none;
   }
@@ -52,13 +59,16 @@ const DesktopNavP = styled.p`
 
 const MobileLeftCol = styled.div`
   grid-column: span 2;
+  mix-blend-mode: exclusion;
 `;
 const MobileRightCol = styled.div`
   grid-column: span 2;
+  mix-blend-mode: exclusion;
 `;
 const MobileNavP = styled.p`
   display: none;
   color: #878787;
+  mix-blend-mode: exclusion;
   &.selected {
     color: white;
   }
@@ -70,6 +80,7 @@ const MobileNavP = styled.p`
 export const NavGrid = () => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef = useRef(null);
+  console.log(window.location.href);
 
   if (isPageWide) {
     return (
@@ -82,15 +93,9 @@ export const NavGrid = () => {
           </LogoConCon>
           <MenuCon>
             <DesktopNavP>
-              <Link to="/">
-                <span className="selected">Select,</span>{" "}
-              </Link>
-              <Link to="/project_index">
-                <span className="navItem">Index,</span>{" "}
-              </Link>
-              <Link to="/about17">
-                <span className="navItem">Office</span>
-              </Link>
+              <Link to="/">Select,</Link>
+              <Link to="/project_index">Index, </Link>
+              <Link to="/about17">Office</Link>
               {/* <br></br>Instagram, Twitter */}
             </DesktopNavP>
           </MenuCon>
@@ -104,12 +109,10 @@ export const NavGrid = () => {
         <LogoGridCon>
           <MobileLeftCol>
             <Link to="/">
-              <MobileNavP className="selected">Selected</MobileNavP>
+              <MobileNavP>Selected</MobileNavP>
             </Link>
             <Link to="/project_index">
-              <MobileNavP>
-                <span className="navItem">Index</span>{" "}
-              </MobileNavP>
+              <MobileNavP>Index</MobileNavP>
             </Link>
           </MobileLeftCol>
 
