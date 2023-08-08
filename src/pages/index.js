@@ -27,6 +27,7 @@ import TestVideo from "../../assets/G4C Web Desk 1500.mp4";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { ImageOrientation2 } from "../components/utils/image-orientation2";
 import { NavIndexGrid } from "../components/tf/nav-grid/nav-index";
+import { PageLoad } from "../components/tf/page-load";
 
 // import * as prismicH from "@prismicio/helpers";
 // import * as prismic from "@prismicio/client";

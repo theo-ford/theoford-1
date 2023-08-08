@@ -169,9 +169,9 @@ export const NavIndexGrid = () => {
             <MobileNavP>Instagram</MobileNavP>
           </MobileRightCol>
         </LogoGridCon>
-        <LogoCon ref={LogoConRef}>
+        {/* <LogoCon ref={LogoConRef}>
           <Icon style={{ opacity: PageLoad ? 1 : 0 }} />
-        </LogoCon>
+        </LogoCon> */}
       </>
     );
   }
