@@ -55,11 +55,11 @@ const MobileLogoGridCon = styled.div`
   top: 10px;
   z-index: 300000;
   mix-blend-mode: exclusion;
-  display: grid;
+
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   @media (max-width: 666px) {
-    display: block;
+    display: grid;
   }
 `;
 const MobileLeftCol = styled.div`
