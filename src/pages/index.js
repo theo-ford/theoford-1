@@ -1504,8 +1504,8 @@ const Index = ({ data }) => {
             <source src={TestVideo}></source>
           </video>
         </TestVideoCon> */}
-      {/* <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}> */}
-      <IntroCon>
+      <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}>
+        {/* <IntroCon> */}
         <Grid16>
           <AboutCon>
             <p>
@@ -1542,7 +1542,7 @@ const Index = ({ data }) => {
         </Grid16>
       </IntroCon>
       <NavSpacer></NavSpacer>
-      <NavIndexGrid></NavIndexGrid>
+      <NavIndexGrid style={{ opacity: pageLoad ? 1 : 0 }}></NavIndexGrid>
       {/* <LogoNav></LogoNav> */}
       <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
       {/* </FadeInCon> */}
