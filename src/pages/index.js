@@ -105,7 +105,7 @@ const TestVideoCon = styled.div`
 // `;
 const IntroCon = styled.div`
   margin-top: 10px;
-  transition: 1s ease;
+  /* transition: 1s ease; */
   span.grey {
     color: #878787;
   }
@@ -242,7 +242,7 @@ const NavCon2 = styled.div`
 `;
 const PageCon = styled.div`
   margin-top: 30vh;
-  transition: 1s ease;
+  /* transition: 1s ease; */
   /* overflow-x: hidden;
   max-width: 100vw; */
 `;
@@ -1546,7 +1546,7 @@ const Index = ({ data }) => {
         </Grid16>
       </IntroCon>
       <NavSpacer></NavSpacer>
-      <NavIndexGrid></NavIndexGrid>
+      <NavIndexGrid style={{ opacity: pageLoad ? 1 : 0 }}></NavIndexGrid>
       {/* <LogoNav></LogoNav> */}
       <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
       {/* </FadeInCon> */}
