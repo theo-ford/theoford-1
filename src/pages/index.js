@@ -239,7 +239,7 @@ const NavCon2 = styled.div`
   }
 `;
 const PageCon = styled.div`
-  margin-top: 40vh;
+  margin-top: 30vh;
   /* overflow-x: hidden;
   max-width: 100vw; */
 `;
@@ -1504,7 +1504,8 @@ const Index = ({ data }) => {
             <source src={TestVideo}></source>
           </video>
         </TestVideoCon> */}
-      <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}>
+      {/* <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}> */}
+      <IntroCon>
         <Grid16>
           <AboutCon>
             <p>

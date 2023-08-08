@@ -128,19 +128,11 @@ export const NavIndexGrid = () => {
           </LogoConCon>
           <MenuCon style={{ opacity: PageLoad ? 1 : 0 }}>
             <DesktopNavP>
-              <Link to="/">Select, </Link>
-              <Link
-                to="/project_index"
-                className={currentPage == "project_index" ? "selected" : ""}
-              >
-                Index,{" "}
+              <Link to="/" className="selected">
+                Select,{" "}
               </Link>
-              <Link
-                to="/office"
-                className={currentPage == "office" ? "selected" : ""}
-              >
-                Office
-              </Link>
+              <Link to="/project_index">Index, </Link>
+              <Link to="/office">Office</Link>
               {/* <br></br>Instagram, Twitter */}
             </DesktopNavP>
           </MenuCon>
@@ -154,22 +146,16 @@ export const NavIndexGrid = () => {
         <LogoGridCon>
           <MobileLeftCol>
             <Link to="/">
-              <MobileNavP>Selected</MobileNavP>
+              <MobileNavP className="selected">Selected</MobileNavP>
             </Link>
             <Link to="/project_index">
-              <MobileNavP
-                className={currentPage == "project_index" ? "selected" : ""}
-              >
-                Index
-              </MobileNavP>
+              <MobileNavP>Index</MobileNavP>
             </Link>
           </MobileLeftCol>
 
           <MobileRightCol>
             <Link to="/office">
-              <MobileNavP className={currentPage == "office" ? "selected" : ""}>
-                Office
-              </MobileNavP>
+              <MobileNavP>Office</MobileNavP>
             </Link>
             <MobileNavP>Instagram</MobileNavP>
           </MobileRightCol>
