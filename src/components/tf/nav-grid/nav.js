@@ -104,6 +104,10 @@ const NavCon2 = styled.div`
   }
 `;
 
+const MobileNavP = styled.p`
+  opacity: 0;
+`;
+
 export const NavGrid = () => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef = useRef(null);
@@ -143,19 +147,19 @@ export const NavGrid = () => {
         <LogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
           <NavCon1>
             <Link to="/">
-              <p className="selected">Selected</p>
+              <MobileNavP className="selected">Selected</MobileNavP>
             </Link>
             <Link to="/project_index">
-              <p>
+              <MobileNavP>
                 <span className="navItem">Index</span>{" "}
-              </p>
+              </MobileNavP>
             </Link>
           </NavCon1>
           <NavCon2>
             <Link to="/about17">
-              <p>Office</p>
+              <MobileNavP>Office</MobileNavP>
             </Link>
-            <p>Instagram</p>
+            <MobileNavP>Instagram</MobileNavP>
           </NavCon2>
         </LogoGridCon>
         {/* <LogoCon ref={LogoConRef}>
