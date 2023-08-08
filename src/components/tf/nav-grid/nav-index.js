@@ -39,15 +39,6 @@ const LogoCon = styled.div`
   vertical-align: top;
   transition: all 2s;
   vertical-align: top;
-  @media (max-width: 666px) {
-    /* display: none; */
-    width: calc(75% - 6.25px);
-    margin-top: 14vh;
-    margin-left: 10px;
-    .shrink {
-      width: calc(75% - 6.25px);
-    }
-  }
 `;
 const DesktopNavP = styled.p`
   color: #878787;
@@ -83,6 +74,20 @@ const MobileNavP = styled.p`
   }
   @media (max-width: 666px) {
     display: block;
+  }
+`;
+const LogoConMobile = styled.div`
+  display: none;
+  mix-blend-mode: exclusion;
+  @media (max-width: 666px) {
+    /* display: none; */
+    display: block;
+    width: calc(75% - 6.25px);
+    margin-top: 14vh;
+    margin-left: 10px;
+    .shrink {
+      width: calc(75% - 6.25px);
+    }
   }
 `;
 
@@ -169,9 +174,9 @@ export const NavIndexGrid = () => {
             <MobileNavP>Instagram</MobileNavP>
           </MobileRightCol>
         </LogoGridCon>
-        {/* <LogoCon ref={LogoConRef}>
-          <Icon style={{ opacity: PageLoad ? 1 : 0 }} />
-        </LogoCon> */}
+        <LogoConMobile ref={LogoConRef}>
+          <Icon />
+        </LogoConMobile>
       </>
     );
   }
