@@ -6,8 +6,8 @@ import Icon from "../../../../assets/WhiteLogo.svg";
 import { graphql, Link } from "gatsby";
 import { PageLoad } from "../page-load";
 
-/* DESKTOP */
-const DesktopLogoGridCon = styled.div`
+/* BOTH */
+const LogoGridCon = styled.div`
   width: calc(100% - 25px);
   margin-left: 12.5px;
   position: sticky;
@@ -19,13 +19,12 @@ const DesktopLogoGridCon = styled.div`
   grid-gap: 12.5px;
 
   @media (max-width: 666px) {
-    display: none;
-
-    /* grid-column-gap: 10px;
     width: calc(100% - 20px);
-    margin-left: 10px; */
+    margin-left: 10px;
+    top: 10px;
   }
 `;
+/* DESKTOP */
 const LogoConCon = styled.div`
   grid-column: span 1;
 `;
@@ -44,29 +43,18 @@ const DesktopNavP = styled.p`
   &.selected {
     color: white;
   }
+  @media (max-width: 666px) {
+    display: none;
+  }
 `;
 
 /* MOBILE */
-const MobileLogoGridCon = styled.div`
-  display: none;
-  width: calc(100% - 20px);
-  margin-left: 10px;
-  position: sticky;
-  top: 10px;
-  z-index: 300000;
-  mix-blend-mode: exclusion;
 
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-  @media (max-width: 666px) {
-    display: grid;
-  }
-`;
 const MobileLeftCol = styled.div`
-  grid-column: span 1;
+  grid-column: span 2;
 `;
 const MobileRightCol = styled.div`
-  grid-column: span 1;
+  grid-column: span 2;
 `;
 const MobileNavP = styled.p`
   display: none;
@@ -86,7 +74,7 @@ export const NavGrid = () => {
   if (isPageWide) {
     return (
       <>
-        <DesktopLogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
+        <LogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
           <LogoConCon>
             <LogoCon ref={LogoConRef}>
               <Icon />
@@ -106,14 +94,14 @@ export const NavGrid = () => {
               {/* <br></br>Instagram, Twitter */}
             </DesktopNavP>
           </MenuCon>
-        </DesktopLogoGridCon>
+        </LogoGridCon>
       </>
     );
   }
   if (!isPageWide) {
     return (
       <>
-        <MobileLogoGridCon>
+        <LogoGridCon>
           <MobileLeftCol>
             <Link to="/">
               <MobileNavP className="selected">Selected</MobileNavP>
@@ -131,7 +119,7 @@ export const NavGrid = () => {
             </Link>
             <MobileNavP>Instagram</MobileNavP>
           </MobileRightCol>
-        </MobileLogoGridCon>
+        </LogoGridCon>
       </>
     );
   }
