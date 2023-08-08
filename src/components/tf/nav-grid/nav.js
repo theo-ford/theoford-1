@@ -43,9 +43,9 @@ const LogoCon = styled.div`
 const DesktopNavP = styled.p`
   color: #878787;
   mix-blend-mode: exclusion;
-  /* span.selected {
+  a.selected {
     color: white;
-  } */
+  }
   /* a:[aria-current] : {
     color: white;
   } */
@@ -79,8 +79,21 @@ const MobileNavP = styled.p`
 
 export const NavGrid = () => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
+  var [currentPage, setCurrentPage] = useState(null);
   const LogoConRef = useRef(null);
-  console.log(window.location.href);
+
+  useEffect(() => {
+    var inputString = window.location.href;
+    var outputString = inputString.replace(/.*\//, "");
+    console.log(outputString);
+    if (outputString == "project_index") {
+      setCurrentPage(outputString);
+    } else if (outputString == "office") {
+      setCurrentPage(outputString);
+    } else {
+      setCurrentPage(null);
+    }
+  }, [setCurrentPage]);
 
   if (isPageWide) {
     return (
@@ -93,9 +106,19 @@ export const NavGrid = () => {
           </LogoConCon>
           <MenuCon>
             <DesktopNavP>
-              <Link to="/">Select,</Link>
-              <Link to="/project_index">Index, </Link>
-              <Link to="/about17">Office</Link>
+              <Link to="/">Select, </Link>
+              <Link
+                to="/project_index"
+                className={currentPage == "project_index" ? "selected" : ""}
+              >
+                Index,{" "}
+              </Link>
+              <Link
+                to="/office"
+                className={currentPage == "office" ? "selected" : ""}
+              >
+                Office
+              </Link>
               {/* <br></br>Instagram, Twitter */}
             </DesktopNavP>
           </MenuCon>
@@ -112,13 +135,19 @@ export const NavGrid = () => {
               <MobileNavP>Selected</MobileNavP>
             </Link>
             <Link to="/project_index">
-              <MobileNavP>Index</MobileNavP>
+              <MobileNavP
+                className={currentPage == "project_index" ? "selected" : ""}
+              >
+                Index
+              </MobileNavP>
             </Link>
           </MobileLeftCol>
 
           <MobileRightCol>
-            <Link to="/about17">
-              <MobileNavP>Office</MobileNavP>
+            <Link to="/office">
+              <MobileNavP className={currentPage == "office" ? "selected" : ""}>
+                Office
+              </MobileNavP>
             </Link>
             <MobileNavP>Instagram</MobileNavP>
           </MobileRightCol>
