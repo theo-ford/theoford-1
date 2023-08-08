@@ -6,7 +6,8 @@ import Icon from "../../../../assets/WhiteLogo.svg";
 import { graphql, Link } from "gatsby";
 import { PageLoad } from "../page-load";
 
-const LogoGridCon = styled.div`
+/* DESKTOP */
+const DesktopLogoGridCon = styled.div`
   width: calc(100% - 25px);
   margin-left: 12.5px;
   position: sticky;
@@ -18,14 +19,13 @@ const LogoGridCon = styled.div`
   grid-gap: 12.5px;
 
   @media (max-width: 666px) {
-    /* display: none; */
+    display: none;
 
-    grid-column-gap: 10px;
+    /* grid-column-gap: 10px;
     width: calc(100% - 20px);
-    margin-left: 10px;
+    margin-left: 10px; */
   }
 `;
-
 const LogoConCon = styled.div`
   grid-column: span 1;
 `;
@@ -38,74 +38,41 @@ const LogoCon = styled.div`
   vertical-align: top;
   transition: all 2s;
   vertical-align: top;
-  /* background-color: blue; */
-
-  .shrink {
-    width: calc(37.5% - 6.25px);
-  }
-  @media (max-width: 666px) {
-    /* display: none; */
-    width: calc(75% - 6.25px);
-    margin-top: 14vh;
-    margin-left: 10px;
-    .shrink {
-      width: calc(75% - 6.25px);
-    }
-  }
 `;
-const NavCon1 = styled.div`
-  display: inline-block;
-  position: sticky;
-  top: 12.5px;
-  z-index: 300000;
-  /* margin-left: 10px; */
-  margin-left: 11px;
-  /* margin-left: calc(50vw + 7px); */
-  /* margin-left: calc(25vw + 6.25px); */
-  /* margin-top: -118px; */
-  margin-top: -3px;
-  vertical-align: top;
-  mix-blend-mode: exclusion;
-  p {
-    color: #878787;
-    /* font-size: 12px; */
-  }
-  span.selected {
+const DesktopNavP = styled.p`
+  color: #878787;
+  &.selected {
     color: white;
-  }
-  span.navItem {
-    /* margin-left: 5px; */
-  }
-  @media (max-width: 666px) {
-    /* display: none; */
-    margin-left: 0px;
-    grid-column: span 1;
-  }
-`;
-const NavCon2 = styled.div`
-  display: inline-block;
-  position: sticky;
-  top: 12.5px;
-  margin-left: 12.5px;
-  margin-top: -3px;
-  mix-blend-mode: exclusion;
-  z-index: 300000;
-  p {
-    color: #878787;
-    /* font-size: 12px; */
-  }
-  p.selected {
-    color: white;
-  }
-  @media (max-width: 666px) {
-    /* display: none; */
-    margin-left: 0px;
-    grid-column: span 1;
   }
 `;
 
+/* MOBILE */
+const MobileLogoGridCon = styled.div`
+  display: none;
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  position: sticky;
+  top: 10px;
+  z-index: 300000;
+  mix-blend-mode: exclusion;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  @media (max-width: 666px) {
+    display: block;
+  }
+`;
+const MobileLeftCol = styled.div`
+  grid-column: span 1;
+`;
+const MobileRightCol = styled.div`
+  grid-column: span 1;
+`;
 const MobileNavP = styled.p`
-  opacity: 0;
+  color: #878787;
+  &.selected {
+    color: white;
+  }
 `;
 
 export const NavGrid = () => {
@@ -115,37 +82,35 @@ export const NavGrid = () => {
   if (isPageWide) {
     return (
       <>
-        <LogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
+        <DesktopLogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
           <LogoConCon>
             <LogoCon ref={LogoConRef}>
               <Icon />
             </LogoCon>
           </LogoConCon>
           <MenuCon>
-            <NavCon1>
-              <p>
-                <Link to="/">
-                  <span className="selected">Select,</span>{" "}
-                </Link>
-                <Link to="/project_index">
-                  <span className="navItem">Index,</span>{" "}
-                </Link>
-                <Link to="/about17">
-                  <span className="navItem">Office</span>
-                </Link>
-                {/* <br></br>Instagram, Twitter */}
-              </p>
-            </NavCon1>
+            <DesktopNavP>
+              <Link to="/">
+                <span className="selected">Select,</span>{" "}
+              </Link>
+              <Link to="/project_index">
+                <span className="navItem">Index,</span>{" "}
+              </Link>
+              <Link to="/about17">
+                <span className="navItem">Office</span>
+              </Link>
+              {/* <br></br>Instagram, Twitter */}
+            </DesktopNavP>
           </MenuCon>
-        </LogoGridCon>
+        </DesktopLogoGridCon>
       </>
     );
   }
   if (!isPageWide) {
     return (
       <>
-        <LogoGridCon>
-          <NavCon1>
+        <MobileLogoGridCon>
+          <MobileLeftCol>
             <Link to="/">
               <MobileNavP className="selected">Selected</MobileNavP>
             </Link>
@@ -154,17 +119,15 @@ export const NavGrid = () => {
                 <span className="navItem">Index</span>{" "}
               </MobileNavP>
             </Link>
-          </NavCon1>
-          <NavCon2>
+          </MobileLeftCol>
+
+          <MobileRightCol>
             <Link to="/about17">
               <MobileNavP>Office</MobileNavP>
             </Link>
             <MobileNavP>Instagram</MobileNavP>
-          </NavCon2>
-        </LogoGridCon>
-        {/* <LogoCon ref={LogoConRef}>
-            <Icon />
-          </LogoCon> */}
+          </MobileRightCol>
+        </MobileLogoGridCon>
       </>
     );
   }
