@@ -103,6 +103,92 @@ const TestVideoCon = styled.div`
 //     }
 //   }
 // `;
+
+/* BOTH */
+const LogoGridCon = styled.div`
+  width: calc(100% - 25px);
+  margin-left: 12.5px;
+  position: sticky;
+  top: 12.5px;
+  z-index: 300000;
+  mix-blend-mode: exclusion;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 12.5px;
+
+  @media (max-width: 666px) {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    top: 10px;
+  }
+`;
+/* DESKTOP */
+const LogoConCon = styled.div`
+  grid-column: span 2;
+  mix-blend-mode: exclusion;
+`;
+const MenuCon = styled.div`
+  grid-column: 3 / span 2;
+  mix-blend-mode: exclusion;
+`;
+const LogoCon = styled.div`
+  mix-blend-mode: exclusion;
+  width: calc(100%);
+  vertical-align: top;
+  transition: all 2s;
+  vertical-align: top;
+`;
+const DesktopNavP = styled.p`
+  color: #878787;
+  mix-blend-mode: exclusion;
+  a.selected {
+    color: white;
+  }
+  /* a:[aria-current] : {
+    color: white;
+  } */
+
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
+
+/* MOBILE */
+
+const MobileLeftCol = styled.div`
+  grid-column: span 2;
+  mix-blend-mode: exclusion;
+`;
+const MobileRightCol = styled.div`
+  grid-column: span 2;
+  mix-blend-mode: exclusion;
+`;
+const MobileNavP = styled.p`
+  display: none;
+  color: #878787;
+  mix-blend-mode: exclusion;
+  &.selected {
+    color: white;
+  }
+  @media (max-width: 666px) {
+    display: block;
+  }
+`;
+const LogoConMobile = styled.div`
+  display: none;
+  mix-blend-mode: exclusion;
+  @media (max-width: 666px) {
+    /* display: none; */
+    display: block;
+    width: calc(75% - 6.25px);
+    margin-top: 14vh;
+    margin-left: 10px;
+    .shrink {
+      width: calc(75% - 6.25px);
+    }
+  }
+`;
+
 const IntroCon = styled.div`
   margin-top: 10px;
   /* transition: 1s ease; */
@@ -132,113 +218,6 @@ const NavSpacer = styled.div`
     display: none;
   }
   /* background-color: green; */
-`;
-const LogoGridCon = styled.div`
-  width: calc(100% - 25px);
-  margin-left: 12.5px;
-  position: sticky;
-  top: 12.5px;
-  z-index: 300000;
-  mix-blend-mode: exclusion;
-  /* background-color: yellow; */
-  float: left;
-`;
-const LogoGridConMobile = styled.div`
-  display: none;
-  @media (max-width: 666px) {
-    /* display: none; */
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 10px;
-    width: calc(100% - 20px);
-    margin-left: 10px;
-    margin-top: 10px;
-  }
-`;
-const Col1 = styled.div`
-  width: calc(50% - 6.26px);
-  display: inline-block;
-  /* background-color: red; */
-  float: left;
-`;
-const Col2 = styled.div`
-  width: calc(50% - 6.25px);
-  display: inline-block;
-  /* background-color: blue; */
-  float: left;
-  margin-left: 2.25px;
-`;
-const LogoCon = styled.div`
-  top: 12.5px;
-  mix-blend-mode: exclusion;
-  width: calc(100%);
-  display: inline-block;
-  vertical-align: top;
-  transition: all 2s;
-  vertical-align: top;
-
-  .shrink {
-    width: calc(37.5% - 6.25px);
-  }
-  @media (max-width: 666px) {
-    /* display: none; */
-    width: calc(75% - 6.25px);
-    margin-top: 14vh;
-    margin-left: 10px;
-    .shrink {
-      width: calc(75% - 6.25px);
-    }
-  }
-`;
-const NavCon1 = styled.div`
-  display: inline-block;
-  position: sticky;
-  top: 12.5px;
-  z-index: 300000;
-  /* margin-left: 10px; */
-  margin-left: 11px;
-  /* margin-left: calc(50vw + 7px); */
-  /* margin-left: calc(25vw + 6.25px); */
-  /* margin-top: -118px; */
-  margin-top: -3px;
-  vertical-align: top;
-  mix-blend-mode: exclusion;
-  p {
-    color: #878787;
-    /* font-size: 12px; */
-  }
-  span.selected {
-    color: white;
-  }
-  span.navItem {
-    /* margin-left: 5px; */
-  }
-  @media (max-width: 666px) {
-    /* display: none; */
-    margin-left: 0px;
-    grid-column: span 1;
-  }
-`;
-const NavCon2 = styled.div`
-  display: inline-block;
-  position: sticky;
-  top: 12.5px;
-  margin-left: 12.5px;
-  margin-top: -3px;
-  mix-blend-mode: exclusion;
-  z-index: 300000;
-  p {
-    color: #878787;
-    /* font-size: 12px; */
-  }
-  p.selected {
-    color: white;
-  }
-  @media (max-width: 666px) {
-    /* display: none; */
-    margin-left: 0px;
-    grid-column: span 1;
-  }
 `;
 const PageCon = styled.div`
   margin-top: 30vh;
@@ -635,7 +614,85 @@ const Index = ({ data }) => {
   //     window.removeEventListener("scroll", handleScroll);
   //   };
   // }, []);
+  const NavIndexGridIndex = () => {
+    let isPageWide = useMediaQuery("(min-width: 667px)");
+    var [currentPage, setCurrentPage] = useState(null);
+    const LogoConRef = useRef(null);
 
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      // console.log(position);
+      if (position > 25) {
+        // console.log("greater than 100");
+        LogoConRef.current.classList.add("shrink");
+      } else if (position < 25) {
+        // console.log("less than 100");
+        LogoConRef.current.classList.remove("shrink");
+      }
+    };
+    // scroll use effect
+    useEffect(() => {
+      window.addEventListener("scroll", handleScroll, {
+        passive: true,
+      });
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
+
+    if (isPageWide) {
+      return (
+        <>
+          <LogoGridCon style={{ opacity: pageLoad ? 1 : 0 }}>
+            <LogoConCon>
+              <LogoCon ref={LogoConRef}>
+                <Link to="/">
+                  <Icon />
+                </Link>
+              </LogoCon>
+            </LogoConCon>
+            <MenuCon style={{ opacity: pageLoad ? 1 : 0 }}>
+              <DesktopNavP>
+                <Link to="/" className="selected">
+                  Select,{" "}
+                </Link>
+                <Link to="/project_index">Index, </Link>
+                <Link to="/office">Office</Link>
+                {/* <br></br>Instagram, Twitter */}
+              </DesktopNavP>
+            </MenuCon>
+          </LogoGridCon>
+        </>
+      );
+    }
+    if (!isPageWide) {
+      return (
+        <>
+          <LogoGridCon>
+            <MobileLeftCol>
+              <Link to="/">
+                <MobileNavP className="selected">Selected</MobileNavP>
+              </Link>
+              <Link to="/project_index">
+                <MobileNavP>Index</MobileNavP>
+              </Link>
+            </MobileLeftCol>
+
+            <MobileRightCol>
+              <Link to="/office">
+                <MobileNavP>Office</MobileNavP>
+              </Link>
+              <MobileNavP>Instagram</MobileNavP>
+            </MobileRightCol>
+          </LogoGridCon>
+          <LogoConMobile ref={LogoConRef}>
+            <Icon />
+          </LogoConMobile>
+        </>
+      );
+    }
+  };
   const ProjectInfo = ({
     title,
     year,
@@ -1546,7 +1603,7 @@ const Index = ({ data }) => {
         </Grid16>
       </IntroCon>
       <NavSpacer></NavSpacer>
-      <NavIndexGrid></NavIndexGrid>
+      <NavIndexGridIndex></NavIndexGridIndex>
       {/* <LogoNav></LogoNav> */}
       <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
       {/* </FadeInCon> */}
