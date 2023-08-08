@@ -94,9 +94,9 @@ export const NavGrid = () => {
         <LogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
           <LogoConCon>
             <LogoCon ref={LogoConRef}>
-              {/* <Link to="/"> */}
-              <Icon />
-              {/* </Link> */}
+              <Link to="/">
+                <Icon />
+              </Link>
             </LogoCon>
           </LogoConCon>
           <MenuCon>

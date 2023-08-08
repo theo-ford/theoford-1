@@ -137,7 +137,9 @@ export const NavIndexGrid = () => {
         <LogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
           <LogoConCon>
             <LogoCon ref={LogoConRef}>
-              <Icon />
+              <Link to="/">
+                <Icon />
+              </Link>
             </LogoCon>
           </LogoConCon>
           <MenuCon style={{ opacity: PageLoad ? 1 : 0 }}>

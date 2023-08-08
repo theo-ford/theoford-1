@@ -519,24 +519,6 @@ const Index = ({ data }) => {
   // https://stackoverflow.com/questions/57729504/is-there-a-way-to-tell-when-your-react-app-page-is-done-loading-the-page-asset
   // This will run one time after the component mounts
 
-  useEffect(() => {
-    // callback function to call when event triggers
-    const onPageLoad = () => {
-      console.log("page loaded");
-      setPageLoad(true);
-      // do something else
-    };
-
-    // Check if the page has already loaded
-    if (document.readyState === "complete") {
-      onPageLoad();
-    } else {
-      window.addEventListener("load", onPageLoad, false);
-      // Remove the event listener when component unmounts
-      return () => window.removeEventListener("load", onPageLoad);
-    }
-  }, []);
-
   const CarouselLengthContext = createContext();
   const CarouselIndexClicked = createContext({
     slideGoTo: 0,
@@ -552,66 +534,66 @@ const Index = ({ data }) => {
     document.body.style.position = "relative";
   }
 
-  const LogoNav = scrollPosition => {
-    if (isPageWide) {
-      return (
-        <>
-          <NavSpacer></NavSpacer>
-          <LogoGridCon>
-            <Col1>
-              <LogoCon ref={LogoConRef2}>
-                <Icon style={{ opacity: pageLoad ? 1 : 0 }} />
-              </LogoCon>
-            </Col1>
-            <Col2>
-              <NavCon1 style={{ opacity: pageLoad ? 1 : 0 }}>
-                <p>
-                  <Link to="/">
-                    <span className="selected">Select,</span>{" "}
-                  </Link>
-                  <Link to="/project_index">
-                    <span className="navItem">Index,</span>{" "}
-                  </Link>
+  // const LogoNav = scrollPosition => {
+  //   if (isPageWide) {
+  //     return (
+  //       <>
+  //         <NavSpacer></NavSpacer>
+  //         <LogoGridCon>
+  //           <Col1>
+  //             <LogoCon ref={LogoConRef2}>
+  //               <Icon style={{ opacity: pageLoad ? 1 : 0 }} />
+  //             </LogoCon>
+  //           </Col1>
+  //           <Col2>
+  //             <NavCon1 style={{ opacity: pageLoad ? 1 : 0 }}>
+  //               <p>
+  //                 <Link to="/">
+  //                   <span className="selected">Select,</span>{" "}
+  //                 </Link>
+  //                 <Link to="/project_index">
+  //                   <span className="navItem">Index,</span>{" "}
+  //                 </Link>
 
-                  <Link to="/about17">
-                    <span className="navItem">Office</span>
-                  </Link>
-                  {/* <br></br>Instagram, Twitter */}
-                </p>
-              </NavCon1>
-            </Col2>
-          </LogoGridCon>
-        </>
-      );
-    }
-    if (!isPageWide) {
-      return (
-        <>
-          <LogoGridConMobile>
-            <NavCon1>
-              <Link to="/">
-                <p className="selected">Selected</p>
-              </Link>
-              <Link to="/project_index">
-                <p>
-                  <span className="navItem">Index</span>
-                </p>
-              </Link>
-            </NavCon1>
-            <NavCon2>
-              <Link to="/about17">
-                <p>Office</p>
-              </Link>
-              <p>Instagram</p>
-            </NavCon2>
-          </LogoGridConMobile>
-          <LogoCon ref={LogoConRef}>
-            <Icon style={{ opacity: pageLoad ? 1 : 0 }} />
-          </LogoCon>
-        </>
-      );
-    }
-  };
+  //                 <Link to="/about17">
+  //                   <span className="navItem">Office</span>
+  //                 </Link>
+  //                 {/* <br></br>Instagram, Twitter */}
+  //               </p>
+  //             </NavCon1>
+  //           </Col2>
+  //         </LogoGridCon>
+  //       </>
+  //     );
+  //   }
+  //   if (!isPageWide) {
+  //     return (
+  //       <>
+  //         <LogoGridConMobile>
+  //           <NavCon1>
+  //             <Link to="/">
+  //               <p className="selected">Selected</p>
+  //             </Link>
+  //             <Link to="/project_index">
+  //               <p>
+  //                 <span className="navItem">Index</span>
+  //               </p>
+  //             </Link>
+  //           </NavCon1>
+  //           <NavCon2>
+  //             <Link to="/about17">
+  //               <p>Office</p>
+  //             </Link>
+  //             <p>Instagram</p>
+  //           </NavCon2>
+  //         </LogoGridConMobile>
+  //         <LogoCon ref={LogoConRef}>
+  //           <Icon style={{ opacity: pageLoad ? 1 : 0 }} />
+  //         </LogoCon>
+  //       </>
+  //     );
+  //   }
+  // };
   // const handleScroll = () => {
   //   const position = window.pageYOffset;
   //   // console.log(position);
@@ -633,6 +615,7 @@ const Index = ({ data }) => {
   //     window.removeEventListener("scroll", handleScroll);
   //   };
   // }, []);
+
   const ProjectInfo = ({
     title,
     year,
@@ -1505,7 +1488,7 @@ const Index = ({ data }) => {
             <source src={TestVideo}></source>
           </video>
         </TestVideoCon> */}
-      <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}>
+      <IntroCon style={{ opacity: PageLoad ? 1 : 0 }}>
         {/* <IntroCon> */}
         <Grid16>
           <AboutCon>
@@ -1545,7 +1528,7 @@ const Index = ({ data }) => {
       <NavSpacer></NavSpacer>
       <NavIndexGrid></NavIndexGrid>
       {/* <LogoNav></LogoNav> */}
-      <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
+      <PageCon style={{ opacity: PageLoad ? 1 : 0 }}>{overview}</PageCon>
       {/* </FadeInCon> */}
     </>
   );
