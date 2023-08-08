@@ -186,7 +186,7 @@ const PageCon = styled.div`
   /* overflow-x: hidden;
   max-width: 100vw; */
   margin-bottom: 100px;
-  margin-top: 60px;
+  margin-top: 140px;
 `;
 const AboutTextCon = styled.div`
   grid-column: 3 / span 12;
