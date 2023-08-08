@@ -10,6 +10,7 @@ import { VideoComponentNoControls } from "../components/tf/video-component-no-co
 import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
+import { NavGrid } from "../components/tf/nav-grid/nav";
 
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
@@ -148,15 +149,23 @@ const TableTitle = styled.div`
 const TableContent = styled.div`
   grid-column: span 6;
 `;
+const PageConCon = styled.div`
+  width: calc(100% - 25px);
+  margin: 12.5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr /* 1 */ 1fr 1fr 1fr 1fr /* 2 */ 1fr 1fr 1fr 1fr /* 3 */ 1fr 1fr 1fr 1fr /* 4 */;
+  grid-gap: 12.5px;
+`;
 const PageCon = styled.div`
-  width: 50%;
-  margin-left: 25%;
+  /* width: calc(50% - 12.5px);
+  margin-left: 25%; */
+  grid-column: 5 / span 8;
   margin-top: 20vh;
   @media (max-width: 666px) {
     /* display: none; */
-    width: calc(100% - 20px);
-    margin-left: 10px;
-
+    /* width: calc(100% - 20px);
+    margin-left: 10px; */
+    grid-column: 16;
     margin-top: 10vh;
   }
 `;
@@ -185,6 +194,27 @@ const ProjectPageAutoPlayVideoCon = styled.div`
 `;
 const CategoryName = styled.span`
   text-transform: capitalize;
+`;
+const RelatedProjectsCon = styled.div`
+  margin-top: 100px;
+  margin-bottom: 100px;
+`;
+const RelatedProjectsTitle = styled.p`
+  margin-bottom: 10px;
+`;
+const RelatedProjectsProjectCon = styled.div`
+  grid-column: span 4;
+`;
+const RelatedProjectProjectTitle = styled.p`
+  color: grey;
+  margin-top: 10px;
+`;
+const RelatedProjectsImg = styled.img`
+  width: 100%;
+  /* filter: grayscale(100%);
+  &:hover {
+    filter: none;
+  } */
 `;
 const Project = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
@@ -306,74 +336,161 @@ const Project = ({ data }) => {
       }
     }
   });
+
+  // var testArray = ["a", "b", "c", "d"];
+  // var testArrayMap = testArray.map((content, index) => {
+  //   return content;
+  // });
+
+  // console.log(testArrayMap[1]);
+
+  var RelatedProjects = data.prismicProject.data.related_projects_group.map(
+    (content, index) => {
+      if (content.related_projects.document.type == "project") {
+        console.log("square project");
+        // const project = content.related_projects.document.data.map(
+        //   (content3, index) => {
+        //     return (
+        //       //test
+        //       { content3 }
+        //     );
+        //   }
+        // );
+        return (
+          <>
+            <RelatedProjectsProjectCon>
+              <Link to={`/${content.related_projects.document.uid}`}>
+                <RelatedProjectsImg
+                  src={
+                    content.related_projects.document.data.index_preview_img
+                      .fluid.src
+                  }
+                />
+                <RelatedProjectProjectTitle>
+                  {content.related_projects.document.data.project_title.text}
+                </RelatedProjectProjectTitle>
+              </Link>
+            </RelatedProjectsProjectCon>
+
+            {/* {content.related_projects} */}
+          </>
+        );
+      } else if (
+        content.related_projects.document.type == "film_lead_project"
+      ) {
+        console.log("film project");
+        return (
+          <>
+            <RelatedProjectsProjectCon>
+              <Link to={`/${content.related_projects.document.uid}`}>
+                <RelatedProjectsImg
+                  src={
+                    content.related_projects.document.data.index_preview_img
+                      .fluid.src
+                  }
+                />
+                <RelatedProjectProjectTitle>
+                  {content.related_projects.document.data.project_title.text}
+                </RelatedProjectProjectTitle>
+              </Link>
+            </RelatedProjectsProjectCon>
+
+            {/* {content.related_projects} */}
+          </>
+        );
+      }
+      // return (
+      //   // test
+      //   // test
+      //   { content }
+      // );
+    }
+  );
+
+  const RelatedProjects2 = () => {
+    return (
+      <Grid8>
+        {RelatedProjects[0]}
+        {RelatedProjects[1]}
+      </Grid8>
+    );
+  };
+
   return (
     <>
-      <LogoNav></LogoNav>
-      <PageCon>
-        <Table>
-          <TableRow>
-            <Grid8>
-              <TableTitle>
-                <p>Project</p>
-              </TableTitle>
-              <TableContent>
-                <p>{data.prismicProject.data.project_title.text}</p>
-              </TableContent>
-            </Grid8>
-          </TableRow>
-          <TableRow>
-            <Grid8>
-              <TableTitle>
-                <p>Location</p>
-              </TableTitle>
-              <TableContent>
-                <p>{data.prismicProject.data.location.text}</p>
-              </TableContent>
-            </Grid8>
-          </TableRow>
-          <TableRow>
-            <Grid8>
-              <TableTitle>
-                <p>Category</p>
-              </TableTitle>
-              <TableContent>
-                <p>
-                  {data.prismicProject.data.categories.map(
-                    (category, index) => {
-                      return (
-                        <CategoryName key={index}>
-                          {(index ? ", " : "") + category.category.slug}
-                        </CategoryName>
-                      );
-                    }
-                  )}
-                </p>
-              </TableContent>
-            </Grid8>
-          </TableRow>
-          <TableRow>
-            <Grid8>
-              <TableTitle>
-                <p>Client</p>
-              </TableTitle>
-              <TableContent>
-                <p> {data.prismicProject.data.client.text}</p>
-              </TableContent>
-            </Grid8>
-          </TableRow>
-          <TableRow>
-            <Grid8>
-              <TableTitle>
-                <p>Team</p>
-              </TableTitle>
-              <TableContent>
-                <p>{data.prismicProject.data.team.text}</p>
-              </TableContent>
-            </Grid8>
-          </TableRow>
-        </Table>
-        {projectBody}
-      </PageCon>
+      {/* <LogoNav></LogoNav> */}
+      <NavGrid></NavGrid>
+      <PageConCon>
+        <PageCon>
+          <Table>
+            <TableRow>
+              <Grid8>
+                <TableTitle>
+                  <p>Project</p>
+                </TableTitle>
+                <TableContent>
+                  <p>{data.prismicProject.data.project_title.text}</p>
+                </TableContent>
+              </Grid8>
+            </TableRow>
+            <TableRow>
+              <Grid8>
+                <TableTitle>
+                  <p>Location</p>
+                </TableTitle>
+                <TableContent>
+                  <p>{data.prismicProject.data.location.text}</p>
+                </TableContent>
+              </Grid8>
+            </TableRow>
+            <TableRow>
+              <Grid8>
+                <TableTitle>
+                  <p>Category</p>
+                </TableTitle>
+                <TableContent>
+                  <p>
+                    {data.prismicProject.data.categories.map(
+                      (category, index) => {
+                        return (
+                          <CategoryName key={index}>
+                            {(index ? ", " : "") + category.category.slug}
+                          </CategoryName>
+                        );
+                      }
+                    )}
+                  </p>
+                </TableContent>
+              </Grid8>
+            </TableRow>
+            <TableRow>
+              <Grid8>
+                <TableTitle>
+                  <p>Client</p>
+                </TableTitle>
+                <TableContent>
+                  <p> {data.prismicProject.data.client.text}</p>
+                </TableContent>
+              </Grid8>
+            </TableRow>
+            <TableRow>
+              <Grid8>
+                <TableTitle>
+                  <p>Team</p>
+                </TableTitle>
+                <TableContent>
+                  <p>{data.prismicProject.data.team.text}</p>
+                </TableContent>
+              </Grid8>
+            </TableRow>
+          </Table>
+          {projectBody}
+          <RelatedProjectsCon>
+            <RelatedProjectsTitle>Related Projects</RelatedProjectsTitle>
+            <RelatedProjects2 />
+          </RelatedProjectsCon>
+        </PageCon>
+      </PageConCon>
     </>
   );
 };
@@ -455,6 +572,43 @@ export const query = graphql`
               }
               video {
                 url
+              }
+            }
+          }
+        }
+        related_projects_group {
+          related_projects {
+            uid
+            document {
+              ... on PrismicProject {
+                uid
+                id
+                type
+                data {
+                  project_title {
+                    text
+                  }
+                  index_preview_img {
+                    fluid {
+                      src
+                    }
+                  }
+                }
+              }
+              ... on PrismicFilmLeadProject {
+                uid
+                id
+                type
+                data {
+                  project_title {
+                    text
+                  }
+                  index_preview_img {
+                    fluid {
+                      src
+                    }
+                  }
+                }
               }
             }
           }

@@ -23,6 +23,7 @@ import ReactPlayer from "react-player";
 import Icon from "../../assets/WhiteLogo.svg";
 import PauseButton from "../../public/icons/Pause.png";
 import PlayButton from "../../public/icons/Play.png";
+import { NavGrid } from "../components/tf/nav-grid/nav";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -471,7 +472,8 @@ const About = ({ data }) => {
         <title>(10) Pagination 1</title>
       </Helmet>
 
-      <LogoNav></LogoNav>
+      {/* <LogoNav></LogoNav> */}
+      <NavGrid></NavGrid>
       <PageCon>
         <Grid16>
           <AboutTextCon>

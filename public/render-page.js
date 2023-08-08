@@ -211,6 +211,22 @@ var plugins = [{
               "label": "Index Preview Img"
             }
           },
+          "related_projects_group": {
+            "type": "Group",
+            "config": {
+              "fields": {
+                "related_projects": {
+                  "type": "Link",
+                  "config": {
+                    "select": "document",
+                    "customtypes": ["project", "film_lead_project"],
+                    "label": "Related Projects"
+                  }
+                }
+              },
+              "label": "Related Projects Group"
+            }
+          },
           "body": {
             "type": "Slices",
             "fieldset": "Slice zone",
@@ -557,6 +573,22 @@ var plugins = [{
               "constraint": {},
               "thumbnails": [],
               "label": "Index Preview Img"
+            }
+          },
+          "related_projects_group": {
+            "type": "Group",
+            "config": {
+              "fields": {
+                "related_projects": {
+                  "type": "Link",
+                  "config": {
+                    "select": "document",
+                    "customtypes": ["film_lead_project", "project"],
+                    "label": "Related Projects"
+                  }
+                }
+              },
+              "label": "Related Projects Group"
             }
           },
           "body": {

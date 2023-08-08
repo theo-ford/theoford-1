@@ -16,6 +16,8 @@ import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 // import PlayButton from "../../assets/Logo.jpg";
 // import PlayButton from "../../public/icons/logo.jpg";
+import { NavGrid } from "../components/tf/nav-grid/nav";
+
 const GlobalStyle = createGlobalStyle`
   html {
     background-color: black;
@@ -518,7 +520,8 @@ const ProjectIndex = ({ data }) => {
         <title>(10) Pagination 1</title>
       </Helmet>
 
-      <LogoNav></LogoNav>
+      {/* <LogoNav></LogoNav> */}
+      <NavGrid></NavGrid>
       <CategoryMenuCon></CategoryMenuCon>
 
       <TableHeaderCon>

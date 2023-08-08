@@ -10,6 +10,7 @@ import { VideoComponentNoControls } from "../components/tf/video-component-no-co
 import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 import { VideoProjectPage } from "../components/tf/video-project-page";
+import { NavGrid } from "../components/tf/nav-grid/nav";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -173,6 +174,27 @@ const Footer = styled.div`
 const CategoryName = styled.span`
   text-transform: capitalize;
 `;
+const RelatedProjectsCon = styled.div`
+  margin-top: 100px;
+  margin-bottom: 100px;
+`;
+const RelatedProjectsTitle = styled.p`
+  margin-bottom: 10px;
+`;
+const RelatedProjectsProjectCon = styled.div`
+  grid-column: span 4;
+`;
+const RelatedProjectProjectTitle = styled.p`
+  color: grey;
+  margin-top: 10px;
+`;
+const RelatedProjectsImg = styled.img`
+  width: 100%;
+  /* filter: grayscale(100%);
+  &:hover {
+    filter: none;
+  } */
+`;
 const FilmLeadProject = ({ data }) => {
   // test
   let isPageWide = useMediaQuery("(min-width: 667px)");
@@ -260,11 +282,82 @@ const FilmLeadProject = ({ data }) => {
       );
     }
   });
+  var RelatedProjects = data.prismicFilmLeadProject.data.related_projects_group.map(
+    (content, index) => {
+      if (content.related_projects.document.type == "project") {
+        console.log("square project");
+        // const project = content.related_projects.document.data.map(
+        //   (content3, index) => {
+        //     return (
+        //       //test
+        //       { content3 }
+        //     );
+        //   }
+        // );
+        return (
+          <>
+            <RelatedProjectsProjectCon>
+              <Link to={`/${content.related_projects.document.uid}`}>
+                <RelatedProjectsImg
+                  src={
+                    content.related_projects.document.data.index_preview_img
+                      .fluid.src
+                  }
+                />
+                <RelatedProjectProjectTitle>
+                  {content.related_projects.document.data.project_title.text}
+                </RelatedProjectProjectTitle>
+              </Link>
+            </RelatedProjectsProjectCon>
 
+            {/* {content.related_projects} */}
+          </>
+        );
+      } else if (
+        content.related_projects.document.type == "film_lead_project"
+      ) {
+        console.log("film project");
+        return (
+          <>
+            <RelatedProjectsProjectCon>
+              <Link to={`/${content.related_projects.document.uid}`}>
+                <RelatedProjectsImg
+                  src={
+                    content.related_projects.document.data.index_preview_img
+                      .fluid.src
+                  }
+                />
+                <RelatedProjectProjectTitle>
+                  {content.related_projects.document.data.project_title.text}
+                </RelatedProjectProjectTitle>
+              </Link>
+            </RelatedProjectsProjectCon>
+
+            {/* {content.related_projects} */}
+          </>
+        );
+      }
+      // return (
+      //   // test
+      //   // test
+      //   { content }
+      // );
+    }
+  );
+
+  const RelatedProjects2 = () => {
+    return (
+      <Grid8>
+        {RelatedProjects[0]}
+        {RelatedProjects[1]}
+      </Grid8>
+    );
+  };
   return (
     <>
       <GlobalStyle />
-      <LogoNav></LogoNav>
+      {/* <LogoNav></LogoNav> */}
+      <NavGrid></NavGrid>
       <PageCon>
         <Table>
           <TableRow>
@@ -329,6 +422,10 @@ const FilmLeadProject = ({ data }) => {
           </TableRow>
         </Table>
         {work}
+        <RelatedProjectsCon>
+          <RelatedProjectsTitle>Related Projects</RelatedProjectsTitle>
+          <RelatedProjects2 />
+        </RelatedProjectsCon>
         {/* <Footer></Footer> */}
       </PageCon>
     </>
@@ -432,6 +529,43 @@ export const query = graphql`
               }
               video {
                 url
+              }
+            }
+          }
+        }
+        related_projects_group {
+          related_projects {
+            uid
+            document {
+              ... on PrismicProject {
+                uid
+                id
+                type
+                data {
+                  project_title {
+                    text
+                  }
+                  index_preview_img {
+                    fluid {
+                      src
+                    }
+                  }
+                }
+              }
+              ... on PrismicFilmLeadProject {
+                uid
+                id
+                type
+                data {
+                  project_title {
+                    text
+                  }
+                  index_preview_img {
+                    fluid {
+                      src
+                    }
+                  }
+                }
               }
             }
           }
