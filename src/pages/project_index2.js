@@ -251,12 +251,25 @@ const IndexTitleP = styled.p`
   font-size: 16px;
   color: white;
 `;
-const CategoryMenuCon = styled.div`
-  width: 25%;
-  margin-left: 75%;
-  margin-top: 10px;
+const CategoryMenuConCon = styled.div`
+  width: calc(25% - 12.5px);
+  margin-left: calc(75% + 12.5px);
+  top: 12.5px;
   position: absolute;
   z-index: 1000000;
+
+  @media (max-width: 666px) {
+    margin-top: 70px;
+    width: calc(100% - 20px);
+    margin-left: calc(10px);
+
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px; */
+  }
+`;
+const CategoryMenuCon = styled.div`
+  /* grid-column: 2 / span 1; */
 `;
 
 const CategoryItem = styled.span`
@@ -674,7 +687,11 @@ const ProjectIndex = ({ data }) => {
       </Helmet>
       <NavGrid></NavGrid>
       {/* <LogoNav></LogoNav> */}
-      <CategoryMenuCon></CategoryMenuCon>
+      <CategoryMenuConCon>
+        <CategoryMenuCon>
+          <Categories></Categories>
+        </CategoryMenuCon>
+      </CategoryMenuConCon>
 
       <TableCon>
         {indexType == "text" ? <TextTable /> : <ImageTable />}

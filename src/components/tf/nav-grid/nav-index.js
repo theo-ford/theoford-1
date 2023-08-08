@@ -17,6 +17,7 @@ const LogoGridCon = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 12.5px;
+
   @media (max-width: 666px) {
     width: calc(100% - 20px);
     margin-left: 10px;
@@ -25,7 +26,7 @@ const LogoGridCon = styled.div`
 `;
 /* DESKTOP */
 const LogoConCon = styled.div`
-  grid-column: span 1;
+  grid-column: span 2;
   mix-blend-mode: exclusion;
 `;
 const MenuCon = styled.div`
@@ -45,12 +46,17 @@ const DesktopNavP = styled.p`
   a.selected {
     color: white;
   }
+  /* a:[aria-current] : {
+    color: white;
+  } */
+
   @media (max-width: 666px) {
     display: none;
   }
 `;
 
 /* MOBILE */
+
 const MobileLeftCol = styled.div`
   grid-column: span 2;
   mix-blend-mode: exclusion;
@@ -71,7 +77,7 @@ const MobileNavP = styled.p`
   }
 `;
 
-export const NavGrid = () => {
+export const NavIndexGrid = () => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
   var [currentPage, setCurrentPage] = useState(null);
   const LogoConRef = useRef(null);
@@ -79,6 +85,7 @@ export const NavGrid = () => {
   useEffect(() => {
     var inputString = window.location.href;
     var outputString = inputString.replace(/.*\//, "");
+    console.log(outputString);
     if (outputString == "project_index") {
       setCurrentPage(outputString);
     } else if (outputString == "office") {
@@ -88,15 +95,35 @@ export const NavGrid = () => {
     }
   }, [setCurrentPage]);
 
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    // console.log(position);
+    if (position > 25) {
+      // console.log("greater than 100");
+      LogoConRef.current.classList.add("shrink");
+    } else if (position < 25) {
+      // console.log("less than 100");
+      LogoConRef.current.classList.remove("shrink");
+    }
+  };
+  // scroll use effect
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   if (isPageWide) {
     return (
       <>
         <LogoGridCon style={{ opacity: PageLoad ? 1 : 0 }}>
           <LogoConCon>
             <LogoCon ref={LogoConRef}>
-              {/* <Link to="/"> */}
               <Icon />
-              {/* </Link> */}
             </LogoCon>
           </LogoConCon>
           <MenuCon>

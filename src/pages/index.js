@@ -26,6 +26,7 @@ import PlayButton from "../../public/icons/Play.png";
 import TestVideo from "../../assets/G4C Web Desk 1500.mp4";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { ImageOrientation2 } from "../components/utils/image-orientation2";
+import { NavIndexGrid } from "../components/tf/nav-grid/nav-index";
 
 // import * as prismicH from "@prismicio/helpers";
 // import * as prismic from "@prismicio/client";
@@ -123,7 +124,7 @@ const ContactCon = styled.div`
   grid-column: 15 / span 2;
 `;
 const NavSpacer = styled.div`
-  height: 14vh;
+  height: 25vh;
   width: 100%;
   @media (max-width: 666px) {
     display: none;
@@ -512,16 +513,8 @@ const VideoControlsImg = styled.img`
 `;
 
 const Index = ({ data }) => {
-  const htmlRef = useRef(null);
   const [pageLoad, setPageLoad] = useState(null);
-
-  useEffect(() => {
-    console.log(htmlRef);
-    // if (htmlRef.current.classList.contains("wf-loading")) {
-    //   console.log("has class");
-    // }
-  }, [htmlRef]);
-
+  const LogoConRef2 = useRef(null);
   // https://stackoverflow.com/questions/57729504/is-there-a-way-to-tell-when-your-react-app-page-is-done-loading-the-page-asset
   // This will run one time after the component mounts
 
@@ -565,7 +558,7 @@ const Index = ({ data }) => {
           <NavSpacer></NavSpacer>
           <LogoGridCon>
             <Col1>
-              <LogoCon ref={LogoConRef}>
+              <LogoCon ref={LogoConRef2}>
                 <Icon style={{ opacity: pageLoad ? 1 : 0 }} />
               </LogoCon>
             </Col1>
@@ -618,27 +611,27 @@ const Index = ({ data }) => {
       );
     }
   };
-  const handleScroll = () => {
-    const position = window.pageYOffset;
-    // console.log(position);
-    if (position > 25) {
-      // console.log("greater than 100");
-      LogoConRef.current.classList.add("shrink");
-    } else if (position < 25) {
-      // console.log("less than 100");
-      LogoConRef.current.classList.remove("shrink");
-    }
-  };
+  // const handleScroll = () => {
+  //   const position = window.pageYOffset;
+  //   // console.log(position);
+  //   if (position > 25) {
+  //     // console.log("greater than 100");
+  //     LogoConRef2.current.classList.add("shrink");
+  //   } else if (position < 25) {
+  //     // console.log("less than 100");
+  //     LogoConRef2.current.classList.remove("shrink");
+  //   }
+  // };
   // scroll use effect
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll, {
+  //     passive: true,
+  //   });
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
   const ProjectInfo = ({
     title,
     year,
@@ -1501,7 +1494,7 @@ const Index = ({ data }) => {
       <GlobalStyle />
       {/* <Helmet htmlAttributes={{ ref: htmlRef }}> */}
       <Helmet>
-        <head ref={htmlRef}></head>
+        <head></head>
         <title>(10) Pagination 1</title>
       </Helmet>
       {/* <LoadingBlock></LoadingBlock> */}
@@ -1548,7 +1541,8 @@ const Index = ({ data }) => {
         </Grid16>
       </IntroCon>
       <NavSpacer></NavSpacer>
-      <LogoNav></LogoNav>
+      <NavIndexGrid></NavIndexGrid>
+      {/* <LogoNav></LogoNav> */}
       <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
       {/* </FadeInCon> */}
     </>

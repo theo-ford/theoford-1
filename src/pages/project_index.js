@@ -238,7 +238,7 @@ const IndexBodyP = styled.p`
   overflow: hidden;
 `;
 const TableHeaderCon = styled.div`
-  margin-top: 150px;
+  margin-top: 140px;
 `;
 
 const IndexTitleP = styled.p`
