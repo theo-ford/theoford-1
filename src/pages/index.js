@@ -1542,7 +1542,7 @@ const Index = ({ data }) => {
         </Grid16>
       </IntroCon>
       <NavSpacer></NavSpacer>
-      <NavIndexGrid style={{ opacity: pageLoad ? 1 : 0 }}></NavIndexGrid>
+      <NavIndexGrid></NavIndexGrid>
       {/* <LogoNav></LogoNav> */}
       <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
       {/* </FadeInCon> */}
