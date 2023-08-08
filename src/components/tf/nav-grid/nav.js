@@ -147,30 +147,19 @@ export const NavGrid = () => {
         <LogoGridCon>
           <NavCon1>
             <Link to="/">
-              <MobileNavP
-                className="selected"
-                style={{ opacity: PageLoad ? 1 : 0 }}
-              >
-                Selected
-              </MobileNavP>
+              <MobileNavP className="selected">Selected</MobileNavP>
             </Link>
             <Link to="/project_index">
               <MobileNavP>
-                <span className="navItem" style={{ opacity: PageLoad ? 1 : 0 }}>
-                  Index
-                </span>{" "}
+                <span className="navItem">Index</span>{" "}
               </MobileNavP>
             </Link>
           </NavCon1>
           <NavCon2>
             <Link to="/about17">
-              <MobileNavP style={{ opacity: PageLoad ? 1 : 0 }}>
-                Office
-              </MobileNavP>
+              <MobileNavP>Office</MobileNavP>
             </Link>
-            <MobileNavP style={{ opacity: PageLoad ? 1 : 0 }}>
-              Instagram
-            </MobileNavP>
+            <MobileNavP>Instagram</MobileNavP>
           </NavCon2>
         </LogoGridCon>
         {/* <LogoCon ref={LogoConRef}>

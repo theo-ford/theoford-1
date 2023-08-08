@@ -11,6 +11,7 @@ import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { NavGrid } from "../components/tf/nav-grid/nav";
+import { PageLoad } from "../components/tf/page-load";
 
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
@@ -165,7 +166,7 @@ const PageCon = styled.div`
     /* display: none; */
     /* width: calc(100% - 20px);
     margin-left: 10px; */
-    grid-column: 16;
+    grid-column: span 16;
     margin-top: 10vh;
   }
 `;
@@ -218,67 +219,68 @@ const RelatedProjectsImg = styled.img`
 `;
 const Project = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
+  // PageLoad;
   const LogoConRef = useRef(null);
-  const LogoNav = scrollPosition => {
-    if (isPageWide) {
-      return (
-        <>
-          <LogoGridCon>
-            <Grid2B>
-              <Col1>
-                <LogoCon ref={LogoConRef}>
-                  <Icon />
-                </LogoCon>
-              </Col1>
-              <Col2>
-                <NavCon1>
-                  <p>
-                    <Link to="/">
-                      <span className="selected">Select,</span>{" "}
-                    </Link>
-                    <Link to="/project_index">
-                      <span className="navItem">Index,</span>{" "}
-                    </Link>
-                    <Link to="/about17">
-                      <span className="navItem">Office</span>
-                    </Link>
-                    {/* <br></br>Instagram, Twitter */}
-                  </p>
-                </NavCon1>
-              </Col2>
-            </Grid2B>
-          </LogoGridCon>
-        </>
-      );
-    }
-    if (!isPageWide) {
-      return (
-        <>
-          <LogoGridCon>
-            <NavCon1>
-              <Link to="/">
-                <p className="selected">Selected</p>
-              </Link>
-              <Link to="/project_index">
-                <p>
-                  <span className="navItem">Index</span>{" "}
-                </p>
-              </Link>
-            </NavCon1>
-            <NavCon2>
-              <Link to="/about17">
-                <p>Office</p>
-              </Link>
-              <p>Instagram</p>
-            </NavCon2>
-          </LogoGridCon>
-          {/* <LogoCon ref={LogoConRef}>
-            <Icon />
-          </LogoCon> */}
-        </>
-      );
-    }
-  };
+  // const LogoNav = scrollPosition => {
+  //   if (isPageWide) {
+  //     return (
+  //       <>
+  //         <LogoGridCon>
+  //           <Grid2B>
+  //             <Col1>
+  //               <LogoCon ref={LogoConRef}>
+  //                 <Icon />
+  //               </LogoCon>
+  //             </Col1>
+  //             <Col2>
+  //               <NavCon1>
+  //                 <p>
+  //                   <Link to="/">
+  //                     <span className="selected">Select,</span>{" "}
+  //                   </Link>
+  //                   <Link to="/project_index">
+  //                     <span className="navItem">Index,</span>{" "}
+  //                   </Link>
+  //                   <Link to="/about17">
+  //                     <span className="navItem">Office</span>
+  //                   </Link>
+  //                   {/* <br></br>Instagram, Twitter */}
+  //                 </p>
+  //               </NavCon1>
+  //             </Col2>
+  //           </Grid2B>
+  //         </LogoGridCon>
+  //       </>
+  //     );
+  //   }
+  //   if (!isPageWide) {
+  //     return (
+  //       <>
+  //         <LogoGridCon>
+  //           <NavCon1>
+  //             <Link to="/">
+  //               <p className="selected">Selected</p>
+  //             </Link>
+  //             <Link to="/project_index">
+  //               <p>
+  //                 <span className="navItem">Index</span>{" "}
+  //               </p>
+  //             </Link>
+  //           </NavCon1>
+  //           <NavCon2>
+  //             <Link to="/about17">
+  //               <p>Office</p>
+  //             </Link>
+  //             <p>Instagram</p>
+  //           </NavCon2>
+  //         </LogoGridCon>
+  //         {/* <LogoCon ref={LogoConRef}>
+  //           <Icon />
+  //         </LogoCon> */}
+  //       </>
+  //     );
+  //   }
+  // };
   const ImgComponent = ({ srcProps, videoLoad }) => {
     // console.log(srcProps);
     var x = srcProps;
