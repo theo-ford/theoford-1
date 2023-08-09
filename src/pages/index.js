@@ -29,6 +29,7 @@ import { ImageOrientation2 } from "../components/utils/image-orientation2";
 import { NavIndexGrid } from "../components/tf/nav-grid/nav-index";
 import { PageLoad } from "../components/tf/page-load";
 import { Intro } from "../components/tf/index/intro";
+import { ProjectInfo } from "../components/tf/index/project-info";
 
 // import * as prismicH from "@prismicio/helpers";
 // import * as prismic from "@prismicio/client";
@@ -45,10 +46,8 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: clip;
     max-width: 100vw;
     @media (min-width: 666px) {
-      /* height: 100vh;
-      overflow: hidden; */
       position: fixed;
-  }    
+    }    
   }
 `;
 
@@ -148,11 +147,20 @@ const NavSpacer = styled.div`
   }
   /* background-color: green; */
 `;
+
+/* - - - - - PAGE  - - - - - */
 const PageCon = styled.div`
   margin-top: 30vh;
-  /* transition: 1s ease; */
-  /* overflow-x: hidden;
-  max-width: 100vw; */
+`;
+const Grid16 = styled.div`
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 12.5px;
+  margin-left: 12.5px;
+  grid-row-gap: 0;
+  width: calc(100% - 25px);
+  z-index: 20000;
 `;
 const Grid2 = styled.div`
   display: grid;
@@ -164,6 +172,8 @@ const Grid2 = styled.div`
   width: calc(100% - 20px);
   z-index: 20000;
 `;
+
+/* - - - - - 2 UP CAROUSEL - - - - - */
 const CounterCon = styled.div`
   grid-column: span 1;
   margin-bottom: 5px;
@@ -207,16 +217,7 @@ const IndexAutoPlayVideoCon = styled.div`
     width: 100%;
   }
 `;
-const Grid16 = styled.div`
-  display: grid;
-  top: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 12.5px;
-  margin-left: 12.5px;
-  grid-row-gap: 0;
-  width: calc(100% - 25px);
-  z-index: 20000;
-`;
+
 const TwoUpCarouselCounterNextCon = styled.div`
   margin-bottom: 8px;
 `;
@@ -239,48 +240,8 @@ const TwoUpCarouselNextButtonCon = styled.div`
 const SingleImgProjectAssetCon = styled.div`
   grid-column: span 8;
 `;
-const ProjectInfoCon = styled.div`
-  height: 80px;
-  margin-top: 8px;
-  @media (max-width: 666px) {
-    margin-top: 4px;
-  }
-`;
-const ProjectTitleCon = styled.div`
-  grid-column: span 4;
 
-  @media (max-width: 666px) {
-    grid-column: span 1;
-    a {
-      color: #d4d4d4;
-    }
-  }
-`;
-const ProjectLocationYearCon = styled.div`
-  grid-column: span 4;
-  @media (max-width: 666px) {
-    grid-column: span 1;
-  }
-`;
-
-const ProjectIndexAbout = styled.div`
-  grid-column: span 4;
-  p {
-    font-size: 12px;
-  }
-  @media (max-width: 666px) {
-    display: none;
-  }
-`;
-const ProjectLink = styled.div`
-  grid-column: 15 / span 2;
-  a {
-    color: #d4d4d4;
-  }
-  @media (max-width: 666px) {
-    display: none;
-  }
-`;
+/* - - - - - VIDEO CAROUSEL - - - - - */
 const VideoCarouselCon = styled.div`
   width: 100%;
   height: 110vh;
@@ -355,16 +316,6 @@ const VideoWithContolsSC = styled.video`
   // grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
   width: 100%;
 `;
-const PortraitVideo = styled.video`
-   grid-column: 7 / span 4;
-  // grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
-  width: 100%;
-`;
-const LandscapeVideo = styled.video`
-   grid-column: 5 / span 8;
-  // grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
-  width: 100%;
-`;
 const ControlsCon = styled.div`
   z-index: 1;
   /* position: absolute; */
@@ -425,10 +376,11 @@ const VideoControlsImg = styled.img`
 
 const Index = ({ data }) => {
   const [pageLoad, setPageLoad] = useState(null);
+  let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef2 = useRef(null);
-  // https://stackoverflow.com/questions/57729504/is-there-a-way-to-tell-when-your-react-app-page-is-done-loading-the-page-asset
-  // This will run one time after the component mounts
 
+  // page load useEffect
+  // https://stackoverflow.com/questions/57729504/is-there-a-way-to-tell-when-your-react-app-page-is-done-loading-the-page-asset
   useEffect(() => {
     // callback function to call when event triggers
     const onPageLoad = () => {
@@ -447,20 +399,17 @@ const Index = ({ data }) => {
     }
   }, []);
 
-  const CarouselLengthContext = createContext();
-  const CarouselIndexClicked = createContext({
-    slideGoTo: 0,
-    setSlideGoTo: () => {},
-  });
-
-  let isPageWide = useMediaQuery("(min-width: 667px)");
-  const LogoConRef = useRef(null);
-
   const FourSeconds = setTimeout(overflowAllow, 4000);
 
   function overflowAllow() {
     document.body.style.position = "relative";
   }
+
+  const CarouselLengthContext = createContext();
+  const CarouselIndexClicked = createContext({
+    slideGoTo: 0,
+    setSlideGoTo: () => {},
+  });
 
   // const LogoNav = scrollPosition => {
   //   if (isPageWide) {
@@ -619,50 +568,6 @@ const Index = ({ data }) => {
             <Icon />
           </LogoConMobile>
         </>
-      );
-    }
-  };
-  const ProjectInfo = ({
-    title,
-    year,
-    location,
-    uid,
-    homepage_intro,
-    client,
-  }) => {
-    if (isPageWide) {
-      return (
-        <ProjectInfoCon>
-          <Grid16>
-            <ProjectTitleCon>
-              <Link to={uid}>{title}</Link>
-            </ProjectTitleCon>
-            <ProjectLocationYearCon>
-              <p>{location}</p>
-              <p>{year}</p>
-            </ProjectLocationYearCon>
-            <ProjectIndexAbout>
-              <p>{homepage_intro}</p>
-            </ProjectIndexAbout>
-            <ProjectLink>
-              <Link to={uid}>More Info</Link>
-            </ProjectLink>
-          </Grid16>
-        </ProjectInfoCon>
-      );
-    } else {
-      return (
-        <ProjectInfoCon>
-          <Grid2>
-            <ProjectTitleCon>
-              <Link to={uid}>{title}</Link>
-            </ProjectTitleCon>
-            <ProjectLocationYearCon>
-              <p>{location}</p>
-              <p>{year}</p>
-            </ProjectLocationYearCon>
-          </Grid2>
-        </ProjectInfoCon>
       );
     }
   };
