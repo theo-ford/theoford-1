@@ -33,6 +33,7 @@ import { ProjectInfo } from "../components/tf/index/project-info";
 import { ImgComponent } from "../components/tf/img-component";
 import { TwoUpProjectCarousel } from "../components/tf/index/two-up-carousel";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
+import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
 
 // import * as prismicH from "@prismicio/helpers";
 // import * as prismic from "@prismicio/client";
@@ -176,26 +177,6 @@ const Grid2 = styled.div`
   z-index: 20000;
 `;
 
-/* - - - -  UNKOWN- - - - */
-
-/* - - - - - 1 UP CAROUSEL - - - - - */
-
-const NextButtonCon = styled.div`
-  grid-column: span 1;
-  p {
-    color: #cfcfcfcf;
-  }
-`;
-const CounterCon = styled.div`
-  grid-column: span 1;
-  margin-bottom: 5px;
-`;
-const SquareCarouselCon = styled.div`
-  grid-column: span 2;
-`;
-
-/* - - - - - 1 UP CAROUSEL: ABOVE - - - - - */
-
 const ProjectCon = styled.div`
   /* margin-top: 100px; */
   margin-bottom: 100px;
@@ -208,6 +189,7 @@ const ProjectCon = styled.div`
     margin-bottom: 200px;
   }
 `;
+
 const VideoProjectCon = styled.div`
   /* margin-bottom: 200px; */
   /* padding-top: 200px; */
@@ -219,10 +201,6 @@ const IndexAutoPlayVideoCon = styled.div`
   @media (max-width: 666px) {
     width: 100%;
   }
-`;
-
-const SingleImgProjectAssetCon = styled.div`
-  grid-column: span 8;
 `;
 
 /* - - - - - VIDEO CAROUSEL - - - - - */
@@ -475,204 +453,6 @@ const Index = ({ data }) => {
     }
   };
 
-  // const ProjectCarousel = ({
-  //   children,
-
-  //   projectLength,
-  //   videoLoad,
-  // }) => {
-  //   // SWIPE GESTURE
-  //   const [touchStart, setTouchStart] = useState(null);
-  //   const [touchEnd, setTouchEnd] = useState(null);
-  //   // the required distance between touchStart and touchEnd to be detected as a swipe
-  //   const minSwipeDistance = 50;
-  //   const onTouchStart = e => {
-  //     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
-  //     setTouchStart(e.targetTouches[0].clientX);
-  //   };
-  //   const onTouchMove = e => setTouchEnd(e.targetTouches[0].clientX);
-  //   const onTouchEnd = () => {
-  //     if (!touchStart || !touchEnd) return;
-  //     const distance = touchStart - touchEnd;
-  //     const isLeftSwipe = distance > minSwipeDistance;
-  //     const isRightSwipe = distance < -minSwipeDistance;
-  //     if (isLeftSwipe || isRightSwipe)
-  //       // console.log("swipe", isLeftSwipe ? "left" : "right");
-  //       // add your conditional logic here
-  //       ProjectCarouselRef.current.slickNext();
-  //   };
-
-  //   // COUNTER
-  //   const [currentSlide, setCurrentSlide] = useState(0);
-  //   const [totalSlides, setTotalSlides] = useState(null);
-  //   useEffect(() => {
-  //     setCurrentSlide(0);
-  //   }, []);
-  //   useEffect(() => {
-  //     setTotalSlides(projectLength);
-  //   }, []);
-  //   const updateCurrentSlide = index => {
-  //     if (currentSlide !== index) {
-  //       setCurrentSlide(index);
-  //     }
-  //   };
-
-  //   // SLIDER SETTINGS
-  //   const settings = {
-  //     infinite: true,
-  //     speed: 0,
-  //     slidesToShow: 1,
-  //     slidesToScroll: 1,
-  //     accessibility: true,
-  //     dots: false,
-  //     arrows: false,
-  //     swipe: false,
-  //     swipeToSlide: false,
-  //   };
-
-  //   // SLIDESHOW FUNCTION
-  //   const ProjectCarouselRef = React.useRef(null);
-
-  //   const [changedSlide, setChangedSlide] = useState(false);
-
-  //   function projectCarouselNextImg() {
-  //     ProjectCarouselRef.current.slickNext();
-  //     setChangedSlide(true);
-  //   }
-  //   return (
-  //     <>
-  //       <Grid2>
-  //         <CounterCon>
-  //           <p>{("0" + (currentSlide + 1)).slice(-2)}</p>
-  //         </CounterCon>
-  //         <NextButtonCon>
-  //           {projectLength > 1 ? (
-  //             <>
-  //               <p
-  //                 onClick={projectCarouselNextImg}
-  //                 style={{ display: "inline-block" }}
-  //               >
-  //                 Next
-  //               </p>
-  //               {/* <PVideoLoadingNext>&nbsp; (Video Loading)</PVideoLoadingNext> */}
-  //             </>
-  //           ) : (
-  //             ""
-  //           )}
-  //         </NextButtonCon>
-  //       </Grid2>
-  //       <Grid2>
-  //         <SquareCarouselCon
-  //           onClick={projectCarouselNextImg}
-  //           onTouchStart={onTouchStart}
-  //           onTouchMove={onTouchMove}
-  //           onTouchEnd={onTouchEnd}
-  //         >
-  //           <Slider
-  //             {...settings}
-  //             ref={ProjectCarouselRef}
-  //             afterChange={index => updateCurrentSlide(index)}
-  //           >
-  //             {React.Children.map(children, child =>
-  //               React.cloneElement(child, {
-  //                 changedSlide: changedSlide,
-  //               })
-  //             )}
-  //           </Slider>
-  //         </SquareCarouselCon>
-  //       </Grid2>
-  //     </>
-  //   );
-  // };
-
-  // const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
-  //   // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
-  //   // https://frontend-digest.com/responsive-and-progressive-video-loading-in-react-e8753315af51
-  //   const autoplayVideoRef = useRef(null);
-  //   const isOnScreen = useOnScreen(autoplayVideoRef);
-  //   const [videoSrcState, setVideoSrcState] = useState("");
-  //   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-
-  //   // console.log("autoplay Video Ref");
-  //   // console.log(autoplayVideoRef);
-
-  //   const onLoadedData = () => {
-  //     setIsVideoLoaded(true);
-  //   };
-
-  //   useEffect(() => {
-  //     if (isOnScreen == true) {
-  //       // console.log(srcProps);
-  //       // console.log("on screen");
-  //       setVideoSrcState(srcProps);
-  //       autoplayVideoRef.current.load();
-  //       autoplayVideoRef.current.play();
-  //     } else if (isOnScreen === false) {
-  //       // console.log(srcProps);
-  //       // console.log("off screen");
-  //       // caches.delete();
-  //       // var x = srcProps;
-  //       // var y = x.replace("https://theoford-1.cdn.prismic.io/theoford-1/", "");
-  //       // console.log(y);
-  //       // caches.delete(y);
-  //       // console.log(caches.keys());
-  //       // caches.keys().then(function(names) {
-  //       //   for (let name of names) caches.delete(name);
-  //       // });
-  //       setIsVideoLoaded(false);
-  //       setVideoSrcState("");
-  //     }
-  //   }, [isOnScreen]);
-
-  //   return (
-  //     <>
-  //       <AutoplayVideoCon>
-  //         <AutoplayVideoImgCon
-  //           style={{
-  //             opacity: isVideoLoaded ? 0 : 1,
-  //             position: isVideoLoaded ? "absolute" : "relative",
-  //             // opacity: 1,
-  //             // position: "relative",
-  //           }}
-  //         >
-  //           <AutoplayVideoTextCon>
-  //             <p>Video Loading</p>
-  //           </AutoplayVideoTextCon>
-
-  //           <AutoplayVideoImg
-  //             srcSet={posterProps}
-  //             style={{
-  //               opacity: isVideoLoaded ? 0 : 1,
-  //               position: isVideoLoaded ? "absolute" : "relative",
-  //               // opacity: 1,
-  //               // position: "relative",
-  //             }}
-  //           />
-  //         </AutoplayVideoImgCon>
-
-  //         <AutoplayVideoVideo
-  //           playsInline
-  //           autoPlay
-  //           muted
-  //           loop
-  //           ref={autoplayVideoRef}
-  //           // onCanPlayThrough={onLoadedData}
-  //           onLoadedData={onLoadedData}
-  //           style={{
-  //             opacity: isVideoLoaded ? 1 : 0,
-  //             position: isVideoLoaded ? "relative" : "absolute",
-  //             // display: isOnScreen ? "block" : "none",
-  //             // opacity: 0,
-  //             // position: "absolute",
-  //           }}
-  //         >
-  //           <source type="video/mp4" src={videoSrcState} />
-  //         </AutoplayVideoVideo>
-  //       </AutoplayVideoCon>
-  //     </>
-  //   );
-  // };
-
   const VideoWithControlsImg = ({
     srcProps,
     posterProps,
@@ -729,31 +509,6 @@ const Index = ({ data }) => {
       });
       return <div>{items}</div>;
     };
-
-    // useEffect(() => {
-    //   // console.log(imgRef.current.height);
-    //   // console.log(imgRef.current.width);
-    //   var width = imgRef.current.width;
-    //   var height = imgRef.current.height;
-    //   // var smlPortrait = width * 1.25;
-    //   // var lrgPortrait = width * 1.777;
-    //   var x = height / width;
-    //   // console.log(srcProps);
-    //   // console.log(x);
-    //   if (x > 1.7) {
-    //     setOrientationState("lrg-portrait");
-    //     // VideoConInnerRef.current.classList.add("lrg-portrait");
-    //   } else if (x > 1.2) {
-    //     setOrientationState("sml-portrait");
-    //   } else if (height >= width) {
-    //     setOrientationState("square");
-    //     // VideoConInnerRef.current.classList.add("square");
-    //   } else if (width > height) {
-    //     setOrientationState("landscape");
-    //     // VideoConInnerRef.current.classList.add("landscape");
-    //   }
-    // }, [imgRef, srcProps]);
-    // console.log(imgRef);
 
     useEffect(() => {
       if (isOnScreen == true) {
@@ -1106,9 +861,7 @@ const Index = ({ data }) => {
           return (
             <>
               <ProjectCon>
-                <Grid16>
-                  <SingleImgProjectAssetCon>{project}</SingleImgProjectAssetCon>
-                </Grid16>
+                <SingleAssetProject>{project}</SingleAssetProject>
                 <ProjectInfo
                   title={
                     content.project_relationship_field.document.data
