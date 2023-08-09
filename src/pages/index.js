@@ -28,6 +28,7 @@ import { ImageOrientation2 } from "../components/utils/image-orientation2";
 import { PageLoad } from "../components/tf/page-load";
 import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo } from "../components/tf/index/project-info";
+import { ProjectInfo2 } from "../components/tf/index/project-info2";
 import { ImgComponent } from "../components/tf/img-component";
 import { TwoUpProjectCarousel } from "../components/tf/index/two-up-carousel";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
@@ -436,26 +437,10 @@ const Index = ({ data }) => {
                   React.cloneElement(child, {})
                 )}
               </FilmLeadCarousel2>
-              <ProjectInfo
-                title={
-                  content.project_relationship_field.document.data.project_title
-                    .text
-                }
-                client={
-                  content.project_relationship_field.document.data.client.text
-                }
-                year={
-                  content.project_relationship_field.document.data.year.text
-                }
-                location={
-                  content.project_relationship_field.document.data.location.text
-                }
-                homepage_intro={
-                  content.project_relationship_field.document.data
-                    .homepage_intro.text
-                }
+              <ProjectInfo2
+                data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo>
+              ></ProjectInfo2>
             </ProjectCon>
           </>
         );
@@ -513,26 +498,10 @@ const Index = ({ data }) => {
                 )}
                 {/* {project} */}
               </TwoUpProjectCarousel>
-              <ProjectInfo
-                title={
-                  content.project_relationship_field.document.data.project_title
-                    .text
-                }
-                client={
-                  content.project_relationship_field.document.data.client.text
-                }
-                year={
-                  content.project_relationship_field.document.data.year.text
-                }
-                location={
-                  content.project_relationship_field.document.data.location.text
-                }
-                homepage_intro={
-                  content.project_relationship_field.document.data
-                    .homepage_intro.text
-                }
+              <ProjectInfo2
+                data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo>
+              ></ProjectInfo2>
             </ProjectCon>
           );
         } else if (isPageWide && projectLength <= 1) {
@@ -540,27 +509,10 @@ const Index = ({ data }) => {
             <>
               <ProjectCon>
                 <SingleAssetProject>{project}</SingleAssetProject>
-                <ProjectInfo
-                  title={
-                    content.project_relationship_field.document.data
-                      .project_title.text
-                  }
-                  client={
-                    content.project_relationship_field.document.data.client.text
-                  }
-                  year={
-                    content.project_relationship_field.document.data.year.text
-                  }
-                  location={
-                    content.project_relationship_field.document.data.location
-                      .text
-                  }
-                  homepage_intro={
-                    content.project_relationship_field.document.data
-                      .homepage_intro.text
-                  }
+                <ProjectInfo2
+                  data2={content.project_relationship_field.document.data}
                   uid={content.project_relationship_field.document.uid}
-                ></ProjectInfo>
+                ></ProjectInfo2>
               </ProjectCon>
             </>
           );
@@ -575,26 +527,10 @@ const Index = ({ data }) => {
                 )}
                 {/* {project} */}
               </ProjectCarousel>
-              <ProjectInfo
-                title={
-                  content.project_relationship_field.document.data.project_title
-                    .text
-                }
-                client={
-                  content.project_relationship_field.document.data.client.text
-                }
-                year={
-                  content.project_relationship_field.document.data.year.text
-                }
-                location={
-                  content.project_relationship_field.document.data.location.text
-                }
-                homepage_intro={
-                  content.project_relationship_field.document.data
-                    .homepage_intro.text
-                }
+              <ProjectInfo2
+                data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo>
+              ></ProjectInfo2>
             </ProjectCon>
           );
         }

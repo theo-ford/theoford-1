@@ -126,9 +126,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
   // const carouselLength = 4;
   const { slideGoTo, setSlideGoTo } = useContext(CarouselIndexClicked);
   const value = useMemo(() => ({ slideGoTo, setSlideGoTo }), [slideGoTo]);
-  console.log("CONSOLE");
-  console.log(carouselLength);
-  console.log(slideGoTo);
+
   const onLoadedData = () => {
     setIsVideoLoaded(true);
   };
