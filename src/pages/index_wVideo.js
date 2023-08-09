@@ -32,10 +32,6 @@ import { ImgComponent } from "../components/tf/img-component";
 import { TwoUpProjectCarousel } from "../components/tf/index/two-up-carousel";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
-import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
-import { VideoWithControlsImg2 } from "../components/tf/index/video";
-import CarouselLengthContext from "../components/tf/index/length-context";
-import CarouselIndexClicked from "../components/tf/index/slick-functions-context.js";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -328,6 +324,12 @@ const Index = ({ data }) => {
     document.body.style.position = "relative";
   }
 
+  const CarouselLengthContext = createContext();
+  const CarouselIndexClicked = createContext({
+    slideGoTo: 0,
+    setSlideGoTo: () => {},
+  });
+
   const NavIndexGridIndex = () => {
     let isPageWide = useMediaQuery("(min-width: 667px)");
     var [currentPage, setCurrentPage] = useState(null);
@@ -408,6 +410,184 @@ const Index = ({ data }) => {
     }
   };
 
+  const VideoWithControlsImg = ({ srcProps, posterProps, img }) => {
+    const videoWithControlsRef = useRef(null);
+    const imgRef = useRef(null);
+    const isOnScreen = useOnScreen(videoWithControlsRef);
+    const [videoSrcState, setVideoSrcState] = useState("");
+    const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+    const [isPlaying, setPlayingStatus] = useState(false);
+    const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
+    const carouselLength = useContext(CarouselLengthContext);
+    const { slideGoTo, setSlideGoTo } = useContext(CarouselIndexClicked);
+
+    const onLoadedData = () => {
+      setIsVideoLoaded(true);
+    };
+
+    const Pagination = ({ carouselLength }) => {
+      const array = [...Array(carouselLength)];
+      const handleClick = index => {
+        setSlideGoTo(index);
+      };
+      const items = array.map((child, index) => {
+        return (
+          <>
+            <PaginationControlP
+              className={slideGoTo == index ? "active" : ""}
+              onClick={() => handleClick(index)}
+            >
+              {("0" + (index + 1)).slice(-2)}
+            </PaginationControlP>
+            {"    "}
+          </>
+        );
+      });
+      return <div>{items}</div>;
+    };
+
+    useEffect(() => {
+      if (isOnScreen == true) {
+        console.log(srcProps);
+        console.log("on screen");
+        // to load the video on scroll
+        // comment out below two lines to make it load on click, test hosted
+        setVideoSrcState(srcProps);
+        videoWithControlsRef.current.load();
+      } else if (isOnScreen === false) {
+        setIsVideoLoaded(false);
+        setVideoSrcState("");
+      }
+    }, [isOnScreen, videoSrcState]);
+
+    const playVideo = () => {
+      // to load the video on play
+      // setVideoSrcState(srcProps);
+      // videoWithControlsRef.current.load();
+      videoWithControlsRef.current.play();
+
+      setPlayingStatus(true);
+      setHasStartedPlaying(true);
+    };
+    const pauseVideo = () => {
+      videoWithControlsRef.current.pause();
+      setPlayingStatus(false);
+    };
+
+    return (
+      <>
+        <CarouselLengthContext.Provider>
+          <VideoCon>
+            <VideoConInner className={ImageOrientation2(img)}>
+              <VideoControlsImgCon
+                style={{
+                  opacity: hasStartedPlaying ? 0 : 1,
+                  position: hasStartedPlaying ? "absolute" : "relative",
+                }}
+              >
+                <VideoControlsImg
+                  ref={imgRef}
+                  srcSet={posterProps}
+                  style={{
+                    opacity: hasStartedPlaying ? 0 : 1,
+                    position: hasStartedPlaying ? "absolute" : "relative",
+                  }}
+                ></VideoControlsImg>
+              </VideoControlsImgCon>
+              <VideoWithContolsSC
+                playsInline
+                muted
+                loop
+                preload="auto"
+                ref={videoWithControlsRef}
+                onLoadedData={onLoadedData}
+                style={{
+                  zIndex: 0,
+                  opacity: hasStartedPlaying ? 1 : 0,
+                  position: hasStartedPlaying ? "relative" : "absolute",
+                  // https://stackoverflow.com/questions/3680429/click-through-div-to-underlying-elements
+                  // click through video to controls
+                  pointerEvents: "none",
+                }}
+              >
+                <source type="video/mp4" src={videoSrcState} />
+              </VideoWithContolsSC>
+              <ControlsCon>
+                <PaginationCon>
+                  <Pagination carouselLength={carouselLength}></Pagination>
+                </PaginationCon>
+                <PlayButtonCon
+                  style={{
+                    zIndex: 1,
+                  }}
+                >
+                  {isPlaying ? (
+                    <p onClick={pauseVideo}>
+                      <PauseButtonImg src={PauseButton} />
+                      Pause
+                    </p>
+                  ) : (
+                    <p onClick={playVideo}>
+                      <PlayButtonImg src={PlayButton} /> Play
+                    </p>
+                  )}
+                </PlayButtonCon>
+              </ControlsCon>
+            </VideoConInner>
+          </VideoCon>
+        </CarouselLengthContext.Provider>
+      </>
+    );
+  };
+
+  const FilmLeadCarousel = ({ children }) => {
+    const FilmsLeadCarouselRef = React.useRef(null);
+    const FilmsLeadCarouselRefCon = React.useRef(null);
+    const [carouselLength, setCarouselLength] = useState(children.length);
+    const [slideGoTo, setSlideGoTo] = useState(0);
+    const value = useMemo(() => ({ slideGoTo, setSlideGoTo }), [slideGoTo]);
+
+    const settings = {
+      infinite: true,
+      speed: 0,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      accessibility: true,
+      dots: false,
+      arrows: false,
+      swipe: false,
+      swipeToSlide: false,
+      className: "films-slider",
+    };
+
+    useEffect(() => {
+      FilmsLeadCarouselRef.current.slickGoTo(slideGoTo);
+    }, [slideGoTo]);
+
+    return (
+      <>
+        <CarouselLengthContext.Provider value={carouselLength}>
+          <CarouselIndexClicked.Provider value={value}>
+            {useMemo(
+              () => (
+                <>
+                  <VideoProjectCon ref={FilmsLeadCarouselRefCon}>
+                    <VideoCarouselCon>
+                      <Slider {...settings} ref={FilmsLeadCarouselRef}>
+                        {children}
+                      </Slider>
+                    </VideoCarouselCon>
+                  </VideoProjectCon>
+                </>
+              ),
+              []
+            )}
+          </CarouselIndexClicked.Provider>
+        </CarouselLengthContext.Provider>
+      </>
+    );
+  };
+
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
     (content, index) => {
       if (
@@ -417,13 +597,13 @@ const Index = ({ data }) => {
           (content_three, index) => {
             if (content_three.slice_type == "video_with_play_button") {
               return (
-                <VideoWithControlsImg2
+                <VideoWithControlsImg
                   srcProps={content_three.primary.video_with_play_button.url}
                   posterProps={
                     content_three.primary.video_thumbnail.fluid.srcSetWebp
                   }
                   img={content_three.primary.video_thumbnail}
-                ></VideoWithControlsImg2>
+                ></VideoWithControlsImg>
               );
             }
           }
@@ -431,11 +611,11 @@ const Index = ({ data }) => {
         return (
           <>
             <ProjectCon>
-              <FilmLeadCarousel2>
+              <FilmLeadCarousel>
                 {React.Children.map(filmLeadProject, child =>
                   React.cloneElement(child, {})
                 )}
-              </FilmLeadCarousel2>
+              </FilmLeadCarousel>
               <ProjectInfo
                 title={
                   content.project_relationship_field.document.data.project_title
@@ -624,7 +804,7 @@ const Index = ({ data }) => {
 export default withPreview(Index);
 
 export const query = graphql`
-  query IndexQuery40 {
+  query IndexQuery42 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {

@@ -11,6 +11,7 @@ exports.components = {
   "component---src-pages-index-load-4-js": () => import("./../../../src/pages/index_load_4.js" /* webpackChunkName: "component---src-pages-index-load-4-js" */),
   "component---src-pages-index-nav-e-js": () => import("./../../../src/pages/index_nav_e.js" /* webpackChunkName: "component---src-pages-index-nav-e-js" */),
   "component---src-pages-index-nav-g-js": () => import("./../../../src/pages/index_nav_g.js" /* webpackChunkName: "component---src-pages-index-nav-g-js" */),
+  "component---src-pages-index-w-video-js": () => import("./../../../src/pages/index_wVideo.js" /* webpackChunkName: "component---src-pages-index-w-video-js" */),
   "component---src-pages-office-js": () => import("./../../../src/pages/office.js" /* webpackChunkName: "component---src-pages-office-js" */),
   "component---src-pages-preview-js": () => import("./../../../src/pages/preview.js" /* webpackChunkName: "component---src-pages-preview-js" */),
   "component---src-pages-project-index-2-js": () => import("./../../../src/pages/project_index2.js" /* webpackChunkName: "component---src-pages-project-index-2-js" */),

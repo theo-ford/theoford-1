@@ -16,6 +16,9 @@ import { ImageOrientation2 } from "../../utils/image-orientation2";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import PauseButton from "../../../../public/icons/Pause.png";
 import PlayButton from "../../../../public/icons/Play.png";
+import CarouselLengthContext from "./length-context";
+import CarouselIndexClicked from "./slick-functions-context.js";
+
 /* - - - - - FILM LEAD CAROUSEL - - - - - */
 const VideoProjectCon = styled.div``;
 const VideoCarouselCon = styled.div`
@@ -41,11 +44,6 @@ export const FilmLeadCarousel2 = ({ children }) => {
   const FilmsLeadCarouselRefCon = React.useRef(null);
   const [carouselLength, setCarouselLength] = useState(children.length);
   const [slideGoTo, setSlideGoTo] = useState(0);
-  const CarouselLengthContext = createContext();
-  const CarouselIndexClicked = createContext({
-    slideGoTo: 0,
-    setSlideGoTo: () => {},
-  });
   const value = useMemo(() => ({ slideGoTo, setSlideGoTo }), [slideGoTo]);
 
   const settings = {

@@ -14,6 +14,7 @@ exports.components = {
   "component---src-pages-index-load-4-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_load_4.js"))),
   "component---src-pages-index-nav-e-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_nav_e.js"))),
   "component---src-pages-index-nav-g-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_nav_g.js"))),
+  "component---src-pages-index-w-video-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_wVideo.js"))),
   "component---src-pages-office-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/office.js"))),
   "component---src-pages-preview-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/preview.js"))),
   "component---src-pages-project-index-2-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/project_index2.js"))),
