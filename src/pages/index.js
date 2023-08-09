@@ -32,6 +32,10 @@ import { ImgComponent } from "../components/tf/img-component";
 import { TwoUpProjectCarousel } from "../components/tf/index/two-up-carousel";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
+import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
+import { VideoWithControlsImg2 } from "../components/tf/index/video";
+import CarouselLengthContext from "../components/tf/index/length-context";
+import CarouselIndexClicked from "../components/tf/index/slick-functions-context.js";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -324,12 +328,6 @@ const Index = ({ data }) => {
     document.body.style.position = "relative";
   }
 
-  const CarouselLengthContext = createContext();
-  const CarouselIndexClicked = createContext({
-    slideGoTo: 0,
-    setSlideGoTo: () => {},
-  });
-
   const NavIndexGridIndex = () => {
     let isPageWide = useMediaQuery("(min-width: 667px)");
     var [currentPage, setCurrentPage] = useState(null);
@@ -409,6 +407,8 @@ const Index = ({ data }) => {
       );
     }
   };
+
+  // - - - - - FILMS
 
   const VideoWithControlsImg = ({ srcProps, posterProps, img }) => {
     const videoWithControlsRef = useRef(null);
@@ -503,7 +503,6 @@ const Index = ({ data }) => {
                 onLoadedData={onLoadedData}
                 style={{
                   zIndex: 0,
-
                   opacity: hasStartedPlaying ? 1 : 0,
                   position: hasStartedPlaying ? "relative" : "absolute",
                   // https://stackoverflow.com/questions/3680429/click-through-div-to-underlying-elements
@@ -515,9 +514,6 @@ const Index = ({ data }) => {
               </VideoWithContolsSC>
               <ControlsCon>
                 <PaginationCon>
-                  {/* <p onClick={handleClick}>
-                    <span className="active">01</span> 02 03
-                  </p> */}
                   <Pagination carouselLength={carouselLength}></Pagination>
                 </PaginationCon>
                 <PlayButtonCon
@@ -568,22 +564,6 @@ const Index = ({ data }) => {
       FilmsLeadCarouselRef.current.slickGoTo(slideGoTo);
     }, [slideGoTo]);
 
-    const Pagination = ({ children }) => {
-      const handleClick = index => {
-        FilmsLeadCarouselRef.current.slickGoTo(index);
-      };
-      const items = children.map((child, index) => {
-        return (
-          <>
-            <PaginationControlP onClick={() => handleClick(index)}>
-              {index + 1}
-            </PaginationControlP>
-            {"    "}
-          </>
-        );
-      });
-      return <div>{items}</div>;
-    };
     return (
       <>
         <CarouselLengthContext.Provider value={carouselLength}>
@@ -617,13 +597,13 @@ const Index = ({ data }) => {
           (content_three, index) => {
             if (content_three.slice_type == "video_with_play_button") {
               return (
-                <VideoWithControlsImg
+                <VideoWithControlsImg2
                   srcProps={content_three.primary.video_with_play_button.url}
                   posterProps={
                     content_three.primary.video_thumbnail.fluid.srcSetWebp
                   }
                   img={content_three.primary.video_thumbnail}
-                ></VideoWithControlsImg>
+                ></VideoWithControlsImg2>
               );
             }
           }

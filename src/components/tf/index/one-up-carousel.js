@@ -8,6 +8,8 @@ import React, {
 } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import Slider from "react-slick";
+import "../../slick/slick.css";
+import "../../slick/slick-theme.css";
 
 const Grid2 = styled.div`
   display: grid;
