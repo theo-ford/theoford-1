@@ -5,11 +5,9 @@ import { Helmet } from "react-helmet";
 import { ImageOrientation } from "../components/utils/image-orientation";
 import styled, { createGlobalStyle } from "styled-components";
 import ReactPlayer from "react-player";
-// import { VideoComponent } from "../components/tf/video_component";
-import { VideoComponentNoControls } from "../components/tf/video-component-no-controls";
 import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
-import { VideoProjectPage } from "../components/tf/video-project-page";
+import { VideoProjectPage } from "../components/tf/project/video-project-page";
 import { NavGrid } from "../components/tf/nav-grid/nav";
 
 const GlobalStyle = createGlobalStyle`

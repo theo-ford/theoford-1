@@ -19,14 +19,12 @@ import Slider from "react-slick";
 import "../components/slick/slick.css";
 import "../components/slick/slick-theme.css";
 import { useOnScreen } from "../components/hooks/useOnScreen";
-import ReactPlayer from "react-player";
 import Icon from "../../assets/WhiteLogo.svg";
 import PauseButton from "../../public/icons/Pause.png";
 import PlayButton from "../../public/icons/Play.png";
 import TestVideo from "../../assets/G4C Web Desk 1500.mp4";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { ImageOrientation2 } from "../components/utils/image-orientation2";
-import { NavIndexGrid } from "../components/tf/nav-grid/nav-index";
 import { PageLoad } from "../components/tf/page-load";
 import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo } from "../components/tf/index/project-info";
@@ -34,9 +32,6 @@ import { ImgComponent } from "../components/tf/img-component";
 import { TwoUpProjectCarousel } from "../components/tf/index/two-up-carousel";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
-
-// import * as prismicH from "@prismicio/helpers";
-// import * as prismic from "@prismicio/client";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -55,6 +50,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+/* - - - - - INTRO  - - - - -  */
 const IntroConCon = styled.div``;
 
 /* NAV */
@@ -98,10 +94,6 @@ const DesktopNavP = styled.p`
   a.selected {
     color: white;
   }
-  /* a:[aria-current] : {
-    color: white;
-  } */
-
   @media (max-width: 666px) {
     display: none;
   }
@@ -132,7 +124,6 @@ const LogoConMobile = styled.div`
   display: none;
   mix-blend-mode: exclusion;
   @media (max-width: 666px) {
-    /* display: none; */
     display: block;
     width: calc(75% - 6.25px);
     margin-top: 14vh;
@@ -149,7 +140,6 @@ const NavSpacer = styled.div`
   @media (max-width: 666px) {
     display: none;
   }
-  /* background-color: green; */
 `;
 
 /* - - - - - PAGE  - - - - - */
@@ -178,23 +168,13 @@ const Grid2 = styled.div`
 `;
 
 const ProjectCon = styled.div`
-  /* margin-top: 100px; */
   margin-bottom: 100px;
-  /* padding-top: 200px;
   @media (max-width: 666px) {
-    padding-top: 200px;
-  } */
-  @media (max-width: 666px) {
-    /* display: none; */
     margin-bottom: 200px;
   }
 `;
 
-const VideoProjectCon = styled.div`
-  /* margin-bottom: 200px; */
-  /* padding-top: 200px; */
-`;
-
+/* - - - - - UNKOWN - - - - - */
 const IndexAutoPlayVideoCon = styled.div`
   position: relative;
   width: calc(100% - 12.5px) !important;
@@ -203,22 +183,30 @@ const IndexAutoPlayVideoCon = styled.div`
   }
 `;
 
-/* - - - - - VIDEO CAROUSEL - - - - - */
+/* - - - - - FILM LEAD CAROUSEL - - - - - */
+const VideoProjectCon = styled.div``;
 const VideoCarouselCon = styled.div`
   width: 100%;
   height: 110vh;
   background-color: black;
-  /* padding-top: 200px; */
   @media (max-width: 666px) {
-    /* padding-top: 200px; */
+  }
+`;
+const PaginationControlP = styled.p`
+  display: inline-block;
+  color: #545454;
+  font-size: 12px;
+  &.active {
+    color: white;
   }
 `;
 
+/* - - - - - VIDEO WITH CONTROLS IMG - - - - - */
+
 const VideoCon = styled.div`
-  // grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
   display: grid;
   top: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 12.5px;
   margin-left: 12.5px;
   grid-row-gap: 0;
@@ -227,7 +215,7 @@ const VideoCon = styled.div`
   align-items: center;
   height: 110vh;
   @media (max-width: 666px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-column-gap: 10px;
     margin-left: 10px;
     grid-row-gap: 0;
@@ -238,79 +226,55 @@ const VideoCon = styled.div`
   }
 `;
 const VideoConInner = styled.div`
-  /* grid-column: ${props =>
-    props.portrait ? "7 / span 4;" : "5 / span 8;"}; */
- 
   &.sml-portrait {
-    grid-column:  10 / span 6;
+    grid-column: 10 / span 6;
   }
   &.lrg-portrait {
-    grid-column:  10 / span 6;
-  }  
+    grid-column: 10 / span 6;
+  }
   &.square {
-    grid-column:  9 / span 8;
+    grid-column: 9 / span 8;
   }
   &.landscape {
     grid-column: 7 / span 12;
   }
-  
-  
   @media (max-width: 666px) {
-    
-    
     &.sml-portrait {
-    grid-column:  5 / span 16;
+      grid-column: 5 / span 16;
     }
     &.lrg-portrait {
-      grid-column:  6 / span 14;
-    }  
+      grid-column: 6 / span 14;
+    }
     &.square {
-      grid-column:  4 / span 18;
+      grid-column: 4 / span 18;
     }
     &.landscape {
       grid-column: span 24;
-    }    
+    }
   }
-
 `;
 const VideoWithContolsSC = styled.video`
-  // grid-column: 5 / span 8;
-  // grid-column: ${props => (props.portrait ? "7 / span 4;" : "5 / span 8;")};
   width: 100%;
 `;
 const ControlsCon = styled.div`
   z-index: 1;
-  /* position: absolute; */
-  /* background-color: blue; */
-
   &.landscape {
     width: 50%;
   }
 `;
 const PlayButtonCon = styled.div`
-  /* background-color: red; */
   margin-top: 5px;
-  /* grid-column: 5 / span 1; */
-  /* height: 10px; */
   width: calc(50%);
-  /* margin-left: calc(6.25px); */
   display: inline-block;
-
-  /* background-color: green; */
   p {
     color: #d4d4d4;
     font-size: 12px;
   }
 `;
 const PaginationCon = styled.div`
-  /* background-color: red; */
   margin-top: 5px;
   width: calc(50%);
-  /* grid-column: 5 / span 1; */
-  /* height: 10px; */
-  /* width: calc(50%); */
   display: inline-block;
-  /* background-color: red; */
 `;
 
 const PauseButtonImg = styled.img`
@@ -322,14 +286,7 @@ const PlayButtonImg = styled.img`
   width: 8px;
   display: inline-block !important;
 `;
-const PaginationControlP = styled.p`
-  display: inline-block;
-  color: #545454;
-  font-size: 12px;
-  &.active {
-    color: white;
-  }
-`;
+
 const VideoControlsImgCon = styled.div``;
 const VideoControlsImg = styled.img`
   width: 100%;
@@ -453,54 +410,33 @@ const Index = ({ data }) => {
     }
   };
 
-  const VideoWithControlsImg = ({
-    srcProps,
-    posterProps,
-    img,
-    // filmsLeadCarouselNextImg,
-    // test,
-    // onChild2Event,
-  }) => {
+  const VideoWithControlsImg = ({ srcProps, posterProps, img }) => {
     const videoWithControlsRef = useRef(null);
-    // const height = videoWithControlsRef.current.dimensions.height;
     const imgRef = useRef(null);
     const isOnScreen = useOnScreen(videoWithControlsRef);
     const [videoSrcState, setVideoSrcState] = useState("");
     const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-    const [imgOrientation, setOrientationState] = useState("");
     const [isPlaying, setPlayingStatus] = useState(false);
     const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
-    const VideoConInnerRef = useRef(null);
     const carouselLength = useContext(CarouselLengthContext);
     const { slideGoTo, setSlideGoTo } = useContext(CarouselIndexClicked);
-    // console.log(carouselLength);
-    // console.log(CarouselLengthContext);
 
-    // console.log(imgRef);
-    // useEffect(() => {
-    //   console.log(imgRef);
-    // }, [imgRef]);
     const onLoadedData = () => {
       setIsVideoLoaded(true);
     };
 
     const Pagination = ({ carouselLength }) => {
-      // console.log(carouselLength);
       const array = [...Array(carouselLength)];
-      // console.log(array);
       const handleClick = index => {
-        // console.log(index);
         setSlideGoTo(index);
       };
       const items = array.map((child, index) => {
-        // console.log(index);
         return (
           <>
             <PaginationControlP
               className={slideGoTo == index ? "active" : ""}
               onClick={() => handleClick(index)}
             >
-              {/* {index + 1} */}
               {("0" + (index + 1)).slice(-2)}
             </PaginationControlP>
             {"    "}
@@ -518,10 +454,7 @@ const Index = ({ data }) => {
         // comment out below two lines to make it load on click, test hosted
         setVideoSrcState(srcProps);
         videoWithControlsRef.current.load();
-        // videoWithControlsRef.current.play();
       } else if (isOnScreen === false) {
-        // console.log(srcProps);
-        // console.log("off screen");
         setIsVideoLoaded(false);
         setVideoSrcState("");
       }
@@ -540,9 +473,7 @@ const Index = ({ data }) => {
       videoWithControlsRef.current.pause();
       setPlayingStatus(false);
     };
-    const handleClick = event => {
-      // console.log("pagination clicked");
-    };
+
     return (
       <>
         <CarouselLengthContext.Provider>
@@ -616,21 +547,10 @@ const Index = ({ data }) => {
   const FilmLeadCarousel = ({ children }) => {
     const FilmsLeadCarouselRef = React.useRef(null);
     const FilmsLeadCarouselRefCon = React.useRef(null);
-    const divIsOnScreen = useOnScreen(FilmsLeadCarouselRefCon);
     const [carouselLength, setCarouselLength] = useState(children.length);
     const [slideGoTo, setSlideGoTo] = useState(0);
     const value = useMemo(() => ({ slideGoTo, setSlideGoTo }), [slideGoTo]);
-    useEffect(() => {
-      if (divIsOnScreen == true) {
-        // console.log("div on screen");
-      } else if (divIsOnScreen == false) {
-        // console.log("div is not on screen");
-      }
-    }, [divIsOnScreen]);
 
-    function filmsLeadCarouselNextImg() {
-      FilmsLeadCarouselRef.current.slickNext();
-    }
     const settings = {
       infinite: true,
       speed: 0,
@@ -644,17 +564,12 @@ const Index = ({ data }) => {
       className: "films-slider",
     };
 
-    // console.log(slideGoTo);
     useEffect(() => {
       FilmsLeadCarouselRef.current.slickGoTo(slideGoTo);
     }, [slideGoTo]);
 
     const Pagination = ({ children }) => {
-      // console.log("hello");
-      // console.log(children.length);
       const handleClick = index => {
-        // console.log("hello");
-        // console.log(index);
         FilmsLeadCarouselRef.current.slickGoTo(index);
       };
       const items = children.map((child, index) => {
@@ -678,23 +593,7 @@ const Index = ({ data }) => {
                 <>
                   <VideoProjectCon ref={FilmsLeadCarouselRefCon}>
                     <VideoCarouselCon>
-                      {/* <NextButtonCon>
-                        <p onClick={filmsLeadCarouselNextImg}>Next</p>
-                      </NextButtonCon>
-                      <Pagination>{children}</Pagination> */}
-
-                      <Slider
-                        {...settings}
-                        ref={FilmsLeadCarouselRef}
-                        // onChild1Event={handleEvent}
-                      >
-                        {/* {React.Children.map(children, child =>
-                            React.cloneElement(child, {
-                              // onChild1Event: onChild1Event,
-                              // fct: filmsLeadCarouselNextImg,
-                              // test: false,
-                            })
-                          )} */}
+                      <Slider {...settings} ref={FilmsLeadCarouselRef}>
                         {children}
                       </Slider>
                     </VideoCarouselCon>
@@ -715,11 +614,7 @@ const Index = ({ data }) => {
         content.project_relationship_field.document.type == "film_lead_project"
       ) {
         const filmLeadProject = content.project_relationship_field.document.data.body.map(
-          (content_three, index, onChild1Event) => {
-            // const handleEvent = event => {
-            //   console.log("handled");
-            //   onChild1Event(event);
-            // };
+          (content_three, index) => {
             if (content_three.slice_type == "video_with_play_button") {
               return (
                 <VideoWithControlsImg
@@ -728,36 +623,19 @@ const Index = ({ data }) => {
                     content_three.primary.video_thumbnail.fluid.srcSetWebp
                   }
                   img={content_three.primary.video_thumbnail}
-                  // fct={filmsLeadCarouselNextImg}
-                  // onChild2Event={handleEvent}
                 ></VideoWithControlsImg>
               );
             }
           }
         );
-        // console.log(test);
-        // const handleEvent = event => {
-        //   console.log("handled2");
-        //   // onChild1Event(event);
-        // };
         return (
           <>
             <ProjectCon>
               <FilmLeadCarousel>
-                {/* {React.Children.map(filmLeadProject, child =>
-                    React.cloneElement(child, {
-                      divIsInView: false,
-                    })
-                  )} */}
                 {React.Children.map(filmLeadProject, child =>
-                  React.cloneElement(child, {
-                    // onChild1Event: onChild1Event,
-                    // onChild1Event: handleEvent
-                    // fct: filmsLeadCarouselNextImg,
-                  })
+                  React.cloneElement(child, {})
                 )}
               </FilmLeadCarousel>
-
               <ProjectInfo
                 title={
                   content.project_relationship_field.document.data.project_title

@@ -7,11 +7,11 @@ import React, {
   useMemo,
 } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
-import { useOnScreen } from "../hooks/useOnScreen";
-import PauseButton from "../../../public/icons/Pause.png";
-import PlayButton from "../../../public/icons/Play.png";
-import { ImageOrientation } from "../utils/image-orientation";
-import { ImageOrientation2 } from "../utils/image-orientation2";
+import { useOnScreen } from "../../hooks/useOnScreen";
+import PauseButton from "../../../../public/icons/Pause.png";
+import PlayButton from "../../../../public/icons/Play.png";
+import { ImageOrientation } from "../../utils/image-orientation";
+import { ImageOrientation2 } from "../../utils/image-orientation2";
 
 const VideoCon = styled.div`
   margin-bottom: 200px;
