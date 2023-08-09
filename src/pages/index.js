@@ -151,26 +151,6 @@ const NavSpacer = styled.div`
 const PageCon = styled.div`
   margin-top: 30vh;
 `;
-const Grid16 = styled.div`
-  display: grid;
-  top: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 12.5px;
-  margin-left: 12.5px;
-  grid-row-gap: 0;
-  width: calc(100% - 25px);
-  z-index: 20000;
-`;
-const Grid2 = styled.div`
-  display: grid;
-  top: 12.5px;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 10px;
-  margin-left: 10px;
-  grid-row-gap: 0;
-  width: calc(100% - 20px);
-  z-index: 20000;
-`;
 
 const ProjectCon = styled.div`
   margin-bottom: 100px;
@@ -179,123 +159,14 @@ const ProjectCon = styled.div`
   }
 `;
 
-/* - - - - - UNKOWN - - - - - */
+/* - - - - - INDEX AUTOPLAT VIDEO FORMATTING - - - - - */
+/* - - perhaps in the autoplay video component you put a conditional saying if page index apply this  - - */
 const IndexAutoPlayVideoCon = styled.div`
   position: relative;
   width: calc(100% - 12.5px) !important;
   @media (max-width: 666px) {
     width: 100%;
   }
-`;
-
-/* - - - - - FILM LEAD CAROUSEL - - - - - */
-const VideoProjectCon = styled.div``;
-const VideoCarouselCon = styled.div`
-  width: 100%;
-  height: 110vh;
-  background-color: black;
-  @media (max-width: 666px) {
-  }
-`;
-const PaginationControlP = styled.p`
-  display: inline-block;
-  color: #545454;
-  font-size: 12px;
-  &.active {
-    color: white;
-  }
-`;
-
-/* - - - - - VIDEO WITH CONTROLS IMG - - - - - */
-
-const VideoCon = styled.div`
-  display: grid;
-  top: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 12.5px;
-  margin-left: 12.5px;
-  grid-row-gap: 0;
-  width: calc(100% - 25px);
-  z-index: 20000;
-  align-items: center;
-  height: 110vh;
-  @media (max-width: 666px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 10px;
-    margin-left: 10px;
-    grid-row-gap: 0;
-    width: calc(100% - 20px);
-    z-index: 20000;
-    align-items: center;
-    height: 110vh;
-  }
-`;
-const VideoConInner = styled.div`
-  &.sml-portrait {
-    grid-column: 10 / span 6;
-  }
-  &.lrg-portrait {
-    grid-column: 10 / span 6;
-  }
-  &.square {
-    grid-column: 9 / span 8;
-  }
-  &.landscape {
-    grid-column: 7 / span 12;
-  }
-  @media (max-width: 666px) {
-    &.sml-portrait {
-      grid-column: 5 / span 16;
-    }
-    &.lrg-portrait {
-      grid-column: 6 / span 14;
-    }
-    &.square {
-      grid-column: 4 / span 18;
-    }
-    &.landscape {
-      grid-column: span 24;
-    }
-  }
-`;
-const VideoWithContolsSC = styled.video`
-  width: 100%;
-`;
-const ControlsCon = styled.div`
-  z-index: 1;
-  &.landscape {
-    width: 50%;
-  }
-`;
-const PlayButtonCon = styled.div`
-  margin-top: 5px;
-  width: calc(50%);
-  display: inline-block;
-  p {
-    color: #d4d4d4;
-    font-size: 12px;
-  }
-`;
-const PaginationCon = styled.div`
-  margin-top: 5px;
-  width: calc(50%);
-  display: inline-block;
-`;
-
-const PauseButtonImg = styled.img`
-  width: 8px;
-  display: inline-block !important;
-  margin-right: 5px;
-`;
-const PlayButtonImg = styled.img`
-  width: 8px;
-  display: inline-block !important;
-`;
-
-const VideoControlsImgCon = styled.div``;
-const VideoControlsImg = styled.img`
-  width: 100%;
-  height: 100%;
 `;
 
 const Index = ({ data }) => {
