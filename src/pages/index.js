@@ -31,7 +31,7 @@ import { PageLoad } from "../components/tf/page-load";
 import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo } from "../components/tf/index/project-info";
 import { ImgComponent } from "../components/tf/img-component";
-
+import { TwoUpProjectCarousel } from "../components/tf/index/two-up-carousel";
 // import * as prismicH from "@prismicio/helpers";
 // import * as prismic from "@prismicio/client";
 
@@ -174,11 +174,13 @@ const Grid2 = styled.div`
   z-index: 20000;
 `;
 
-/* - - - - - 2 UP CAROUSEL - - - - - */
+/* - - - -  UNKOWN- - - - */
 const CounterCon = styled.div`
   grid-column: span 1;
   margin-bottom: 5px;
 `;
+/* - - - - - 2 UP CAROUSEL - - - - - */
+
 const NextButtonCon = styled.div`
   grid-column: span 1;
   p {
@@ -213,25 +215,7 @@ const IndexAutoPlayVideoCon = styled.div`
   }
 `;
 
-const TwoUpCarouselCounterNextCon = styled.div`
-  margin-bottom: 8px;
-`;
-const TwoUpCarouselCon = styled.div`
-  margin-left: 12.5px;
-  cursor: e-resize;
-`;
-const TwoUpCarouselCounterOneCon = styled.div`
-  grid-column: span 8;
-`;
-const TwoUpCarouselCounterTwoCon = styled.div`
-  grid-column: span 6;
-`;
-const TwoUpCarouselNextButtonCon = styled.div`
-  grid-column: span 2;
-  p {
-    color: #cfcfcf;
-  }
-`;
+/* - - - -  ACTUALLY IN THE COMPONENT: ABOVE - - - - - */
 const SingleImgProjectAssetCon = styled.div`
   grid-column: span 8;
 `;
@@ -567,94 +551,6 @@ const Index = ({ data }) => {
     }
   };
 
-  const TwoUpProjectCarousel = ({
-    children,
-
-    projectLength,
-  }) => {
-    // COUNTER
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [totalSlides, setTotalSlides] = useState(null);
-    useEffect(() => {
-      setCurrentSlide(0);
-    }, []);
-    useEffect(() => {
-      setTotalSlides(projectLength);
-    }, []);
-    const updateCurrentSlide = index => {
-      if (currentSlide !== index) {
-        setCurrentSlide(index);
-      }
-    };
-
-    // SLIDER SETTINGS
-    const settings = {
-      infinite: true,
-      // speed: 200,
-      slidesToShow: 2,
-      slidesToScroll: 1,
-      accessibility: true,
-      dots: false,
-      arrows: false,
-      swipe: false,
-      swipeToSlide: false,
-    };
-
-    // SLIDESHOW FUNCTION
-    const ProjectCarouselRef = React.useRef(null);
-
-    const [changedSlide, setChangedSlide] = useState(false);
-
-    function projectCarouselNextImg() {
-      ProjectCarouselRef.current.slickNext();
-      setChangedSlide(true);
-    }
-    return (
-      <>
-        <TwoUpCarouselCounterNextCon>
-          <Grid16>
-            <TwoUpCarouselCounterOneCon>
-              {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-              <p>{("0" + (currentSlide + 1)).slice(-2)}</p>
-            </TwoUpCarouselCounterOneCon>
-            <TwoUpCarouselCounterTwoCon>
-              {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-              <p>{("0" + (currentSlide + 2)).slice(-2)}</p>
-            </TwoUpCarouselCounterTwoCon>
-            <TwoUpCarouselNextButtonCon>
-              {projectLength > 1 ? (
-                <>
-                  <p
-                    onClick={projectCarouselNextImg}
-                    style={{ display: "inline-block" }}
-                  >
-                    Next
-                  </p>
-                  {/* <PVideoLoadingNext>&nbsp; (Video Loading)</PVideoLoadingNext> */}
-                </>
-              ) : (
-                ""
-              )}
-            </TwoUpCarouselNextButtonCon>
-          </Grid16>
-        </TwoUpCarouselCounterNextCon>
-
-        <TwoUpCarouselCon onClick={projectCarouselNextImg}>
-          <Slider
-            {...settings}
-            ref={ProjectCarouselRef}
-            afterChange={index => updateCurrentSlide(index)}
-          >
-            {React.Children.map(children, child =>
-              React.cloneElement(child, {
-                changedSlide: changedSlide,
-              })
-            )}
-          </Slider>
-        </TwoUpCarouselCon>
-      </>
-    );
-  };
   const ProjectCarousel = ({
     children,
 
@@ -1286,19 +1182,6 @@ const Index = ({ data }) => {
           return (
             <>
               <ProjectCon>
-                <Grid16>
-                  <TwoUpCarouselCounterOneCon>
-                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-                    <p> 01</p>
-                  </TwoUpCarouselCounterOneCon>
-                  <TwoUpCarouselCounterTwoCon>
-                    {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-                    <p> 01</p>
-                  </TwoUpCarouselCounterTwoCon>
-                  <TwoUpCarouselNextButtonCon>
-                    <p>Next</p>
-                  </TwoUpCarouselNextButtonCon>
-                </Grid16>
                 <Grid16>
                   <SingleImgProjectAssetCon>{project}</SingleImgProjectAssetCon>
                 </Grid16>
