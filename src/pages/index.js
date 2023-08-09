@@ -28,6 +28,7 @@ import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { ImageOrientation2 } from "../components/utils/image-orientation2";
 import { NavIndexGrid } from "../components/tf/nav-grid/nav-index";
 import { PageLoad } from "../components/tf/page-load";
+import { Intro } from "../components/tf/index/intro";
 
 // import * as prismicH from "@prismicio/helpers";
 // import * as prismic from "@prismicio/client";
@@ -50,60 +51,10 @@ const GlobalStyle = createGlobalStyle`
   }    
   }
 `;
-const TestVideoCon = styled.div`
-  width: 500px;
-`;
-// const LoadingBlock = styled.div`
-//   height: 5px;
-//   width: 100vw;
-//   background-color: black;
-//   position: fixed;
-//   /* z-index: -1000; */
-//   @media (max-width: 666px) {
-//     display: none;
-//   }
-//   @media (min-width: 666px) {
-//     animation-name: widthAni;
-//     animation-duration: 1s;
-//     animation-fill-mode: forwards;
 
-//     @keyframes widthAni {
-//       /* 0% {
-//         width: 100vw;
-//       }
-//       100% {
-//         width: 0vw;
-//       } */
-//       0% {
-//         margin-left: 0vw;
-//       }
-//       100% {
-//         margin-left: 100vw;
-//       }
-//     }
-//   }
-// `;
-// const FadeInCon = styled.div`
-//   background-color: white;
-//   position: relative;
-//   @media (min-width: 666px) {
-//     opacity: 0;
-//     animation-name: opacityAni;
-//     animation-duration: 1s;
-//     animation-delay: 3s;
-//     animation-fill-mode: forwards;
+const IntroConCon = styled.div``;
 
-//     @keyframes opacityAni {
-//       0% {
-//         opacity: 0;
-//       }
-//       100% {
-//         opacity: 1;
-//       }
-//     }
-//   }
-// `;
-
+/* NAV */
 /* BOTH */
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
@@ -189,28 +140,6 @@ const LogoConMobile = styled.div`
   }
 `;
 
-const IntroCon = styled.div`
-  margin-top: 10px;
-  /* transition: 1s ease; */
-  span.grey {
-    color: #878787;
-  }
-  @media (max-width: 666px) {
-    display: none;
-  }
-`;
-const AboutCon = styled.div`
-  grid-column: span 6;
-`;
-const LocationCon = styled.div`
-  grid-column: 9 / span 5;
-  span.grey {
-    color: #878787;
-  }
-`;
-const ContactCon = styled.div`
-  grid-column: 15 / span 2;
-`;
 const NavSpacer = styled.div`
   height: 25vh;
   width: 100%;
@@ -1553,60 +1482,18 @@ const Index = ({ data }) => {
   return (
     <>
       <GlobalStyle />
-      {/* <Helmet htmlAttributes={{ ref: htmlRef }}> */}
       <Helmet>
         <head></head>
         <title>(10) Pagination 1</title>
       </Helmet>
-      {/* <LoadingBlock></LoadingBlock> */}
-      {/* <FadeInCon> */}
-      {/* <TestVideoCon>
-          <video autplay muted>
-            <source src={TestVideo}></source>
-          </video>
-        </TestVideoCon> */}
-      <IntroCon style={{ opacity: pageLoad ? 1 : 0 }}>
-        {/* <IntroCon> */}
-        <Grid16>
-          <AboutCon>
-            <p>
-              The design office of Theo Ford. Specialising in graphic design,
-              art direction, moving-image and web development. Recent commisions
-              and collaborations include identites for{" "}
-              <span className="grey">Tesla</span>, adverts for{" "}
-              <span className="grey">American Apparel</span>, and printed matter
-              for <span className="grey">COS</span>.<br />
-            </p>
-          </AboutCon>
-          <LocationCon>
-            <p>
-              Current Location: <span className="grey">New York,</span> London,
-              <span className="grey">
-                {" "}
-                Los Angeles, Beijing, Stockholm, Gothenburg, Glasgow, Falmouth,
-                Philadelphia.
-              </span>{" "}
-              2023/03/23 21:32.
-            </p>
-          </LocationCon>
-          <ContactCon>
-            <p class="">
-              <span>
-                info@theoford.com
-                <br />
-                +44 7599 759 529
-                <br />
-                @tf.public
-              </span>
-            </p>
-          </ContactCon>
-        </Grid16>
-      </IntroCon>
+      <IntroConCon style={{ opacity: pageLoad ? 1 : 0 }}>
+        <Intro></Intro>
+      </IntroConCon>
+
       <NavSpacer></NavSpacer>
       <NavIndexGridIndex></NavIndexGridIndex>
-      {/* <LogoNav></LogoNav> */}
+
       <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
-      {/* </FadeInCon> */}
     </>
   );
 };
