@@ -32,6 +32,8 @@ import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo } from "../components/tf/index/project-info";
 import { ImgComponent } from "../components/tf/img-component";
 import { TwoUpProjectCarousel } from "../components/tf/index/two-up-carousel";
+import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
+
 // import * as prismicH from "@prismicio/helpers";
 // import * as prismic from "@prismicio/client";
 
@@ -175,11 +177,8 @@ const Grid2 = styled.div`
 `;
 
 /* - - - -  UNKOWN- - - - */
-const CounterCon = styled.div`
-  grid-column: span 1;
-  margin-bottom: 5px;
-`;
-/* - - - - - 2 UP CAROUSEL - - - - - */
+
+/* - - - - - 1 UP CAROUSEL - - - - - */
 
 const NextButtonCon = styled.div`
   grid-column: span 1;
@@ -187,9 +186,16 @@ const NextButtonCon = styled.div`
     color: #cfcfcfcf;
   }
 `;
+const CounterCon = styled.div`
+  grid-column: span 1;
+  margin-bottom: 5px;
+`;
 const SquareCarouselCon = styled.div`
   grid-column: span 2;
 `;
+
+/* - - - - - 1 UP CAROUSEL: ABOVE - - - - - */
+
 const ProjectCon = styled.div`
   /* margin-top: 100px; */
   margin-bottom: 100px;
@@ -215,7 +221,6 @@ const IndexAutoPlayVideoCon = styled.div`
   }
 `;
 
-/* - - - -  ACTUALLY IN THE COMPONENT: ABOVE - - - - - */
 const SingleImgProjectAssetCon = styled.div`
   grid-column: span 8;
 `;
@@ -390,87 +395,6 @@ const Index = ({ data }) => {
     setSlideGoTo: () => {},
   });
 
-  // const LogoNav = scrollPosition => {
-  //   if (isPageWide) {
-  //     return (
-  //       <>
-  //         <NavSpacer></NavSpacer>
-  //         <LogoGridCon>
-  //           <Col1>
-  //             <LogoCon ref={LogoConRef2}>
-  //               <Icon style={{ opacity: pageLoad ? 1 : 0 }} />
-  //             </LogoCon>
-  //           </Col1>
-  //           <Col2>
-  //             <NavCon1 style={{ opacity: pageLoad ? 1 : 0 }}>
-  //               <p>
-  //                 <Link to="/">
-  //                   <span className="selected">Select,</span>{" "}
-  //                 </Link>
-  //                 <Link to="/project_index">
-  //                   <span className="navItem">Index,</span>{" "}
-  //                 </Link>
-
-  //                 <Link to="/about17">
-  //                   <span className="navItem">Office</span>
-  //                 </Link>
-  //                 {/* <br></br>Instagram, Twitter */}
-  //               </p>
-  //             </NavCon1>
-  //           </Col2>
-  //         </LogoGridCon>
-  //       </>
-  //     );
-  //   }
-  //   if (!isPageWide) {
-  //     return (
-  //       <>
-  //         <LogoGridConMobile>
-  //           <NavCon1>
-  //             <Link to="/">
-  //               <p className="selected">Selected</p>
-  //             </Link>
-  //             <Link to="/project_index">
-  //               <p>
-  //                 <span className="navItem">Index</span>
-  //               </p>
-  //             </Link>
-  //           </NavCon1>
-  //           <NavCon2>
-  //             <Link to="/about17">
-  //               <p>Office</p>
-  //             </Link>
-  //             <p>Instagram</p>
-  //           </NavCon2>
-  //         </LogoGridConMobile>
-  //         <LogoCon ref={LogoConRef}>
-  //           <Icon style={{ opacity: pageLoad ? 1 : 0 }} />
-  //         </LogoCon>
-  //       </>
-  //     );
-  //   }
-  // };
-  // const handleScroll = () => {
-  //   const position = window.pageYOffset;
-  //   // console.log(position);
-  //   if (position > 25) {
-  //     // console.log("greater than 100");
-  //     LogoConRef2.current.classList.add("shrink");
-  //   } else if (position < 25) {
-  //     // console.log("less than 100");
-  //     LogoConRef2.current.classList.remove("shrink");
-  //   }
-  // };
-  // scroll use effect
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll, {
-  //     passive: true,
-  //   });
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
   const NavIndexGridIndex = () => {
     let isPageWide = useMediaQuery("(min-width: 667px)");
     var [currentPage, setCurrentPage] = useState(null);
@@ -551,115 +475,115 @@ const Index = ({ data }) => {
     }
   };
 
-  const ProjectCarousel = ({
-    children,
+  // const ProjectCarousel = ({
+  //   children,
 
-    projectLength,
-    videoLoad,
-  }) => {
-    // SWIPE GESTURE
-    const [touchStart, setTouchStart] = useState(null);
-    const [touchEnd, setTouchEnd] = useState(null);
-    // the required distance between touchStart and touchEnd to be detected as a swipe
-    const minSwipeDistance = 50;
-    const onTouchStart = e => {
-      setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
-      setTouchStart(e.targetTouches[0].clientX);
-    };
-    const onTouchMove = e => setTouchEnd(e.targetTouches[0].clientX);
-    const onTouchEnd = () => {
-      if (!touchStart || !touchEnd) return;
-      const distance = touchStart - touchEnd;
-      const isLeftSwipe = distance > minSwipeDistance;
-      const isRightSwipe = distance < -minSwipeDistance;
-      if (isLeftSwipe || isRightSwipe)
-        // console.log("swipe", isLeftSwipe ? "left" : "right");
-        // add your conditional logic here
-        ProjectCarouselRef.current.slickNext();
-    };
+  //   projectLength,
+  //   videoLoad,
+  // }) => {
+  //   // SWIPE GESTURE
+  //   const [touchStart, setTouchStart] = useState(null);
+  //   const [touchEnd, setTouchEnd] = useState(null);
+  //   // the required distance between touchStart and touchEnd to be detected as a swipe
+  //   const minSwipeDistance = 50;
+  //   const onTouchStart = e => {
+  //     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
+  //     setTouchStart(e.targetTouches[0].clientX);
+  //   };
+  //   const onTouchMove = e => setTouchEnd(e.targetTouches[0].clientX);
+  //   const onTouchEnd = () => {
+  //     if (!touchStart || !touchEnd) return;
+  //     const distance = touchStart - touchEnd;
+  //     const isLeftSwipe = distance > minSwipeDistance;
+  //     const isRightSwipe = distance < -minSwipeDistance;
+  //     if (isLeftSwipe || isRightSwipe)
+  //       // console.log("swipe", isLeftSwipe ? "left" : "right");
+  //       // add your conditional logic here
+  //       ProjectCarouselRef.current.slickNext();
+  //   };
 
-    // COUNTER
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [totalSlides, setTotalSlides] = useState(null);
-    useEffect(() => {
-      setCurrentSlide(0);
-    }, []);
-    useEffect(() => {
-      setTotalSlides(projectLength);
-    }, []);
-    const updateCurrentSlide = index => {
-      if (currentSlide !== index) {
-        setCurrentSlide(index);
-      }
-    };
+  //   // COUNTER
+  //   const [currentSlide, setCurrentSlide] = useState(0);
+  //   const [totalSlides, setTotalSlides] = useState(null);
+  //   useEffect(() => {
+  //     setCurrentSlide(0);
+  //   }, []);
+  //   useEffect(() => {
+  //     setTotalSlides(projectLength);
+  //   }, []);
+  //   const updateCurrentSlide = index => {
+  //     if (currentSlide !== index) {
+  //       setCurrentSlide(index);
+  //     }
+  //   };
 
-    // SLIDER SETTINGS
-    const settings = {
-      infinite: true,
-      speed: 0,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      accessibility: true,
-      dots: false,
-      arrows: false,
-      swipe: false,
-      swipeToSlide: false,
-    };
+  //   // SLIDER SETTINGS
+  //   const settings = {
+  //     infinite: true,
+  //     speed: 0,
+  //     slidesToShow: 1,
+  //     slidesToScroll: 1,
+  //     accessibility: true,
+  //     dots: false,
+  //     arrows: false,
+  //     swipe: false,
+  //     swipeToSlide: false,
+  //   };
 
-    // SLIDESHOW FUNCTION
-    const ProjectCarouselRef = React.useRef(null);
+  //   // SLIDESHOW FUNCTION
+  //   const ProjectCarouselRef = React.useRef(null);
 
-    const [changedSlide, setChangedSlide] = useState(false);
+  //   const [changedSlide, setChangedSlide] = useState(false);
 
-    function projectCarouselNextImg() {
-      ProjectCarouselRef.current.slickNext();
-      setChangedSlide(true);
-    }
-    return (
-      <>
-        <Grid2>
-          <CounterCon>
-            <p>{("0" + (currentSlide + 1)).slice(-2)}</p>
-          </CounterCon>
-          <NextButtonCon>
-            {projectLength > 1 ? (
-              <>
-                <p
-                  onClick={projectCarouselNextImg}
-                  style={{ display: "inline-block" }}
-                >
-                  Next
-                </p>
-                {/* <PVideoLoadingNext>&nbsp; (Video Loading)</PVideoLoadingNext> */}
-              </>
-            ) : (
-              ""
-            )}
-          </NextButtonCon>
-        </Grid2>
-        <Grid2>
-          <SquareCarouselCon
-            onClick={projectCarouselNextImg}
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
-          >
-            <Slider
-              {...settings}
-              ref={ProjectCarouselRef}
-              afterChange={index => updateCurrentSlide(index)}
-            >
-              {React.Children.map(children, child =>
-                React.cloneElement(child, {
-                  changedSlide: changedSlide,
-                })
-              )}
-            </Slider>
-          </SquareCarouselCon>
-        </Grid2>
-      </>
-    );
-  };
+  //   function projectCarouselNextImg() {
+  //     ProjectCarouselRef.current.slickNext();
+  //     setChangedSlide(true);
+  //   }
+  //   return (
+  //     <>
+  //       <Grid2>
+  //         <CounterCon>
+  //           <p>{("0" + (currentSlide + 1)).slice(-2)}</p>
+  //         </CounterCon>
+  //         <NextButtonCon>
+  //           {projectLength > 1 ? (
+  //             <>
+  //               <p
+  //                 onClick={projectCarouselNextImg}
+  //                 style={{ display: "inline-block" }}
+  //               >
+  //                 Next
+  //               </p>
+  //               {/* <PVideoLoadingNext>&nbsp; (Video Loading)</PVideoLoadingNext> */}
+  //             </>
+  //           ) : (
+  //             ""
+  //           )}
+  //         </NextButtonCon>
+  //       </Grid2>
+  //       <Grid2>
+  //         <SquareCarouselCon
+  //           onClick={projectCarouselNextImg}
+  //           onTouchStart={onTouchStart}
+  //           onTouchMove={onTouchMove}
+  //           onTouchEnd={onTouchEnd}
+  //         >
+  //           <Slider
+  //             {...settings}
+  //             ref={ProjectCarouselRef}
+  //             afterChange={index => updateCurrentSlide(index)}
+  //           >
+  //             {React.Children.map(children, child =>
+  //               React.cloneElement(child, {
+  //                 changedSlide: changedSlide,
+  //               })
+  //             )}
+  //           </Slider>
+  //         </SquareCarouselCon>
+  //       </Grid2>
+  //     </>
+  //   );
+  // };
 
   // const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
   //   // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
