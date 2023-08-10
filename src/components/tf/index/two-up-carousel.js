@@ -72,6 +72,7 @@ export const TwoUpProjectCarousel = ({
     arrows: false,
     swipe: false,
     swipeToSlide: false,
+    adaptiveHeight: false,
   };
 
   // SLIDESHOW FUNCTION

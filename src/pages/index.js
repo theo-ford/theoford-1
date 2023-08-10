@@ -37,6 +37,7 @@ import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
 import { VideoWithControlsImg2 } from "../components/tf/index/video";
 import CarouselLengthContext from "../components/tf/index/length-context";
 import CarouselIndexClicked from "../components/tf/index/slick-functions-context.js";
+import { SingleAssetProject2 } from "../components/tf/index/single-asset-project2";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -325,7 +326,6 @@ const Index = ({ data }) => {
               return (
                 <ImgComponent
                   srcProps={content_four.primary.image.fluid.srcSetWebp}
-                  // srcProps={content_four.primary.image.fluid.srcWebp}
                 />
               );
             }
