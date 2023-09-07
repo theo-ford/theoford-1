@@ -7,7 +7,6 @@ const preferDefault = m => (m && m.default) || m
 exports.components = {
   "component---cache-dev-404-page-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/.cache/dev-404-page.js"))),
   "component---src-pages-404-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/404.js"))),
-  "component---src-pages-index-2-up-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_2up.js"))),
   "component---src-pages-index-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index.js"))),
   "component---src-pages-index-load-1-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_load_1.js"))),
   "component---src-pages-index-load-2-js": hot(preferDefault(require("/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/src/pages/index_load_2.js"))),

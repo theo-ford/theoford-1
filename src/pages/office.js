@@ -193,29 +193,47 @@ const AboutTextCon = styled.div`
   @media (max-width: 666px) {
     /* display: none; */
     grid-column: span 16;
+    p {
+      font-size: 26px;
+    }
+  }
+  p {
+    font-size: 36px;
+    margin: auto;
+    padding: 5px;
+    line-height: 110%;
+    color: white;
+    font-family: "Times Now";
+
+    font-weight: 300;
+    font-style: normal;
+    /* text-indent: 50px; */
+    letter-spacing: -1.3px !important;
   }
 `;
-const AboutP = styled.p`
-  font-size: 36px;
+const AboutP = styled.div`
+  p {
+    font-size: 36px;
 
-  line-height: 110%;
-  color: white;
-  font-family: "Times Now";
+    line-height: 110%;
+    color: white;
+    font-family: "Times Now";
 
-  font-weight: 300;
-  font-style: normal;
-  /* text-indent: 50px; */
-  letter-spacing: -1.3px !important;
-  @media (max-width: 666px) {
-    /* times now; */
-    font-size: 26px;
+    font-weight: 300;
+    font-style: normal;
+    /* text-indent: 50px; */
+    letter-spacing: -1.3px !important;
+    @media (max-width: 666px) {
+      /* times now; */
+      font-size: 26px;
 
-    /*helvetica; */
-    /* font-family: "Helvetica Now Var Roman";
+      /*helvetica; */
+      /* font-family: "Helvetica Now Var Roman";
     font-variation-settings: "wght" 390;
     color: white;
     font-size: 16px;
     letter-spacing: -0.5px !important; */
+    }
   }
 `;
 const CopyrightSpan = styled.span`
@@ -477,13 +495,18 @@ const About = ({ data }) => {
       <PageCon>
         <Grid16>
           <AboutTextCon>
-            <AboutP>
-              {data.prismicAbout.data.about_page_intro.text}
+            <>
+              {/* {data.prismicAbout.data.about_page_intro.text} */}
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: data.prismicAbout.data.about_page_intro.html,
+                }}
+              />
               {"  "}
               <CopyrightSpan>
                 &copy; All rights reserved by Theo Ford
               </CopyrightSpan>
-            </AboutP>
+            </>
           </AboutTextCon>
         </Grid16>
 
