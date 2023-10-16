@@ -1,0 +1,2793 @@
+### Type definitions saved at 2023-10-16T18:15:34.299Z ###
+
+enum RemoteFileFit {
+  COVER
+  FILL
+  OUTSIDE
+  CONTAIN
+}
+
+enum RemoteFileFormat {
+  AUTO
+  JPG
+  PNG
+  WEBP
+  AVIF
+}
+
+enum RemoteFileLayout {
+  FIXED
+  FULL_WIDTH
+  CONSTRAINED
+}
+
+enum RemoteFilePlaceholder {
+  DOMINANT_COLOR
+  BLURRED
+  TRACED_SVG
+  NONE
+}
+
+enum RemoteFileCropFocus {
+  CENTER
+  TOP
+  RIGHT
+  BOTTOM
+  LEFT
+  ENTROPY
+  EDGES
+  FACES
+}
+
+type RemoteFileResize {
+  width: Int
+  height: Int
+  src: String
+}
+
+"""Remote Interface"""
+interface RemoteFile {
+  id: ID!
+  mimeType: String!
+  filename: String!
+  filesize: Int
+  width: Int
+  height: Int
+  publicUrl: String!
+  resize(
+    width: Int
+    height: Int
+    aspectRatio: Float
+    fit: RemoteFileFit = COVER
+
+    """
+    
+    The image formats to generate. Valid values are AUTO (meaning the same
+    format as the source image), JPG, PNG, WEBP and AVIF.
+    The default value is [AUTO, WEBP, AVIF], and you should rarely need to
+    change this. Take care if you specify JPG or PNG when you do
+    not know the formats of the source images, as this could lead to unwanted
+    results such as converting JPEGs to PNGs. Specifying
+    both PNG and JPG is not supported and will be ignored.
+    """
+    format: RemoteFileFormat = AUTO
+    cropFocus: [RemoteFileCropFocus]
+    quality: Int = 75
+  ): RemoteFileResize
+
+  """
+  Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info.
+  """
+  gatsbyImage(
+    """
+    
+    The layout for the image.
+    FIXED: A static image sized, that does not resize according to the screen width
+    FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if
+    it isn't going to be the full width of the screen.
+    CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+    
+    """
+    layout: RemoteFileLayout = CONSTRAINED
+
+    """
+    
+    The display width of the generated image for layout = FIXED, and the display
+    width of the largest image for layout = CONSTRAINED.
+    The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+    Ignored if layout = FLUID.
+    
+    """
+    width: Int
+
+    """
+    
+    If set, the height of the generated image. If omitted, it is calculated from
+    the supplied width, matching the aspect ratio of the source image.
+    """
+    height: Int
+
+    """
+    
+    Format of generated placeholder image, displayed while the main image loads.
+    BLURRED: a blurred, low resolution image, encoded as a base64 data URI
+    DOMINANT_COLOR: a solid color, calculated from the dominant color of the image (default).
+    TRACED_SVG: deprecated. Will use DOMINANT_COLOR.
+    NONE: no placeholder. Set the argument "backgroundColor" to use a fixed background color.
+    """
+    placeholder: RemoteFilePlaceholder = DOMINANT_COLOR
+
+    """
+    
+    If set along with width or height, this will set the value of the other
+    dimension to match the provided aspect ratio, cropping the image if needed.
+    If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+    
+    """
+    aspectRatio: Float
+
+    """
+    
+    The image formats to generate. Valid values are AUTO (meaning the same
+    format as the source image), JPG, PNG, WEBP and AVIF.
+    The default value is [AUTO, WEBP, AVIF], and you should rarely need to
+    change this. Take care if you specify JPG or PNG when you do
+    not know the formats of the source images, as this could lead to unwanted
+    results such as converting JPEGs to PNGs. Specifying
+    both PNG and JPG is not supported and will be ignored.
+    
+    """
+    formats: [RemoteFileFormat!] = [AUTO, WEBP, AVIF]
+
+    """
+    
+    A list of image pixel densities to generate for FIXED and CONSTRAINED
+    images. You should rarely need to change this. It will never generate images
+    larger than the source, and will always include a 1x image.
+    Default is [ 1, 2 ] for fixed images, meaning 1x, 2x, and [0.25, 0.5, 1, 2]
+    for fluid. In this case, an image with a fluid layout and width = 400 would
+    generate images at 100, 200, 400 and 800px wide.
+    
+    """
+    outputPixelDensities: [Float] = [0.25, 0.5, 1, 2]
+
+    """
+    
+    Specifies the image widths to generate. You should rarely need to change
+    this. For FIXED and CONSTRAINED images it is better to allow these to be
+    determined automatically,
+    based on the image size. For FULL_WIDTH images this can be used to override
+    the default, which is [750, 1080, 1366, 1920].
+    It will never generate any images larger than the source.
+    
+    """
+    breakpoints: [Int] = [750, 1080, 1366, 1920]
+
+    """
+    
+    The "sizes" property, passed to the img tag. This describes the display size of the image.
+    This does not affect the generated images, but is used by the browser to
+    decide which images to download. You can leave this blank for fixed images,
+    or if the responsive image
+    container will be the full width of the screen. In these cases we will generate an appropriate value.
+    
+    """
+    sizes: String
+
+    """
+    Background color applied to the wrapper, or when "letterboxing" an image to another aspect ratio.
+    """
+    backgroundColor: String
+    fit: RemoteFileFit = COVER
+    cropFocus: [RemoteFileCropFocus]
+    quality: Int = 75
+  ): GatsbyImageData
+}
+
+type File implements Node @dontInfer {
+  sourceInstanceName: String!
+  absolutePath: String!
+  relativePath: String!
+  extension: String!
+  size: Int!
+  prettySize: String!
+  modifiedTime: Date! @dateformat
+  accessTime: Date! @dateformat
+  changeTime: Date! @dateformat
+  birthTime: Date! @dateformat
+  root: String!
+  dir: String!
+  base: String!
+  ext: String!
+  name: String!
+  relativeDirectory: String!
+  dev: Int!
+  mode: Int!
+  nlink: Int!
+  uid: Int!
+  gid: Int!
+  rdev: Int!
+  ino: Float!
+  atimeMs: Float!
+  mtimeMs: Float!
+  ctimeMs: Float!
+  atime: Date! @dateformat
+  mtime: Date! @dateformat
+  ctime: Date! @dateformat
+  birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+  birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
+}
+
+type Directory implements Node @dontInfer {
+  sourceInstanceName: String!
+  absolutePath: String!
+  relativePath: String!
+  extension: String!
+  size: Int!
+  prettySize: String!
+  modifiedTime: Date! @dateformat
+  accessTime: Date! @dateformat
+  changeTime: Date! @dateformat
+  birthTime: Date! @dateformat
+  root: String!
+  dir: String!
+  base: String!
+  ext: String!
+  name: String!
+  relativeDirectory: String!
+  dev: Int!
+  mode: Int!
+  nlink: Int!
+  uid: Int!
+  gid: Int!
+  rdev: Int!
+  ino: Float!
+  atimeMs: Float!
+  mtimeMs: Float!
+  ctimeMs: Float!
+  atime: Date! @dateformat
+  mtime: Date! @dateformat
+  ctime: Date! @dateformat
+  birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+  birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
+}
+
+type Site implements Node @dontInfer {
+  buildTime: Date @dateformat
+  siteMetadata: SiteSiteMetadata
+  port: Int
+  host: String
+  polyfill: Boolean
+  pathPrefix: String
+  jsxRuntime: String
+  trailingSlash: String
+  graphqlTypegen: Boolean
+}
+
+type SiteSiteMetadata @derivedTypes {
+  title: String
+  description: String
+  menuLinks: [SiteSiteMetadataMenuLinks]
+}
+
+type SiteFunction implements Node @dontInfer {
+  functionRoute: String!
+  pluginName: String!
+  originalAbsoluteFilePath: String!
+  originalRelativeFilePath: String!
+  relativeCompiledFilePath: String!
+  absoluteCompiledFilePath: String!
+  matchPath: String
+}
+
+type SitePage implements Node @dontInfer {
+  path: String!
+  component: String!
+  internalComponentName: String!
+  componentChunkName: String!
+  matchPath: String
+  pageContext: JSON @proxy(from: "context", fromNode: false)
+  pluginCreator: SitePlugin @link(by: "id", from: "pluginCreatorId")
+}
+
+type SitePlugin implements Node @dontInfer {
+  resolve: String
+  name: String
+  version: String
+  nodeAPIs: [String]
+  browserAPIs: [String]
+  ssrAPIs: [String]
+  pluginFilepath: String
+  pluginOptions: JSON
+  packageJson: JSON
+}
+
+type SiteBuildMetadata implements Node @dontInfer {
+  buildTime: Date @dateformat
+}
+
+enum GatsbyImageFormat {
+  NO_CHANGE
+  AUTO
+  JPG
+  PNG
+  WEBP
+  AVIF
+}
+
+enum GatsbyImageLayout {
+  FIXED
+  FULL_WIDTH
+  CONSTRAINED
+}
+
+enum GatsbyImagePlaceholder {
+  DOMINANT_COLOR
+  TRACED_SVG
+  BLURRED
+  NONE
+}
+
+enum ImageFormat {
+  NO_CHANGE
+  AUTO
+  JPG
+  PNG
+  WEBP
+  AVIF
+}
+
+enum ImageFit {
+  COVER
+  CONTAIN
+  FILL
+  INSIDE
+  OUTSIDE
+}
+
+enum ImageLayout {
+  FIXED
+  FULL_WIDTH
+  CONSTRAINED
+}
+
+enum ImageCropFocus {
+  CENTER
+  NORTH
+  NORTHEAST
+  EAST
+  SOUTHEAST
+  SOUTH
+  SOUTHWEST
+  WEST
+  NORTHWEST
+  ENTROPY
+  ATTENTION
+}
+
+input DuotoneGradient {
+  highlight: String!
+  shadow: String!
+  opacity: Int
+}
+
+enum PotraceTurnPolicy {
+  TURNPOLICY_BLACK
+  TURNPOLICY_WHITE
+  TURNPOLICY_LEFT
+  TURNPOLICY_RIGHT
+  TURNPOLICY_MINORITY
+  TURNPOLICY_MAJORITY
+}
+
+input Potrace {
+  turnPolicy: PotraceTurnPolicy
+  turdSize: Float
+  alphaMax: Float
+  optCurve: Boolean
+  optTolerance: Float
+  threshold: Int
+  blackOnWhite: Boolean
+  color: String
+  background: String
+}
+
+type ImageSharpFixed {
+  base64: String
+  tracedSVG: String
+  aspectRatio: Float
+  width: Float!
+  height: Float!
+  src: String!
+  srcSet: String!
+  srcWebp: String
+  srcSetWebp: String
+  originalName: String
+}
+
+type ImageSharpFluid {
+  base64: String
+  tracedSVG: String
+  aspectRatio: Float!
+  src: String!
+  srcSet: String!
+  srcWebp: String
+  srcSetWebp: String
+  sizes: String!
+  originalImg: String
+  originalName: String
+  presentationWidth: Int!
+  presentationHeight: Int!
+}
+
+enum ImagePlaceholder {
+  DOMINANT_COLOR
+  TRACED_SVG
+  BLURRED
+  NONE
+}
+
+input BlurredOptions {
+  """Width of the generated low-res preview. Default is 20px"""
+  width: Int
+
+  """
+  Force the output format for the low-res preview. Default is to use the same
+  format as the input. You should rarely need to change this
+  """
+  toFormat: ImageFormat
+}
+
+input JPGOptions {
+  quality: Int
+  progressive: Boolean = true
+}
+
+input PNGOptions {
+  quality: Int
+  compressionSpeed: Int = 4
+}
+
+input WebPOptions {
+  quality: Int
+}
+
+input AVIFOptions {
+  quality: Int
+  lossless: Boolean
+  speed: Int
+}
+
+input TransformOptions {
+  grayscale: Boolean
+  duotone: DuotoneGradient
+  rotate: Int
+  trim: Float
+  cropFocus: ImageCropFocus = ATTENTION
+  fit: ImageFit = COVER
+}
+
+type ImageSharpOriginal {
+  width: Float
+  height: Float
+  src: String
+}
+
+type ImageSharpResize {
+  src: String
+  tracedSVG: String
+  width: Int
+  height: Int
+  aspectRatio: Float
+  originalName: String
+}
+
+type ImageSharp implements Node @childOf(types: ["File"]) @dontInfer {
+  fixed(width: Int, height: Int, base64Width: Int, jpegProgressive: Boolean = true, pngCompressionSpeed: Int = 4, grayscale: Boolean, duotone: DuotoneGradient, traceSVG: Potrace, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, toFormat: ImageFormat, toFormatBase64: ImageFormat, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int, trim: Float): ImageSharpFixed
+  fluid(
+    maxWidth: Int
+    maxHeight: Int
+    base64Width: Int
+    grayscale: Boolean
+    jpegProgressive: Boolean = true
+    pngCompressionSpeed: Int = 4
+    duotone: DuotoneGradient
+    traceSVG: Potrace
+    quality: Int
+    jpegQuality: Int
+    pngQuality: Int
+    webpQuality: Int
+    toFormat: ImageFormat
+    toFormatBase64: ImageFormat
+    cropFocus: ImageCropFocus = ATTENTION
+    fit: ImageFit = COVER
+    background: String = "rgba(0,0,0,1)"
+    rotate: Int
+    trim: Float
+    sizes: String
+
+    """
+    A list of image widths to be generated. Example: [ 200, 340, 520, 890 ]
+    """
+    srcSetBreakpoints: [Int] = []
+  ): ImageSharpFluid
+  gatsbyImageData(
+    """
+    The layout for the image.
+    FIXED: A static image sized, that does not resize according to the screen width
+    FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if
+    it isn't going to be the full width of the screen.
+    CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+    """
+    layout: ImageLayout = CONSTRAINED
+
+    """
+    The display width of the generated image for layout = FIXED, and the maximum
+    display width of the largest image for layout = CONSTRAINED.
+    Ignored if layout = FLUID.
+    """
+    width: Int
+
+    """
+    The display height of the generated image for layout = FIXED, and the
+    maximum display height of the largest image for layout = CONSTRAINED.
+    The image will be cropped if the aspect ratio does not match the source
+    image. If omitted, it is calculated from the supplied width,
+    matching the aspect ratio of the source image.
+    """
+    height: Int
+
+    """
+    If set along with width or height, this will set the value of the other
+    dimension to match the provided aspect ratio, cropping the image if needed.
+    If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+    """
+    aspectRatio: Float
+
+    """
+    Format of generated placeholder image, displayed while the main image loads.
+    BLURRED: a blurred, low resolution image, encoded as a base64 data URI
+    DOMINANT_COLOR: a solid color, calculated from the dominant color of the image (default).
+    TRACED_SVG: deprecated. Will use DOMINANT_COLOR.
+    NONE: no placeholder. Set "background" to use a fixed background color.
+    """
+    placeholder: ImagePlaceholder
+
+    """
+    Options for the low-resolution placeholder image. Set placeholder to "BLURRED" to use this
+    """
+    blurredOptions: BlurredOptions
+
+    """
+    Options for traced placeholder SVGs. You also should set placeholder to "TRACED_SVG".
+    """
+    tracedSVGOptions: Potrace
+
+    """
+    The image formats to generate. Valid values are "AUTO" (meaning the same
+    format as the source image), "JPG", "PNG", "WEBP" and "AVIF".
+    The default value is [AUTO, WEBP], and you should rarely need to change
+    this. Take care if you specify JPG or PNG when you do
+    not know the formats of the source images, as this could lead to unwanted
+    results such as converting JPEGs to PNGs. Specifying
+    both PNG and JPG is not supported and will be ignored.
+    """
+    formats: [ImageFormat]
+
+    """
+    A list of image pixel densities to generate. It will never generate images
+    larger than the source, and will always include a 1x image.
+    Default is [ 1, 2 ] for FIXED images, meaning 1x and 2x and [0.25, 0.5, 1,
+    2] for CONSTRAINED. In this case, an image with a constrained layout
+    and width = 400 would generate images at 100, 200, 400 and 800px wide.
+    Ignored for FULL_WIDTH images, which use breakpoints instead
+    """
+    outputPixelDensities: [Float]
+
+    """
+    Specifies the image widths to generate. For FIXED and CONSTRAINED images it
+    is better to allow these to be determined automatically,
+    based on the image size. For FULL_WIDTH images this can be used to override
+    the default, which is [750, 1080, 1366, 1920].
+    It will never generate any images larger than the source.
+    """
+    breakpoints: [Int]
+
+    """
+    The "sizes" property, passed to the img tag. This describes the display size of the image.
+    This does not affect the generated images, but is used by the browser to decide which images to download.
+    You should usually leave this blank, and a suitable value will be calculated. The exception is if a FULL_WIDTH image
+    does not actually span the full width of the screen, in which case you should pass the correct size here.
+    """
+    sizes: String
+
+    """The default quality. This is overridden by any format-specific options"""
+    quality: Int
+
+    """Options to pass to sharp when generating JPG images."""
+    jpgOptions: JPGOptions
+
+    """Options to pass to sharp when generating PNG images."""
+    pngOptions: PNGOptions
+
+    """Options to pass to sharp when generating WebP images."""
+    webpOptions: WebPOptions
+
+    """Options to pass to sharp when generating AVIF images."""
+    avifOptions: AVIFOptions
+
+    """
+    Options to pass to sharp to control cropping and other image manipulations.
+    """
+    transformOptions: TransformOptions
+
+    """
+    Background color applied to the wrapper. Also passed to sharp to use as a
+    background when "letterboxing" an image to another aspect ratio.
+    """
+    backgroundColor: String
+  ): GatsbyImageData!
+  original: ImageSharpOriginal
+  resize(width: Int, height: Int, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, jpegProgressive: Boolean = true, pngCompressionLevel: Int = 9, pngCompressionSpeed: Int = 4, grayscale: Boolean, duotone: DuotoneGradient, base64: Boolean, traceSVG: Potrace, toFormat: ImageFormat, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int, trim: Float): ImageSharpResize
+}
+
+"""An item for a Group field."""
+type PrismicProjectDataRelatedProjectsGroupItem {
+  """A Content Relationship field."""
+  related_projects: PrismicLinkField
+}
+
+type PrismicProjectDataBodyImagePrimary {
+  """An Image field."""
+  image: PrismicImageField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+interface PrismicSlice @isPlaceholder {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+}
+
+type PrismicProjectDataBodyImage implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicProjectDataBodyImagePrimary!
+}
+
+type PrismicProjectDataBodyVideoPrimary {
+  """
+  A Link field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"project.data.body.video.primary.video": true,`
+  """
+  video: PrismicLinkField
+
+  """
+  A Link to Media field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"project.data.body.video.primary.sml_video": true,`
+  """
+  sml_video: PrismicLinkField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicProjectDataBodyVideo implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicProjectDataBodyVideoPrimary!
+}
+
+type PrismicProjectDataBodyTextPrimary {
+  """A Rich Text field."""
+  text: PrismicRichTextField!
+}
+
+type PrismicProjectDataBodyText implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicProjectDataBodyTextPrimary!
+}
+
+type PrismicProjectDataBodyNonSquareImagePrimary {
+  """An Image field."""
+  non_square_image: PrismicImageField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicProjectDataBodyNonSquareImage implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicProjectDataBodyNonSquareImagePrimary!
+}
+
+type PrismicProjectDataBodyVideoWithPlayButtonPrimary {
+  """
+  A Link to Media field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"project.data.body.video_with_play_button.primary.video_with_play_button": true,`
+  """
+  video_with_play_button: PrismicLinkField
+
+  """An Image field."""
+  video_thumbnail: PrismicImageField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicProjectDataBodyVideoWithPlayButton implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicProjectDataBodyVideoWithPlayButtonPrimary!
+}
+
+union PrismicProjectDataBody = PrismicProjectDataBodyImage | PrismicProjectDataBodyVideo | PrismicProjectDataBodyText | PrismicProjectDataBodyNonSquareImage | PrismicProjectDataBodyVideoWithPlayButton
+
+type PrismicProjectDataBody1ImagePrimary {
+  """An Image field."""
+  image: PrismicImageField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicProjectDataBody1Image implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicProjectDataBody1ImagePrimary!
+}
+
+type PrismicProjectDataBody1VideoPrimary {
+  """
+  A Link field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"project.data.body1.video.primary.video": true,`
+  """
+  video: PrismicLinkField
+
+  """
+  A Link to Media field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"project.data.body1.video.primary.sml_video": true,`
+  """
+  sml_video: PrismicLinkField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicProjectDataBody1Video implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicProjectDataBody1VideoPrimary!
+}
+
+type PrismicProjectDataBody1VideoWithPlayButtonPrimary {
+  """
+  A Link to Media field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"project.data.body1.video_with_play_button.primary.video_with_play_button": true,`
+  """
+  video_with_play_button: PrismicLinkField
+
+  """An Image field."""
+  video_thumbnail: PrismicImageField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicProjectDataBody1VideoWithPlayButton implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicProjectDataBody1VideoWithPlayButtonPrimary!
+}
+
+type PrismicProjectDataBody1TextPrimary {
+  """A Rich Text field."""
+  text: PrismicRichTextField!
+}
+
+type PrismicProjectDataBody1Text implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicProjectDataBody1TextPrimary!
+}
+
+union PrismicProjectDataBody1 = PrismicProjectDataBody1Image | PrismicProjectDataBody1Video | PrismicProjectDataBody1VideoWithPlayButton | PrismicProjectDataBody1Text
+
+"""An item for a Group field."""
+type PrismicProjectDataCategoriesItem {
+  """A Content Relationship field."""
+  category: PrismicLinkField
+}
+
+type PrismicProjectData {
+  """A Rich Text field."""
+  project_title: PrismicRichTextField!
+
+  """A Rich Text field."""
+  location: PrismicRichTextField!
+
+  """A Rich Text field."""
+  client: PrismicRichTextField!
+
+  """A Rich Text field."""
+  year: PrismicRichTextField!
+
+  """A Rich Text field."""
+  team: PrismicRichTextField!
+
+  """A Rich Text field."""
+  sector: PrismicRichTextField!
+
+  """A Rich Text field."""
+  homepage_intro: PrismicRichTextField!
+
+  """An Image field."""
+  index_preview_img: PrismicImageField
+
+  """A Group field."""
+  related_projects_group: [PrismicProjectDataRelatedProjectsGroupItem!]!
+  body: [PrismicProjectDataBody!]!
+  body1: [PrismicProjectDataBody1!]!
+
+  """A Group field."""
+  categories: [PrismicProjectDataCategoriesItem!]!
+}
+
+"""An item for a Group field."""
+type PrismicFilmLeadProjectDataRelatedProjectsGroupItem {
+  """A Content Relationship field."""
+  related_projects: PrismicLinkField
+}
+
+type PrismicFilmLeadProjectDataBodyVideoWithPlayButtonPrimary {
+  """
+  A Link to Media field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"film_lead_project.data.body.video_with_play_button.primary.video_with_play_button": true,`
+  """
+  video_with_play_button: PrismicLinkField
+
+  """An Image field."""
+  video_thumbnail: PrismicImageField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicFilmLeadProjectDataBodyVideoWithPlayButton implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicFilmLeadProjectDataBodyVideoWithPlayButtonPrimary!
+}
+
+type PrismicFilmLeadProjectDataBodyVideoPrimary {
+  """
+  A Link field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"film_lead_project.data.body.video.primary.video": true,`
+  """
+  video: PrismicLinkField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicFilmLeadProjectDataBodyVideo implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicFilmLeadProjectDataBodyVideoPrimary!
+}
+
+type PrismicFilmLeadProjectDataBodyTextPrimary {
+  """A Rich Text field."""
+  text: PrismicRichTextField!
+}
+
+type PrismicFilmLeadProjectDataBodyText implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicFilmLeadProjectDataBodyTextPrimary!
+}
+
+type PrismicFilmLeadProjectDataBodyImagePrimary {
+  """An Image field."""
+  image: PrismicImageField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicFilmLeadProjectDataBodyImage implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicFilmLeadProjectDataBodyImagePrimary!
+}
+
+union PrismicFilmLeadProjectDataBody = PrismicFilmLeadProjectDataBodyVideoWithPlayButton | PrismicFilmLeadProjectDataBodyVideo | PrismicFilmLeadProjectDataBodyText | PrismicFilmLeadProjectDataBodyImage
+
+"""An item for a Group field."""
+type PrismicFilmLeadProjectDataCategoriesItem {
+  """A Content Relationship field."""
+  category: PrismicLinkField
+}
+
+type PrismicFilmLeadProjectDataBody1ImagePrimary {
+  """An Image field."""
+  image: PrismicImageField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicFilmLeadProjectDataBody1Image implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicFilmLeadProjectDataBody1ImagePrimary!
+}
+
+type PrismicFilmLeadProjectDataBody1VideoPrimary {
+  """
+  A Link field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"film_lead_project.data.body1.video.primary.video": true,`
+  """
+  video: PrismicLinkField
+
+  """
+  A Link to Media field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"film_lead_project.data.body1.video.primary.sml_video": true,`
+  """
+  sml_video: PrismicLinkField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicFilmLeadProjectDataBody1Video implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicFilmLeadProjectDataBody1VideoPrimary!
+}
+
+type PrismicFilmLeadProjectDataBody1VideoWithPlayButtonPrimary {
+  """
+  A Link to Media field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"film_lead_project.data.body1.video_with_play_button.primary.video_with_play_button": true,`
+  """
+  video_with_play_button: PrismicLinkField
+
+  """An Image field."""
+  video_thumbnail: PrismicImageField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicFilmLeadProjectDataBody1VideoWithPlayButton implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicFilmLeadProjectDataBody1VideoWithPlayButtonPrimary!
+}
+
+type PrismicFilmLeadProjectDataBody1NonSquareImagePrimary {
+  """An Image field."""
+  non_square_image: PrismicImageField
+
+  """An Image field."""
+  index_image: PrismicImageField
+}
+
+type PrismicFilmLeadProjectDataBody1NonSquareImage implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicFilmLeadProjectDataBody1NonSquareImagePrimary!
+}
+
+type PrismicFilmLeadProjectDataBody1TextPrimary {
+  """A Rich Text field."""
+  text: PrismicRichTextField!
+}
+
+type PrismicFilmLeadProjectDataBody1Text implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  primary: PrismicFilmLeadProjectDataBody1TextPrimary!
+}
+
+union PrismicFilmLeadProjectDataBody1 = PrismicFilmLeadProjectDataBody1Image | PrismicFilmLeadProjectDataBody1Video | PrismicFilmLeadProjectDataBody1VideoWithPlayButton | PrismicFilmLeadProjectDataBody1NonSquareImage | PrismicFilmLeadProjectDataBody1Text
+
+type PrismicFilmLeadProjectData {
+  """A Rich Text field."""
+  project_title: PrismicRichTextField!
+
+  """A Rich Text field."""
+  location: PrismicRichTextField!
+
+  """A Rich Text field."""
+  client: PrismicRichTextField!
+
+  """A Rich Text field."""
+  year: PrismicRichTextField!
+
+  """A Rich Text field."""
+  team: PrismicRichTextField!
+
+  """A Rich Text field."""
+  sector: PrismicRichTextField!
+
+  """A Rich Text field."""
+  homepage_intro: PrismicRichTextField!
+
+  """An Image field."""
+  index_preview_img: PrismicImageField
+
+  """A Group field."""
+  related_projects_group: [PrismicFilmLeadProjectDataRelatedProjectsGroupItem!]!
+  body: [PrismicFilmLeadProjectDataBody!]!
+
+  """A Group field."""
+  categories: [PrismicFilmLeadProjectDataCategoriesItem!]!
+  body1: [PrismicFilmLeadProjectDataBody1!]!
+}
+
+"""An item for a Group field."""
+type PrismicFeaturedProjectsDataProjectRelationshipGroupItem {
+  """A Content Relationship field."""
+  project_relationship_field: PrismicLinkField
+}
+
+type PrismicFeaturedProjectsData {
+  """A Group field."""
+  project_relationship_group: [PrismicFeaturedProjectsDataProjectRelationshipGroupItem!]!
+}
+
+type PrismicAboutData {
+  """
+  A Link field.
+  
+  To download linked files locally and populate the `localFile` field, add the
+  following path to `gatsby-source-prismic`'s `shouldDownloadFiles` option:
+  
+  `"about.data.email": true,`
+  """
+  email: PrismicLinkField
+
+  """A Rich Text field."""
+  phone_number: PrismicRichTextField!
+
+  """A Rich Text field."""
+  website_url: PrismicRichTextField!
+
+  """A Rich Text field."""
+  instagram: PrismicRichTextField!
+
+  """A Rich Text field."""
+  address: PrismicRichTextField!
+
+  """A Rich Text field."""
+  homepage_intro: PrismicRichTextField!
+
+  """A Rich Text field."""
+  upcoming_locations: PrismicRichTextField!
+
+  """A Rich Text field."""
+  current_location: PrismicRichTextField!
+
+  """A Rich Text field."""
+  previous_locations: PrismicRichTextField!
+
+  """A Rich Text field."""
+  about_page_intro: PrismicRichTextField!
+
+  """A Rich Text field."""
+  clients: PrismicRichTextField!
+
+  """A Rich Text field."""
+  previous_employers: PrismicRichTextField!
+
+  """A Rich Text field."""
+  services: PrismicRichTextField!
+
+  """A Rich Text field."""
+  collaborators: PrismicRichTextField!
+}
+
+type PrismicCategoryData {
+  """A Key Text field."""
+  name: String
+}
+
+"""A label document from Prismic."""
+type PrismicProject implements Node @dontInfer {
+  """
+  The identifier for the Prismic document. It is guaranteed to be unique within
+  all documents of all types from the same Prismic repository.
+  """
+  prismicId: ID!
+
+  """Alternate versions of the document in different languages."""
+  alternate_languages: [PrismicAlternateLanguage!]!
+
+  """The timestamp at which the document was first published."""
+  first_publication_date: Date! @dateformat
+
+  """The timestamp at which the document was last published."""
+  last_publication_date: Date! @dateformat
+
+  """The URL to fetch this document's JSON value from the Prismic REST API."""
+  href: String!
+
+  """The language of the Prismic document."""
+  lang: String!
+
+  """Tags associated with the Prismic document."""
+  tags: [String!]!
+
+  """The type of the Prismic document."""
+  type: String!
+
+  """
+  The URL of the Prismic document determined using the configured Route
+  Resolvers or Link Resolver. If Route Resolvers or a Link Resolver is not
+  given, this field is `null`.
+  """
+  url: String
+
+  """
+  **Do not use this field unless you know what you are doing**. The unprocessed
+  Prismic document value returned from the Prismic REST API.
+  """
+  raw: JSON!
+
+  """
+  Query this field to enable preview support on this node. Requires
+  `gatsby-plugin-prismic-preview` integrated in your app to enable previews.
+  """
+  _previewable: ID!
+
+  """
+  The unique identifier for the Prismic document. It is guaranteed to be unique
+  within all documents of the same type from the same Prismic repository.
+  """
+  uid: String!
+
+  """Content for the document."""
+  data: PrismicProjectData!
+
+  """
+  **Do not use this field unless you know what you are doing**. The unprocessed
+  `data` property of the Prismic document. Querying individual fields via
+  GraphQL is much preferred.
+  """
+  dataRaw: JSON!
+}
+
+"""A label document from Prismic."""
+type PrismicFilmLeadProject implements Node @dontInfer {
+  """
+  The identifier for the Prismic document. It is guaranteed to be unique within
+  all documents of all types from the same Prismic repository.
+  """
+  prismicId: ID!
+
+  """Alternate versions of the document in different languages."""
+  alternate_languages: [PrismicAlternateLanguage!]!
+
+  """The timestamp at which the document was first published."""
+  first_publication_date: Date! @dateformat
+
+  """The timestamp at which the document was last published."""
+  last_publication_date: Date! @dateformat
+
+  """The URL to fetch this document's JSON value from the Prismic REST API."""
+  href: String!
+
+  """The language of the Prismic document."""
+  lang: String!
+
+  """Tags associated with the Prismic document."""
+  tags: [String!]!
+
+  """The type of the Prismic document."""
+  type: String!
+
+  """
+  The URL of the Prismic document determined using the configured Route
+  Resolvers or Link Resolver. If Route Resolvers or a Link Resolver is not
+  given, this field is `null`.
+  """
+  url: String
+
+  """
+  **Do not use this field unless you know what you are doing**. The unprocessed
+  Prismic document value returned from the Prismic REST API.
+  """
+  raw: JSON!
+
+  """
+  Query this field to enable preview support on this node. Requires
+  `gatsby-plugin-prismic-preview` integrated in your app to enable previews.
+  """
+  _previewable: ID!
+
+  """
+  The unique identifier for the Prismic document. It is guaranteed to be unique
+  within all documents of the same type from the same Prismic repository.
+  """
+  uid: String!
+
+  """Content for the document."""
+  data: PrismicFilmLeadProjectData!
+
+  """
+  **Do not use this field unless you know what you are doing**. The unprocessed
+  `data` property of the Prismic document. Querying individual fields via
+  GraphQL is much preferred.
+  """
+  dataRaw: JSON!
+}
+
+"""A label document from Prismic."""
+type PrismicFeaturedProjects implements Node @dontInfer {
+  """
+  The identifier for the Prismic document. It is guaranteed to be unique within
+  all documents of all types from the same Prismic repository.
+  """
+  prismicId: ID!
+
+  """Alternate versions of the document in different languages."""
+  alternate_languages: [PrismicAlternateLanguage!]!
+
+  """The timestamp at which the document was first published."""
+  first_publication_date: Date! @dateformat
+
+  """The timestamp at which the document was last published."""
+  last_publication_date: Date! @dateformat
+
+  """The URL to fetch this document's JSON value from the Prismic REST API."""
+  href: String!
+
+  """The language of the Prismic document."""
+  lang: String!
+
+  """Tags associated with the Prismic document."""
+  tags: [String!]!
+
+  """The type of the Prismic document."""
+  type: String!
+
+  """
+  The URL of the Prismic document determined using the configured Route
+  Resolvers or Link Resolver. If Route Resolvers or a Link Resolver is not
+  given, this field is `null`.
+  """
+  url: String
+
+  """
+  **Do not use this field unless you know what you are doing**. The unprocessed
+  Prismic document value returned from the Prismic REST API.
+  """
+  raw: JSON!
+
+  """
+  Query this field to enable preview support on this node. Requires
+  `gatsby-plugin-prismic-preview` integrated in your app to enable previews.
+  """
+  _previewable: ID!
+
+  """Content for the document."""
+  data: PrismicFeaturedProjectsData!
+
+  """
+  **Do not use this field unless you know what you are doing**. The unprocessed
+  `data` property of the Prismic document. Querying individual fields via
+  GraphQL is much preferred.
+  """
+  dataRaw: JSON!
+}
+
+"""A label document from Prismic."""
+type PrismicAbout implements Node @dontInfer {
+  """
+  The identifier for the Prismic document. It is guaranteed to be unique within
+  all documents of all types from the same Prismic repository.
+  """
+  prismicId: ID!
+
+  """Alternate versions of the document in different languages."""
+  alternate_languages: [PrismicAlternateLanguage!]!
+
+  """The timestamp at which the document was first published."""
+  first_publication_date: Date! @dateformat
+
+  """The timestamp at which the document was last published."""
+  last_publication_date: Date! @dateformat
+
+  """The URL to fetch this document's JSON value from the Prismic REST API."""
+  href: String!
+
+  """The language of the Prismic document."""
+  lang: String!
+
+  """Tags associated with the Prismic document."""
+  tags: [String!]!
+
+  """The type of the Prismic document."""
+  type: String!
+
+  """
+  The URL of the Prismic document determined using the configured Route
+  Resolvers or Link Resolver. If Route Resolvers or a Link Resolver is not
+  given, this field is `null`.
+  """
+  url: String
+
+  """
+  **Do not use this field unless you know what you are doing**. The unprocessed
+  Prismic document value returned from the Prismic REST API.
+  """
+  raw: JSON!
+
+  """
+  Query this field to enable preview support on this node. Requires
+  `gatsby-plugin-prismic-preview` integrated in your app to enable previews.
+  """
+  _previewable: ID!
+
+  """
+  The unique identifier for the Prismic document. It is guaranteed to be unique
+  within all documents of the same type from the same Prismic repository.
+  """
+  uid: String!
+
+  """Content for the document."""
+  data: PrismicAboutData!
+
+  """
+  **Do not use this field unless you know what you are doing**. The unprocessed
+  `data` property of the Prismic document. Querying individual fields via
+  GraphQL is much preferred.
+  """
+  dataRaw: JSON!
+}
+
+"""A label document from Prismic."""
+type PrismicCategory implements Node @dontInfer {
+  """
+  The identifier for the Prismic document. It is guaranteed to be unique within
+  all documents of all types from the same Prismic repository.
+  """
+  prismicId: ID!
+
+  """Alternate versions of the document in different languages."""
+  alternate_languages: [PrismicAlternateLanguage!]!
+
+  """The timestamp at which the document was first published."""
+  first_publication_date: Date! @dateformat
+
+  """The timestamp at which the document was last published."""
+  last_publication_date: Date! @dateformat
+
+  """The URL to fetch this document's JSON value from the Prismic REST API."""
+  href: String!
+
+  """The language of the Prismic document."""
+  lang: String!
+
+  """Tags associated with the Prismic document."""
+  tags: [String!]!
+
+  """The type of the Prismic document."""
+  type: String!
+
+  """
+  The URL of the Prismic document determined using the configured Route
+  Resolvers or Link Resolver. If Route Resolvers or a Link Resolver is not
+  given, this field is `null`.
+  """
+  url: String
+
+  """
+  **Do not use this field unless you know what you are doing**. The unprocessed
+  Prismic document value returned from the Prismic REST API.
+  """
+  raw: JSON!
+
+  """
+  Query this field to enable preview support on this node. Requires
+  `gatsby-plugin-prismic-preview` integrated in your app to enable previews.
+  """
+  _previewable: ID!
+
+  """Content for the document."""
+  data: PrismicCategoryData!
+
+  """
+  **Do not use this field unless you know what you are doing**. The unprocessed
+  `data` property of the Prismic document. Querying individual fields via
+  GraphQL is much preferred.
+  """
+  dataRaw: JSON!
+}
+
+union PrismicAllDocumentTypes = PrismicProject | PrismicFilmLeadProject | PrismicFeaturedProjects | PrismicAbout | PrismicCategory
+
+"""Metadata for alternate versions of a document in different languages."""
+type PrismicAlternateLanguage {
+  id: ID!
+  uid: String
+  lang: String!
+  type: String!
+
+  """
+  The URL of the Prismic document determined using the configured Route
+  Resolvers or Link Resolver. If Route Resolvers or a Link Resolver is not
+  given, this field is `null`.
+  """
+  url: String
+  document: PrismicAllDocumentTypes! @link(by: "id")
+  raw: JSON!
+}
+
+"""oEmbed content from an oEmbed-enabled URL."""
+type PrismicEmbedField implements Node @dontInfer
+
+"""Geolocation coordinates."""
+type PrismicGeoPointField {
+  """The latitude value of the GeoPoint field."""
+  latitude: Float
+
+  """The longitude value of the GeoPoint field."""
+  longitude: Float
+}
+
+"""
+Text content with rich formatting capabilities used in Prismic documents.
+"""
+scalar PrismicRichText
+
+"""Rich Text provided in various formats."""
+type PrismicRichTextField {
+  """The Rich Text value formatted as text."""
+  text: String
+
+  """The Rich Text value formatted as HTML."""
+  html: String
+
+  """The Rich Text value in its "raw" form."""
+  richText: PrismicRichText!
+
+  """The Rich Text value in its "raw" form."""
+  raw: PrismicRichText! @deprecated(reason: "This field has been renamed to `richText`. The `richText` field has the same value the `raw` field.")
+}
+
+"""Types of a Prismic Link field value."""
+enum PrismicLinkType {
+  """An unknown link type."""
+  Any
+
+  """A link to a document in the Prismic repository."""
+  Document
+
+  """A link to a file in the Prismic Media Library."""
+  Media
+
+  """A link to the web."""
+  Web
+}
+
+"""
+A link to the web, a document in the Prismic repository, or a file in the Prismic Media Library
+"""
+type PrismicLinkField {
+  """The type of link for this field value."""
+  link_type: PrismicLinkType
+
+  """Determines if the linked document exists."""
+  isBroken: Boolean
+
+  """
+  The URL of the linked website, Prismic document, or file. If the field value
+  is a Prismic document, the URL is determined using the configured Route
+  Resolvers or Link Resolver. If Route Resolvers or a Link Resolver is not
+  given, this field is `null`.
+  """
+  url: String
+
+  """
+  `_blank` if the field value is configured to "Open in a new window," `null` otherwise.
+  """
+  target: String
+
+  """The file size of the linked file."""
+  size: Int
+
+  """
+  The ID of the selected Prismic document if the field links to a document.
+  """
+  id: ID
+
+  """
+  The type of the selected Prismic document if the field links to a document.
+  """
+  type: String
+
+  """
+  The list of tags for the selected Prismic document if the field links to a document.
+  """
+  tags: [String!]
+
+  """
+  The language of the selected Prismic document if the field links to a document.
+  """
+  lang: String
+
+  """
+  The slug of the selected Prismic document if the field links to a document.
+  """
+  slug: String
+
+  """
+  The UID of the selected Prismic document if the field links to a document that contains a UID field.
+  """
+  uid: String
+
+  """The Prismic document if the field links to a document."""
+  document: PrismicAllDocumentTypes @link(by: "id")
+
+  """
+  The locally download file if the field links to a media file and the field is configured to download locally.
+  """
+  localFile: File @link(by: "id")
+
+  """
+  **Do not use this field unless you know what you are doing**. The unprocessed
+  field value returned from the Prismic REST API.
+  """
+  raw: JSON!
+}
+
+"""
+A collection of fields used in flexible content areas (called Slice Zones) of a Prismic document.
+"""
+interface PrismicSharedSlice implements PrismicSlice {
+  id: ID!
+  slice_type: String!
+  slice_label: String
+  variation: String!
+  version: String!
+}
+
+"""Width and height of an image."""
+type PrismicImageFieldDimensions {
+  """The image's width in pixels."""
+  width: Int!
+
+  """The image's height in pixels."""
+  height: Int!
+}
+
+"""An Image field."""
+interface PrismicImageFieldBase {
+  """An alternative text for the image."""
+  alt: String
+
+  """Copyright information for the image."""
+  copyright: String
+
+  """The image's width and height."""
+  dimensions: PrismicImageFieldDimensions
+
+  """The image's URL."""
+  url: String
+
+  """`gatsby-plugin-image` image data."""
+  gatsbyImageData: JSON
+
+  """
+  The locally download image file if the field is configured to download locally.
+  """
+  localFile: File @link(by: "id")
+}
+
+"""An Image field."""
+type PrismicImageField implements PrismicImageFieldBase {
+  """An alternative text for the image."""
+  alt: String
+
+  """Copyright information for the image."""
+  copyright: String
+
+  """The image's width and height."""
+  dimensions: PrismicImageFieldDimensions
+
+  """The image's URL."""
+  url(
+    """
+    Parameters to modify the image output using Imgix's URL API. To learn more, see: https://docs.imgix.com/apis/rendering
+    """
+    imgixParams: PrismicImgixURLParams
+  ): String
+  gatsbyImageData(
+    """
+    The layout for the image.
+    FIXED: A static image sized, that does not resize according to the screen width
+    FULL_WIDTH: The image resizes to fit its container. Pass a "sizes" option if
+    it isn't going to be the full width of the screen.
+    CONSTRAINED: Resizes to fit its container, up to a maximum width, at which point it will remain fixed in size.
+    """
+    layout: GatsbyImageLayout
+
+    """
+    The display width of the generated image for layout = FIXED, and the display
+    width of the largest image for layout = CONSTRAINED.
+    The actual largest image resolution will be this value multiplied by the largest value in outputPixelDensities
+    Ignored if layout = FLUID.
+    """
+    width: Int
+
+    """
+    If set, the height of the generated image. If omitted, it is calculated from
+    the supplied width, matching the aspect ratio of the source image.
+    """
+    height: Int
+
+    """
+    If set along with width or height, this will set the value of the other
+    dimension to match the provided aspect ratio, cropping the image if needed.
+    If neither width or height is provided, height will be set based on the intrinsic width of the source image.
+    """
+    aspectRatio: Float
+    placeholder: PrismicGatsbyImageDataPlaceholder = DOMINANT_COLOR
+
+    """
+    The image formats to generate. Valid values are AUTO (meaning the same
+    format as the source image), JPG, PNG, WEBP and AVIF.
+    The default value is [AUTO, WEBP], and you should rarely need to change
+    this. Take care if you specify JPG or PNG when you do
+    not know the formats of the source images, as this could lead to unwanted
+    results such as converting JPEGs to PNGs. Specifying
+    both PNG and JPG is not supported and will be ignored.
+    """
+    formats: [GatsbyImageFormat] = [NO_CHANGE, WEBP]
+
+    """
+    Specifies the image widths to generate. You should rarely need to change
+    this. For FIXED and CONSTRAINED images it is better to allow these to be
+    determined automatically,
+    based on the image size. For FULL_WIDTH images this can be used to override
+    the default, which is [750, 1080, 1366, 1920].
+    It will never generate any images larger than the source.
+    """
+    breakpoints: [Int]
+
+    """
+    The "sizes" property, passed to the img tag. This describes the display size of the image.
+    This does not affect the generated images, but is used by the browser to
+    decide which images to download. You can leave this blank for fixed images,
+    or if the responsive image
+    container will be the full width of the screen. In these cases we will generate an appropriate value.
+    """
+    sizes: String
+
+    """
+    Background color applied to the wrapper, or when "letterboxing" an image to another aspect ratio.
+    """
+    backgroundColor: String
+    imgixParams: PrismicImgixURLParams
+    placeholderImgixParams: PrismicImgixURLParams
+  ): JSON
+
+  """
+  The locally download image file if the field is configured to download locally.
+  """
+  localFile: File @link(by: "id")
+}
+
+"""The style of temporary image shown while the full image loads."""
+enum PrismicGatsbyImageDataPlaceholder {
+  """
+  This generates a very low-resolution version of the source image and displays it as a blurred background.
+  """
+  BLURRED
+
+  """
+  The default placeholder. This calculates the dominant color of the source image and uses it as a solid background color.
+  """
+  DOMINANT_COLOR
+
+  """
+  No placeholder. You can use the background color option to set a static background if you wish.
+  """
+  NONE
+}
+
+input PrismicImgixURLParams {
+  """
+  Specifies an aspect ratio to maintain when resizing and cropping the image.
+  [See docs](https://docs.imgix.com/apis/url/size/ar).
+  """
+  ar: String
+
+  """
+  Applies automatic enhancements to images. [See docs](https://docs.imgix.com/apis/url/auto).
+  """
+  auto: String
+
+  """
+  Removes background from image. Default: `false`. [See
+  docs](https://docs.imgix.com/apis/rendering/background-removal/bg-remove).
+  """
+  bgRemove: Boolean
+
+  """
+  Overrides default fallback behavior for bg-remove failures. Default: `true`. [See
+  docs](https://docs.imgix.com/apis/rendering/background-removal/bg-remove).
+  """
+  bgRemoveFallback: Boolean
+
+  """
+  Colors the background of padded and partially-transparent images. Default:
+  `fff`. [See docs](https://docs.imgix.com/apis/url/bg).
+  """
+  bg: String
+
+  """
+  Changes the blend alignment relative to the parent image. [See
+  docs](https://docs.imgix.com/apis/url/blending/blend-align).
+  """
+  blendAlign: String
+
+  """Alias for `blendAlign`."""
+  blendalign: String
+
+  """Alias for `blendAlign`."""
+  ba: String
+
+  """
+  Changes the alpha of the blend image. Default: `100`. [See docs](https://docs.imgix.com/apis/url/blending/blend-alpha).
+  """
+  blendAlpha: Int
+
+  """Alias for `blendAlpha`."""
+  blendalpha: Int
+
+  """Alias for `blendAlpha`."""
+  balph: Int
+
+  """
+  Specifies a color to use when applying the blend. [See docs](https://docs.imgix.com/apis/url/blending/blend-color).
+  """
+  blendColor: String
+
+  """Alias for `blendColor`."""
+  blendcolor: String
+
+  """Alias for `blendColor`."""
+  blendClr: String
+
+  """Alias for `blendColor`."""
+  blendclr: String
+
+  """
+  Specifies the type of crop for blend images. [See docs](https://docs.imgix.com/apis/url/blending/blend-crop).
+  """
+  blendCrop: String
+
+  """Alias for `blendCrop`."""
+  blendcrop: String
+
+  """Alias for `blendCrop`."""
+  bc: String
+
+  """
+  Specifies the fit mode for blend images. Default: `clip`. [See docs](https://docs.imgix.com/apis/url/blending/blend-fit).
+  """
+  blendFit: String
+
+  """Alias for `blendFit`."""
+  blendfit: String
+
+  """Alias for `blendFit`."""
+  bf: String
+
+  """
+  Adjusts the height of the blend image. [See docs](https://docs.imgix.com/apis/url/blending/blend-h).
+  """
+  blendH: Int
+
+  """Alias for `blendH`."""
+  blendh: Int
+
+  """Alias for `blendH`."""
+  bh: Int
+
+  """
+  Sets the blend mode for a blend image. Default: `overlay`. [See
+  docs](https://docs.imgix.com/apis/url/blending/blend-mode).
+  """
+  blendMode: String
+
+  """Alias for `blendMode`."""
+  blendmode: String
+
+  """Alias for `blendMode`."""
+  bm: String
+
+  """
+  Applies padding to the blend image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/blending/blend-pad).
+  """
+  blendPad: Int
+
+  """Alias for `blendPad`."""
+  blendpad: Int
+
+  """Alias for `blendPad`."""
+  bp: Int
+
+  """
+  Adjusts the size of the blend image. [See docs](https://docs.imgix.com/apis/url/blending/blend-size).
+  """
+  blendSize: String
+
+  """Alias for `blendSize`."""
+  blendsize: String
+
+  """Alias for `blendSize`."""
+  bs: String
+
+  """
+  Adjusts the width of the blend image. [See docs](https://docs.imgix.com/apis/url/blending/blend-w).
+  """
+  blendW: Int
+
+  """Alias for `blendW`."""
+  blendw: Int
+
+  """Alias for `blendW`."""
+  bw: Int
+
+  """
+  Adjusts the x-offset of the blend image relative to its parent. Default: `0`.
+  [See docs](https://docs.imgix.com/apis/url/blending/blend-x).
+  """
+  blendX: Int
+
+  """Alias for `blendX`."""
+  blendx: Int
+
+  """Alias for `blendX`."""
+  bx: Int
+
+  """
+  Adjusts the y-offset of the blend image relative to its parent. Default: `0`.
+  [See docs](https://docs.imgix.com/apis/url/blending/blend-y).
+  """
+  blendY: Int
+
+  """Alias for `blendY`."""
+  blendy: Int
+
+  """Alias for `blendY`."""
+  by: Int
+
+  """
+  Specifies the location of the blend image. [See docs](https://docs.imgix.com/apis/url/blending/blend).
+  """
+  blend: String
+
+  """Alias for `blend`."""
+  b: String
+
+  """
+  Applies a gaussian blur to an image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/stylize/blur).
+  """
+  blur: Int
+
+  """
+  Sets bottom border of an image. [See docs](https://docs.imgix.com/apis/url/border-and-padding/border-bottom).
+  """
+  borderBottom: Int
+
+  """
+  Sets left border of an image. [See docs](https://docs.imgix.com/apis/url/border-and-padding/border-left).
+  """
+  borderLeft: Int
+
+  """
+  Sets the inner radius of the image's border in pixels. [See
+  docs](https://docs.imgix.com/apis/url/border-and-padding/border-radius-inner).
+  """
+  borderRadiusInner: String
+
+  """
+  Sets the outer radius of the image's border in pixels. [See
+  docs](https://docs.imgix.com/apis/url/border-and-padding/border-radius).
+  """
+  borderRadius: String
+
+  """
+  Sets right border of an image. [See docs](https://docs.imgix.com/apis/url/border-and-padding/border-right).
+  """
+  borderRight: Int
+
+  """
+  Sets top border of an image. [See docs](https://docs.imgix.com/apis/url/border-and-padding/border-top).
+  """
+  borderTop: Int
+
+  """
+  Applies a border to an image. [See docs](https://docs.imgix.com/apis/url/border-and-padding/border).
+  """
+  border: String
+
+  """
+  Adjusts the brightness of the source image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/bri).
+  """
+  bri: Int
+
+  """
+  Sets one or more Client-Hints headers. [See docs](https://docs.imgix.com/apis/url/format/ch).
+  """
+  ch: String
+
+  """
+  Specifies the output chroma subsampling rate. Default: `420`. [See
+  docs](https://docs.imgix.com/apis/url/format/chromasub).
+  """
+  chromasub: Int
+
+  """
+  Limits the number of unique colors in an image. [See docs](https://docs.imgix.com/apis/url/format/colorquant).
+  """
+  colorquant: Int
+
+  """
+  Specifies how many colors to include in a palette-extraction response.
+  Default: `6`. [See
+  docs](https://docs.imgix.com/apis/url/color-palette/colors).
+  """
+  colors: Int
+
+  """
+  Adjusts the contrast of the source image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/con).
+  """
+  con: Int
+
+  """
+  Specifies the radius value for a rounded corner mask. [See docs](https://docs.imgix.com/apis/url/mask/corner-radius).
+  """
+  cornerRadius: String
+
+  """
+  Specifies how to crop an image. [See docs](https://docs.imgix.com/apis/url/size/crop).
+  """
+  crop: String
+
+  """
+  Specifies the color space of the output image. [See docs](https://docs.imgix.com/apis/url/format/cs).
+  """
+  cs: String
+
+  """
+  Forces a URL to use send-file in its response. [See docs](https://docs.imgix.com/apis/url/format/dl).
+  """
+  dl: String
+
+  """
+  Sets the DPI value in the EXIF header. [See docs](https://docs.imgix.com/apis/url/format/dpi).
+  """
+  dpi: Int
+
+  """
+  Adjusts the device-pixel ratio of the output image. Default: `1`. [See docs](https://docs.imgix.com/apis/url/dpr).
+  """
+  dpr: Float
+
+  """
+  Changes the alpha of the duotone effect atop the source image. Default: `100`.
+  [See docs](https://docs.imgix.com/apis/url/stylize/duotone-alpha).
+  """
+  duotoneAlpha: Int
+
+  """
+  Applies a duotone effect to the source image. [See docs](https://docs.imgix.com/apis/url/stylize/duotone).
+  """
+  duotone: String
+
+  """
+  Adjusts the exposure of the output image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/exp).
+  """
+  exp: Int
+
+  """
+  A Unix timestamp specifying a UTC time. Requests made to this URL after that
+  time will output a 404 status code. [See
+  docs](https://docs.imgix.com/apis/url/expires).
+  """
+  expires: String
+
+  """
+  Selects a face to crop to. [See docs](https://docs.imgix.com/apis/url/face-detection/faceindex).
+  """
+  faceindex: Int
+
+  """
+  Adjusts padding around a selected face. Default: `1`. [See docs](https://docs.imgix.com/apis/url/face-detection/facepad).
+  """
+  facepad: Float
+
+  """
+  Specifies that face data should be included in output when combined with
+  `fm=json`. [See docs](https://docs.imgix.com/apis/url/face-detection/faces).
+  """
+  faces: Int
+
+  """
+  Sets the fill color for images with additional space created by the fit
+  setting. Default: `fff`. [See
+  docs](https://docs.imgix.com/apis/url/fill/fill-color).
+  """
+  fillColor: String
+
+  """Alias for `fillColor`."""
+  fillcolor: String
+
+  """
+  Determines how to fill in additional space created by the fit setting. [See
+  docs](https://docs.imgix.com/apis/url/fill/fill).
+  """
+  fill: String
+
+  """
+  Specifies how to map the source image to the output image dimensions. Default:
+  `clip`. [See docs](https://docs.imgix.com/apis/url/size/fit).
+  """
+  fit: String
+
+  """Alias for `fit`."""
+  f: String
+
+  """
+  Flips an image on a specified axis. [See docs](https://docs.imgix.com/apis/url/rotation/flip).
+  """
+  flip: String
+
+  """
+  Changes the format of the output image. [See docs](https://docs.imgix.com/apis/url/format/fm).
+  """
+  fm: String
+
+  """
+  Displays crosshairs identifying the location of the set focal point. Default:
+  `false`. [See docs](https://docs.imgix.com/apis/url/focalpoint-crop/fp-debug).
+  """
+  fpDebug: Boolean
+
+  """
+  Sets the relative horizontal value for the focal point of an image. [See
+  docs](https://docs.imgix.com/apis/url/focalpoint-crop/fp-x).
+  """
+  fpX: Int
+
+  """
+  Sets the relative vertical value for the focal point of an image. [See
+  docs](https://docs.imgix.com/apis/url/focalpoint-crop/fp-y).
+  """
+  fpY: Int
+
+  """
+  Sets the relative zoom value for the focal point of an image. [See
+  docs](https://docs.imgix.com/apis/url/focalpoint-crop/fp-z).
+  """
+  fpZ: Float
+
+  """Specifies the framerate of the generated image."""
+  fps: Int
+
+  """Specifies the frame of an animated image to use."""
+  frame: String
+
+  """
+  Adjusts the gamma of the source image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/gam).
+  """
+  gam: Int
+  gifQ: Int
+
+  """Alias for `gifQ`."""
+  gifq: Int
+
+  """Sets grid colors for the transparency checkerboard grid."""
+  gridColors: String
+
+  """Sets grid size for the transparency checkerboard grid."""
+  gridSize: Int
+
+  """
+  Adjusts the height of the output image. [See docs](https://docs.imgix.com/apis/url/size/h).
+  """
+  h: Int
+
+  """Alias for `h`."""
+  height: Int
+
+  """
+  Adjusts the highlights of the source image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/high).
+  """
+  high: Int
+
+  """
+  Applies a half-tone effect to the source image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/stylize/htn).
+  """
+  htn: Int
+
+  """
+  Adjusts the hue of the source image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/hue).
+  """
+  hue: Int
+
+  """Displays every Nth frame starting with the first frame."""
+  interval: Int
+
+  """
+  Inverts the colors on the source image. Default: `false`. [See docs](https://docs.imgix.com/apis/url/adjustment/invert).
+  """
+  invert: Boolean
+
+  """Alias for `invert`."""
+  inv: Boolean
+
+  """Determine if IPTC data should be passed for JPEG images."""
+  iptc: String
+
+  """
+  Specifies the number of times an animated image should repeat. A value of 0 means infinite looping. Default: `0`.
+  """
+  loop: Int
+
+  """
+  Specifies that the output image should be a lossless variant. Default:
+  `false`. [See docs](https://docs.imgix.com/apis/url/format/lossless).
+  """
+  lossless: Boolean
+
+  """
+  Changes the watermark alignment relative to the parent image. [See
+  docs](https://docs.imgix.com/apis/url/watermark/mark-align).
+  """
+  markAlign: String
+
+  """Alias for `markAlign`."""
+  ma: String
+
+  """Alias for `markAlign`."""
+  markalign: String
+
+  """
+  Changes the alpha of the watermark image. Default: `100`. [See
+  docs](https://docs.imgix.com/apis/url/watermark/mark-alpha).
+  """
+  markAlpha: Int
+
+  """Alias for `markAlpha`."""
+  markalpha: Int
+
+  """Alias for `markAlpha`."""
+  malph: Int
+
+  """
+  Changes base URL of the watermark image. [See docs](https://docs.imgix.com/apis/url/watermark/mark-base).
+  """
+  markBase: String
+
+  """Alias for `markBase`."""
+  mb: String
+
+  """Alias for `markBase`."""
+  markbase: String
+
+  """
+  Specifies the fit mode for watermark images. Default: `clip`. [See
+  docs](https://docs.imgix.com/apis/url/watermark/mark-fit).
+  """
+  markFit: String
+
+  """Alias for `markFit`."""
+  mf: String
+
+  """Alias for `markFit`."""
+  markfit: String
+
+  """
+  Adjusts the height of the watermark image. [See docs](https://docs.imgix.com/apis/url/watermark/mark-h).
+  """
+  markH: Int
+
+  """Alias for `markH`."""
+  mh: Int
+
+  """Alias for `markH`."""
+  markh: Int
+
+  """
+  Applies padding to the watermark image. Default: `5`. [See docs](https://docs.imgix.com/apis/url/watermark/mark-pad).
+  """
+  markPad: Int
+
+  """Alias for `markPad`."""
+  mp: Int
+
+  """Alias for `markPad`."""
+  markpad: Int
+
+  """
+  Rotates a watermark or tiled watermarks by a specified number of degrees.
+  Default: `0`. [See docs](https://docs.imgix.com/apis/url/watermark/mark-rot).
+  """
+  markRot: Float
+
+  """
+  Adjusts the scale of the watermark image. [See docs](https://docs.imgix.com/apis/url/watermark/mark-scale).
+  """
+  markScale: Int
+
+  """Alias for `markScale`."""
+  ms: Int
+
+  """Alias for `markScale`."""
+  markscale: Int
+
+  """
+  Adds tiled watermark. [See docs](https://docs.imgix.com/apis/url/watermark/mark-tile).
+  """
+  markTile: String
+
+  """Alias for `markTile`."""
+  mtile: String
+
+  """Alias for `markTile`."""
+  marktile: String
+
+  """
+  Adjusts the width of the watermark image. [See docs](https://docs.imgix.com/apis/url/watermark/mark-w).
+  """
+  markW: Int
+
+  """Alias for `markW`."""
+  mw: Int
+
+  """Alias for `markW`."""
+  markw: Int
+
+  """
+  Adjusts the x-offset of the watermark image relative to its parent. [See
+  docs](https://docs.imgix.com/apis/url/watermark/mark-x).
+  """
+  markX: Int
+
+  """Alias for `markX`."""
+  mx: Int
+
+  """Alias for `markX`."""
+  markx: Int
+
+  """
+  Adjusts the y-offset of the watermark image relative to its parent. [See
+  docs](https://docs.imgix.com/apis/url/watermark/mark-y).
+  """
+  markY: Int
+
+  """Alias for `markY`."""
+  my: Int
+
+  """Alias for `markY`."""
+  marky: Int
+
+  """
+  Specifies the location of the watermark image. [See docs](https://docs.imgix.com/apis/url/watermark/mark).
+  """
+  mark: String
+
+  """Alias for `mark`."""
+  m: String
+
+  """
+  Colors the background of the transparent mask area of images. Default: `fff`.
+  [See docs](https://docs.imgix.com/apis/url/mask/mask-bg).
+  """
+  maskBg: String
+
+  """Alias for `maskBg`."""
+  maskbg: String
+
+  """
+  Defines the type of mask and specifies the URL if that type is selected. [See docs](https://docs.imgix.com/apis/url/mask).
+  """
+  mask: String
+
+  """
+  Specifies the maximum height of the output image in pixels. [See docs](https://docs.imgix.com/apis/url/size/max-height).
+  """
+  maxH: Int
+
+  """Alias for `maxH`."""
+  maxHeight: Int
+
+  """
+  Specifies the maximum width of the output image in pixels. [See docs](https://docs.imgix.com/apis/url/size/max-width).
+  """
+  maxW: Int
+
+  """Alias for `maxW`."""
+  maxWidth: Int
+
+  """
+  Specifies the minimum height of the output image in pixels. [See docs](https://docs.imgix.com/apis/url/size/min-height).
+  """
+  minH: Int
+
+  """Alias for `minH`."""
+  minHeight: Int
+
+  """
+  Specifies the minimum width of the output image in pixels. [See docs](https://docs.imgix.com/apis/url/size/min-width).
+  """
+  minW: Int
+
+  """Alias for `minW`."""
+  minWidth: Int
+
+  """
+  Applies a monochrome effect to the source image. [See docs](https://docs.imgix.com/apis/url/stylize/monochrome).
+  """
+  monochrome: String
+
+  """Alias for `monochrome`."""
+  mono: String
+
+  """
+  Reduces the noise in an image. Default: `20`. [See docs](https://docs.imgix.com/apis/url/noise-reduction/nr).
+  """
+  nr: Int
+
+  """
+  Provides a threshold by which to sharpen an image. Default: `20`. [See
+  docs](https://docs.imgix.com/apis/url/noise-reduction/nrs).
+  """
+  nrs: Int
+
+  """
+  Changes the image orientation. [See docs](https://docs.imgix.com/apis/url/rotation/orient).
+  """
+  orient: Int
+
+  """Alias for `orient`."""
+  or: Int
+
+  """
+  Sets bottom padding of an image. [See docs](https://docs.imgix.com/apis/url/border-and-padding/pad-bottom).
+  """
+  padBottom: Int
+
+  """
+  Sets left padding of an image. [See docs](https://docs.imgix.com/apis/url/border-and-padding/pad-left).
+  """
+  padLeft: Int
+
+  """
+  Sets right padding of an image. [See docs](https://docs.imgix.com/apis/url/border-and-padding/pad-right).
+  """
+  padRight: Int
+
+  """
+  Sets top padding of an image. [See docs](https://docs.imgix.com/apis/url/border-and-padding/pad-top).
+  """
+  padTop: Int
+
+  """
+  Pads an image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/border-and-padding/pad).
+  """
+  pad: Int
+
+  """
+  Selects a page from a PDF for display. Default: `1`. [See docs](https://docs.imgix.com/apis/url/pdf/page).
+  """
+  page: Int
+
+  """
+  Specifies an output format for palette-extraction. [See docs](https://docs.imgix.com/apis/url/color-palette/palette).
+  """
+  palette: String
+
+  """
+  Enables or disables PDF annotation. Default: `true`. [See docs](https://docs.imgix.com/apis/url/pdf/pdf-annotation).
+  """
+  pdfAnnotation: Boolean
+
+  """Alias for `pdfAnnotation`."""
+  annotation: Boolean
+
+  """
+  Specifies a CSS prefix for all classes in palette-extraction. Default:
+  `image`. [See docs](https://docs.imgix.com/apis/url/color-palette/prefix).
+  """
+  prefix: String
+
+  """
+  Applies a pixelation effect to an image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/stylize/px).
+  """
+  px: Int
+
+  """
+  Adjusts the quality of an output image. Default: `75`. [See docs](https://docs.imgix.com/apis/url/format/q).
+  """
+  q: Int
+
+  """
+  Crops an image to a specified rectangle. [See docs](https://docs.imgix.com/apis/url/size/rect).
+  """
+  rect: String
+
+  """Reverses the frame order on the source animation. Default: `false`."""
+  reverse: Boolean
+
+  """
+  Rotates an image by a specified number of degrees. Default: `0`. [See docs](https://docs.imgix.com/apis/url/rotation/rot).
+  """
+  rot: Float
+
+  """
+  Adjusts the saturation of an image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/sat).
+  """
+  sat: Int
+
+  """
+  Applies a sepia effect to an image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/stylize/sepia).
+  """
+  sepia: Int
+
+  """
+  Adjusts the highlights of the source image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/shad).
+  """
+  shad: Float
+
+  """
+  Adjusts the sharpness of the source image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/sharp).
+  """
+  sharp: Float
+
+  """Skips every Nth frame starting with the first frame."""
+  skip: Int
+
+  """
+  Adds checkerboard behind images which support transparency. [See docs](https://docs.imgix.com/apis/url/fill/transparency).
+  """
+  transparency: String
+
+  """
+  Specifies a trim color on a trim operation. [See docs](https://docs.imgix.com/apis/url/trim/trim-color).
+  """
+  trimColor: String
+
+  """Alias for `trimColor`."""
+  trimcolor: String
+
+  """
+  Specifies the mean difference on a trim operation. Default: `11`. [See
+  docs](https://docs.imgix.com/apis/url/trim/trim-md).
+  """
+  trimMd: Float
+
+  """Alias for `trimMd`."""
+  trimmd: Float
+
+  """
+  Pads the area of the source image before trimming. Default: `0`. [See
+  docs](https://docs.imgix.com/apis/url/trim/trim-pad).
+  """
+  trimPad: Int
+
+  """Alias for `trimPad`."""
+  trimpad: Int
+
+  """
+  Specifies the standard deviation on a trim operation. Default: `10`. [See
+  docs](https://docs.imgix.com/apis/url/trim/trim-sd).
+  """
+  trimSd: Float
+
+  """Alias for `trimSd`."""
+  trimsd: Float
+
+  """
+  Specifies the tolerance on a trim operation. Default: `0`. [See docs](https://docs.imgix.com/apis/url/trim/trim-tol).
+  """
+  trimTol: Float
+
+  """Alias for `trimTol`."""
+  trimtol: Float
+
+  """
+  Trims the source image. [See docs](https://docs.imgix.com/apis/url/trim/trim).
+  """
+  trim: String
+
+  """
+  Sets the vertical and horizontal alignment of rendered text relative to the
+  base image. [See docs](https://docs.imgix.com/apis/url/text/txt-align).
+  """
+  txtAlign: String
+
+  """Alias for `txtAlign`."""
+  txtalign: String
+
+  """Alias for `txtAlign`."""
+  ta: String
+
+  """
+  Sets the clipping properties of rendered text. Default: `end`. [See docs](https://docs.imgix.com/apis/url/text/txt-clip).
+  """
+  txtClip: String
+
+  """Alias for `txtClip`."""
+  txtclip: String
+
+  """Alias for `txtClip`."""
+  tcl: String
+
+  """
+  Specifies the color of rendered text. [See docs](https://docs.imgix.com/apis/url/text/txt-color).
+  """
+  txtColor: String
+
+  """Alias for `txtColor`."""
+  txtcolor: String
+
+  """Alias for `txtColor`."""
+  txtClr: String
+
+  """Alias for `txtColor`."""
+  txtclr: String
+
+  """Alias for `txtColor`."""
+  tc: String
+
+  """
+  Specifies the fit approach for rendered text. [See docs](https://docs.imgix.com/apis/url/text/txt-fit).
+  """
+  txtFit: String
+
+  """Alias for `txtFit`."""
+  txtfit: String
+
+  """
+  Selects a font for rendered text. [See docs](https://docs.imgix.com/apis/url/text/txt-font).
+  """
+  txtFont: String
+
+  """Alias for `txtFont`."""
+  tf: String
+
+  """Alias for `txtFont`."""
+  txtfont: String
+
+  """
+  Sets the leading (line spacing) for rendered text. Only works on the
+  multi-line text endpoint. Default: `0`. [See
+  docs](https://docs.imgix.com/apis/url/typesetting/txt-lead).
+  """
+  txtLead: Int
+
+  """Alias for `txtLead`."""
+  txtlead: Int
+
+  """
+  Controls the level of ligature substitution. [See docs](https://docs.imgix.com/apis/url/text/txt-lig).
+  """
+  txtLig: Int
+
+  """Alias for `txtLig`."""
+  txtlig: Int
+
+  """
+  Specifies a text outline color. Default: `fff`. [See docs](https://docs.imgix.com/apis/url/text/txt-line-color).
+  """
+  txtLineColor: String
+
+  """Alias for `txtLineColor`."""
+  txtlinecolor: String
+
+  """Alias for `txtLineColor`."""
+  txtLineClr: String
+
+  """Alias for `txtLineColor`."""
+  txtlineclr: String
+
+  """
+  Outlines the rendered text with a specified color. Default: `0`. [See
+  docs](https://docs.imgix.com/apis/url/text/txt-line).
+  """
+  txtLine: Int
+
+  """Alias for `txtLine`."""
+  txtline: Int
+
+  """Alias for `txtLine`."""
+  tl: Int
+
+  """
+  Specifies the padding (in device-independent pixels) between a textbox and the
+  edges of the base image. [See
+  docs](https://docs.imgix.com/apis/url/text/txt-pad).
+  """
+  txtPad: Int
+
+  """Alias for `txtPad`."""
+  txtpad: Int
+
+  """Alias for `txtPad`."""
+  tp: Int
+
+  """
+  Applies a shadow to rendered text. Default: `0`. [See docs](https://docs.imgix.com/apis/url/text/txt-shad).
+  """
+  txtShad: Float
+
+  """Alias for `txtShad`."""
+  txtshad: Float
+
+  """Alias for `txtShad`."""
+  tsh: Float
+
+  """
+  Sets the font size of rendered text. Default: `12`. [See docs](https://docs.imgix.com/apis/url/text/txt-size).
+  """
+  txtSize: Int
+
+  """Alias for `txtSize`."""
+  tsz: Int
+
+  """Alias for `txtSize`."""
+  txtsize: Int
+
+  """
+  Sets the tracking (letter spacing) for rendered text. Only works on the
+  multi-line text endpoint. Default: `0`. [See
+  docs](https://docs.imgix.com/apis/url/typesetting/txt-track).
+  """
+  txtTrack: Int
+
+  """Alias for `txtTrack`."""
+  txttrack: Int
+
+  """Alias for `txtTrack`."""
+  tt: Int
+
+  """
+  Sets the width of rendered text. [See docs](https://docs.imgix.com/apis/url/text/txt-width).
+  """
+  txtWidth: Int
+
+  """Alias for `txtWidth`."""
+  txtwidth: Int
+
+  """
+  Sets the horizontal (x) position of the text in pixels relative to the left
+  edge of the base image. Default: `0`. [See
+  docs](https://docs.imgix.com/apis/url/text/txt-x).
+  """
+  txtX: Int
+
+  """Alias for `txtX`."""
+  txtx: Int
+
+  """
+  Sets the vertical (y) position of the text in pixels relative to the top edge
+  of the base image. Default: `0`. [See
+  docs](https://docs.imgix.com/apis/url/text/txt-y).
+  """
+  txtY: Int
+
+  """Alias for `txtY`."""
+  txty: Int
+
+  """
+  Sets the text string to render. [See docs](https://docs.imgix.com/apis/url/text/txt).
+  """
+  txt: String
+
+  """Alias for `txt`."""
+  t: String
+
+  """
+  Sharpens the source image using an unsharp mask. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/usm).
+  """
+  usm: Int
+
+  """
+  Specifies the radius for an unsharp mask operation. Default: `2.5`. [See
+  docs](https://docs.imgix.com/apis/url/adjustment/usmrad).
+  """
+  usmrad: Float
+
+  """
+  Adjusts the vibrance of an image. Default: `0`. [See docs](https://docs.imgix.com/apis/url/adjustment/vib).
+  """
+  vib: Int
+
+  """
+  Adjusts the width of the output image. [See docs](https://docs.imgix.com/apis/url/size/w).
+  """
+  w: Int
+
+  """Alias for `w`."""
+  width: Int
+}
+
+type SiteSiteMetadataMenuLinks {
+  name: String
+  link: String
+}

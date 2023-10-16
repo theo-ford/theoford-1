@@ -16,26 +16,33 @@
             "minify": true,
             "namespace": "",
             "transpileTemplateLiterals": true,
+            "topLevelImportPaths": [],
             "pure": false,
             "ssr": false
           }
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/gatsby-plugin-image/dist/babel-plugin-parse-static-images.js",
+          "options": {
+            "cacheDir": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/.cache/caches/gatsby-plugin-image"
+          }
+        },
+        {
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
           "options": {}
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
           "options": {}
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-numeric-separator/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-numeric-separator/lib/index.js",
           "options": {}
         }
       ],
       "presets": [
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/preset-typescript/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/preset-typescript/lib/index.js",
           "options": {
             "plugins": [],
             "allExtensions": false,
@@ -56,15 +63,21 @@
           "options": {}
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/gatsby-plugin-image/dist/babel-plugin-parse-static-images.js",
+          "options": {
+            "cacheDir": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/.cache/caches/gatsby-plugin-image"
+          }
+        },
+        {
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
           "options": {}
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
           "options": {}
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-numeric-separator/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-numeric-separator/lib/index.js",
           "options": {}
         },
         {
@@ -77,6 +90,7 @@
             "minify": true,
             "namespace": "",
             "transpileTemplateLiterals": true,
+            "topLevelImportPaths": [],
             "pure": false,
             "ssr": false
           }
@@ -84,7 +98,7 @@
       ],
       "presets": [
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/preset-typescript/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/preset-typescript/lib/index.js",
           "options": {
             "plugins": [],
             "allExtensions": false,
@@ -105,15 +119,21 @@
           "options": {}
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/gatsby-plugin-image/dist/babel-plugin-parse-static-images.js",
+          "options": {
+            "cacheDir": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/.cache/caches/gatsby-plugin-image"
+          }
+        },
+        {
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
           "options": {}
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
           "options": {}
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-numeric-separator/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-numeric-separator/lib/index.js",
           "options": {}
         },
         {
@@ -126,6 +146,7 @@
             "minify": true,
             "namespace": "",
             "transpileTemplateLiterals": true,
+            "topLevelImportPaths": [],
             "pure": false,
             "ssr": true
           }
@@ -133,7 +154,7 @@
       ],
       "presets": [
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/preset-typescript/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/preset-typescript/lib/index.js",
           "options": {
             "plugins": [],
             "allExtensions": false,
@@ -154,15 +175,21 @@
           "options": {}
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/gatsby-plugin-image/dist/babel-plugin-parse-static-images.js",
+          "options": {
+            "cacheDir": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/.cache/caches/gatsby-plugin-image"
+          }
+        },
+        {
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
           "options": {}
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
           "options": {}
         },
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/plugin-proposal-numeric-separator/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/plugin-proposal-numeric-separator/lib/index.js",
           "options": {}
         },
         {
@@ -175,6 +202,7 @@
             "minify": true,
             "namespace": "",
             "transpileTemplateLiterals": true,
+            "topLevelImportPaths": [],
             "pure": false,
             "ssr": true
           }
@@ -182,7 +210,7 @@
       ],
       "presets": [
         {
-          "name": "/Users/theodoreford/Documents/01_projects/Website 2.0/00 React/02 Builds/01 theoford-1/node_modules/@babel/preset-typescript/lib/index.js",
+          "name": "/Users/theoford/Documents/03 Code Projects (Cloned from GitHub)/theoford-1/node_modules/@babel/preset-typescript/lib/index.js",
           "options": {
             "plugins": [],
             "allExtensions": false,
@@ -198,7 +226,7 @@
     }
   },
   "browserslist": [
-    ">0.25%",
-    "not dead"
+    ">0.25% and supports es6-module",
+    "not dead and supports es6-module"
   ]
 }

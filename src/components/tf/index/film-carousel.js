@@ -14,8 +14,6 @@ import "../../slick/slick.css";
 import "../../slick/slick-theme.css";
 import { ImageOrientation2 } from "../../utils/image-orientation2";
 import { useOnScreen } from "../../hooks/useOnScreen";
-import PauseButton from "../../../../public/icons/Pause.png";
-import PlayButton from "../../../../public/icons/Play.png";
 import CarouselLengthContext from "./length-context";
 import CarouselIndexClicked from "./slick-functions-context.js";
 

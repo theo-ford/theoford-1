@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { graphql, Link } from "gatsby";
-import { withPreview } from "gatsby-source-prismic";
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
 import { Helmet } from "react-helmet";
 import { ImageOrientation } from "../components/utils/image-orientation";
 import styled, { createGlobalStyle } from "styled-components";
@@ -9,6 +9,8 @@ import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 import { VideoProjectPage } from "../components/tf/project/video-project-page";
 import { NavGrid } from "../components/tf/nav-grid/nav";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -193,7 +195,7 @@ const RelatedProjectProjectTitle = styled.p`
   color: grey;
   margin-top: 10px;
 `;
-const RelatedProjectsImg = styled.img`
+const RelatedProjectsImg = styled.div`
   width: 100%;
   /* filter: grayscale(100%);
   &:hover {
@@ -273,7 +275,7 @@ const FilmLeadProject = ({ data }) => {
         <>
           <VideoProjectPage
             srcProps={content.primary.video_with_play_button.url}
-            posterProps={content.primary.video_thumbnail.fluid.srcSetWebp}
+            posterProps={content.primary.video_thumbnail}
             img={content.primary.video_thumbnail}
           ></VideoProjectPage>
         </>
@@ -299,16 +301,15 @@ const FilmLeadProject = ({ data }) => {
         //     );
         //   }
         // );
+        const image = getImage(content.related_projects.document.data.index_preview_img)
+
         return (
           <>
             <RelatedProjectsProjectCon>
               <Link to={`/${content.related_projects.document.uid}`}>
-                <RelatedProjectsImg
-                  src={
-                    content.related_projects.document.data.index_preview_img
-                      .fluid.src
-                  }
-                />
+              <RelatedProjectsImg>
+                  <GatsbyImage image={image} />
+                </RelatedProjectsImg>
                 <RelatedProjectProjectTitle>
                   {content.related_projects.document.data.project_title.text}
                 </RelatedProjectProjectTitle>
@@ -322,16 +323,15 @@ const FilmLeadProject = ({ data }) => {
         content.related_projects.document.type == "film_lead_project"
       ) {
         console.log("film project");
+        const image = getImage(content.related_projects.document.data.index_preview_img)
+
         return (
           <>
             <RelatedProjectsProjectCon>
               <Link to={`/${content.related_projects.document.uid}`}>
-                <RelatedProjectsImg
-                  src={
-                    content.related_projects.document.data.index_preview_img
-                      .fluid.src
-                  }
-                />
+              <RelatedProjectsImg>
+                  <GatsbyImage image={image} />
+                </RelatedProjectsImg>
                 <RelatedProjectProjectTitle>
                   {content.related_projects.document.data.project_title.text}
                 </RelatedProjectProjectTitle>
@@ -439,7 +439,7 @@ const FilmLeadProject = ({ data }) => {
   );
 };
 
-export default withPreview(FilmLeadProject);
+export default withPrismicPreview(FilmLeadProject);
 
 export const query = graphql`
   query FilmLeadArtists($uid: String!) {
@@ -478,16 +478,12 @@ export const query = graphql`
           }
         }
         body1 {
-          ... on PrismicFilmLeadProjectBody1VideoWithPlayButton {
+          ... on PrismicFilmLeadProjectDataBody1VideoWithPlayButton {
             id
             slice_type
             primary {
               video_thumbnail {
-                fluid {
-                  srcSetWebp
-                  srcWebp
-                  src
-                }
+                gatsbyImageData
                 dimensions {
                   width
                   height
@@ -498,20 +494,16 @@ export const query = graphql`
               }
             }
           }
-          ... on PrismicFilmLeadProjectBody1Image {
+          ... on PrismicFilmLeadProjectDataBody1Image {
             id
             slice_type
             primary {
               image {
-                fluid {
-                  src
-                  srcSet
-                  srcSetWebp
-                }
+                gatsbyImageData
               }
             }
           }
-          ... on PrismicFilmLeadProjectBody1Text {
+          ... on PrismicFilmLeadProjectDataBody1Text {
             id
             slice_type
             primary {
@@ -521,15 +513,12 @@ export const query = graphql`
               }
             }
           }
-          ... on PrismicFilmLeadProjectBody1Video {
+          ... on PrismicFilmLeadProjectDataBody1Video {
             id
             slice_type
             primary {
               index_image {
-                fluid {
-                  srcSetWebp
-                  srcWebp
-                }
+                gatsbyImageData
               }
               sml_video {
                 url
@@ -553,9 +542,7 @@ export const query = graphql`
                     text
                   }
                   index_preview_img {
-                    fluid {
-                      src
-                    }
+                    gatsbyImageData
                   }
                 }
               }
@@ -568,9 +555,7 @@ export const query = graphql`
                     text
                   }
                   index_preview_img {
-                    fluid {
-                      src
-                    }
+                    gatsbyImageData
                   }
                 }
               }

@@ -8,6 +8,8 @@ import React, {
 } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { useOnScreen } from "../hooks/useOnScreen";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 
 const AutoplayVideoCon = styled.div`
   position: relative;
@@ -16,7 +18,7 @@ const AutoplayVideoCon = styled.div`
     width: 100%;
   }
 `;
-const AutoplayVideoImg = styled.img`
+const AutoplayVideoImg = styled.div`
   /* position: absolute; */
   width: 100%;
   height: 100%;
@@ -92,7 +94,7 @@ export const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
       setVideoSrcState("");
     }
   }, [isOnScreen]);
-
+  const getPosterImage = getImage(posterProps)
   return (
     <>
       <AutoplayVideoCon>
@@ -116,7 +118,9 @@ export const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
               // opacity: 1,
               // position: "relative",
             }}
-          />
+          >
+            <GatsbyImage image={getPosterImage} />
+          </AutoplayVideoImg>
         </AutoplayVideoImgCon>
 
         <AutoplayVideoVideo

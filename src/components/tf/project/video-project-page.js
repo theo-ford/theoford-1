@@ -8,10 +8,11 @@ import React, {
 } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { useOnScreen } from "../../hooks/useOnScreen";
-import PauseButton from "../../../../public/icons/Pause.png";
-import PlayButton from "../../../../public/icons/Play.png";
 import { ImageOrientation } from "../../utils/image-orientation";
 import { ImageOrientation2 } from "../../utils/image-orientation2";
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+
+
 
 const VideoCon = styled.div`
   margin-bottom: 200px;
@@ -75,16 +76,16 @@ const PlayCon = styled.div`
     color: white;
   }
 `;
-const PauseButtonImg = styled.img`
+const PauseButtonImg = styled.div`
   width: 8px;
   display: inline-block !important;
   margin-right: 5px;
 `;
-const PlayButtonImg = styled.img`
+const PlayButtonImg = styled.div`
   width: 8px;
   display: inline-block !important;
 `;
-const Poster = styled.img`
+const Poster = styled.div`
   width: 100%;
   height: 100%;
 `;
@@ -149,6 +150,7 @@ export const VideoProjectPage = ({ srcProps, posterProps, img }) => {
     VideoRef.current.pause();
     setPlayingStatus(false);
   };
+  const getImageVal = getImage(posterProps)
   return (
     <>
       <VideoCon>
@@ -161,8 +163,9 @@ export const VideoProjectPage = ({ srcProps, posterProps, img }) => {
               zIndex: hasStartedPlaying ? -100 : 0,
               display: hasStartedPlaying ? "none" : "block",
             }}
-            srcSet={posterProps}
-          ></Poster>
+          >
+            <GatsbyImage image={getImageVal} />
+          </Poster>
           <video
             playsInline
             loop
@@ -187,14 +190,20 @@ export const VideoProjectPage = ({ srcProps, posterProps, img }) => {
               {/* <p>TEST</p> */}
             </LengthCon>
             <PlayCon>
-              {isPlaying ? (
+            {isPlaying ? (
                 <p onClick={pauseVideo}>
-                  <PauseButtonImg src={PauseButton} />
+                  {/* <PauseButtonImg src={PauseButton} /> */}
+                  <PauseButtonImg>
+                  <StaticImage src={"../../../img/pause.png"} />  
+                  </PauseButtonImg>                  
                   Pause
                 </p>
               ) : (
                 <p onClick={playVideo}>
-                  <PlayButtonImg src={PlayButton} /> Play
+                  <PlayButtonImg>
+                  <StaticImage src={"../../../img/play.png"} />  
+                  </PlayButtonImg>
+                   Play
                 </p>
               )}
             </PlayCon>

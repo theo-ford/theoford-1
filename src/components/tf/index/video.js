@@ -11,11 +11,14 @@ import { graphql, Link, useScrollRestoration } from "gatsby";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import CarouselLengthContext from "./length-context";
 import CarouselIndexClicked from "./slick-functions-context.js";
-import PauseButton from "../../../../public/icons/Pause.png";
-import PlayButton from "../../../../public/icons/Play.png";
+// import PauseButton from "../../../../public/icons/Pause.png";
+// import PlayButton from "../../../../public/icons/Play.png";
+// import PauseButton from "../../../../Pause.png";
+// import PlayButton from "../../../../Play.png";
+// import PauseButton from "../../../../Pause.png";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { ImageOrientation2 } from "../../utils/image-orientation2";
-
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 /* - - - - - VIDEO WITH CONTROLS IMG - - - - - */
 
 const VideoCon = styled.div`
@@ -99,17 +102,18 @@ const PaginationControlP = styled.p`
     color: white;
   }
 `;
-const PauseButtonImg = styled.img`
+const PauseButtonImg = styled.div`
   width: 8px;
   display: inline-block !important;
   margin-right: 5px;
 `;
-const PlayButtonImg = styled.img`
+const PlayButtonImg = styled.div`
   width: 8px;
+  margin-right:5px;
   display: inline-block !important;
 `;
 const VideoControlsImgCon = styled.div``;
-const VideoControlsImg = styled.img`
+const VideoControlsImg = styled.div`
   width: 100%;
   height: 100%;
 `;
@@ -183,7 +187,9 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     videoWithControlsRef.current.pause();
     setPlayingStatus(false);
   };
-
+  // console.log("POSTER PROPS");
+  // console.log(posterProps);
+  const getPosterImg = getImage(posterProps)
   return (
     <>
       {/* <CarouselLengthContext.Provider> */}
@@ -197,12 +203,13 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
           >
             <VideoControlsImg
               ref={imgRef}
-              srcSet={posterProps}
               style={{
                 opacity: hasStartedPlaying ? 0 : 1,
                 position: hasStartedPlaying ? "absolute" : "relative",
               }}
-            ></VideoControlsImg>
+            >
+              <GatsbyImage image={getPosterImg} />
+            </VideoControlsImg>
           </VideoControlsImgCon>
           <VideoWithContolsSC
             playsInline
@@ -233,12 +240,18 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
             >
               {isPlaying ? (
                 <p onClick={pauseVideo}>
-                  <PauseButtonImg src={PauseButton} />
+                  {/* <PauseButtonImg src={PauseButton} /> */}
+                  <PauseButtonImg>
+                  <StaticImage src={"../../../img/pause.png"} />  
+                  </PauseButtonImg>                  
                   Pause
                 </p>
               ) : (
                 <p onClick={playVideo}>
-                  <PlayButtonImg src={PlayButton} /> Play
+                  <PlayButtonImg>
+                  <StaticImage src={"../../../img/play.png"} />  
+                  </PlayButtonImg>
+                   Play
                 </p>
               )}
             </PlayButtonCon>

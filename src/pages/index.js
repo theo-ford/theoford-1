@@ -9,7 +9,8 @@ import React, {
 import ReactDOM, { findDOMNode } from "react-dom";
 import { graphql, Link, useScrollRestoration } from "gatsby";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
-import { withPreview } from "gatsby-source-prismic";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
 import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
 import "../components/styles/index.css";
@@ -20,9 +21,6 @@ import "../components/slick/slick.css";
 import "../components/slick/slick-theme.css";
 import { useOnScreen } from "../components/hooks/useOnScreen";
 import Icon from "../../assets/WhiteLogo.svg";
-import PauseButton from "../../public/icons/Pause.png";
-import PlayButton from "../../public/icons/Play.png";
-import TestVideo from "../../assets/G4C Web Desk 1500.mp4";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { ImageOrientation2 } from "../components/utils/image-orientation2";
 import { PageLoad } from "../components/tf/page-load";
@@ -170,6 +168,14 @@ const IndexAutoPlayVideoCon = styled.div`
   }
 `;
 
+/* - - - - - - IMAGE - - - - - - - */
+const SquareImg = styled.div`
+  width: calc(100% - 12.5px) !important;
+  @media (max-width: 666px) {
+    width: 100%;
+  }
+`;
+
 const Index = ({ data }) => {
   const [pageLoad, setPageLoad] = useState(null);
   let isPageWide = useMediaQuery("(min-width: 667px)");
@@ -289,13 +295,12 @@ const Index = ({ data }) => {
         const filmLeadProject = content.project_relationship_field.document.data.body.map(
           (content_three, index) => {
             if (content_three.slice_type == "video_with_play_button") {
+              const posterImage = content_three.primary.video_thumbnail;
               return (
                 <VideoWithControlsImg2
                   srcProps={content_three.primary.video_with_play_button.url}
-                  posterProps={
-                    content_three.primary.video_thumbnail.fluid.srcSetWebp
-                  }
-                  img={content_three.primary.video_thumbnail}
+                  posterProps={posterImage}
+                  img={posterImage}
                 ></VideoWithControlsImg2>
               );
             }
@@ -323,31 +328,37 @@ const Index = ({ data }) => {
         const project = content.project_relationship_field.document.data.body.map(
           (content_four, index) => {
             if (content_four.slice_type == "image") {
+              // console.log("SQUARE IMAGE");
+              const image = getImage(content_four.primary.image)
+              // console.log(image);
               return (
-                <ImgComponent
-                  srcProps={content_four.primary.image.fluid.srcSetWebp}
-                />
+                // <ImgComponent
+                //   srcProps={content_four.primary.image.gatsbyImageData.images.sources.srcSet}
+                // />
+                <SquareImg>
+                  <GatsbyImage image={image} />
+                </SquareImg>
+                
               );
             }
             if (content_four.slice_type == "video") {
               if (isPageWide) {
+                // postImage = getImage(content_four.primary.index_image)
+                const posterImg = content_four.primary.index_image;
                 return (
                   <IndexAutoPlayVideoCon>
                     <AutoPlayVideo
                       srcProps={content_four.primary.video.url}
-                      posterProps={
-                        content_four.primary.index_image.fluid.srcSetWebp
-                      }
+                      posterProps={posterImg}
                     />
                   </IndexAutoPlayVideoCon>
                 );
               } else {
+                const posterImg = content_four.primary.index_image;
                 return (
                   <AutoPlayVideo
                     srcProps={content_four.primary.sml_video.url}
-                    posterProps={
-                      content_four.primary.index_image.fluid.srcSetWebp
-                    }
+                    posterProps={posterImg}
                   />
                 );
               }
@@ -428,7 +439,7 @@ const Index = ({ data }) => {
   );
 };
 
-export default withPreview(Index);
+export default withPrismicPreview(Index);
 
 export const query = graphql`
   query IndexQuery40 {
@@ -461,22 +472,16 @@ export const query = graphql`
                     text
                   }
                   body {
-                    ... on PrismicProjectBodyImage {
+                    ... on PrismicProjectDataBodyImage {
                       id
                       slice_type
                       primary {
                         image {
-                          fluid(
-                            srcSetBreakpoints: [1400, 1600, 2400, 3600]
-                            imgixParams: { auto: "" }
-                          ) {
-                            srcWebp
-                            srcSetWebp
-                          }
+                          gatsbyImageData
                         }
                       }
                     }
-                    ... on PrismicProjectBodyVideo {
+                    ... on PrismicProjectDataBodyVideo {
                       id
                       slice_type
                       primary {
@@ -487,14 +492,7 @@ export const query = graphql`
                           url
                         }
                         index_image {
-                          fluid(
-                            srcSetBreakpoints: [1400, 1600, 2400, 3600]
-                            imgixParams: { auto: "" }
-                          ) {
-                            src
-                            srcSetWebp
-                            srcWebp
-                          }
+                          gatsbyImageData
                         }
                       }
                     }
@@ -526,7 +524,7 @@ export const query = graphql`
                     text
                   }
                   body {
-                    ... on PrismicFilmLeadProjectBodyVideoWithPlayButton {
+                    ... on PrismicFilmLeadProjectDataBodyVideoWithPlayButton {
                       id
                       slice_type
                       primary {
@@ -534,15 +532,11 @@ export const query = graphql`
                           url
                         }
                         video_thumbnail {
-                          fluid {
-                            src
-                            srcSetWebp
-                            srcWebp
-                          }
+                          gatsbyImageData
                           dimensions {
                             height
                             width
-                          }
+                          }                          
                         }
                       }
                     }

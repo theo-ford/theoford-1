@@ -8,8 +8,9 @@ import React, {
 } from "react";
 import ReactDOM, { findDOMNode } from "react-dom";
 import { graphql, Link, useScrollRestoration } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled, { createGlobalStyle, keyframes } from "styled-components";
-import { withPreview } from "gatsby-source-prismic";
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
 import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
 import { useMediaQuery } from "../components/tf/media-query";
@@ -162,7 +163,7 @@ const IndexImgCon = styled.div`
     display: none;
   }
 `;
-const IndexImg = styled.img`
+const IndexImg = styled.div`
   width: 100%;
   opacity: 0;
   /* position: absolute; */
@@ -394,7 +395,7 @@ const ProjectIndex = ({ data }) => {
   });
   // console.log("ORGANISED ARRAY");
   // console.log(organisedArray);
-
+  
   const organisedArrayMap = organisedArray
     .filter(project => {
       if (activeCategory === null) {
@@ -412,6 +413,7 @@ const ProjectIndex = ({ data }) => {
     .map((content, index) => {
       // console.log(content);
       // console.log(content.content.node.data.year.text);
+      var index_image = getImage(content.content.node.data.index_preview_img)
       return (
         <>
           <Link to={`/${content.content.node.uid}`}>
@@ -419,13 +421,15 @@ const ProjectIndex = ({ data }) => {
               <ImageBorderCon>
                 <Grid16>
                   <IndexImgCon>
-                    <IndexImg
+                    {/* <IndexImg
                       className="index_img"
                       srcSet={
-                        content.content.node.data.index_preview_img.fluid
-                          .srcSetWebp
+                        content.content.node.data.index_preview_img
                       }
-                    />
+                    /> */}
+                    <IndexImg className="index_img">
+                      <GatsbyImage image={index_image} />
+                    </IndexImg>
                     {/* <IndexImg src={PlayButton}></IndexImg> */}
                   </IndexImgCon>
                   <Border></Border>
@@ -570,7 +574,7 @@ const ProjectIndex = ({ data }) => {
   );
 };
 
-export default withPreview(ProjectIndex);
+export default withPrismicPreview(ProjectIndex);
 
 export const query = graphql`
   query IndexQuery37 {
@@ -601,10 +605,7 @@ export const query = graphql`
               text
             }
             index_preview_img {
-              fluid {
-                srcSetWebp
-                srcWebp
-              }
+              gatsbyImageData
             }
           }
         }
@@ -637,10 +638,7 @@ export const query = graphql`
               text
             }
             index_preview_img {
-              fluid {
-                srcSetWebp
-                srcWebp
-              }
+              gatsbyImageData
             }
           }
         }

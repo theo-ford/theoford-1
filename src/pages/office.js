@@ -9,7 +9,7 @@ import React, {
 import ReactDOM, { findDOMNode } from "react-dom";
 import { graphql, Link, useScrollRestoration } from "gatsby";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
-import { withPreview } from "gatsby-source-prismic";
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
 import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
 import "../components/styles/index.css";
@@ -21,8 +21,6 @@ import "../components/slick/slick-theme.css";
 import { useOnScreen } from "../components/hooks/useOnScreen";
 import ReactPlayer from "react-player";
 import Icon from "../../assets/WhiteLogo.svg";
-import PauseButton from "../../public/icons/Pause.png";
-import PlayButton from "../../public/icons/Play.png";
 import { NavGrid } from "../components/tf/nav-grid/nav";
 
 const GlobalStyle = createGlobalStyle`
@@ -685,7 +683,7 @@ const About = ({ data }) => {
   );
 };
 
-export default withPreview(About);
+export default withPrismicPreview(About);
 
 export const query = graphql`
   query aboutQuery17 {

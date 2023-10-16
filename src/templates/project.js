@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { graphql, Link } from "gatsby";
-import { withPreview } from "gatsby-source-prismic";
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
 import { Helmet } from "react-helmet";
 import { ImageOrientation } from "../components/utils/image-orientation";
 import styled, { createGlobalStyle } from "styled-components";
@@ -9,6 +9,8 @@ import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { NavGrid } from "../components/tf/nav-grid/nav";
 import { PageLoad } from "../components/tf/page-load";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
@@ -175,7 +177,7 @@ const BodyTextCon = styled.div`
   @media (max-width: 666px) {
   }
 `;
-const SquareImage = styled.img`
+const SquareImage = styled.div`
   width: calc(100%);
   margin-bottom: 12.5px;
 
@@ -207,7 +209,7 @@ const RelatedProjectProjectTitle = styled.p`
   color: grey;
   margin-top: 10px;
 `;
-const RelatedProjectsImg = styled.img`
+const RelatedProjectsImg = styled.div`
   width: 100%;
   /* filter: grayscale(100%);
   &:hover {
@@ -294,13 +296,13 @@ const Project = ({ data }) => {
   };
   const projectBody = data.prismicProject.data.body1.map((content, index) => {
     if (content.slice_type == "image") {
+      const image = getImage(content.primary.image)
       return (
         <>
           {/* <Img src={content.primary.image.fluid.src} /> */}
-          <ImgComponent
-            srcProps={content.primary.image.fluid.srcSetWebp}
-            // srcProps={content_four.primary.image.fluid.srcWebp}
-          />
+          <SquareImage>
+            <GatsbyImage image={image} />
+          </SquareImage>
         </>
       );
     }
@@ -315,20 +317,24 @@ const Project = ({ data }) => {
     }
     if (content.slice_type == "video") {
       if (isPageWide) {
+        const posterImgProps = content.primary.index_image;
         return (
           <ProjectPageAutoPlayVideoCon>
             <AutoPlayVideo
               srcProps={content.primary.video.url}
-              posterProps={content.primary.index_image.fluid.srcSetWebp}
+              posterProps={posterImgProps}
             />
           </ProjectPageAutoPlayVideoCon>
         );
       } else {
+        const posterImgProps = content.primary.index_image;
+        console.log("SMALL VIDEO");
+        console.log(content.primary.sml_video.url);
         return (
           <ProjectPageAutoPlayVideoCon>
             <AutoPlayVideo
               srcProps={content.primary.sml_video.url}
-              posterProps={content.primary.index_image.fluid.srcSetWebp}
+              posterProps={posterImgProps}
             />
           </ProjectPageAutoPlayVideoCon>
         );
@@ -355,16 +361,14 @@ const Project = ({ data }) => {
         //     );
         //   }
         // );
+        const image = getImage(content.related_projects.document.data.index_preview_img);
         return (
           <>
             <RelatedProjectsProjectCon>
               <Link to={`/${content.related_projects.document.uid}`}>
-                <RelatedProjectsImg
-                  src={
-                    content.related_projects.document.data.index_preview_img
-                      .fluid.src
-                  }
-                />
+                <RelatedProjectsImg>
+                  <GatsbyImage image={image} />
+                </RelatedProjectsImg>
                 <RelatedProjectProjectTitle>
                   {content.related_projects.document.data.project_title.text}
                 </RelatedProjectProjectTitle>
@@ -377,17 +381,15 @@ const Project = ({ data }) => {
       } else if (
         content.related_projects.document.type == "film_lead_project"
       ) {
+        const image = getImage(content.related_projects.document.data.index_preview_img);
         console.log("film project");
         return (
           <>
             <RelatedProjectsProjectCon>
               <Link to={`/${content.related_projects.document.uid}`}>
-                <RelatedProjectsImg
-                  src={
-                    content.related_projects.document.data.index_preview_img
-                      .fluid.src
-                  }
-                />
+              <RelatedProjectsImg>
+                  <GatsbyImage image={image} />
+                </RelatedProjectsImg>
                 <RelatedProjectProjectTitle>
                   {content.related_projects.document.data.project_title.text}
                 </RelatedProjectProjectTitle>
@@ -494,7 +496,7 @@ const Project = ({ data }) => {
   );
 };
 
-export default withPreview(Project);
+export default withPrismicPreview(Project);
 
 export const query = graphql`
   query Artists($uid: String!) {
@@ -533,20 +535,16 @@ export const query = graphql`
           }
         }
         body1 {
-          ... on PrismicProjectBody1Image {
+          ... on PrismicProjectDataBody1Image {
             id
             slice_type
             primary {
               image {
-                fluid {
-                  src
-                  srcSet
-                  srcSetWebp
-                }
+                gatsbyImageData
               }
             }
           }
-          ... on PrismicProjectBody1Text {
+          ... on PrismicProjectDataBody1Text {
             id
             slice_type
             primary {
@@ -556,15 +554,12 @@ export const query = graphql`
               }
             }
           }
-          ... on PrismicProjectBody1Video {
+          ... on PrismicProjectDataBody1Video {
             id
             slice_type
             primary {
               index_image {
-                fluid {
-                  srcSetWebp
-                  srcWebp
-                }
+                gatsbyImageData
               }
               sml_video {
                 url
@@ -588,9 +583,7 @@ export const query = graphql`
                     text
                   }
                   index_preview_img {
-                    fluid {
-                      src
-                    }
+                    gatsbyImageData
                   }
                 }
               }
@@ -603,9 +596,7 @@ export const query = graphql`
                     text
                   }
                   index_preview_img {
-                    fluid {
-                      src
-                    }
+                    gatsbyImageData
                   }
                 }
               }

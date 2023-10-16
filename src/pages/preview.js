@@ -1,5 +1,5 @@
 import * as React from "react";
-import { withPreviewResolver } from "gatsby-source-prismic";
+import { withPrismicPreviewResolver } from "gatsby-plugin-prismic-previews";
 
 const PreviewPage = ({ isPreview, isLoading }) => {
   if (isPreview === false) return "Not a preview!";
@@ -11,7 +11,8 @@ const PreviewPage = ({ isPreview, isLoading }) => {
   );
 };
 
-export default withPreviewResolver(PreviewPage, {
+
+export default withPrismicPreviewResolver(PreviewPage, {
   repositoryName: `Martinez-2`,
-  linkResolver: ({ node, key, value }) => (post) => `/${post.uid}`,
+  // linkResolver: ({ node, key, value }) => (post) => `/${post.uid}`,
 });
