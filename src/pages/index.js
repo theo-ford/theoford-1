@@ -177,6 +177,7 @@ const SquareImg = styled.div`
 `;
 
 const Index = ({ data }) => {
+  console.log("2023/10/17 15:22")
   const [pageLoad, setPageLoad] = useState(null);
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef2 = useRef(null);
