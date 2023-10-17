@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@gatsbyjs/reach-router": "2.0.1",
+    "@parcel/watcher": "^2.3.0",
     "@prismicio/client": "^7.1.0",
     "@prismicio/helpers": "^2.3.9",
     "babel-plugin-styled-components": "^1.11.1",
