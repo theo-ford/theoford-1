@@ -58,6 +58,7 @@
     "styled-bootstrap-grid": "^3.1.2",
     "styled-components": "^5.2.0",
     "styled-normalize": "^8.0.7",
+    "swiper": "^10.3.1",
     "webpack": "^5.88.2"
   },
   "devDependencies": {

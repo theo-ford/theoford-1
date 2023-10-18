@@ -11,12 +11,13 @@ import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo2 } from "../components/tf/index/project-info2";
-// import Slider from "@ant-design/react-slick";
-import { TwoUpProjectCarouselSlickAnt } from "../components/tf/index/two-up-carousels/two-up-carousel-slick-ant";
+
+import { TwoUpProjectCarouselSwiper } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
 import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
 import { VideoWithControlsImg2 } from "../components/tf/index/video";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -30,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: clip;
     max-width: 100vw;
     @media (min-width: 666px) {
-      position: fixed;
+      /* position: fixed; */
     }    
   }
 `;
@@ -157,6 +158,10 @@ const SquareImg = styled.div`
   }
 `;
 
+const Counter = styled.p`
+  margin-bottom: 5px;
+`;
+
 const Index = ({ data }) => {
   console.log("2023/10/17 15:22");
   const [pageLoad, setPageLoad] = useState(null);
@@ -183,11 +188,11 @@ const Index = ({ data }) => {
     }
   }, []);
 
-  const FourSeconds = setTimeout(overflowAllow, 4000);
+  // const FourSeconds = setTimeout(overflowAllow, 4000);
 
-  function overflowAllow() {
-    document.body.style.position = "relative";
-  }
+  // function overflowAllow() {
+  //   document.body.style.position = "relative";
+  // }
 
   const NavIndexGridIndex = () => {
     let isPageWide = useMediaQuery("(min-width: 667px)");
@@ -317,9 +322,12 @@ const Index = ({ data }) => {
                 // <ImgComponent
                 //   srcProps={content_four.primary.image.gatsbyImageData.images.sources.srcSet}
                 // />
-                <SquareImg>
-                  <GatsbyImage image={image} />
-                </SquareImg>
+                <SwiperSlide>
+                  <Counter>{"0" + (index + 1)}</Counter>
+                  <SquareImg>
+                    <GatsbyImage image={image} />
+                  </SquareImg>
+                </SwiperSlide>
               );
             }
             if (content_four.slice_type == "video") {
@@ -327,20 +335,26 @@ const Index = ({ data }) => {
                 // postImage = getImage(content_four.primary.index_image)
                 const posterImg = content_four.primary.index_image;
                 return (
-                  <IndexAutoPlayVideoCon>
-                    <AutoPlayVideo
-                      srcProps={content_four.primary.video.url}
-                      posterProps={posterImg}
-                    />
-                  </IndexAutoPlayVideoCon>
+                  <SwiperSlide>
+                    <Counter>{"0" + (index + 1)}</Counter>
+                    <IndexAutoPlayVideoCon>
+                      <AutoPlayVideo
+                        srcProps={content_four.primary.video.url}
+                        posterProps={posterImg}
+                      />
+                    </IndexAutoPlayVideoCon>
+                  </SwiperSlide>
                 );
               } else {
                 const posterImg = content_four.primary.index_image;
                 return (
-                  <AutoPlayVideo
-                    srcProps={content_four.primary.sml_video.url}
-                    posterProps={posterImg}
-                  />
+                  <SwiperSlide>
+                    <Counter>{"0" + (index + 1)}</Counter>
+                    <AutoPlayVideo
+                      srcProps={content_four.primary.sml_video.url}
+                      posterProps={posterImg}
+                    />
+                  </SwiperSlide>
                 );
               }
             }
@@ -350,7 +364,7 @@ const Index = ({ data }) => {
           console.log("ANT DESIGN");
           return (
             <ProjectCon>
-              <TwoUpProjectCarouselSlickAnt
+              <TwoUpProjectCarouselSwiper
                 projectLength={
                   content.project_relationship_field.document.data.body.length
                 }
@@ -361,7 +375,7 @@ const Index = ({ data }) => {
                   })
                 )}
                 {/* {project} */}
-              </TwoUpProjectCarouselSlickAnt>
+              </TwoUpProjectCarouselSwiper>
               <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
