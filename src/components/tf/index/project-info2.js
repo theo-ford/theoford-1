@@ -45,7 +45,7 @@ const ProjectTitleCon = styled.div`
   @media (max-width: 666px) {
     grid-column: span 1;
     a {
-      color: #d4d4d4;
+      color: #878787;
     }
   }
 `;
@@ -68,7 +68,7 @@ const ProjectIndexAbout = styled.div`
 const ProjectLink = styled.div`
   grid-column: 15 / span 2;
   a {
-    color: #d4d4d4;
+    color: #878787;
   }
   @media (max-width: 666px) {
     display: none;

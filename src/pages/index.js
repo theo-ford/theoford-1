@@ -296,7 +296,7 @@ const Index = ({ data }) => {
         );
         return (
           <>
-            {/* <ProjectCon>
+            <ProjectCon>
               <FilmLeadCarousel2>
                 {React.Children.map(filmLeadProject, child =>
                   React.cloneElement(child, {})
@@ -306,7 +306,7 @@ const Index = ({ data }) => {
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
               ></ProjectInfo2>
-            </ProjectCon> */}
+            </ProjectCon>
           </>
         );
       }

@@ -124,6 +124,7 @@ export const OneUpProjectCarouselSwiper = ({
           slidesPerView={1}
           spaceBetween={1.5}
           loop={true}
+          speed={1}
           // pagination={{
           //   clickable: true,
           // }}

@@ -18,7 +18,7 @@ import CarouselIndexClicked from "./slick-functions-context.js";
 // import PauseButton from "../../../../Pause.png";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { ImageOrientation2 } from "../../utils/image-orientation2";
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 /* - - - - - VIDEO WITH CONTROLS IMG - - - - - */
 
 const VideoCon = styled.div`
@@ -109,7 +109,7 @@ const PauseButtonImg = styled.div`
 `;
 const PlayButtonImg = styled.div`
   width: 8px;
-  margin-right:5px;
+  margin-right: 5px;
   display: inline-block !important;
 `;
 const VideoControlsImgCon = styled.div``;
@@ -189,7 +189,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
   };
   // console.log("POSTER PROPS");
   // console.log(posterProps);
-  const getPosterImg = getImage(posterProps)
+  const getPosterImg = getImage(posterProps);
   return (
     <>
       {/* <CarouselLengthContext.Provider> */}
@@ -207,6 +207,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
                 opacity: hasStartedPlaying ? 0 : 1,
                 position: hasStartedPlaying ? "absolute" : "relative",
               }}
+              onClick={playVideo}
             >
               <GatsbyImage image={getPosterImg} />
             </VideoControlsImg>
@@ -242,16 +243,16 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
                 <p onClick={pauseVideo}>
                   {/* <PauseButtonImg src={PauseButton} /> */}
                   <PauseButtonImg>
-                  <StaticImage src={"../../../img/pause.png"} />  
-                  </PauseButtonImg>                  
+                    <StaticImage src={"../../../img/pause.png"} />
+                  </PauseButtonImg>
                   Pause
                 </p>
               ) : (
                 <p onClick={playVideo}>
                   <PlayButtonImg>
-                  <StaticImage src={"../../../img/play.png"} />  
+                    <StaticImage src={"../../../img/play.png"} />
                   </PlayButtonImg>
-                   Play
+                  Play
                 </p>
               )}
             </PlayButtonCon>
