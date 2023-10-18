@@ -13,6 +13,7 @@ import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo2 } from "../components/tf/index/project-info2";
 
 import { TwoUpProjectCarouselSwiper } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper";
+import { OneUpProjectCarouselSwiper } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
 import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
@@ -350,10 +351,12 @@ const Index = ({ data }) => {
                 return (
                   <SwiperSlide>
                     <Counter>{"0" + (index + 1)}</Counter>
-                    <AutoPlayVideo
-                      srcProps={content_four.primary.sml_video.url}
-                      posterProps={posterImg}
-                    />
+                    <IndexAutoPlayVideoCon>
+                      <AutoPlayVideo
+                        srcProps={content_four.primary.sml_video.url}
+                        posterProps={posterImg}
+                      />
+                    </IndexAutoPlayVideoCon>
                   </SwiperSlide>
                 );
               }
@@ -397,17 +400,17 @@ const Index = ({ data }) => {
         } else if (isPageWide == false) {
           return (
             <ProjectCon>
-              {/* <ProjectCarousel projectLength={projectLength}>
+              <OneUpProjectCarouselSwiper projectLength={projectLength}>
                 {React.Children.map(project, child =>
                   React.cloneElement(child, {
                     changedSlide: false,
                   })
                 )}
-              </ProjectCarousel>
+              </OneUpProjectCarouselSwiper>
               <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2> */}
+              ></ProjectInfo2>
             </ProjectCon>
           );
         }
