@@ -494,7 +494,7 @@ export const query = graphql`
                         }
                         index_image {
                           gatsbyImageData(
-                            placeholder: BLURRED
+                            placeholder: NONE
                             backgroundColor: "#D6D6D6"
                           )
                         }
@@ -537,7 +537,7 @@ export const query = graphql`
                         }
                         video_thumbnail {
                           gatsbyImageData(
-                            placeholder: BLURRED
+                            placeholder: NONE
                             backgroundColor: "#D6D6D6"
                           )
                           dimensions {
