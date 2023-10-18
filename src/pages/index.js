@@ -475,7 +475,10 @@ export const query = graphql`
                       slice_type
                       primary {
                         image {
-                          gatsbyImageData(placeholder: BLURRED)
+                          gatsbyImageData(
+                            placeholder: NONE
+                            backgroundColor: "#D6D6D6"
+                          )
                         }
                       }
                     }
@@ -490,7 +493,10 @@ export const query = graphql`
                           url
                         }
                         index_image {
-                          gatsbyImageData(placeholder: BLURRED)
+                          gatsbyImageData(
+                            placeholder: BLURRED
+                            backgroundColor: "#D6D6D6"
+                          )
                         }
                       }
                     }
@@ -530,7 +536,10 @@ export const query = graphql`
                           url
                         }
                         video_thumbnail {
-                          gatsbyImageData(placeholder: BLURRED)
+                          gatsbyImageData(
+                            placeholder: BLURRED
+                            backgroundColor: "#D6D6D6"
+                          )
                           dimensions {
                             height
                             width
