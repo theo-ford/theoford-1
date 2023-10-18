@@ -1,12 +1,4 @@
-import React, {
-  useRef,
-  useState,
-  useEffect,
-  createContext,
-  useContext,
-  useMemo,
-} from "react";
-import ReactDOM, { findDOMNode } from "react-dom";
+import React, { useRef, useState, useEffect } from "react";
 import { graphql, Link, useScrollRestoration } from "gatsby";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -15,27 +7,16 @@ import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
 import "../components/styles/index.css";
 import { useMediaQuery } from "../components/tf/media-query";
-// import Icon from "../../assets/White Logo No TF.svg";
-import Slider from "react-slick";
-import "../components/slick/slick.css";
-import "../components/slick/slick-theme.css";
-import { useOnScreen } from "../components/hooks/useOnScreen";
 import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
-import { ImageOrientation2 } from "../components/utils/image-orientation2";
-import { PageLoad } from "../components/tf/page-load";
 import { Intro } from "../components/tf/index/intro";
-import { ProjectInfo } from "../components/tf/index/project-info";
 import { ProjectInfo2 } from "../components/tf/index/project-info2";
-import { ImgComponent } from "../components/tf/img-component";
-import { TwoUpProjectCarouselSlickDefault } from "../components/tf/index/two-up-carousels/two-up-carousel-slick-default";
+// import Slider from "@ant-design/react-slick";
+import { TwoUpProjectCarouselSlickAnt } from "../components/tf/index/two-up-carousels/two-up-carousel-slick-ant";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
 import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
 import { VideoWithControlsImg2 } from "../components/tf/index/video";
-import CarouselLengthContext from "../components/tf/index/length-context";
-import CarouselIndexClicked from "../components/tf/index/slick-functions-context.js";
-// import { SingleAssetProject2 } from "../components/tf/index/single-asset-project2";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -309,7 +290,7 @@ const Index = ({ data }) => {
         );
         return (
           <>
-            <ProjectCon>
+            {/* <ProjectCon>
               <FilmLeadCarousel2>
                 {React.Children.map(filmLeadProject, child =>
                   React.cloneElement(child, {})
@@ -319,7 +300,7 @@ const Index = ({ data }) => {
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
               ></ProjectInfo2>
-            </ProjectCon>
+            </ProjectCon> */}
           </>
         );
       }
@@ -366,9 +347,10 @@ const Index = ({ data }) => {
           }
         );
         if (isPageWide && projectLength > 1) {
+          console.log("ANT DESIGN");
           return (
             <ProjectCon>
-              <TwoUpProjectCarouselSlickDefault
+              <TwoUpProjectCarouselSlickAnt
                 projectLength={
                   content.project_relationship_field.document.data.body.length
                 }
@@ -379,7 +361,7 @@ const Index = ({ data }) => {
                   })
                 )}
                 {/* {project} */}
-              </TwoUpProjectCarouselSlickDefault>
+              </TwoUpProjectCarouselSlickAnt>
               <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
@@ -401,18 +383,17 @@ const Index = ({ data }) => {
         } else if (isPageWide == false) {
           return (
             <ProjectCon>
-              <ProjectCarousel projectLength={projectLength}>
+              {/* <ProjectCarousel projectLength={projectLength}>
                 {React.Children.map(project, child =>
                   React.cloneElement(child, {
                     changedSlide: false,
                   })
                 )}
-                {/* {project} */}
               </ProjectCarousel>
               <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
+              ></ProjectInfo2> */}
             </ProjectCon>
           );
         }
@@ -442,7 +423,7 @@ const Index = ({ data }) => {
 export default withPrismicPreview(Index);
 
 export const query = graphql`
-  query IndexQuery40 {
+  query IndexQuery45 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {

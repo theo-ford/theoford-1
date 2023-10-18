@@ -2,6 +2,2426 @@ exports.id = "component---src-pages-404-js";
 exports.ids = ["component---src-pages-404-js"];
 exports.modules = {
 
+/***/ "./node_modules/@ant-design/react-slick/es/arrows.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@ant-design/react-slick/es/arrows.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   NextArrow: () => (/* binding */ NextArrow),
+/* harmony export */   PrevArrow: () => (/* binding */ PrevArrow)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/@ant-design/react-slick/es/utils/innerSliderUtils.js");
+
+
+
+
+
+
+
+
+
+
+
+var PrevArrow = /*#__PURE__*/function (_React$PureComponent) {
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(PrevArrow, _React$PureComponent);
+  var _super = (0,_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_5__["default"])(PrevArrow);
+  function PrevArrow() {
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, PrevArrow);
+    return _super.apply(this, arguments);
+  }
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(PrevArrow, [{
+    key: "clickHandler",
+    value: function clickHandler(options, e) {
+      if (e) {
+        e.preventDefault();
+      }
+      this.props.clickHandler(options, e);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var prevClasses = {
+        "slick-arrow": true,
+        "slick-prev": true
+      };
+      var prevHandler = this.clickHandler.bind(this, {
+        message: "previous"
+      });
+      if (!this.props.infinite && (this.props.currentSlide === 0 || this.props.slideCount <= this.props.slidesToShow)) {
+        prevClasses["slick-disabled"] = true;
+        prevHandler = null;
+      }
+      var prevArrowProps = {
+        key: "0",
+        "data-role": "none",
+        className: classnames__WEBPACK_IMPORTED_MODULE_7___default()(prevClasses),
+        style: {
+          display: "block"
+        },
+        onClick: prevHandler
+      };
+      var customProps = {
+        currentSlide: this.props.currentSlide,
+        slideCount: this.props.slideCount
+      };
+      var prevArrow;
+      if (this.props.prevArrow) {
+        prevArrow = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().cloneElement(this.props.prevArrow, (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])({}, prevArrowProps), customProps));
+      } else {
+        prevArrow = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("button", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+          key: "0",
+          type: "button"
+        }, prevArrowProps), " ", "Previous");
+      }
+      return prevArrow;
+    }
+  }]);
+  return PrevArrow;
+}((react__WEBPACK_IMPORTED_MODULE_6___default().PureComponent));
+var NextArrow = /*#__PURE__*/function (_React$PureComponent2) {
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(NextArrow, _React$PureComponent2);
+  var _super2 = (0,_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_5__["default"])(NextArrow);
+  function NextArrow() {
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, NextArrow);
+    return _super2.apply(this, arguments);
+  }
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(NextArrow, [{
+    key: "clickHandler",
+    value: function clickHandler(options, e) {
+      if (e) {
+        e.preventDefault();
+      }
+      this.props.clickHandler(options, e);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var nextClasses = {
+        "slick-arrow": true,
+        "slick-next": true
+      };
+      var nextHandler = this.clickHandler.bind(this, {
+        message: "next"
+      });
+      if (!(0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_8__.canGoNext)(this.props)) {
+        nextClasses["slick-disabled"] = true;
+        nextHandler = null;
+      }
+      var nextArrowProps = {
+        key: "1",
+        "data-role": "none",
+        className: classnames__WEBPACK_IMPORTED_MODULE_7___default()(nextClasses),
+        style: {
+          display: "block"
+        },
+        onClick: nextHandler
+      };
+      var customProps = {
+        currentSlide: this.props.currentSlide,
+        slideCount: this.props.slideCount
+      };
+      var nextArrow;
+      if (this.props.nextArrow) {
+        nextArrow = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().cloneElement(this.props.nextArrow, (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])({}, nextArrowProps), customProps));
+      } else {
+        nextArrow = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("button", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+          key: "1",
+          type: "button"
+        }, nextArrowProps), " ", "Next");
+      }
+      return nextArrow;
+    }
+  }]);
+  return NextArrow;
+}((react__WEBPACK_IMPORTED_MODULE_6___default().PureComponent));
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/react-slick/es/default-props.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@ant-design/react-slick/es/default-props.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var defaultProps = {
+  accessibility: true,
+  adaptiveHeight: false,
+  afterChange: null,
+  appendDots: function appendDots(dots) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+      style: {
+        display: "block"
+      }
+    }, dots);
+  },
+  arrows: true,
+  autoplay: false,
+  autoplaySpeed: 3000,
+  beforeChange: null,
+  centerMode: false,
+  centerPadding: "50px",
+  className: "",
+  cssEase: "ease",
+  customPaging: function customPaging(i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", null, i + 1);
+  },
+  dots: false,
+  dotsClass: "slick-dots",
+  draggable: true,
+  easing: "linear",
+  edgeFriction: 0.35,
+  fade: false,
+  focusOnSelect: false,
+  infinite: true,
+  initialSlide: 0,
+  lazyLoad: null,
+  nextArrow: null,
+  onEdge: null,
+  onInit: null,
+  onLazyLoadError: null,
+  onReInit: null,
+  pauseOnDotsHover: false,
+  pauseOnFocus: false,
+  pauseOnHover: true,
+  prevArrow: null,
+  responsive: null,
+  rows: 1,
+  rtl: false,
+  slide: "div",
+  slidesPerRow: 1,
+  slidesToScroll: 1,
+  slidesToShow: 1,
+  speed: 500,
+  swipe: true,
+  swipeEvent: null,
+  swipeToSlide: false,
+  touchMove: true,
+  touchThreshold: 5,
+  useCSS: true,
+  useTransform: true,
+  variableWidth: false,
+  vertical: false,
+  waitForAnimate: true
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (defaultProps);
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/react-slick/es/dots.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@ant-design/react-slick/es/dots.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Dots: () => (/* binding */ Dots)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/@ant-design/react-slick/es/utils/innerSliderUtils.js");
+
+
+
+
+
+
+
+
+
+
+var getDotCount = function getDotCount(spec) {
+  var dots;
+  if (spec.infinite) {
+    dots = Math.ceil(spec.slideCount / spec.slidesToScroll);
+  } else {
+    dots = Math.ceil((spec.slideCount - spec.slidesToShow) / spec.slidesToScroll) + 1;
+  }
+  return dots;
+};
+var Dots = /*#__PURE__*/function (_React$PureComponent) {
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__["default"])(Dots, _React$PureComponent);
+  var _super = (0,_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_4__["default"])(Dots);
+  function Dots() {
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Dots);
+    return _super.apply(this, arguments);
+  }
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Dots, [{
+    key: "clickHandler",
+    value: function clickHandler(options, e) {
+      // In Autoplay the focus stays on clicked button even after transition
+      // to next slide. That only goes away by click somewhere outside
+      e.preventDefault();
+      this.props.clickHandler(options);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+        onMouseEnter = _this$props.onMouseEnter,
+        onMouseOver = _this$props.onMouseOver,
+        onMouseLeave = _this$props.onMouseLeave,
+        infinite = _this$props.infinite,
+        slidesToScroll = _this$props.slidesToScroll,
+        slidesToShow = _this$props.slidesToShow,
+        slideCount = _this$props.slideCount,
+        currentSlide = _this$props.currentSlide;
+      var dotCount = getDotCount({
+        slideCount: slideCount,
+        slidesToScroll: slidesToScroll,
+        slidesToShow: slidesToShow,
+        infinite: infinite
+      });
+      var mouseEvents = {
+        onMouseEnter: onMouseEnter,
+        onMouseOver: onMouseOver,
+        onMouseLeave: onMouseLeave
+      };
+      var dots = [];
+      for (var i = 0; i < dotCount; i++) {
+        var _rightBound = (i + 1) * slidesToScroll - 1;
+        var rightBound = infinite ? _rightBound : (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_7__.clamp)(_rightBound, 0, slideCount - 1);
+        var _leftBound = rightBound - (slidesToScroll - 1);
+        var leftBound = infinite ? _leftBound : (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_7__.clamp)(_leftBound, 0, slideCount - 1);
+        var className = classnames__WEBPACK_IMPORTED_MODULE_6___default()({
+          "slick-active": infinite ? currentSlide >= leftBound && currentSlide <= rightBound : currentSlide === leftBound
+        });
+        var dotOptions = {
+          message: "dots",
+          index: i,
+          slidesToScroll: slidesToScroll,
+          currentSlide: currentSlide
+        };
+        var onClick = this.clickHandler.bind(this, dotOptions);
+        dots = dots.concat( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("li", {
+          key: i,
+          className: className
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().cloneElement(this.props.customPaging(i), {
+          onClick: onClick
+        })));
+      }
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().cloneElement(this.props.appendDots(dots), (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        className: this.props.dotsClass
+      }, mouseEvents));
+    }
+  }]);
+  return Dots;
+}((react__WEBPACK_IMPORTED_MODULE_5___default().PureComponent));
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/react-slick/es/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@ant-design/react-slick/es/index.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider */ "./node_modules/@ant-design/react-slick/es/slider.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_slider__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/react-slick/es/initial-state.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@ant-design/react-slick/es/initial-state.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var initialState = {
+  animating: false,
+  autoplaying: null,
+  currentDirection: 0,
+  currentLeft: null,
+  currentSlide: 0,
+  direction: 1,
+  dragging: false,
+  edgeDragged: false,
+  initialized: false,
+  lazyLoadedList: [],
+  listHeight: null,
+  listWidth: null,
+  scrolling: false,
+  slideCount: null,
+  slideHeight: null,
+  slideWidth: null,
+  swipeLeft: null,
+  swiped: false,
+  // used by swipeEvent. differentites between touch and swipe.
+  swiping: false,
+  touchObject: {
+    startX: 0,
+    startY: 0,
+    curX: 0,
+    curY: 0
+  },
+  trackStyle: {},
+  trackWidth: 0,
+  targetSlide: 0
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (initialState);
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/react-slick/es/inner-slider.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@ant-design/react-slick/es/inner-slider.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   InnerSlider: () => (/* binding */ InnerSlider)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _initial_state__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./initial-state */ "./node_modules/@ant-design/react-slick/es/initial-state.js");
+/* harmony import */ var throttle_debounce__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! throttle-debounce */ "./node_modules/@ant-design/react-slick/node_modules/throttle-debounce/esm/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/@ant-design/react-slick/es/utils/innerSliderUtils.js");
+/* harmony import */ var _track__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./track */ "./node_modules/@ant-design/react-slick/es/track.js");
+/* harmony import */ var _dots__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./dots */ "./node_modules/@ant-design/react-slick/es/dots.js");
+/* harmony import */ var _arrows__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./arrows */ "./node_modules/@ant-design/react-slick/es/arrows.js");
+/* harmony import */ var resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! resize-observer-polyfill */ "./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js");
+
+
+
+
+
+
+
+
+
+
+
+
+var _excluded = ["animating"];
+
+
+
+
+
+
+
+
+
+var InnerSlider = /*#__PURE__*/function (_React$Component) {
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_7__["default"])(InnerSlider, _React$Component);
+  var _super = (0,_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_8__["default"])(InnerSlider);
+  function InnerSlider(props) {
+    var _this;
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_4__["default"])(this, InnerSlider);
+    _this = _super.call(this, props);
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "listRefHandler", function (ref) {
+      return _this.list = ref;
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "trackRefHandler", function (ref) {
+      return _this.track = ref;
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "adaptHeight", function () {
+      if (_this.props.adaptiveHeight && _this.list) {
+        var elem = _this.list.querySelector("[data-index=\"".concat(_this.state.currentSlide, "\"]"));
+        _this.list.style.height = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getHeight)(elem) + "px";
+      }
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "componentDidMount", function () {
+      _this.props.onInit && _this.props.onInit();
+      if (_this.props.lazyLoad) {
+        var slidesToLoad = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getOnDemandLazySlides)((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.props), _this.state));
+        if (slidesToLoad.length > 0) {
+          _this.setState(function (prevState) {
+            return {
+              lazyLoadedList: prevState.lazyLoadedList.concat(slidesToLoad)
+            };
+          });
+          if (_this.props.onLazyLoad) {
+            _this.props.onLazyLoad(slidesToLoad);
+          }
+        }
+      }
+      var spec = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({
+        listRef: _this.list,
+        trackRef: _this.track
+      }, _this.props);
+      _this.updateState(spec, true, function () {
+        _this.adaptHeight();
+        _this.props.autoplay && _this.autoPlay("playing");
+      });
+      if (_this.props.lazyLoad === "progressive") {
+        _this.lazyLoadTimer = setInterval(_this.progressiveLazyLoad, 1000);
+      }
+      _this.ro = new resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_18__["default"](function () {
+        if (_this.state.animating) {
+          _this.onWindowResized(false); // don't set trackStyle hence don't break animation
+          _this.callbackTimers.push(setTimeout(function () {
+            return _this.onWindowResized();
+          }, _this.props.speed));
+        } else {
+          _this.onWindowResized();
+        }
+      });
+      _this.ro.observe(_this.list);
+      document.querySelectorAll && Array.prototype.forEach.call(document.querySelectorAll(".slick-slide"), function (slide) {
+        slide.onfocus = _this.props.pauseOnFocus ? _this.onSlideFocus : null;
+        slide.onblur = _this.props.pauseOnFocus ? _this.onSlideBlur : null;
+      });
+      if (window.addEventListener) {
+        window.addEventListener("resize", _this.onWindowResized);
+      } else {
+        window.attachEvent("onresize", _this.onWindowResized);
+      }
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "componentWillUnmount", function () {
+      if (_this.animationEndCallback) {
+        clearTimeout(_this.animationEndCallback);
+      }
+      if (_this.lazyLoadTimer) {
+        clearInterval(_this.lazyLoadTimer);
+      }
+      if (_this.callbackTimers.length) {
+        _this.callbackTimers.forEach(function (timer) {
+          return clearTimeout(timer);
+        });
+        _this.callbackTimers = [];
+      }
+      if (window.addEventListener) {
+        window.removeEventListener("resize", _this.onWindowResized);
+      } else {
+        window.detachEvent("onresize", _this.onWindowResized);
+      }
+      if (_this.autoplayTimer) {
+        clearInterval(_this.autoplayTimer);
+      }
+      _this.ro.disconnect();
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "componentDidUpdate", function (prevProps) {
+      _this.checkImagesLoad();
+      _this.props.onReInit && _this.props.onReInit();
+      if (_this.props.lazyLoad) {
+        var slidesToLoad = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getOnDemandLazySlides)((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.props), _this.state));
+        if (slidesToLoad.length > 0) {
+          _this.setState(function (prevState) {
+            return {
+              lazyLoadedList: prevState.lazyLoadedList.concat(slidesToLoad)
+            };
+          });
+          if (_this.props.onLazyLoad) {
+            _this.props.onLazyLoad(slidesToLoad);
+          }
+        }
+      }
+      // if (this.props.onLazyLoad) {
+      //   this.props.onLazyLoad([leftMostSlide])
+      // }
+      _this.adaptHeight();
+      var spec = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({
+        listRef: _this.list,
+        trackRef: _this.track
+      }, _this.props), _this.state);
+      var setTrackStyle = _this.didPropsChange(prevProps);
+      setTrackStyle && _this.updateState(spec, setTrackStyle, function () {
+        if (_this.state.currentSlide >= react__WEBPACK_IMPORTED_MODULE_10___default().Children.count(_this.props.children)) {
+          _this.changeSlide({
+            message: "index",
+            index: react__WEBPACK_IMPORTED_MODULE_10___default().Children.count(_this.props.children) - _this.props.slidesToShow,
+            currentSlide: _this.state.currentSlide
+          });
+        }
+        if (prevProps.autoplay !== _this.props.autoplay || prevProps.autoplaySpeed !== _this.props.autoplaySpeed) {
+          if (!prevProps.autoplay && _this.props.autoplay) {
+            _this.autoPlay("playing");
+          } else if (_this.props.autoplay) {
+            _this.autoPlay("update");
+          } else {
+            _this.pause("paused");
+          }
+        }
+      });
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onWindowResized", function (setTrackStyle) {
+      if (_this.debouncedResize) _this.debouncedResize.cancel();
+      _this.debouncedResize = (0,throttle_debounce__WEBPACK_IMPORTED_MODULE_12__.debounce)(50, function () {
+        return _this.resizeWindow(setTrackStyle);
+      });
+      _this.debouncedResize();
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "resizeWindow", function () {
+      var setTrackStyle = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      var isTrackMounted = Boolean(_this.track && _this.track.node);
+      // prevent warning: setting state on unmounted component (server side rendering)
+      if (!isTrackMounted) return;
+      var spec = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({
+        listRef: _this.list,
+        trackRef: _this.track
+      }, _this.props), _this.state);
+      _this.updateState(spec, setTrackStyle, function () {
+        if (_this.props.autoplay) _this.autoPlay("update");else _this.pause("paused");
+      });
+      // animating state should be cleared while resizing, otherwise autoplay stops working
+      _this.setState({
+        animating: false
+      });
+      clearTimeout(_this.animationEndCallback);
+      delete _this.animationEndCallback;
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "updateState", function (spec, setTrackStyle, callback) {
+      var updatedState = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.initializedState)(spec);
+      spec = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, spec), updatedState), {}, {
+        slideIndex: updatedState.currentSlide
+      });
+      var targetLeft = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getTrackLeft)(spec);
+      spec = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, spec), {}, {
+        left: targetLeft
+      });
+      var trackStyle = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getTrackCSS)(spec);
+      if (setTrackStyle || react__WEBPACK_IMPORTED_MODULE_10___default().Children.count(_this.props.children) !== react__WEBPACK_IMPORTED_MODULE_10___default().Children.count(spec.children)) {
+        updatedState["trackStyle"] = trackStyle;
+      }
+      _this.setState(updatedState, callback);
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "ssrInit", function () {
+      if (_this.props.variableWidth) {
+        var _trackWidth = 0,
+          _trackLeft = 0;
+        var childrenWidths = [];
+        var preClones = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getPreClones)((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.props), _this.state), {}, {
+          slideCount: _this.props.children.length
+        }));
+        var postClones = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getPostClones)((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.props), _this.state), {}, {
+          slideCount: _this.props.children.length
+        }));
+        _this.props.children.forEach(function (child) {
+          childrenWidths.push(child.props.style.width);
+          _trackWidth += child.props.style.width;
+        });
+        for (var i = 0; i < preClones; i++) {
+          _trackLeft += childrenWidths[childrenWidths.length - 1 - i];
+          _trackWidth += childrenWidths[childrenWidths.length - 1 - i];
+        }
+        for (var _i = 0; _i < postClones; _i++) {
+          _trackWidth += childrenWidths[_i];
+        }
+        for (var _i2 = 0; _i2 < _this.state.currentSlide; _i2++) {
+          _trackLeft += childrenWidths[_i2];
+        }
+        var _trackStyle = {
+          width: _trackWidth + "px",
+          left: -_trackLeft + "px"
+        };
+        if (_this.props.centerMode) {
+          var currentWidth = "".concat(childrenWidths[_this.state.currentSlide], "px");
+          _trackStyle.left = "calc(".concat(_trackStyle.left, " + (100% - ").concat(currentWidth, ") / 2 ) ");
+        }
+        return {
+          trackStyle: _trackStyle
+        };
+      }
+      var childrenCount = react__WEBPACK_IMPORTED_MODULE_10___default().Children.count(_this.props.children);
+      var spec = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.props), _this.state), {}, {
+        slideCount: childrenCount
+      });
+      var slideCount = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getPreClones)(spec) + (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getPostClones)(spec) + childrenCount;
+      var trackWidth = 100 / _this.props.slidesToShow * slideCount;
+      var slideWidth = 100 / slideCount;
+      var trackLeft = -slideWidth * ((0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getPreClones)(spec) + _this.state.currentSlide) * trackWidth / 100;
+      if (_this.props.centerMode) {
+        trackLeft += (100 - slideWidth * trackWidth / 100) / 2;
+      }
+      var trackStyle = {
+        width: trackWidth + "%",
+        left: trackLeft + "%"
+      };
+      return {
+        slideWidth: slideWidth + "%",
+        trackStyle: trackStyle
+      };
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "checkImagesLoad", function () {
+      var images = _this.list && _this.list.querySelectorAll && _this.list.querySelectorAll(".slick-slide img") || [];
+      var imagesCount = images.length,
+        loadedCount = 0;
+      Array.prototype.forEach.call(images, function (image) {
+        var handler = function handler() {
+          return ++loadedCount && loadedCount >= imagesCount && _this.onWindowResized();
+        };
+        if (!image.onclick) {
+          image.onclick = function () {
+            return image.parentNode.focus();
+          };
+        } else {
+          var prevClickHandler = image.onclick;
+          image.onclick = function (e) {
+            prevClickHandler(e);
+            image.parentNode.focus();
+          };
+        }
+        if (!image.onload) {
+          if (_this.props.lazyLoad) {
+            image.onload = function () {
+              _this.adaptHeight();
+              _this.callbackTimers.push(setTimeout(_this.onWindowResized, _this.props.speed));
+            };
+          } else {
+            image.onload = handler;
+            image.onerror = function () {
+              handler();
+              _this.props.onLazyLoadError && _this.props.onLazyLoadError();
+            };
+          }
+        }
+      });
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "progressiveLazyLoad", function () {
+      var slidesToLoad = [];
+      var spec = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.props), _this.state);
+      for (var index = _this.state.currentSlide; index < _this.state.slideCount + (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getPostClones)(spec); index++) {
+        if (_this.state.lazyLoadedList.indexOf(index) < 0) {
+          slidesToLoad.push(index);
+          break;
+        }
+      }
+      for (var _index = _this.state.currentSlide - 1; _index >= -(0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.getPreClones)(spec); _index--) {
+        if (_this.state.lazyLoadedList.indexOf(_index) < 0) {
+          slidesToLoad.push(_index);
+          break;
+        }
+      }
+      if (slidesToLoad.length > 0) {
+        _this.setState(function (state) {
+          return {
+            lazyLoadedList: state.lazyLoadedList.concat(slidesToLoad)
+          };
+        });
+        if (_this.props.onLazyLoad) {
+          _this.props.onLazyLoad(slidesToLoad);
+        }
+      } else {
+        if (_this.lazyLoadTimer) {
+          clearInterval(_this.lazyLoadTimer);
+          delete _this.lazyLoadTimer;
+        }
+      }
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "slideHandler", function (index) {
+      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var _this$props = _this.props,
+        asNavFor = _this$props.asNavFor,
+        beforeChange = _this$props.beforeChange,
+        onLazyLoad = _this$props.onLazyLoad,
+        speed = _this$props.speed,
+        afterChange = _this$props.afterChange;
+      // capture currentslide before state is updated
+      var currentSlide = _this.state.currentSlide;
+      var _slideHandler = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.slideHandler)((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({
+          index: index
+        }, _this.props), _this.state), {}, {
+          trackRef: _this.track,
+          useCSS: _this.props.useCSS && !dontAnimate
+        })),
+        state = _slideHandler.state,
+        nextState = _slideHandler.nextState;
+      if (!state) return;
+      beforeChange && beforeChange(currentSlide, state.currentSlide);
+      var slidesToLoad = state.lazyLoadedList.filter(function (value) {
+        return _this.state.lazyLoadedList.indexOf(value) < 0;
+      });
+      onLazyLoad && slidesToLoad.length > 0 && onLazyLoad(slidesToLoad);
+      if (!_this.props.waitForAnimate && _this.animationEndCallback) {
+        clearTimeout(_this.animationEndCallback);
+        afterChange && afterChange(currentSlide);
+        delete _this.animationEndCallback;
+      }
+      _this.setState(state, function () {
+        // asNavForIndex check is to avoid recursive calls of slideHandler in waitForAnimate=false mode
+        if (asNavFor && _this.asNavForIndex !== index) {
+          _this.asNavForIndex = index;
+          asNavFor.innerSlider.slideHandler(index);
+        }
+        if (!nextState) return;
+        _this.animationEndCallback = setTimeout(function () {
+          var animating = nextState.animating,
+            firstBatch = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__["default"])(nextState, _excluded);
+          _this.setState(firstBatch, function () {
+            _this.callbackTimers.push(setTimeout(function () {
+              return _this.setState({
+                animating: animating
+              });
+            }, 10));
+            afterChange && afterChange(state.currentSlide);
+            delete _this.animationEndCallback;
+          });
+        }, speed);
+      });
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "changeSlide", function (options) {
+      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var spec = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.props), _this.state);
+      var targetSlide = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.changeSlide)(spec, options);
+      if (targetSlide !== 0 && !targetSlide) return;
+      if (dontAnimate === true) {
+        _this.slideHandler(targetSlide, dontAnimate);
+      } else {
+        _this.slideHandler(targetSlide);
+      }
+      _this.props.autoplay && _this.autoPlay("update");
+      if (_this.props.focusOnSelect) {
+        var nodes = _this.list.querySelectorAll(".slick-current");
+        nodes[0] && nodes[0].focus();
+      }
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "clickHandler", function (e) {
+      if (_this.clickable === false) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+      _this.clickable = true;
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "keyHandler", function (e) {
+      var dir = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.keyHandler)(e, _this.props.accessibility, _this.props.rtl);
+      dir !== "" && _this.changeSlide({
+        message: dir
+      });
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "selectHandler", function (options) {
+      _this.changeSlide(options);
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "disableBodyScroll", function () {
+      var preventDefault = function preventDefault(e) {
+        e = e || window.event;
+        if (e.preventDefault) e.preventDefault();
+        e.returnValue = false;
+      };
+      window.ontouchmove = preventDefault;
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "enableBodyScroll", function () {
+      window.ontouchmove = null;
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "swipeStart", function (e) {
+      if (_this.props.verticalSwiping) {
+        _this.disableBodyScroll();
+      }
+      var state = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.swipeStart)(e, _this.props.swipe, _this.props.draggable);
+      state !== "" && _this.setState(state);
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "swipeMove", function (e) {
+      var state = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.swipeMove)(e, (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.props), _this.state), {}, {
+        trackRef: _this.track,
+        listRef: _this.list,
+        slideIndex: _this.state.currentSlide
+      }));
+      if (!state) return;
+      if (state["swiping"]) {
+        _this.clickable = false;
+      }
+      _this.setState(state);
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "swipeEnd", function (e) {
+      var state = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.swipeEnd)(e, (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.props), _this.state), {}, {
+        trackRef: _this.track,
+        listRef: _this.list,
+        slideIndex: _this.state.currentSlide
+      }));
+      if (!state) return;
+      var triggerSlideHandler = state["triggerSlideHandler"];
+      delete state["triggerSlideHandler"];
+      _this.setState(state);
+      if (triggerSlideHandler === undefined) return;
+      _this.slideHandler(triggerSlideHandler);
+      if (_this.props.verticalSwiping) {
+        _this.enableBodyScroll();
+      }
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "touchEnd", function (e) {
+      _this.swipeEnd(e);
+      _this.clickable = true;
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "slickPrev", function () {
+      // this and fellow methods are wrapped in setTimeout
+      // to make sure initialize setState has happened before
+      // any of such methods are called
+      _this.callbackTimers.push(setTimeout(function () {
+        return _this.changeSlide({
+          message: "previous"
+        });
+      }, 0));
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "slickNext", function () {
+      _this.callbackTimers.push(setTimeout(function () {
+        return _this.changeSlide({
+          message: "next"
+        });
+      }, 0));
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "slickGoTo", function (slide) {
+      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      slide = Number(slide);
+      if (isNaN(slide)) return "";
+      _this.callbackTimers.push(setTimeout(function () {
+        return _this.changeSlide({
+          message: "index",
+          index: slide,
+          currentSlide: _this.state.currentSlide
+        }, dontAnimate);
+      }, 0));
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "play", function () {
+      var nextIndex;
+      if (_this.props.rtl) {
+        nextIndex = _this.state.currentSlide - _this.props.slidesToScroll;
+      } else {
+        if ((0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.canGoNext)((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.props), _this.state))) {
+          nextIndex = _this.state.currentSlide + _this.props.slidesToScroll;
+        } else {
+          return false;
+        }
+      }
+      _this.slideHandler(nextIndex);
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "autoPlay", function (playType) {
+      if (_this.autoplayTimer) {
+        clearInterval(_this.autoplayTimer);
+      }
+      var autoplaying = _this.state.autoplaying;
+      if (playType === "update") {
+        if (autoplaying === "hovered" || autoplaying === "focused" || autoplaying === "paused") {
+          return;
+        }
+      } else if (playType === "leave") {
+        if (autoplaying === "paused" || autoplaying === "focused") {
+          return;
+        }
+      } else if (playType === "blur") {
+        if (autoplaying === "paused" || autoplaying === "hovered") {
+          return;
+        }
+      }
+      _this.autoplayTimer = setInterval(_this.play, _this.props.autoplaySpeed + 50);
+      _this.setState({
+        autoplaying: "playing"
+      });
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "pause", function (pauseType) {
+      if (_this.autoplayTimer) {
+        clearInterval(_this.autoplayTimer);
+        _this.autoplayTimer = null;
+      }
+      var autoplaying = _this.state.autoplaying;
+      if (pauseType === "paused") {
+        _this.setState({
+          autoplaying: "paused"
+        });
+      } else if (pauseType === "focused") {
+        if (autoplaying === "hovered" || autoplaying === "playing") {
+          _this.setState({
+            autoplaying: "focused"
+          });
+        }
+      } else {
+        // pauseType  is 'hovered'
+        if (autoplaying === "playing") {
+          _this.setState({
+            autoplaying: "hovered"
+          });
+        }
+      }
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onDotsOver", function () {
+      return _this.props.autoplay && _this.pause("hovered");
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onDotsLeave", function () {
+      return _this.props.autoplay && _this.state.autoplaying === "hovered" && _this.autoPlay("leave");
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onTrackOver", function () {
+      return _this.props.autoplay && _this.pause("hovered");
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onTrackLeave", function () {
+      return _this.props.autoplay && _this.state.autoplaying === "hovered" && _this.autoPlay("leave");
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onSlideFocus", function () {
+      return _this.props.autoplay && _this.pause("focused");
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "onSlideBlur", function () {
+      return _this.props.autoplay && _this.state.autoplaying === "focused" && _this.autoPlay("blur");
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "render", function () {
+      var className = classnames__WEBPACK_IMPORTED_MODULE_13___default()("slick-slider", _this.props.className, {
+        "slick-vertical": _this.props.vertical,
+        "slick-initialized": true
+      });
+      var spec = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.props), _this.state);
+      var trackProps = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.extractObject)(spec, ["fade", "cssEase", "speed", "infinite", "centerMode", "focusOnSelect", "currentSlide", "lazyLoad", "lazyLoadedList", "rtl", "slideWidth", "slideHeight", "listHeight", "vertical", "slidesToShow", "slidesToScroll", "slideCount", "trackStyle", "variableWidth", "unslick", "centerPadding", "targetSlide", "useCSS"]);
+      var pauseOnHover = _this.props.pauseOnHover;
+      trackProps = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, trackProps), {}, {
+        onMouseEnter: pauseOnHover ? _this.onTrackOver : null,
+        onMouseLeave: pauseOnHover ? _this.onTrackLeave : null,
+        onMouseOver: pauseOnHover ? _this.onTrackOver : null,
+        focusOnSelect: _this.props.focusOnSelect && _this.clickable ? _this.selectHandler : null
+      });
+      var dots;
+      if (_this.props.dots === true && _this.state.slideCount >= _this.props.slidesToShow) {
+        var dotProps = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.extractObject)(spec, ["dotsClass", "slideCount", "slidesToShow", "currentSlide", "slidesToScroll", "clickHandler", "children", "customPaging", "infinite", "appendDots"]);
+        var pauseOnDotsHover = _this.props.pauseOnDotsHover;
+        dotProps = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, dotProps), {}, {
+          clickHandler: _this.changeSlide,
+          onMouseEnter: pauseOnDotsHover ? _this.onDotsLeave : null,
+          onMouseOver: pauseOnDotsHover ? _this.onDotsOver : null,
+          onMouseLeave: pauseOnDotsHover ? _this.onDotsLeave : null
+        });
+        dots = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default().createElement(_dots__WEBPACK_IMPORTED_MODULE_16__.Dots, dotProps);
+      }
+      var prevArrow, nextArrow;
+      var arrowProps = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_14__.extractObject)(spec, ["infinite", "centerMode", "currentSlide", "slideCount", "slidesToShow", "prevArrow", "nextArrow"]);
+      arrowProps.clickHandler = _this.changeSlide;
+      if (_this.props.arrows) {
+        prevArrow = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default().createElement(_arrows__WEBPACK_IMPORTED_MODULE_17__.PrevArrow, arrowProps);
+        nextArrow = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default().createElement(_arrows__WEBPACK_IMPORTED_MODULE_17__.NextArrow, arrowProps);
+      }
+      var verticalHeightStyle = null;
+      if (_this.props.vertical) {
+        verticalHeightStyle = {
+          height: _this.state.listHeight
+        };
+      }
+      var centerPaddingStyle = null;
+      if (_this.props.vertical === false) {
+        if (_this.props.centerMode === true) {
+          centerPaddingStyle = {
+            padding: "0px " + _this.props.centerPadding
+          };
+        }
+      } else {
+        if (_this.props.centerMode === true) {
+          centerPaddingStyle = {
+            padding: _this.props.centerPadding + " 0px"
+          };
+        }
+      }
+      var listStyle = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, verticalHeightStyle), centerPaddingStyle);
+      var touchMove = _this.props.touchMove;
+      var listProps = {
+        className: "slick-list",
+        style: listStyle,
+        onClick: _this.clickHandler,
+        onMouseDown: touchMove ? _this.swipeStart : null,
+        onMouseMove: _this.state.dragging && touchMove ? _this.swipeMove : null,
+        onMouseUp: touchMove ? _this.swipeEnd : null,
+        onMouseLeave: _this.state.dragging && touchMove ? _this.swipeEnd : null,
+        onTouchStart: touchMove ? _this.swipeStart : null,
+        onTouchMove: _this.state.dragging && touchMove ? _this.swipeMove : null,
+        onTouchEnd: touchMove ? _this.touchEnd : null,
+        onTouchCancel: _this.state.dragging && touchMove ? _this.swipeEnd : null,
+        onKeyDown: _this.props.accessibility ? _this.keyHandler : null
+      };
+      var innerSliderProps = {
+        className: className,
+        dir: "ltr",
+        style: _this.props.style
+      };
+      if (_this.props.unslick) {
+        listProps = {
+          className: "slick-list"
+        };
+        innerSliderProps = {
+          className: className,
+          style: _this.props.style
+        };
+      }
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default().createElement("div", innerSliderProps, !_this.props.unslick ? prevArrow : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default().createElement("div", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+        ref: _this.listRefHandler
+      }, listProps), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default().createElement(_track__WEBPACK_IMPORTED_MODULE_15__.Track, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+        ref: _this.trackRefHandler
+      }, trackProps), _this.props.children)), !_this.props.unslick ? nextArrow : "", !_this.props.unslick ? dots : "");
+    });
+    _this.list = null;
+    _this.track = null;
+    _this.state = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _initial_state__WEBPACK_IMPORTED_MODULE_11__["default"]), {}, {
+      currentSlide: _this.props.initialSlide,
+      slideCount: react__WEBPACK_IMPORTED_MODULE_10___default().Children.count(_this.props.children)
+    });
+    _this.callbackTimers = [];
+    _this.clickable = true;
+    _this.debouncedResize = null;
+    var ssrState = _this.ssrInit();
+    _this.state = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _this.state), ssrState);
+    return _this;
+  }
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_5__["default"])(InnerSlider, [{
+    key: "didPropsChange",
+    value: function didPropsChange(prevProps) {
+      var setTrackStyle = false;
+      for (var _i3 = 0, _Object$keys = Object.keys(this.props); _i3 < _Object$keys.length; _i3++) {
+        var key = _Object$keys[_i3];
+        // eslint-disable-next-line no-prototype-builtins
+        if (!prevProps.hasOwnProperty(key)) {
+          setTrackStyle = true;
+          break;
+        }
+        if ((0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_0__["default"])(prevProps[key]) === "object" || typeof prevProps[key] === "function") {
+          continue;
+        }
+        if (prevProps[key] !== this.props[key]) {
+          setTrackStyle = true;
+          break;
+        }
+      }
+      return setTrackStyle || react__WEBPACK_IMPORTED_MODULE_10___default().Children.count(this.props.children) !== react__WEBPACK_IMPORTED_MODULE_10___default().Children.count(prevProps.children);
+    }
+  }]);
+  return InnerSlider;
+}((react__WEBPACK_IMPORTED_MODULE_10___default().Component));
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/react-slick/es/slider.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@ant-design/react-slick/es/slider.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Slider)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _inner_slider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./inner-slider */ "./node_modules/@ant-design/react-slick/es/inner-slider.js");
+/* harmony import */ var json2mq__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! json2mq */ "./node_modules/json2mq/index.js");
+/* harmony import */ var json2mq__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(json2mq__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _default_props__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./default-props */ "./node_modules/@ant-design/react-slick/es/default-props.js");
+/* harmony import */ var _utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/@ant-design/react-slick/es/utils/innerSliderUtils.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Slider = /*#__PURE__*/function (_React$Component) {
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Slider, _React$Component);
+  var _super = (0,_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_6__["default"])(Slider);
+  function Slider(props) {
+    var _this;
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Slider);
+    _this = _super.call(this, props);
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "innerSliderRefHandler", function (ref) {
+      return _this.innerSlider = ref;
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "slickPrev", function () {
+      return _this.innerSlider.slickPrev();
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "slickNext", function () {
+      return _this.innerSlider.slickNext();
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "slickGoTo", function (slide) {
+      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      return _this.innerSlider.slickGoTo(slide, dontAnimate);
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "slickPause", function () {
+      return _this.innerSlider.pause("paused");
+    });
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "slickPlay", function () {
+      return _this.innerSlider.autoPlay("play");
+    });
+    _this.state = {
+      breakpoint: null
+    };
+    _this._responsiveMediaHandlers = [];
+    return _this;
+  }
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(Slider, [{
+    key: "media",
+    value: function media(query, handler) {
+      // javascript handler for  css media query
+      var mql = window.matchMedia(query);
+      var listener = function listener(_ref) {
+        var matches = _ref.matches;
+        if (matches) {
+          handler();
+        }
+      };
+      mql.addListener(listener);
+      listener(mql);
+      this._responsiveMediaHandlers.push({
+        mql: mql,
+        query: query,
+        listener: listener
+      });
+    }
+
+    // handles responsive breakpoints
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+      // performance monitoring
+      //if (process.env.NODE_ENV !== 'production') {
+      //const { whyDidYouUpdate } = require('why-did-you-update')
+      //whyDidYouUpdate(React)
+      //}
+      if (this.props.responsive) {
+        var breakpoints = this.props.responsive.map(function (breakpt) {
+          return breakpt.breakpoint;
+        });
+        // sort them in increasing order of their numerical value
+        breakpoints.sort(function (x, y) {
+          return x - y;
+        });
+        breakpoints.forEach(function (breakpoint, index) {
+          // media query for each breakpoint
+          var bQuery;
+          if (index === 0) {
+            bQuery = json2mq__WEBPACK_IMPORTED_MODULE_10___default()({
+              minWidth: 0,
+              maxWidth: breakpoint
+            });
+          } else {
+            bQuery = json2mq__WEBPACK_IMPORTED_MODULE_10___default()({
+              minWidth: breakpoints[index - 1] + 1,
+              maxWidth: breakpoint
+            });
+          }
+          // when not using server side rendering
+          (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_12__.canUseDOM)() && _this2.media(bQuery, function () {
+            _this2.setState({
+              breakpoint: breakpoint
+            });
+          });
+        });
+
+        // Register media query for full screen. Need to support resize from small to large
+        // convert javascript object to media query string
+        var query = json2mq__WEBPACK_IMPORTED_MODULE_10___default()({
+          minWidth: breakpoints.slice(-1)[0]
+        });
+        (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_12__.canUseDOM)() && this.media(query, function () {
+          _this2.setState({
+            breakpoint: null
+          });
+        });
+      }
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this._responsiveMediaHandlers.forEach(function (obj) {
+        obj.mql.removeListener(obj.listener);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+      var settings;
+      var newProps;
+      if (this.state.breakpoint) {
+        newProps = this.props.responsive.filter(function (resp) {
+          return resp.breakpoint === _this3.state.breakpoint;
+        });
+        settings = newProps[0].settings === "unslick" ? "unslick" : (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])({}, _default_props__WEBPACK_IMPORTED_MODULE_11__["default"]), this.props), newProps[0].settings);
+      } else {
+        settings = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])({}, _default_props__WEBPACK_IMPORTED_MODULE_11__["default"]), this.props);
+      }
+
+      // force scrolling by one if centerMode is on
+      if (settings.centerMode) {
+        if (settings.slidesToScroll > 1 && "development" !== "production") {
+          console.warn("slidesToScroll should be equal to 1 in centerMode, you are using ".concat(settings.slidesToScroll));
+        }
+        settings.slidesToScroll = 1;
+      }
+      // force showing one slide and scrolling by one if the fade mode is on
+      if (settings.fade) {
+        if (settings.slidesToShow > 1 && "development" !== "production") {
+          console.warn("slidesToShow should be equal to 1 when fade is true, you're using ".concat(settings.slidesToShow));
+        }
+        if (settings.slidesToScroll > 1 && "development" !== "production") {
+          console.warn("slidesToScroll should be equal to 1 when fade is true, you're using ".concat(settings.slidesToScroll));
+        }
+        settings.slidesToShow = 1;
+        settings.slidesToScroll = 1;
+      }
+
+      // makes sure that children is an array, even when there is only 1 child
+      var children = react__WEBPACK_IMPORTED_MODULE_8___default().Children.toArray(this.props.children);
+
+      // Children may contain false or null, so we should filter them
+      // children may also contain string filled with spaces (in certain cases where we use jsx strings)
+      children = children.filter(function (child) {
+        if (typeof child === "string") {
+          return !!child.trim();
+        }
+        return !!child;
+      });
+
+      // rows and slidesPerRow logic is handled here
+      if (settings.variableWidth && (settings.rows > 1 || settings.slidesPerRow > 1)) {
+        console.warn("variableWidth is not supported in case of rows > 1 or slidesPerRow > 1");
+        settings.variableWidth = false;
+      }
+      var newChildren = [];
+      var currentWidth = null;
+      for (var i = 0; i < children.length; i += settings.rows * settings.slidesPerRow) {
+        var newSlide = [];
+        for (var j = i; j < i + settings.rows * settings.slidesPerRow; j += settings.slidesPerRow) {
+          var row = [];
+          for (var k = j; k < j + settings.slidesPerRow; k += 1) {
+            if (settings.variableWidth && children[k].props.style) {
+              currentWidth = children[k].props.style.width;
+            }
+            if (k >= children.length) break;
+            row.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().cloneElement(children[k], {
+              key: 100 * i + 10 * j + k,
+              tabIndex: -1,
+              style: {
+                width: "".concat(100 / settings.slidesPerRow, "%"),
+                display: "inline-block"
+              }
+            }));
+          }
+          newSlide.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("div", {
+            key: 10 * i + j
+          }, row));
+        }
+        if (settings.variableWidth) {
+          newChildren.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("div", {
+            key: i,
+            style: {
+              width: currentWidth
+            }
+          }, newSlide));
+        } else {
+          newChildren.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("div", {
+            key: i
+          }, newSlide));
+        }
+      }
+      if (settings === "unslick") {
+        var className = "regular slider " + (this.props.className || "");
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("div", {
+          className: className
+        }, children);
+      } else if (newChildren.length <= settings.slidesToShow) {
+        settings.unslick = true;
+      }
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement(_inner_slider__WEBPACK_IMPORTED_MODULE_9__.InnerSlider, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        style: this.props.style,
+        ref: this.innerSliderRefHandler
+      }, settings), newChildren);
+    }
+  }]);
+  return Slider;
+}((react__WEBPACK_IMPORTED_MODULE_8___default().Component));
+
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/react-slick/es/track.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@ant-design/react-slick/es/track.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Track: () => (/* binding */ Track)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/@ant-design/react-slick/es/utils/innerSliderUtils.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// given specifications/props for a slide, fetch all the classes that need to be applied to the slide
+var getSlideClasses = function getSlideClasses(spec) {
+  var slickActive, slickCenter, slickCloned;
+  var centerOffset, index;
+  if (spec.rtl) {
+    index = spec.slideCount - 1 - spec.index;
+  } else {
+    index = spec.index;
+  }
+  slickCloned = index < 0 || index >= spec.slideCount;
+  if (spec.centerMode) {
+    centerOffset = Math.floor(spec.slidesToShow / 2);
+    slickCenter = (index - spec.currentSlide) % spec.slideCount === 0;
+    if (index > spec.currentSlide - centerOffset - 1 && index <= spec.currentSlide + centerOffset) {
+      slickActive = true;
+    }
+  } else {
+    slickActive = spec.currentSlide <= index && index < spec.currentSlide + spec.slidesToShow;
+  }
+  var focusedSlide;
+  if (spec.targetSlide < 0) {
+    focusedSlide = spec.targetSlide + spec.slideCount;
+  } else if (spec.targetSlide >= spec.slideCount) {
+    focusedSlide = spec.targetSlide - spec.slideCount;
+  } else {
+    focusedSlide = spec.targetSlide;
+  }
+  var slickCurrent = index === focusedSlide;
+  return {
+    "slick-slide": true,
+    "slick-active": slickActive,
+    "slick-center": slickCenter,
+    "slick-cloned": slickCloned,
+    "slick-current": slickCurrent // dubious in case of RTL
+  };
+};
+
+var getSlideStyle = function getSlideStyle(spec) {
+  var style = {};
+  if (spec.variableWidth === undefined || spec.variableWidth === false) {
+    style.width = spec.slideWidth;
+  }
+  if (spec.fade) {
+    style.position = "relative";
+    if (spec.vertical && spec.slideHeight) {
+      style.top = -spec.index * parseInt(spec.slideHeight);
+    } else {
+      style.left = -spec.index * parseInt(spec.slideWidth);
+    }
+    style.opacity = spec.currentSlide === spec.index ? 1 : 0;
+    if (spec.useCSS) {
+      style.transition = "opacity " + spec.speed + "ms " + spec.cssEase + ", " + "visibility " + spec.speed + "ms " + spec.cssEase;
+    }
+  }
+  return style;
+};
+var getKey = function getKey(child, fallbackKey) {
+  return child.key + "-" + fallbackKey;
+};
+var renderSlides = function renderSlides(spec) {
+  var key;
+  var slides = [];
+  var preCloneSlides = [];
+  var postCloneSlides = [];
+  var childrenCount = react__WEBPACK_IMPORTED_MODULE_8___default().Children.count(spec.children);
+  var startIndex = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_10__.lazyStartIndex)(spec);
+  var endIndex = (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_10__.lazyEndIndex)(spec);
+  react__WEBPACK_IMPORTED_MODULE_8___default().Children.forEach(spec.children, function (elem, index) {
+    var child;
+    var childOnClickOptions = {
+      message: "children",
+      index: index,
+      slidesToScroll: spec.slidesToScroll,
+      currentSlide: spec.currentSlide
+    };
+
+    // in case of lazyLoad, whether or not we want to fetch the slide
+    if (!spec.lazyLoad || spec.lazyLoad && spec.lazyLoadedList.indexOf(index) >= 0) {
+      child = elem;
+    } else {
+      child = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("div", null);
+    }
+    var childStyle = getSlideStyle((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])({}, spec), {}, {
+      index: index
+    }));
+    var slideClass = child.props.className || "";
+    var slideClasses = getSlideClasses((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])({}, spec), {}, {
+      index: index
+    }));
+    // push a cloned element of the desired slide
+    slides.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().cloneElement(child, {
+      key: "original" + getKey(child, index),
+      "data-index": index,
+      className: classnames__WEBPACK_IMPORTED_MODULE_9___default()(slideClasses, slideClass),
+      tabIndex: "-1",
+      "aria-hidden": !slideClasses["slick-active"],
+      style: (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])({
+        outline: "none"
+      }, child.props.style || {}), childStyle),
+      onClick: function onClick(e) {
+        child.props && child.props.onClick && child.props.onClick(e);
+        if (spec.focusOnSelect) {
+          spec.focusOnSelect(childOnClickOptions);
+        }
+      }
+    }));
+
+    // if slide needs to be precloned or postcloned
+    if (spec.infinite && spec.fade === false) {
+      var preCloneNo = childrenCount - index;
+      if (preCloneNo <= (0,_utils_innerSliderUtils__WEBPACK_IMPORTED_MODULE_10__.getPreClones)(spec) && childrenCount !== spec.slidesToShow) {
+        key = -preCloneNo;
+        if (key >= startIndex) {
+          child = elem;
+        }
+        slideClasses = getSlideClasses((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])({}, spec), {}, {
+          index: key
+        }));
+        preCloneSlides.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().cloneElement(child, {
+          key: "precloned" + getKey(child, key),
+          "data-index": key,
+          tabIndex: "-1",
+          className: classnames__WEBPACK_IMPORTED_MODULE_9___default()(slideClasses, slideClass),
+          "aria-hidden": !slideClasses["slick-active"],
+          style: (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])({}, child.props.style || {}), childStyle),
+          onClick: function onClick(e) {
+            child.props && child.props.onClick && child.props.onClick(e);
+            if (spec.focusOnSelect) {
+              spec.focusOnSelect(childOnClickOptions);
+            }
+          }
+        }));
+      }
+      if (childrenCount !== spec.slidesToShow) {
+        key = childrenCount + index;
+        if (key < endIndex) {
+          child = elem;
+        }
+        slideClasses = getSlideClasses((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])({}, spec), {}, {
+          index: key
+        }));
+        postCloneSlides.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().cloneElement(child, {
+          key: "postcloned" + getKey(child, key),
+          "data-index": key,
+          tabIndex: "-1",
+          className: classnames__WEBPACK_IMPORTED_MODULE_9___default()(slideClasses, slideClass),
+          "aria-hidden": !slideClasses["slick-active"],
+          style: (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_7__["default"])({}, child.props.style || {}), childStyle),
+          onClick: function onClick(e) {
+            child.props && child.props.onClick && child.props.onClick(e);
+            if (spec.focusOnSelect) {
+              spec.focusOnSelect(childOnClickOptions);
+            }
+          }
+        }));
+      }
+    }
+  });
+  if (spec.rtl) {
+    return preCloneSlides.concat(slides, postCloneSlides).reverse();
+  } else {
+    return preCloneSlides.concat(slides, postCloneSlides);
+  }
+};
+var Track = /*#__PURE__*/function (_React$PureComponent) {
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(Track, _React$PureComponent);
+  var _super = (0,_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_5__["default"])(Track);
+  function Track() {
+    var _this;
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Track);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    _this = _super.call.apply(_super, [this].concat(args));
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "node", null);
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "handleRef", function (ref) {
+      _this.node = ref;
+    });
+    return _this;
+  }
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Track, [{
+    key: "render",
+    value: function render() {
+      var slides = renderSlides(this.props);
+      var _this$props = this.props,
+        onMouseEnter = _this$props.onMouseEnter,
+        onMouseOver = _this$props.onMouseOver,
+        onMouseLeave = _this$props.onMouseLeave;
+      var mouseEvents = {
+        onMouseEnter: onMouseEnter,
+        onMouseOver: onMouseOver,
+        onMouseLeave: onMouseLeave
+      };
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("div", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        ref: this.handleRef,
+        className: "slick-track",
+        style: this.props.trackStyle
+      }, mouseEvents), slides);
+    }
+  }]);
+  return Track;
+}((react__WEBPACK_IMPORTED_MODULE_8___default().PureComponent));
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/react-slick/es/utils/innerSliderUtils.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@ant-design/react-slick/es/utils/innerSliderUtils.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   canGoNext: () => (/* binding */ canGoNext),
+/* harmony export */   canUseDOM: () => (/* binding */ canUseDOM),
+/* harmony export */   changeSlide: () => (/* binding */ changeSlide),
+/* harmony export */   checkNavigable: () => (/* binding */ checkNavigable),
+/* harmony export */   checkSpecKeys: () => (/* binding */ checkSpecKeys),
+/* harmony export */   clamp: () => (/* binding */ clamp),
+/* harmony export */   extractObject: () => (/* binding */ extractObject),
+/* harmony export */   getHeight: () => (/* binding */ getHeight),
+/* harmony export */   getNavigableIndexes: () => (/* binding */ getNavigableIndexes),
+/* harmony export */   getOnDemandLazySlides: () => (/* binding */ getOnDemandLazySlides),
+/* harmony export */   getPostClones: () => (/* binding */ getPostClones),
+/* harmony export */   getPreClones: () => (/* binding */ getPreClones),
+/* harmony export */   getRequiredLazySlides: () => (/* binding */ getRequiredLazySlides),
+/* harmony export */   getSlideCount: () => (/* binding */ getSlideCount),
+/* harmony export */   getSwipeDirection: () => (/* binding */ getSwipeDirection),
+/* harmony export */   getTotalSlides: () => (/* binding */ getTotalSlides),
+/* harmony export */   getTrackAnimateCSS: () => (/* binding */ getTrackAnimateCSS),
+/* harmony export */   getTrackCSS: () => (/* binding */ getTrackCSS),
+/* harmony export */   getTrackLeft: () => (/* binding */ getTrackLeft),
+/* harmony export */   getWidth: () => (/* binding */ getWidth),
+/* harmony export */   initializedState: () => (/* binding */ initializedState),
+/* harmony export */   keyHandler: () => (/* binding */ keyHandler),
+/* harmony export */   lazyEndIndex: () => (/* binding */ lazyEndIndex),
+/* harmony export */   lazySlidesOnLeft: () => (/* binding */ lazySlidesOnLeft),
+/* harmony export */   lazySlidesOnRight: () => (/* binding */ lazySlidesOnRight),
+/* harmony export */   lazyStartIndex: () => (/* binding */ lazyStartIndex),
+/* harmony export */   safePreventDefault: () => (/* binding */ safePreventDefault),
+/* harmony export */   siblingDirection: () => (/* binding */ siblingDirection),
+/* harmony export */   slideHandler: () => (/* binding */ slideHandler),
+/* harmony export */   slidesOnLeft: () => (/* binding */ slidesOnLeft),
+/* harmony export */   slidesOnRight: () => (/* binding */ slidesOnRight),
+/* harmony export */   swipeEnd: () => (/* binding */ swipeEnd),
+/* harmony export */   swipeMove: () => (/* binding */ swipeMove),
+/* harmony export */   swipeStart: () => (/* binding */ swipeStart)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function clamp(number, lowerBound, upperBound) {
+  return Math.max(lowerBound, Math.min(number, upperBound));
+}
+var safePreventDefault = function safePreventDefault(event) {
+  var passiveEvents = ["onTouchStart", "onTouchMove", "onWheel"];
+  if (!passiveEvents.includes(event._reactName)) {
+    event.preventDefault();
+  }
+};
+var getOnDemandLazySlides = function getOnDemandLazySlides(spec) {
+  var onDemandSlides = [];
+  var startIndex = lazyStartIndex(spec);
+  var endIndex = lazyEndIndex(spec);
+  for (var slideIndex = startIndex; slideIndex < endIndex; slideIndex++) {
+    if (spec.lazyLoadedList.indexOf(slideIndex) < 0) {
+      onDemandSlides.push(slideIndex);
+    }
+  }
+  return onDemandSlides;
+};
+
+// return list of slides that need to be present
+var getRequiredLazySlides = function getRequiredLazySlides(spec) {
+  var requiredSlides = [];
+  var startIndex = lazyStartIndex(spec);
+  var endIndex = lazyEndIndex(spec);
+  for (var slideIndex = startIndex; slideIndex < endIndex; slideIndex++) {
+    requiredSlides.push(slideIndex);
+  }
+  return requiredSlides;
+};
+
+// startIndex that needs to be present
+var lazyStartIndex = function lazyStartIndex(spec) {
+  return spec.currentSlide - lazySlidesOnLeft(spec);
+};
+var lazyEndIndex = function lazyEndIndex(spec) {
+  return spec.currentSlide + lazySlidesOnRight(spec);
+};
+var lazySlidesOnLeft = function lazySlidesOnLeft(spec) {
+  return spec.centerMode ? Math.floor(spec.slidesToShow / 2) + (parseInt(spec.centerPadding) > 0 ? 1 : 0) : 0;
+};
+var lazySlidesOnRight = function lazySlidesOnRight(spec) {
+  return spec.centerMode ? Math.floor((spec.slidesToShow - 1) / 2) + 1 + (parseInt(spec.centerPadding) > 0 ? 1 : 0) : spec.slidesToShow;
+};
+
+// get width of an element
+var getWidth = function getWidth(elem) {
+  return elem && elem.offsetWidth || 0;
+};
+var getHeight = function getHeight(elem) {
+  return elem && elem.offsetHeight || 0;
+};
+var getSwipeDirection = function getSwipeDirection(touchObject) {
+  var verticalSwiping = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var xDist, yDist, r, swipeAngle;
+  xDist = touchObject.startX - touchObject.curX;
+  yDist = touchObject.startY - touchObject.curY;
+  r = Math.atan2(yDist, xDist);
+  swipeAngle = Math.round(r * 180 / Math.PI);
+  if (swipeAngle < 0) {
+    swipeAngle = 360 - Math.abs(swipeAngle);
+  }
+  if (swipeAngle <= 45 && swipeAngle >= 0 || swipeAngle <= 360 && swipeAngle >= 315) {
+    return "left";
+  }
+  if (swipeAngle >= 135 && swipeAngle <= 225) {
+    return "right";
+  }
+  if (verticalSwiping === true) {
+    if (swipeAngle >= 35 && swipeAngle <= 135) {
+      return "up";
+    } else {
+      return "down";
+    }
+  }
+  return "vertical";
+};
+
+// whether or not we can go next
+var canGoNext = function canGoNext(spec) {
+  var canGo = true;
+  if (!spec.infinite) {
+    if (spec.centerMode && spec.currentSlide >= spec.slideCount - 1) {
+      canGo = false;
+    } else if (spec.slideCount <= spec.slidesToShow || spec.currentSlide >= spec.slideCount - spec.slidesToShow) {
+      canGo = false;
+    }
+  }
+  return canGo;
+};
+
+// given an object and a list of keys, return new object with given keys
+var extractObject = function extractObject(spec, keys) {
+  var newObject = {};
+  keys.forEach(function (key) {
+    return newObject[key] = spec[key];
+  });
+  return newObject;
+};
+
+// get initialized state
+var initializedState = function initializedState(spec) {
+  // spec also contains listRef, trackRef
+  var slideCount = react__WEBPACK_IMPORTED_MODULE_1___default().Children.count(spec.children);
+  var listNode = spec.listRef;
+  var listWidth = Math.ceil(getWidth(listNode));
+  var trackNode = spec.trackRef && spec.trackRef.node;
+  var trackWidth = Math.ceil(getWidth(trackNode));
+  var slideWidth;
+  if (!spec.vertical) {
+    var centerPaddingAdj = spec.centerMode && parseInt(spec.centerPadding) * 2;
+    if (typeof spec.centerPadding === "string" && spec.centerPadding.slice(-1) === "%") {
+      centerPaddingAdj *= listWidth / 100;
+    }
+    slideWidth = Math.ceil((listWidth - centerPaddingAdj) / spec.slidesToShow);
+  } else {
+    slideWidth = listWidth;
+  }
+  var slideHeight = listNode && getHeight(listNode.querySelector('[data-index="0"]'));
+  var listHeight = slideHeight * spec.slidesToShow;
+  var currentSlide = spec.currentSlide === undefined ? spec.initialSlide : spec.currentSlide;
+  if (spec.rtl && spec.currentSlide === undefined) {
+    currentSlide = slideCount - 1 - spec.initialSlide;
+  }
+  var lazyLoadedList = spec.lazyLoadedList || [];
+  var slidesToLoad = getOnDemandLazySlides((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, spec), {}, {
+    currentSlide: currentSlide,
+    lazyLoadedList: lazyLoadedList
+  }));
+  lazyLoadedList = lazyLoadedList.concat(slidesToLoad);
+  var state = {
+    slideCount: slideCount,
+    slideWidth: slideWidth,
+    listWidth: listWidth,
+    trackWidth: trackWidth,
+    currentSlide: currentSlide,
+    slideHeight: slideHeight,
+    listHeight: listHeight,
+    lazyLoadedList: lazyLoadedList
+  };
+  if (spec.autoplaying === null && spec.autoplay) {
+    state["autoplaying"] = "playing";
+  }
+  return state;
+};
+var slideHandler = function slideHandler(spec) {
+  var waitForAnimate = spec.waitForAnimate,
+    animating = spec.animating,
+    fade = spec.fade,
+    infinite = spec.infinite,
+    index = spec.index,
+    slideCount = spec.slideCount,
+    lazyLoad = spec.lazyLoad,
+    currentSlide = spec.currentSlide,
+    centerMode = spec.centerMode,
+    slidesToScroll = spec.slidesToScroll,
+    slidesToShow = spec.slidesToShow,
+    useCSS = spec.useCSS;
+  var lazyLoadedList = spec.lazyLoadedList;
+  if (waitForAnimate && animating) return {};
+  var animationSlide = index,
+    finalSlide,
+    animationLeft,
+    finalLeft;
+  var state = {},
+    nextState = {};
+  var targetSlide = infinite ? index : clamp(index, 0, slideCount - 1);
+  if (fade) {
+    if (!infinite && (index < 0 || index >= slideCount)) return {};
+    if (index < 0) {
+      animationSlide = index + slideCount;
+    } else if (index >= slideCount) {
+      animationSlide = index - slideCount;
+    }
+    if (lazyLoad && lazyLoadedList.indexOf(animationSlide) < 0) {
+      lazyLoadedList = lazyLoadedList.concat(animationSlide);
+    }
+    state = {
+      animating: true,
+      currentSlide: animationSlide,
+      lazyLoadedList: lazyLoadedList,
+      targetSlide: animationSlide
+    };
+    nextState = {
+      animating: false,
+      targetSlide: animationSlide
+    };
+  } else {
+    finalSlide = animationSlide;
+    if (animationSlide < 0) {
+      finalSlide = animationSlide + slideCount;
+      if (!infinite) finalSlide = 0;else if (slideCount % slidesToScroll !== 0) finalSlide = slideCount - slideCount % slidesToScroll;
+    } else if (!canGoNext(spec) && animationSlide > currentSlide) {
+      animationSlide = finalSlide = currentSlide;
+    } else if (centerMode && animationSlide >= slideCount) {
+      animationSlide = infinite ? slideCount : slideCount - 1;
+      finalSlide = infinite ? 0 : slideCount - 1;
+    } else if (animationSlide >= slideCount) {
+      finalSlide = animationSlide - slideCount;
+      if (!infinite) finalSlide = slideCount - slidesToShow;else if (slideCount % slidesToScroll !== 0) finalSlide = 0;
+    }
+    if (!infinite && animationSlide + slidesToShow >= slideCount) {
+      finalSlide = slideCount - slidesToShow;
+    }
+    animationLeft = getTrackLeft((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, spec), {}, {
+      slideIndex: animationSlide
+    }));
+    finalLeft = getTrackLeft((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, spec), {}, {
+      slideIndex: finalSlide
+    }));
+    if (!infinite) {
+      if (animationLeft === finalLeft) animationSlide = finalSlide;
+      animationLeft = finalLeft;
+    }
+    if (lazyLoad) {
+      lazyLoadedList = lazyLoadedList.concat(getOnDemandLazySlides((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, spec), {}, {
+        currentSlide: animationSlide
+      })));
+    }
+    if (!useCSS) {
+      state = {
+        currentSlide: finalSlide,
+        trackStyle: getTrackCSS((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, spec), {}, {
+          left: finalLeft
+        })),
+        lazyLoadedList: lazyLoadedList,
+        targetSlide: targetSlide
+      };
+    } else {
+      state = {
+        animating: true,
+        currentSlide: finalSlide,
+        trackStyle: getTrackAnimateCSS((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, spec), {}, {
+          left: animationLeft
+        })),
+        lazyLoadedList: lazyLoadedList,
+        targetSlide: targetSlide
+      };
+      nextState = {
+        animating: false,
+        currentSlide: finalSlide,
+        trackStyle: getTrackCSS((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, spec), {}, {
+          left: finalLeft
+        })),
+        swipeLeft: null,
+        targetSlide: targetSlide
+      };
+    }
+  }
+  return {
+    state: state,
+    nextState: nextState
+  };
+};
+var changeSlide = function changeSlide(spec, options) {
+  var indexOffset, previousInt, slideOffset, unevenOffset, targetSlide;
+  var slidesToScroll = spec.slidesToScroll,
+    slidesToShow = spec.slidesToShow,
+    slideCount = spec.slideCount,
+    currentSlide = spec.currentSlide,
+    previousTargetSlide = spec.targetSlide,
+    lazyLoad = spec.lazyLoad,
+    infinite = spec.infinite;
+  unevenOffset = slideCount % slidesToScroll !== 0;
+  indexOffset = unevenOffset ? 0 : (slideCount - currentSlide) % slidesToScroll;
+  if (options.message === "previous") {
+    slideOffset = indexOffset === 0 ? slidesToScroll : slidesToShow - indexOffset;
+    targetSlide = currentSlide - slideOffset;
+    if (lazyLoad && !infinite) {
+      previousInt = currentSlide - slideOffset;
+      targetSlide = previousInt === -1 ? slideCount - 1 : previousInt;
+    }
+    if (!infinite) {
+      targetSlide = previousTargetSlide - slidesToScroll;
+    }
+  } else if (options.message === "next") {
+    slideOffset = indexOffset === 0 ? slidesToScroll : indexOffset;
+    targetSlide = currentSlide + slideOffset;
+    if (lazyLoad && !infinite) {
+      targetSlide = (currentSlide + slidesToScroll) % slideCount + indexOffset;
+    }
+    if (!infinite) {
+      targetSlide = previousTargetSlide + slidesToScroll;
+    }
+  } else if (options.message === "dots") {
+    // Click on dots
+    targetSlide = options.index * options.slidesToScroll;
+  } else if (options.message === "children") {
+    // Click on the slides
+    targetSlide = options.index;
+    if (infinite) {
+      var direction = siblingDirection((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, spec), {}, {
+        targetSlide: targetSlide
+      }));
+      if (targetSlide > options.currentSlide && direction === "left") {
+        targetSlide = targetSlide - slideCount;
+      } else if (targetSlide < options.currentSlide && direction === "right") {
+        targetSlide = targetSlide + slideCount;
+      }
+    }
+  } else if (options.message === "index") {
+    targetSlide = Number(options.index);
+  }
+  return targetSlide;
+};
+var keyHandler = function keyHandler(e, accessibility, rtl) {
+  if (e.target.tagName.match("TEXTAREA|INPUT|SELECT") || !accessibility) return "";
+  if (e.keyCode === 37) return rtl ? "next" : "previous";
+  if (e.keyCode === 39) return rtl ? "previous" : "next";
+  return "";
+};
+var swipeStart = function swipeStart(e, swipe, draggable) {
+  e.target.tagName === "IMG" && safePreventDefault(e);
+  if (!swipe || !draggable && e.type.indexOf("mouse") !== -1) return "";
+  return {
+    dragging: true,
+    touchObject: {
+      startX: e.touches ? e.touches[0].pageX : e.clientX,
+      startY: e.touches ? e.touches[0].pageY : e.clientY,
+      curX: e.touches ? e.touches[0].pageX : e.clientX,
+      curY: e.touches ? e.touches[0].pageY : e.clientY
+    }
+  };
+};
+var swipeMove = function swipeMove(e, spec) {
+  // spec also contains, trackRef and slideIndex
+  var scrolling = spec.scrolling,
+    animating = spec.animating,
+    vertical = spec.vertical,
+    swipeToSlide = spec.swipeToSlide,
+    verticalSwiping = spec.verticalSwiping,
+    rtl = spec.rtl,
+    currentSlide = spec.currentSlide,
+    edgeFriction = spec.edgeFriction,
+    edgeDragged = spec.edgeDragged,
+    onEdge = spec.onEdge,
+    swiped = spec.swiped,
+    swiping = spec.swiping,
+    slideCount = spec.slideCount,
+    slidesToScroll = spec.slidesToScroll,
+    infinite = spec.infinite,
+    touchObject = spec.touchObject,
+    swipeEvent = spec.swipeEvent,
+    listHeight = spec.listHeight,
+    listWidth = spec.listWidth;
+  if (scrolling) return;
+  if (animating) return safePreventDefault(e);
+  if (vertical && swipeToSlide && verticalSwiping) safePreventDefault(e);
+  var swipeLeft,
+    state = {};
+  var curLeft = getTrackLeft(spec);
+  touchObject.curX = e.touches ? e.touches[0].pageX : e.clientX;
+  touchObject.curY = e.touches ? e.touches[0].pageY : e.clientY;
+  touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curX - touchObject.startX, 2)));
+  var verticalSwipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curY - touchObject.startY, 2)));
+  if (!verticalSwiping && !swiping && verticalSwipeLength > 10) {
+    return {
+      scrolling: true
+    };
+  }
+  if (verticalSwiping) touchObject.swipeLength = verticalSwipeLength;
+  var positionOffset = (!rtl ? 1 : -1) * (touchObject.curX > touchObject.startX ? 1 : -1);
+  if (verticalSwiping) positionOffset = touchObject.curY > touchObject.startY ? 1 : -1;
+  var dotCount = Math.ceil(slideCount / slidesToScroll);
+  var swipeDirection = getSwipeDirection(spec.touchObject, verticalSwiping);
+  var touchSwipeLength = touchObject.swipeLength;
+  if (!infinite) {
+    if (currentSlide === 0 && (swipeDirection === "right" || swipeDirection === "down") || currentSlide + 1 >= dotCount && (swipeDirection === "left" || swipeDirection === "up") || !canGoNext(spec) && (swipeDirection === "left" || swipeDirection === "up")) {
+      touchSwipeLength = touchObject.swipeLength * edgeFriction;
+      if (edgeDragged === false && onEdge) {
+        onEdge(swipeDirection);
+        state["edgeDragged"] = true;
+      }
+    }
+  }
+  if (!swiped && swipeEvent) {
+    swipeEvent(swipeDirection);
+    state["swiped"] = true;
+  }
+  if (!vertical) {
+    if (!rtl) {
+      swipeLeft = curLeft + touchSwipeLength * positionOffset;
+    } else {
+      swipeLeft = curLeft - touchSwipeLength * positionOffset;
+    }
+  } else {
+    swipeLeft = curLeft + touchSwipeLength * (listHeight / listWidth) * positionOffset;
+  }
+  if (verticalSwiping) {
+    swipeLeft = curLeft + touchSwipeLength * positionOffset;
+  }
+  state = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state), {}, {
+    touchObject: touchObject,
+    swipeLeft: swipeLeft,
+    trackStyle: getTrackCSS((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, spec), {}, {
+      left: swipeLeft
+    }))
+  });
+  if (Math.abs(touchObject.curX - touchObject.startX) < Math.abs(touchObject.curY - touchObject.startY) * 0.8) {
+    return state;
+  }
+  if (touchObject.swipeLength > 10) {
+    state["swiping"] = true;
+    safePreventDefault(e);
+  }
+  return state;
+};
+var swipeEnd = function swipeEnd(e, spec) {
+  var dragging = spec.dragging,
+    swipe = spec.swipe,
+    touchObject = spec.touchObject,
+    listWidth = spec.listWidth,
+    touchThreshold = spec.touchThreshold,
+    verticalSwiping = spec.verticalSwiping,
+    listHeight = spec.listHeight,
+    swipeToSlide = spec.swipeToSlide,
+    scrolling = spec.scrolling,
+    onSwipe = spec.onSwipe,
+    targetSlide = spec.targetSlide,
+    currentSlide = spec.currentSlide,
+    infinite = spec.infinite;
+  if (!dragging) {
+    if (swipe) safePreventDefault(e);
+    return {};
+  }
+  var minSwipe = verticalSwiping ? listHeight / touchThreshold : listWidth / touchThreshold;
+  var swipeDirection = getSwipeDirection(touchObject, verticalSwiping);
+  // reset the state of touch related state variables.
+  var state = {
+    dragging: false,
+    edgeDragged: false,
+    scrolling: false,
+    swiping: false,
+    swiped: false,
+    swipeLeft: null,
+    touchObject: {}
+  };
+  if (scrolling) {
+    return state;
+  }
+  if (!touchObject.swipeLength) {
+    return state;
+  }
+  if (touchObject.swipeLength > minSwipe) {
+    safePreventDefault(e);
+    if (onSwipe) {
+      onSwipe(swipeDirection);
+    }
+    var slideCount, newSlide;
+    var activeSlide = infinite ? currentSlide : targetSlide;
+    switch (swipeDirection) {
+      case "left":
+      case "up":
+        newSlide = activeSlide + getSlideCount(spec);
+        slideCount = swipeToSlide ? checkNavigable(spec, newSlide) : newSlide;
+        state["currentDirection"] = 0;
+        break;
+      case "right":
+      case "down":
+        newSlide = activeSlide - getSlideCount(spec);
+        slideCount = swipeToSlide ? checkNavigable(spec, newSlide) : newSlide;
+        state["currentDirection"] = 1;
+        break;
+      default:
+        slideCount = activeSlide;
+    }
+    state["triggerSlideHandler"] = slideCount;
+  } else {
+    // Adjust the track back to it's original position.
+    var currentLeft = getTrackLeft(spec);
+    state["trackStyle"] = getTrackAnimateCSS((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, spec), {}, {
+      left: currentLeft
+    }));
+  }
+  return state;
+};
+var getNavigableIndexes = function getNavigableIndexes(spec) {
+  var max = spec.infinite ? spec.slideCount * 2 : spec.slideCount;
+  var breakpoint = spec.infinite ? spec.slidesToShow * -1 : 0;
+  var counter = spec.infinite ? spec.slidesToShow * -1 : 0;
+  var indexes = [];
+  while (breakpoint < max) {
+    indexes.push(breakpoint);
+    breakpoint = counter + spec.slidesToScroll;
+    counter += Math.min(spec.slidesToScroll, spec.slidesToShow);
+  }
+  return indexes;
+};
+var checkNavigable = function checkNavigable(spec, index) {
+  var navigables = getNavigableIndexes(spec);
+  var prevNavigable = 0;
+  if (index > navigables[navigables.length - 1]) {
+    index = navigables[navigables.length - 1];
+  } else {
+    for (var n in navigables) {
+      if (index < navigables[n]) {
+        index = prevNavigable;
+        break;
+      }
+      prevNavigable = navigables[n];
+    }
+  }
+  return index;
+};
+var getSlideCount = function getSlideCount(spec) {
+  var centerOffset = spec.centerMode ? spec.slideWidth * Math.floor(spec.slidesToShow / 2) : 0;
+  if (spec.swipeToSlide) {
+    var swipedSlide;
+    var slickList = spec.listRef;
+    var slides = slickList.querySelectorAll && slickList.querySelectorAll(".slick-slide") || [];
+    Array.from(slides).every(function (slide) {
+      if (!spec.vertical) {
+        if (slide.offsetLeft - centerOffset + getWidth(slide) / 2 > spec.swipeLeft * -1) {
+          swipedSlide = slide;
+          return false;
+        }
+      } else {
+        if (slide.offsetTop + getHeight(slide) / 2 > spec.swipeLeft * -1) {
+          swipedSlide = slide;
+          return false;
+        }
+      }
+      return true;
+    });
+    if (!swipedSlide) {
+      return 0;
+    }
+    var currentIndex = spec.rtl === true ? spec.slideCount - spec.currentSlide : spec.currentSlide;
+    var slidesTraversed = Math.abs(swipedSlide.dataset.index - currentIndex) || 1;
+    return slidesTraversed;
+  } else {
+    return spec.slidesToScroll;
+  }
+};
+var checkSpecKeys = function checkSpecKeys(spec, keysArray) {
+  return (
+    // eslint-disable-next-line no-prototype-builtins
+    keysArray.reduce(function (value, key) {
+      return value && spec.hasOwnProperty(key);
+    }, true) ? null : console.error("Keys Missing:", spec)
+  );
+};
+var getTrackCSS = function getTrackCSS(spec) {
+  checkSpecKeys(spec, ["left", "variableWidth", "slideCount", "slidesToShow", "slideWidth"]);
+  var trackWidth, trackHeight;
+  var trackChildren = spec.slideCount + 2 * spec.slidesToShow;
+  if (!spec.vertical) {
+    trackWidth = getTotalSlides(spec) * spec.slideWidth;
+  } else {
+    trackHeight = trackChildren * spec.slideHeight;
+  }
+  var style = {
+    opacity: 1,
+    transition: "",
+    WebkitTransition: ""
+  };
+  if (spec.useTransform) {
+    var WebkitTransform = !spec.vertical ? "translate3d(" + spec.left + "px, 0px, 0px)" : "translate3d(0px, " + spec.left + "px, 0px)";
+    var transform = !spec.vertical ? "translate3d(" + spec.left + "px, 0px, 0px)" : "translate3d(0px, " + spec.left + "px, 0px)";
+    var msTransform = !spec.vertical ? "translateX(" + spec.left + "px)" : "translateY(" + spec.left + "px)";
+    style = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, style), {}, {
+      WebkitTransform: WebkitTransform,
+      transform: transform,
+      msTransform: msTransform
+    });
+  } else {
+    if (spec.vertical) {
+      style["top"] = spec.left;
+    } else {
+      style["left"] = spec.left;
+    }
+  }
+  if (spec.fade) style = {
+    opacity: 1
+  };
+  if (trackWidth) style.width = trackWidth;
+  if (trackHeight) style.height = trackHeight;
+
+  // Fallback for IE8
+  if (window && !window.addEventListener && window.attachEvent) {
+    if (!spec.vertical) {
+      style.marginLeft = spec.left + "px";
+    } else {
+      style.marginTop = spec.left + "px";
+    }
+  }
+  return style;
+};
+var getTrackAnimateCSS = function getTrackAnimateCSS(spec) {
+  checkSpecKeys(spec, ["left", "variableWidth", "slideCount", "slidesToShow", "slideWidth", "speed", "cssEase"]);
+  var style = getTrackCSS(spec);
+  // useCSS is true by default so it can be undefined
+  if (spec.useTransform) {
+    style.WebkitTransition = "-webkit-transform " + spec.speed + "ms " + spec.cssEase;
+    style.transition = "transform " + spec.speed + "ms " + spec.cssEase;
+  } else {
+    if (spec.vertical) {
+      style.transition = "top " + spec.speed + "ms " + spec.cssEase;
+    } else {
+      style.transition = "left " + spec.speed + "ms " + spec.cssEase;
+    }
+  }
+  return style;
+};
+var getTrackLeft = function getTrackLeft(spec) {
+  if (spec.unslick) {
+    return 0;
+  }
+  checkSpecKeys(spec, ["slideIndex", "trackRef", "infinite", "centerMode", "slideCount", "slidesToShow", "slidesToScroll", "slideWidth", "listWidth", "variableWidth", "slideHeight"]);
+  var slideIndex = spec.slideIndex,
+    trackRef = spec.trackRef,
+    infinite = spec.infinite,
+    centerMode = spec.centerMode,
+    slideCount = spec.slideCount,
+    slidesToShow = spec.slidesToShow,
+    slidesToScroll = spec.slidesToScroll,
+    slideWidth = spec.slideWidth,
+    listWidth = spec.listWidth,
+    variableWidth = spec.variableWidth,
+    slideHeight = spec.slideHeight,
+    fade = spec.fade,
+    vertical = spec.vertical;
+  var slideOffset = 0;
+  var targetLeft;
+  var targetSlide;
+  var verticalOffset = 0;
+  if (fade || spec.slideCount === 1) {
+    return 0;
+  }
+  var slidesToOffset = 0;
+  if (infinite) {
+    slidesToOffset = -getPreClones(spec); // bring active slide to the beginning of visual area
+    // if next scroll doesn't have enough children, just reach till the end of original slides instead of shifting slidesToScroll children
+    if (slideCount % slidesToScroll !== 0 && slideIndex + slidesToScroll > slideCount) {
+      slidesToOffset = -(slideIndex > slideCount ? slidesToShow - (slideIndex - slideCount) : slideCount % slidesToScroll);
+    }
+    // shift current slide to center of the frame
+    if (centerMode) {
+      slidesToOffset += parseInt(slidesToShow / 2);
+    }
+  } else {
+    if (slideCount % slidesToScroll !== 0 && slideIndex + slidesToScroll > slideCount) {
+      slidesToOffset = slidesToShow - slideCount % slidesToScroll;
+    }
+    if (centerMode) {
+      slidesToOffset = parseInt(slidesToShow / 2);
+    }
+  }
+  slideOffset = slidesToOffset * slideWidth;
+  verticalOffset = slidesToOffset * slideHeight;
+  if (!vertical) {
+    targetLeft = slideIndex * slideWidth * -1 + slideOffset;
+  } else {
+    targetLeft = slideIndex * slideHeight * -1 + verticalOffset;
+  }
+  if (variableWidth === true) {
+    var targetSlideIndex;
+    var trackElem = trackRef && trackRef.node;
+    targetSlideIndex = slideIndex + getPreClones(spec);
+    targetSlide = trackElem && trackElem.childNodes[targetSlideIndex];
+    targetLeft = targetSlide ? targetSlide.offsetLeft * -1 : 0;
+    if (centerMode === true) {
+      targetSlideIndex = infinite ? slideIndex + getPreClones(spec) : slideIndex;
+      targetSlide = trackElem && trackElem.children[targetSlideIndex];
+      targetLeft = 0;
+      for (var slide = 0; slide < targetSlideIndex; slide++) {
+        targetLeft -= trackElem && trackElem.children[slide] && trackElem.children[slide].offsetWidth;
+      }
+      targetLeft -= parseInt(spec.centerPadding);
+      targetLeft += targetSlide && (listWidth - targetSlide.offsetWidth) / 2;
+    }
+  }
+  return targetLeft;
+};
+var getPreClones = function getPreClones(spec) {
+  if (spec.unslick || !spec.infinite) {
+    return 0;
+  }
+  if (spec.variableWidth) {
+    return spec.slideCount;
+  }
+  return spec.slidesToShow + (spec.centerMode ? 1 : 0);
+};
+var getPostClones = function getPostClones(spec) {
+  if (spec.unslick || !spec.infinite) {
+    return 0;
+  }
+  return spec.slideCount;
+};
+var getTotalSlides = function getTotalSlides(spec) {
+  return spec.slideCount === 1 ? 1 : getPreClones(spec) + spec.slideCount + getPostClones(spec);
+};
+var siblingDirection = function siblingDirection(spec) {
+  if (spec.targetSlide > spec.currentSlide) {
+    if (spec.targetSlide > spec.currentSlide + slidesOnRight(spec)) {
+      return "left";
+    }
+    return "right";
+  } else {
+    if (spec.targetSlide < spec.currentSlide - slidesOnLeft(spec)) {
+      return "right";
+    }
+    return "left";
+  }
+};
+var slidesOnRight = function slidesOnRight(_ref) {
+  var slidesToShow = _ref.slidesToShow,
+    centerMode = _ref.centerMode,
+    rtl = _ref.rtl,
+    centerPadding = _ref.centerPadding;
+  // returns no of slides on the right of active slide
+  if (centerMode) {
+    var right = (slidesToShow - 1) / 2 + 1;
+    if (parseInt(centerPadding) > 0) right += 1;
+    if (rtl && slidesToShow % 2 === 0) right += 1;
+    return right;
+  }
+  if (rtl) {
+    return 0;
+  }
+  return slidesToShow - 1;
+};
+var slidesOnLeft = function slidesOnLeft(_ref2) {
+  var slidesToShow = _ref2.slidesToShow,
+    centerMode = _ref2.centerMode,
+    rtl = _ref2.rtl,
+    centerPadding = _ref2.centerPadding;
+  // returns no of slides on the left of active slide
+  if (centerMode) {
+    var left = (slidesToShow - 1) / 2 + 1;
+    if (parseInt(centerPadding) > 0) left += 1;
+    if (!rtl && slidesToShow % 2 === 0) left += 1;
+    return left;
+  }
+  if (rtl) {
+    return slidesToShow - 1;
+  }
+  return 0;
+};
+var canUseDOM = function canUseDOM() {
+  return !!(typeof window !== "undefined" && window.document && window.document.createElement);
+};
+
+/***/ }),
+
 /***/ "./node_modules/camelcase/index.js":
 /*!*****************************************!*\
   !*** ./node_modules/camelcase/index.js ***!
@@ -183,354 +2603,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	} else {}
 }());
-
-
-/***/ }),
-
-/***/ "./node_modules/enquire.js/src/MediaQuery.js":
-/*!***************************************************!*\
-  !*** ./node_modules/enquire.js/src/MediaQuery.js ***!
-  \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var QueryHandler = __webpack_require__(/*! ./QueryHandler */ "./node_modules/enquire.js/src/QueryHandler.js");
-var each = (__webpack_require__(/*! ./Util */ "./node_modules/enquire.js/src/Util.js").each);
-
-/**
- * Represents a single media query, manages it's state and registered handlers for this query
- *
- * @constructor
- * @param {string} query the media query string
- * @param {boolean} [isUnconditional=false] whether the media query should run regardless of whether the conditions are met. Primarily for helping older browsers deal with mobile-first design
- */
-function MediaQuery(query, isUnconditional) {
-    this.query = query;
-    this.isUnconditional = isUnconditional;
-    this.handlers = [];
-    this.mql = window.matchMedia(query);
-
-    var self = this;
-    this.listener = function(mql) {
-        // Chrome passes an MediaQueryListEvent object, while other browsers pass MediaQueryList directly
-        self.mql = mql.currentTarget || mql;
-        self.assess();
-    };
-    this.mql.addListener(this.listener);
-}
-
-MediaQuery.prototype = {
-
-    constuctor : MediaQuery,
-
-    /**
-     * add a handler for this query, triggering if already active
-     *
-     * @param {object} handler
-     * @param {function} handler.match callback for when query is activated
-     * @param {function} [handler.unmatch] callback for when query is deactivated
-     * @param {function} [handler.setup] callback for immediate execution when a query handler is registered
-     * @param {boolean} [handler.deferSetup=false] should the setup callback be deferred until the first time the handler is matched?
-     */
-    addHandler : function(handler) {
-        var qh = new QueryHandler(handler);
-        this.handlers.push(qh);
-
-        this.matches() && qh.on();
-    },
-
-    /**
-     * removes the given handler from the collection, and calls it's destroy methods
-     *
-     * @param {object || function} handler the handler to remove
-     */
-    removeHandler : function(handler) {
-        var handlers = this.handlers;
-        each(handlers, function(h, i) {
-            if(h.equals(handler)) {
-                h.destroy();
-                return !handlers.splice(i,1); //remove from array and exit each early
-            }
-        });
-    },
-
-    /**
-     * Determine whether the media query should be considered a match
-     *
-     * @return {Boolean} true if media query can be considered a match, false otherwise
-     */
-    matches : function() {
-        return this.mql.matches || this.isUnconditional;
-    },
-
-    /**
-     * Clears all handlers and unbinds events
-     */
-    clear : function() {
-        each(this.handlers, function(handler) {
-            handler.destroy();
-        });
-        this.mql.removeListener(this.listener);
-        this.handlers.length = 0; //clear array
-    },
-
-    /*
-        * Assesses the query, turning on all handlers if it matches, turning them off if it doesn't match
-        */
-    assess : function() {
-        var action = this.matches() ? 'on' : 'off';
-
-        each(this.handlers, function(handler) {
-            handler[action]();
-        });
-    }
-};
-
-module.exports = MediaQuery;
-
-
-/***/ }),
-
-/***/ "./node_modules/enquire.js/src/MediaQueryDispatch.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/enquire.js/src/MediaQueryDispatch.js ***!
-  \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var MediaQuery = __webpack_require__(/*! ./MediaQuery */ "./node_modules/enquire.js/src/MediaQuery.js");
-var Util = __webpack_require__(/*! ./Util */ "./node_modules/enquire.js/src/Util.js");
-var each = Util.each;
-var isFunction = Util.isFunction;
-var isArray = Util.isArray;
-
-/**
- * Allows for registration of query handlers.
- * Manages the query handler's state and is responsible for wiring up browser events
- *
- * @constructor
- */
-function MediaQueryDispatch () {
-    if(!window.matchMedia) {
-        throw new Error('matchMedia not present, legacy browsers require a polyfill');
-    }
-
-    this.queries = {};
-    this.browserIsIncapable = !window.matchMedia('only all').matches;
-}
-
-MediaQueryDispatch.prototype = {
-
-    constructor : MediaQueryDispatch,
-
-    /**
-     * Registers a handler for the given media query
-     *
-     * @param {string} q the media query
-     * @param {object || Array || Function} options either a single query handler object, a function, or an array of query handlers
-     * @param {function} options.match fired when query matched
-     * @param {function} [options.unmatch] fired when a query is no longer matched
-     * @param {function} [options.setup] fired when handler first triggered
-     * @param {boolean} [options.deferSetup=false] whether setup should be run immediately or deferred until query is first matched
-     * @param {boolean} [shouldDegrade=false] whether this particular media query should always run on incapable browsers
-     */
-    register : function(q, options, shouldDegrade) {
-        var queries         = this.queries,
-            isUnconditional = shouldDegrade && this.browserIsIncapable;
-
-        if(!queries[q]) {
-            queries[q] = new MediaQuery(q, isUnconditional);
-        }
-
-        //normalise to object in an array
-        if(isFunction(options)) {
-            options = { match : options };
-        }
-        if(!isArray(options)) {
-            options = [options];
-        }
-        each(options, function(handler) {
-            if (isFunction(handler)) {
-                handler = { match : handler };
-            }
-            queries[q].addHandler(handler);
-        });
-
-        return this;
-    },
-
-    /**
-     * unregisters a query and all it's handlers, or a specific handler for a query
-     *
-     * @param {string} q the media query to target
-     * @param {object || function} [handler] specific handler to unregister
-     */
-    unregister : function(q, handler) {
-        var query = this.queries[q];
-
-        if(query) {
-            if(handler) {
-                query.removeHandler(handler);
-            }
-            else {
-                query.clear();
-                delete this.queries[q];
-            }
-        }
-
-        return this;
-    }
-};
-
-module.exports = MediaQueryDispatch;
-
-
-/***/ }),
-
-/***/ "./node_modules/enquire.js/src/QueryHandler.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/enquire.js/src/QueryHandler.js ***!
-  \*****************************************************/
-/***/ ((module) => {
-
-/**
- * Delegate to handle a media query being matched and unmatched.
- *
- * @param {object} options
- * @param {function} options.match callback for when the media query is matched
- * @param {function} [options.unmatch] callback for when the media query is unmatched
- * @param {function} [options.setup] one-time callback triggered the first time a query is matched
- * @param {boolean} [options.deferSetup=false] should the setup callback be run immediately, rather than first time query is matched?
- * @constructor
- */
-function QueryHandler(options) {
-    this.options = options;
-    !options.deferSetup && this.setup();
-}
-
-QueryHandler.prototype = {
-
-    constructor : QueryHandler,
-
-    /**
-     * coordinates setup of the handler
-     *
-     * @function
-     */
-    setup : function() {
-        if(this.options.setup) {
-            this.options.setup();
-        }
-        this.initialised = true;
-    },
-
-    /**
-     * coordinates setup and triggering of the handler
-     *
-     * @function
-     */
-    on : function() {
-        !this.initialised && this.setup();
-        this.options.match && this.options.match();
-    },
-
-    /**
-     * coordinates the unmatch event for the handler
-     *
-     * @function
-     */
-    off : function() {
-        this.options.unmatch && this.options.unmatch();
-    },
-
-    /**
-     * called when a handler is to be destroyed.
-     * delegates to the destroy or unmatch callbacks, depending on availability.
-     *
-     * @function
-     */
-    destroy : function() {
-        this.options.destroy ? this.options.destroy() : this.off();
-    },
-
-    /**
-     * determines equality by reference.
-     * if object is supplied compare options, if function, compare match callback
-     *
-     * @function
-     * @param {object || function} [target] the target for comparison
-     */
-    equals : function(target) {
-        return this.options === target || this.options.match === target;
-    }
-
-};
-
-module.exports = QueryHandler;
-
-
-/***/ }),
-
-/***/ "./node_modules/enquire.js/src/Util.js":
-/*!*********************************************!*\
-  !*** ./node_modules/enquire.js/src/Util.js ***!
-  \*********************************************/
-/***/ ((module) => {
-
-/**
- * Helper function for iterating over a collection
- *
- * @param collection
- * @param fn
- */
-function each(collection, fn) {
-    var i      = 0,
-        length = collection.length,
-        cont;
-
-    for(i; i < length; i++) {
-        cont = fn(collection[i], i);
-        if(cont === false) {
-            break; //allow early exit
-        }
-    }
-}
-
-/**
- * Helper function for determining whether target object is an array
- *
- * @param target the object under test
- * @return {Boolean} true if array, false otherwise
- */
-function isArray(target) {
-    return Object.prototype.toString.apply(target) === '[object Array]';
-}
-
-/**
- * Helper function for determining whether target object is a function
- *
- * @param target the object under test
- * @return {Boolean} true if function, false otherwise
- */
-function isFunction(target) {
-    return typeof target === 'function';
-}
-
-module.exports = {
-    isFunction : isFunction,
-    isArray : isArray,
-    each : each
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/enquire.js/src/index.js":
-/*!**********************************************!*\
-  !*** ./node_modules/enquire.js/src/index.js ***!
-  \**********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var MediaQueryDispatch = __webpack_require__(/*! ./MediaQueryDispatch */ "./node_modules/enquire.js/src/MediaQueryDispatch.js");
-module.exports = new MediaQueryDispatch();
 
 
 /***/ }),
@@ -1702,136 +3774,98 @@ const AutoPlayVideo = ({
 
 /***/ }),
 
-/***/ "./src/components/tf/img-component.js":
-/*!********************************************!*\
-  !*** ./src/components/tf/img-component.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ImgComponent: () => (/* binding */ ImgComponent)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
-
-
-const SquareImage = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img.withConfig({
-  displayName: "img-component__SquareImage"
-})(["width:calc(100% - 12.5px);@media (max-width:666px){width:100%;}"]);
-const ImgComponent = ({
-  srcProps,
-  videoLoad
-}) => {
-  // console.log(srcProps);
-  var x = srcProps;
-  // console.log("x");
-  // console.log(x);
-  var y = x.replace(/\?auto=&w=(800|1400|1600|2400|3600)&h=(800|1400|1600|2400|3600)/g, "");
-  // console.log("y");
-  // console.log(y);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(SquareImage, {
-    srcSet: y
-  });
-  //return <SquareImage src={srcProps} />;
-};
-
-/***/ }),
-
 /***/ "./src/components/tf/index/film-carousel.js":
 /*!**************************************************!*\
   !*** ./src/components/tf/index/film-carousel.js ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   FilmLeadCarousel2: () => (/* binding */ FilmLeadCarousel2)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
-/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
-/* harmony import */ var _slick_slick_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../slick/slick.css */ "./src/components/slick/slick.css");
-/* harmony import */ var _slick_slick_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_slick_slick_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../slick/slick-theme.css */ "./src/components/slick/slick-theme.css");
-/* harmony import */ var _slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _utils_image_orientation2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/image-orientation2 */ "./src/components/utils/image-orientation2.js");
-/* harmony import */ var _hooks_useOnScreen__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/useOnScreen */ "./src/components/hooks/useOnScreen.js");
-/* harmony import */ var _length_context__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./length-context */ "./src/components/tf/index/length-context.js");
-/* harmony import */ var _slick_functions_context_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./slick-functions-context.js */ "./src/components/tf/index/slick-functions-context.js");
+// import React, {
+//   useRef,
+//   useState,
+//   useEffect,
+//   createContext,
+//   useContext,
+//   useMemo,
+// } from "react";
+// import ReactDOM, { findDOMNode } from "react-dom";
+// import { graphql, Link, useScrollRestoration } from "gatsby";
+// import styled, { createGlobalStyle, keyframes } from "styled-components";
+// import Slider from "react-slick";
+// import "../../slick/slick.css";
+// import "../../slick/slick-theme.css";
+// import { ImageOrientation2 } from "../../utils/image-orientation2";
+// import { useOnScreen } from "../../hooks/useOnScreen";
+// import CarouselLengthContext from "./length-context";
+// import CarouselIndexClicked from "./slick-functions-context.js";
 
+// /* - - - - - FILM LEAD CAROUSEL - - - - - */
+// const VideoProjectCon = styled.div``;
+// const VideoCarouselCon = styled.div`
+//   width: 100%;
+//   height: 110vh;
+//   background-color: black;
+//   @media (max-width: 666px) {
+//   }
+// `;
+// const PaginationControlP = styled.p`
+//   display: inline-block;
+//   color: #545454;
+//   font-size: 12px;
+//   &.active {
+//     color: white;
+//   }
+// `;
 
+// /* - - - - - VIDEO WITH CONTROLS IMG - - - - - */
 
+// export const FilmLeadCarousel2 = ({ children }) => {
+//   const FilmsLeadCarouselRef = React.useRef(null);
+//   const FilmsLeadCarouselRefCon = React.useRef(null);
+//   const [carouselLength, setCarouselLength] = useState(children.length);
+//   const [slideGoTo, setSlideGoTo] = useState(0);
+//   const value = useMemo(() => ({ slideGoTo, setSlideGoTo }), [slideGoTo]);
 
+//   const settings = {
+//     infinite: true,
+//     speed: 0,
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     accessibility: true,
+//     dots: false,
+//     arrows: false,
+//     swipe: false,
+//     swipeToSlide: false,
+//     className: "films-slider",
+//   };
 
+//   useEffect(() => {
+//     FilmsLeadCarouselRef.current.slickGoTo(slideGoTo);
+//   }, [slideGoTo]);
 
-
-
-
-
-
-
-/* - - - - - FILM LEAD CAROUSEL - - - - - */
-const VideoProjectCon = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div.withConfig({
-  displayName: "film-carousel__VideoProjectCon"
-})([""]);
-const VideoCarouselCon = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].div.withConfig({
-  displayName: "film-carousel__VideoCarouselCon"
-})(["width:100%;height:110vh;background-color:black;@media (max-width:666px){}"]);
-const PaginationControlP = styled_components__WEBPACK_IMPORTED_MODULE_10__["default"].p.withConfig({
-  displayName: "film-carousel__PaginationControlP"
-})(["display:inline-block;color:#545454;font-size:12px;&.active{color:white;}"]);
-
-/* - - - - - VIDEO WITH CONTROLS IMG - - - - - */
-
-const FilmLeadCarousel2 = ({
-  children
-}) => {
-  const FilmsLeadCarouselRef = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(null);
-  const FilmsLeadCarouselRefCon = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(null);
-  const {
-    0: carouselLength,
-    1: setCarouselLength
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(children.length);
-  const {
-    0: slideGoTo,
-    1: setSlideGoTo
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
-  const value = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
-    slideGoTo,
-    setSlideGoTo
-  }), [slideGoTo]);
-  const settings = {
-    infinite: true,
-    speed: 0,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    accessibility: true,
-    dots: false,
-    arrows: false,
-    swipe: false,
-    swipeToSlide: false,
-    className: "films-slider"
-  };
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    FilmsLeadCarouselRef.current.slickGoTo(slideGoTo);
-  }, [slideGoTo]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_length_context__WEBPACK_IMPORTED_MODULE_8__["default"].Provider, {
-    value: carouselLength
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_slick_functions_context_js__WEBPACK_IMPORTED_MODULE_9__["default"].Provider, {
-    value: value
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(VideoProjectCon, {
-    ref: FilmsLeadCarouselRefCon
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(VideoCarouselCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_slick__WEBPACK_IMPORTED_MODULE_3__["default"], Object.assign({}, settings, {
-    ref: FilmsLeadCarouselRef
-  }), children)))), []))));
-};
+//   return (
+//     <>
+//       <CarouselLengthContext.Provider value={carouselLength}>
+//         <CarouselIndexClicked.Provider value={value}>
+//           {useMemo(
+//             () => (
+//               <>
+//                 <VideoProjectCon ref={FilmsLeadCarouselRefCon}>
+//                   <VideoCarouselCon>
+//                     <Slider {...settings} ref={FilmsLeadCarouselRef}>
+//                       {children}
+//                     </Slider>
+//                   </VideoCarouselCon>
+//                 </VideoProjectCon>
+//               </>
+//             ),
+//             []
+//           )}
+//         </CarouselIndexClicked.Provider>
+//       </CarouselLengthContext.Provider>
+//     </>
+//   );
+// };
 
 /***/ }),
 
@@ -1907,198 +3941,156 @@ const CarouselLengthContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__
 /*!****************************************************!*\
   !*** ./src/components/tf/index/one-up-carousel.js ***!
   \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ProjectCarousel: () => (/* binding */ ProjectCarousel)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
-/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
-/* harmony import */ var _slick_slick_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../slick/slick.css */ "./src/components/slick/slick.css");
-/* harmony import */ var _slick_slick_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_slick_slick_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../slick/slick-theme.css */ "./src/components/slick/slick-theme.css");
-/* harmony import */ var _slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_3__);
+// import React, {
+//   useRef,
+//   useState,
+//   useEffect,
+//   createContext,
+//   useContext,
+//   useMemo,
+// } from "react";
+// import styled, { createGlobalStyle, keyframes } from "styled-components";
+// import Slider from "react-slick";
+// import "../../slick/slick.css";
+// import "../../slick/slick-theme.css";
 
+// const Grid2 = styled.div`
+//   display: grid;
+//   top: 12.5px;
+//   grid-template-columns: 1fr 1fr;
+//   grid-column-gap: 10px;
+//   margin-left: 10px;
+//   grid-row-gap: 0;
+//   width: calc(100% - 20px);
+//   z-index: 20000;
+// `;
 
+// const CounterCon = styled.div`
+//   grid-column: span 1;
+//   margin-bottom: 5px;
+// `;
 
+// const NextButtonCon = styled.div`
+//   grid-column: span 1;
+//   p {
+//     color: #cfcfcfcf;
+//   }
+// `;
+// const SquareCarouselCon = styled.div`
+//   grid-column: span 2;
+// `;
 
+// export const ProjectCarousel = ({
+//   children,
 
-const Grid2 = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "one-up-carousel__Grid2"
-})(["display:grid;top:12.5px;grid-template-columns:1fr 1fr;grid-column-gap:10px;margin-left:10px;grid-row-gap:0;width:calc(100% - 20px);z-index:20000;"]);
-const CounterCon = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "one-up-carousel__CounterCon"
-})(["grid-column:span 1;margin-bottom:5px;"]);
-const NextButtonCon = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "one-up-carousel__NextButtonCon"
-})(["grid-column:span 1;p{color:#cfcfcfcf;}"]);
-const SquareCarouselCon = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "one-up-carousel__SquareCarouselCon"
-})(["grid-column:span 2;"]);
-const ProjectCarousel = ({
-  children,
-  projectLength,
-  videoLoad
-}) => {
-  // SWIPE GESTURE
-  const {
-    0: touchStart,
-    1: setTouchStart
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
-  const {
-    0: touchEnd,
-    1: setTouchEnd
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
-  // the required distance between touchStart and touchEnd to be detected as a swipe
-  const minSwipeDistance = 50;
-  const onTouchStart = e => {
-    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-  const onTouchMove = e => setTouchEnd(e.targetTouches[0].clientX);
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-    if (isLeftSwipe || isRightSwipe)
-      // console.log("swipe", isLeftSwipe ? "left" : "right");
-      // add your conditional logic here
-      ProjectCarouselRef.current.slickNext();
-  };
+//   projectLength,
+//   videoLoad,
+// }) => {
+//   // SWIPE GESTURE
+//   const [touchStart, setTouchStart] = useState(null);
+//   const [touchEnd, setTouchEnd] = useState(null);
+//   // the required distance between touchStart and touchEnd to be detected as a swipe
+//   const minSwipeDistance = 50;
+//   const onTouchStart = e => {
+//     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
+//     setTouchStart(e.targetTouches[0].clientX);
+//   };
+//   const onTouchMove = e => setTouchEnd(e.targetTouches[0].clientX);
+//   const onTouchEnd = () => {
+//     if (!touchStart || !touchEnd) return;
+//     const distance = touchStart - touchEnd;
+//     const isLeftSwipe = distance > minSwipeDistance;
+//     const isRightSwipe = distance < -minSwipeDistance;
+//     if (isLeftSwipe || isRightSwipe)
+//       // console.log("swipe", isLeftSwipe ? "left" : "right");
+//       // add your conditional logic here
+//       ProjectCarouselRef.current.slickNext();
+//   };
 
-  // COUNTER
-  const {
-    0: currentSlide,
-    1: setCurrentSlide
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
-  const {
-    0: totalSlides,
-    1: setTotalSlides
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    setCurrentSlide(0);
-  }, []);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    setTotalSlides(projectLength);
-  }, []);
-  const updateCurrentSlide = index => {
-    if (currentSlide !== index) {
-      setCurrentSlide(index);
-    }
-  };
+//   // COUNTER
+//   const [currentSlide, setCurrentSlide] = useState(0);
+//   const [totalSlides, setTotalSlides] = useState(null);
+//   useEffect(() => {
+//     setCurrentSlide(0);
+//   }, []);
+//   useEffect(() => {
+//     setTotalSlides(projectLength);
+//   }, []);
+//   const updateCurrentSlide = index => {
+//     if (currentSlide !== index) {
+//       setCurrentSlide(index);
+//     }
+//   };
 
-  // SLIDER SETTINGS
-  const settings = {
-    infinite: true,
-    speed: 0,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    accessibility: true,
-    dots: false,
-    arrows: false,
-    swipe: false,
-    swipeToSlide: false
-  };
+//   // SLIDER SETTINGS
+//   const settings = {
+//     infinite: true,
+//     speed: 0,
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     accessibility: true,
+//     dots: false,
+//     arrows: false,
+//     swipe: false,
+//     swipeToSlide: false,
+//   };
 
-  // SLIDESHOW FUNCTION
-  const ProjectCarouselRef = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(null);
-  const {
-    0: changedSlide,
-    1: setChangedSlide
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  function projectCarouselNextImg() {
-    ProjectCarouselRef.current.slickNext();
-    setChangedSlide(true);
-  }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Grid2, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(CounterCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, ("0" + (currentSlide + 1)).slice(-2))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NextButtonCon, null, projectLength > 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    onClick: projectCarouselNextImg,
-    style: {
-      display: "inline-block"
-    }
-  }, "Next")) : "")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Grid2, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(SquareCarouselCon, {
-    onClick: projectCarouselNextImg,
-    onTouchStart: onTouchStart,
-    onTouchMove: onTouchMove,
-    onTouchEnd: onTouchEnd
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_slick__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({}, settings, {
-    ref: ProjectCarouselRef,
-    afterChange: index => updateCurrentSlide(index)
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().Children.map(children, child => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().cloneElement(child, {
-    changedSlide: changedSlide
-  }))))));
-};
+//   // SLIDESHOW FUNCTION
+//   const ProjectCarouselRef = React.useRef(null);
 
-/***/ }),
+//   const [changedSlide, setChangedSlide] = useState(false);
 
-/***/ "./src/components/tf/index/project-info.js":
-/*!*************************************************!*\
-  !*** ./src/components/tf/index/project-info.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ProjectInfo: () => (/* binding */ ProjectInfo)
-/* harmony export */ });
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-/* harmony import */ var _media_query__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../media-query */ "./src/components/tf/media-query.js");
-
-
-
-
-
-/* - - - - - PROJECT INFO - - - - - */
-const Grid16 = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "project-info__Grid16"
-})(["display:grid;top:12.5px;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;grid-column-gap:12.5px;margin-left:12.5px;grid-row-gap:0;width:calc(100% - 25px);z-index:20000;"]);
-const Grid2 = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "project-info__Grid2"
-})(["display:grid;top:12.5px;grid-template-columns:1fr 1fr;grid-column-gap:10px;margin-left:10px;grid-row-gap:0;width:calc(100% - 20px);z-index:20000;"]);
-const ProjectInfoCon = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "project-info__ProjectInfoCon"
-})(["height:80px;margin-top:8px;@media (max-width:666px){margin-top:4px;}"]);
-const ProjectTitleCon = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "project-info__ProjectTitleCon"
-})(["grid-column:span 4;@media (max-width:666px){grid-column:span 1;a{color:#d4d4d4;}}"]);
-const ProjectLocationYearCon = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "project-info__ProjectLocationYearCon"
-})(["grid-column:span 4;@media (max-width:666px){grid-column:span 1;}"]);
-const ProjectIndexAbout = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "project-info__ProjectIndexAbout"
-})(["grid-column:span 4;p{font-size:12px;}@media (max-width:666px){display:none;}"]);
-const ProjectLink = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "project-info__ProjectLink"
-})(["grid-column:15 / span 2;a{color:#d4d4d4;}@media (max-width:666px){display:none;}"]);
-const ProjectInfo = ({
-  title,
-  year,
-  location,
-  uid,
-  homepage_intro,
-  client
-}) => {
-  let isPageWide = (0,_media_query__WEBPACK_IMPORTED_MODULE_2__.useMediaQuery)("(min-width: 667px)");
-  if (isPageWide) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectInfoCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Grid16, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectTitleCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      to: uid
-    }, title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectLocationYearCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, year)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectIndexAbout, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, homepage_intro)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectLink, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      to: uid
-    }, "More Info"))));
-  } else {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectInfoCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Grid2, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectTitleCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      to: uid
-    }, title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectLocationYearCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, year))));
-  }
-};
+//   function projectCarouselNextImg() {
+//     ProjectCarouselRef.current.slickNext();
+//     setChangedSlide(true);
+//   }
+//   return (
+//     <>
+//       <Grid2>
+//         <CounterCon>
+//           <p>{("0" + (currentSlide + 1)).slice(-2)}</p>
+//         </CounterCon>
+//         <NextButtonCon>
+//           {projectLength > 1 ? (
+//             <>
+//               <p
+//                 onClick={projectCarouselNextImg}
+//                 style={{ display: "inline-block" }}
+//               >
+//                 Next
+//               </p>
+//               {/* <PVideoLoadingNext>&nbsp; (Video Loading)</PVideoLoadingNext> */}
+//             </>
+//           ) : (
+//             ""
+//           )}
+//         </NextButtonCon>
+//       </Grid2>
+//       <Grid2>
+//         <SquareCarouselCon
+//           onClick={projectCarouselNextImg}
+//           onTouchStart={onTouchStart}
+//           onTouchMove={onTouchMove}
+//           onTouchEnd={onTouchEnd}
+//         >
+//           <Slider
+//             {...settings}
+//             ref={ProjectCarouselRef}
+//             afterChange={index => updateCurrentSlide(index)}
+//           >
+//             {React.Children.map(children, child =>
+//               React.cloneElement(child, {
+//                 changedSlide: changedSlide,
+//               })
+//             )}
+//           </Slider>
+//         </SquareCarouselCon>
+//       </Grid2>
+//     </>
+//   );
+// };
 
 /***/ }),
 
@@ -2217,61 +4209,63 @@ const CarouselIndexClicked = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.
 
 /***/ }),
 
-/***/ "./src/components/tf/index/two-up-carousels/two-up-carousel-slick-default.js":
-/*!***********************************************************************************!*\
-  !*** ./src/components/tf/index/two-up-carousels/two-up-carousel-slick-default.js ***!
-  \***********************************************************************************/
+/***/ "./src/components/tf/index/two-up-carousels/two-up-carousel-slick-ant.js":
+/*!*******************************************************************************!*\
+  !*** ./src/components/tf/index/two-up-carousels/two-up-carousel-slick-ant.js ***!
+  \*******************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   TwoUpProjectCarouselSlickDefault: () => (/* binding */ TwoUpProjectCarouselSlickDefault)
+/* harmony export */   TwoUpProjectCarouselSlickAnt: () => (/* binding */ TwoUpProjectCarouselSlickAnt)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
-/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
-/* harmony import */ var _slick_slick_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../slick/slick.css */ "./src/components/slick/slick.css");
-/* harmony import */ var _slick_slick_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_slick_slick_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../slick/slick-theme.css */ "./src/components/slick/slick-theme.css");
-/* harmony import */ var _slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _ant_design_react_slick__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ant-design/react-slick */ "./node_modules/@ant-design/react-slick/es/index.js");
+/* harmony import */ var slick_carousel_slick_slick_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-carousel/slick/slick.css");
+/* harmony import */ var slick_carousel_slick_slick_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(slick_carousel_slick_slick_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var slick_carousel_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
+/* harmony import */ var slick_carousel_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(slick_carousel_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
+// import "../../../slick/slick.css";
+// import "../../../slick/slick-theme.css";
 
 
 const Grid16 = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "two-up-carousel-slick-default__Grid16"
+  displayName: "two-up-carousel-slick-ant__Grid16"
 })(["display:grid;top:12.5px;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;grid-column-gap:12.5px;margin-left:12.5px;grid-row-gap:0;width:calc(100% - 25px);z-index:20000;"]);
 const TwoUpCarouselCounterNextCon = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "two-up-carousel-slick-default__TwoUpCarouselCounterNextCon"
+  displayName: "two-up-carousel-slick-ant__TwoUpCarouselCounterNextCon"
 })(["margin-bottom:8px;"]);
 const TwoUpCarouselCon = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "two-up-carousel-slick-default__TwoUpCarouselCon"
+  displayName: "two-up-carousel-slick-ant__TwoUpCarouselCon"
 })(["margin-left:12.5px;"]);
 const TwoUpCarouselCounterOneCon = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "two-up-carousel-slick-default__TwoUpCarouselCounterOneCon"
+  displayName: "two-up-carousel-slick-ant__TwoUpCarouselCounterOneCon"
 })(["grid-column:span 8;"]);
 const TwoUpCarouselCounterTwoCon = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "two-up-carousel-slick-default__TwoUpCarouselCounterTwoCon"
+  displayName: "two-up-carousel-slick-ant__TwoUpCarouselCounterTwoCon"
 })(["grid-column:span 6;"]);
 const TwoUpCarouselNextButtonCon = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "two-up-carousel-slick-default__TwoUpCarouselNextButtonCon"
+  displayName: "two-up-carousel-slick-ant__TwoUpCarouselNextButtonCon"
 })(["grid-column:span 2;p{color:#878787;}"]);
 const CarouselButtonCon = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "two-up-carousel-slick-default__CarouselButtonCon"
+  displayName: "two-up-carousel-slick-ant__CarouselButtonCon"
 })(["width:100%;height:100%;z-index:1000;"]);
 const CarouselCon = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "two-up-carousel-slick-default__CarouselCon"
+  displayName: "two-up-carousel-slick-ant__CarouselCon"
 })(["z-index:0;"]);
 const ForwardButton = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "two-up-carousel-slick-default__ForwardButton"
+  displayName: "two-up-carousel-slick-ant__ForwardButton"
 })(["width:50%;height:100%;cursor:e-resize;float:right;"]);
 const BackButton = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div.withConfig({
-  displayName: "two-up-carousel-slick-default__BackButton"
+  displayName: "two-up-carousel-slick-ant__BackButton"
 })(["width:50%;height:100%;cursor:e-resize;float:left;"]);
-const TwoUpProjectCarouselSlickDefault = ({
+const TwoUpProjectCarouselSlickAnt = ({
   children,
   projectLength
 }) => {
@@ -2327,7 +4321,7 @@ const TwoUpProjectCarouselSlickDefault = ({
     }
   }, "Next")) : ""))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(TwoUpCarouselCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(CarouselButtonCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(CarouselCon, {
     onClick: projectCarouselNextImg
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_slick__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({}, settings, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_ant_design_react_slick__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({}, settings, {
     ref: ProjectCarouselRef,
     afterChange: index => updateCurrentSlide(index)
   }), react__WEBPACK_IMPORTED_MODULE_0___default().Children.map(children, child => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().cloneElement(child, {
@@ -2577,46 +4571,6 @@ function useMediaQuery(query) {
 
 /***/ }),
 
-/***/ "./src/components/tf/page-load.js":
-/*!****************************************!*\
-  !*** ./src/components/tf/page-load.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   PageLoad: () => (/* binding */ PageLoad)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-function PageLoad(query) {
-  const {
-    0: pageLoad,
-    1: setPageLoad
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    // callback function to call when event triggers
-    const onPageLoad = () => {
-      console.log("page loaded");
-      setPageLoad(true);
-      // do something else
-    };
-
-    // Check if the page has already loaded
-    if (document.readyState === "complete") {
-      onPageLoad();
-    } else {
-      window.addEventListener("load", onPageLoad, false);
-      // Remove the event listener when component unmounts
-      return () => window.removeEventListener("load", onPageLoad);
-    }
-  }, []);
-}
-
-/***/ }),
-
 /***/ "./src/components/utils/image-orientation.js":
 /*!***************************************************!*\
   !*** ./src/components/utils/image-orientation.js ***!
@@ -2721,49 +4675,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
-/* harmony import */ var gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! gatsby-plugin-image */ "./node_modules/gatsby-plugin-image/dist/gatsby-image.module.js");
-/* harmony import */ var gatsby_plugin_prismic_previews__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! gatsby-plugin-prismic-previews */ "./node_modules/gatsby-plugin-prismic-previews/dist/withPrismicPreview.js");
-/* harmony import */ var _components_utils_image_orientation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/utils/image-orientation */ "./src/components/utils/image-orientation.js");
-/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/es/Helmet.js");
-/* harmony import */ var _components_styles_index_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/styles/index.css */ "./src/components/styles/index.css");
-/* harmony import */ var _components_styles_index_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_components_styles_index_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _components_tf_media_query__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/tf/media-query */ "./src/components/tf/media-query.js");
-/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
-/* harmony import */ var _components_slick_slick_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/slick/slick.css */ "./src/components/slick/slick.css");
-/* harmony import */ var _components_slick_slick_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_components_slick_slick_css__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _components_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/slick/slick-theme.css */ "./src/components/slick/slick-theme.css");
-/* harmony import */ var _components_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_components_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _components_hooks_useOnScreen__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/hooks/useOnScreen */ "./src/components/hooks/useOnScreen.js");
-/* harmony import */ var _assets_WhiteLogo_svg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../assets/WhiteLogo.svg */ "./assets/WhiteLogo.svg");
-/* harmony import */ var _assets_WhiteLogo_svg__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_assets_WhiteLogo_svg__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _components_tf_autoplay_video__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/tf/autoplay-video */ "./src/components/tf/autoplay-video.js");
-/* harmony import */ var _components_utils_image_orientation2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/utils/image-orientation2 */ "./src/components/utils/image-orientation2.js");
-/* harmony import */ var _components_tf_page_load__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/tf/page-load */ "./src/components/tf/page-load.js");
-/* harmony import */ var _components_tf_index_intro__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../components/tf/index/intro */ "./src/components/tf/index/intro.js");
-/* harmony import */ var _components_tf_index_project_info__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../components/tf/index/project-info */ "./src/components/tf/index/project-info.js");
-/* harmony import */ var _components_tf_index_project_info2__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../components/tf/index/project-info2 */ "./src/components/tf/index/project-info2.js");
-/* harmony import */ var _components_tf_img_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../components/tf/img-component */ "./src/components/tf/img-component.js");
-/* harmony import */ var _components_tf_index_two_up_carousels_two_up_carousel_slick_default__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../components/tf/index/two-up-carousels/two-up-carousel-slick-default */ "./src/components/tf/index/two-up-carousels/two-up-carousel-slick-default.js");
-/* harmony import */ var _components_tf_index_one_up_carousel__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../components/tf/index/one-up-carousel */ "./src/components/tf/index/one-up-carousel.js");
-/* harmony import */ var _components_tf_index_single_asset_project1__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../components/tf/index/single-asset-project1 */ "./src/components/tf/index/single-asset-project1.js");
-/* harmony import */ var _components_tf_index_film_carousel__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../components/tf/index/film-carousel */ "./src/components/tf/index/film-carousel.js");
-/* harmony import */ var _components_tf_index_video__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../components/tf/index/video */ "./src/components/tf/index/video.js");
-/* harmony import */ var _components_tf_index_length_context__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../components/tf/index/length-context */ "./src/components/tf/index/length-context.js");
-/* harmony import */ var _components_tf_index_slick_functions_context_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../components/tf/index/slick-functions-context.js */ "./src/components/tf/index/slick-functions-context.js");
-
-
-
-
-
-
-
-
-
-
-// import Icon from "../../assets/White Logo No TF.svg";
+/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+/* harmony import */ var gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! gatsby-plugin-image */ "./node_modules/gatsby-plugin-image/dist/gatsby-image.module.js");
+/* harmony import */ var gatsby_plugin_prismic_previews__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! gatsby-plugin-prismic-previews */ "./node_modules/gatsby-plugin-prismic-previews/dist/withPrismicPreview.js");
+/* harmony import */ var _components_utils_image_orientation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/utils/image-orientation */ "./src/components/utils/image-orientation.js");
+/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/es/Helmet.js");
+/* harmony import */ var _components_styles_index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/styles/index.css */ "./src/components/styles/index.css");
+/* harmony import */ var _components_styles_index_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_styles_index_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_tf_media_query__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/tf/media-query */ "./src/components/tf/media-query.js");
+/* harmony import */ var _assets_WhiteLogo_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../assets/WhiteLogo.svg */ "./assets/WhiteLogo.svg");
+/* harmony import */ var _assets_WhiteLogo_svg__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_assets_WhiteLogo_svg__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_tf_autoplay_video__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/tf/autoplay-video */ "./src/components/tf/autoplay-video.js");
+/* harmony import */ var _components_tf_index_intro__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/tf/index/intro */ "./src/components/tf/index/intro.js");
+/* harmony import */ var _components_tf_index_project_info2__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/tf/index/project-info2 */ "./src/components/tf/index/project-info2.js");
+/* harmony import */ var _components_tf_index_two_up_carousels_two_up_carousel_slick_ant__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/tf/index/two-up-carousels/two-up-carousel-slick-ant */ "./src/components/tf/index/two-up-carousels/two-up-carousel-slick-ant.js");
+/* harmony import */ var _components_tf_index_one_up_carousel__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/tf/index/one-up-carousel */ "./src/components/tf/index/one-up-carousel.js");
+/* harmony import */ var _components_tf_index_one_up_carousel__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_components_tf_index_one_up_carousel__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _components_tf_index_single_asset_project1__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/tf/index/single-asset-project1 */ "./src/components/tf/index/single-asset-project1.js");
+/* harmony import */ var _components_tf_index_film_carousel__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/tf/index/film-carousel */ "./src/components/tf/index/film-carousel.js");
+/* harmony import */ var _components_tf_index_film_carousel__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_components_tf_index_film_carousel__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _components_tf_index_video__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../components/tf/index/video */ "./src/components/tf/index/video.js");
 
 
 
@@ -2777,15 +4709,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import Slider from "@ant-design/react-slick";
 
 
 
 
 
-
-// import { SingleAssetProject2 } from "../components/tf/index/single-asset-project2";
-
-const GlobalStyle = (0,styled_components__WEBPACK_IMPORTED_MODULE_26__.createGlobalStyle)`
+const GlobalStyle = (0,styled_components__WEBPACK_IMPORTED_MODULE_15__.createGlobalStyle)`
   html {
     background-color: white;
     overflow-x: clip;
@@ -2803,63 +4733,63 @@ const GlobalStyle = (0,styled_components__WEBPACK_IMPORTED_MODULE_26__.createGlo
 `;
 
 /* - - - - - INTRO  - - - - -  */
-const IntroConCon = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const IntroConCon = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__IntroConCon"
 })([""]);
 
 /* NAV */
 /* BOTH */
-const LogoGridCon = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const LogoGridCon = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__LogoGridCon"
 })(["width:calc(100% - 25px);margin-left:12.5px;position:sticky;top:12.5px;z-index:300000;mix-blend-mode:exclusion;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-gap:12.5px;@media (max-width:666px){width:calc(100% - 20px);margin-left:10px;top:10px;}"]);
 /* DESKTOP */
-const LogoConCon = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const LogoConCon = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__LogoConCon"
 })(["grid-column:span 2;mix-blend-mode:exclusion;"]);
-const MenuCon = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const MenuCon = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__MenuCon"
 })(["grid-column:3 / span 2;mix-blend-mode:exclusion;"]);
-const LogoCon = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const LogoCon = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__LogoCon"
 })(["mix-blend-mode:exclusion;width:calc(100%);vertical-align:top;transition:all 2s;vertical-align:top;"]);
-const DesktopNavP = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].p.withConfig({
+const DesktopNavP = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].p.withConfig({
   displayName: "pages__DesktopNavP"
 })(["color:#878787;mix-blend-mode:exclusion;a.selected{color:white;}@media (max-width:666px){display:none;}"]);
 
 /* MOBILE */
 
-const MobileLeftCol = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const MobileLeftCol = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__MobileLeftCol"
 })(["grid-column:span 2;mix-blend-mode:exclusion;"]);
-const MobileRightCol = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const MobileRightCol = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__MobileRightCol"
 })(["grid-column:span 2;mix-blend-mode:exclusion;"]);
-const MobileNavP = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].p.withConfig({
+const MobileNavP = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].p.withConfig({
   displayName: "pages__MobileNavP"
 })(["display:none;color:#878787;mix-blend-mode:exclusion;&.selected{color:white;}@media (max-width:666px){display:block;}"]);
-const LogoConMobile = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const LogoConMobile = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__LogoConMobile"
 })(["display:none;mix-blend-mode:exclusion;@media (max-width:666px){display:block;width:calc(75% - 6.25px);margin-top:14vh;margin-left:10px;.shrink{width:calc(75% - 6.25px);}}"]);
-const NavSpacer = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const NavSpacer = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__NavSpacer"
 })(["height:25vh;width:100%;@media (max-width:666px){display:none;}"]);
 
 /* - - - - - PAGE  - - - - - */
-const PageCon = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const PageCon = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__PageCon"
 })(["margin-top:30vh;"]);
-const ProjectCon = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const ProjectCon = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__ProjectCon"
 })(["margin-bottom:100px;@media (max-width:666px){margin-bottom:200px;}"]);
 
 /* - - - - - INDEX AUTOPLAT VIDEO FORMATTING - - - - - */
 /* - - perhaps in the autoplay video component you put a conditional saying if page index apply this  - - */
-const IndexAutoPlayVideoCon = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const IndexAutoPlayVideoCon = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__IndexAutoPlayVideoCon"
 })(["position:relative;width:calc(100% - 12.5px) !important;@media (max-width:666px){width:100%;}"]);
 
 /* - - - - - - IMAGE - - - - - - - */
-const SquareImg = styled_components__WEBPACK_IMPORTED_MODULE_26__["default"].div.withConfig({
+const SquareImg = styled_components__WEBPACK_IMPORTED_MODULE_15__["default"].div.withConfig({
   displayName: "pages__SquareImg"
 })(["width:calc(100% - 12.5px) !important;@media (max-width:666px){width:100%;}"]);
 const Index = ({
@@ -2870,7 +4800,7 @@ const Index = ({
     0: pageLoad,
     1: setPageLoad
   } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
-  let isPageWide = (0,_components_tf_media_query__WEBPACK_IMPORTED_MODULE_6__.useMediaQuery)("(min-width: 667px)");
+  let isPageWide = (0,_components_tf_media_query__WEBPACK_IMPORTED_MODULE_5__.useMediaQuery)("(min-width: 667px)");
   const LogoConRef2 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
   // page load useEffect
@@ -2897,7 +4827,7 @@ const Index = ({
     document.body.style.position = "relative";
   }
   const NavIndexGridIndex = () => {
-    let isPageWide = (0,_components_tf_media_query__WEBPACK_IMPORTED_MODULE_6__.useMediaQuery)("(min-width: 667px)");
+    let isPageWide = (0,_components_tf_media_query__WEBPACK_IMPORTED_MODULE_5__.useMediaQuery)("(min-width: 667px)");
     var {
       0: currentPage,
       1: setCurrentPage
@@ -2930,33 +4860,33 @@ const Index = ({
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(LogoConCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(LogoCon, {
         ref: LogoConRef
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_assets_WhiteLogo_svg__WEBPACK_IMPORTED_MODULE_11___default()), null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MenuCon, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_assets_WhiteLogo_svg__WEBPACK_IMPORTED_MODULE_6___default()), null)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MenuCon, {
         style: {
           opacity: pageLoad ? 1 : 0
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(DesktopNavP, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(DesktopNavP, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/",
         className: "selected"
-      }, "Select,", " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+      }, "Select,", " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/project_index"
-      }, "Index, "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+      }, "Index, "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/office"
       }, "Office")))));
     }
     if (!isPageWide) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(LogoGridCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MobileLeftCol, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(LogoGridCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MobileLeftCol, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MobileNavP, {
         className: "selected"
-      }, "Selected")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+      }, "Selected")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/project_index"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MobileNavP, null, "Index"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MobileRightCol, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MobileNavP, null, "Index"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MobileRightCol, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/office"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MobileNavP, null, "Office")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(MobileNavP, null, "Instagram"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(LogoConMobile, {
         ref: LogoConRef
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_assets_WhiteLogo_svg__WEBPACK_IMPORTED_MODULE_11___default()), null)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((_assets_WhiteLogo_svg__WEBPACK_IMPORTED_MODULE_6___default()), null)));
     }
   };
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map((content, index) => {
@@ -2964,31 +4894,28 @@ const Index = ({
       const filmLeadProject = content.project_relationship_field.document.data.body.map((content_three, index) => {
         if (content_three.slice_type == "video_with_play_button") {
           const posterImage = content_three.primary.video_thumbnail;
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_video__WEBPACK_IMPORTED_MODULE_23__.VideoWithControlsImg2, {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_video__WEBPACK_IMPORTED_MODULE_14__.VideoWithControlsImg2, {
             srcProps: content_three.primary.video_with_play_button.url,
             posterProps: posterImage,
             img: posterImage
           });
         }
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_film_carousel__WEBPACK_IMPORTED_MODULE_22__.FilmLeadCarousel2, null, react__WEBPACK_IMPORTED_MODULE_0___default().Children.map(filmLeadProject, child => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().cloneElement(child, {}))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_project_info2__WEBPACK_IMPORTED_MODULE_17__.ProjectInfo2, {
-        data2: content.project_relationship_field.document.data,
-        uid: content.project_relationship_field.document.uid
-      })));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null);
     }
     if (content.project_relationship_field.document.type == "project") {
       const projectLength = content.project_relationship_field.document.data.body.length;
       const project = content.project_relationship_field.document.data.body.map((content_four, index) => {
         if (content_four.slice_type == "image") {
           // console.log("SQUARE IMAGE");
-          const image = (0,gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_27__.getImage)(content_four.primary.image);
+          const image = (0,gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_16__.getImage)(content_four.primary.image);
           // console.log(image);
           return (
             /*#__PURE__*/
             // <ImgComponent
             //   srcProps={content_four.primary.image.gatsbyImageData.images.sources.srcSet}
             // />
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(SquareImg, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_27__.GatsbyImage, {
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(SquareImg, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_16__.GatsbyImage, {
               image: image
             }))
           );
@@ -2997,13 +4924,13 @@ const Index = ({
           if (isPageWide) {
             // postImage = getImage(content_four.primary.index_image)
             const posterImg = content_four.primary.index_image;
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(IndexAutoPlayVideoCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_autoplay_video__WEBPACK_IMPORTED_MODULE_12__.AutoPlayVideo, {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(IndexAutoPlayVideoCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_autoplay_video__WEBPACK_IMPORTED_MODULE_7__.AutoPlayVideo, {
               srcProps: content_four.primary.video.url,
               posterProps: posterImg
             }));
           } else {
             const posterImg = content_four.primary.index_image;
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_autoplay_video__WEBPACK_IMPORTED_MODULE_12__.AutoPlayVideo, {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_autoplay_video__WEBPACK_IMPORTED_MODULE_7__.AutoPlayVideo, {
               srcProps: content_four.primary.sml_video.url,
               posterProps: posterImg
             });
@@ -3011,447 +4938,54 @@ const Index = ({
         }
       });
       if (isPageWide && projectLength > 1) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_two_up_carousels_two_up_carousel_slick_default__WEBPACK_IMPORTED_MODULE_19__.TwoUpProjectCarouselSlickDefault, {
+        console.log("ANT DESIGN");
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_two_up_carousels_two_up_carousel_slick_ant__WEBPACK_IMPORTED_MODULE_10__.TwoUpProjectCarouselSlickAnt, {
           projectLength: content.project_relationship_field.document.data.body.length
         }, react__WEBPACK_IMPORTED_MODULE_0___default().Children.map(project, child => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().cloneElement(child, {
           changedSlide: false
-        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_project_info2__WEBPACK_IMPORTED_MODULE_17__.ProjectInfo2, {
+        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_project_info2__WEBPACK_IMPORTED_MODULE_9__.ProjectInfo2, {
           data2: content.project_relationship_field.document.data,
           uid: content.project_relationship_field.document.uid
         }));
       } else if (isPageWide && projectLength <= 1) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_single_asset_project1__WEBPACK_IMPORTED_MODULE_21__.SingleAssetProject, null, project), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_project_info2__WEBPACK_IMPORTED_MODULE_17__.ProjectInfo2, {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_single_asset_project1__WEBPACK_IMPORTED_MODULE_12__.SingleAssetProject, null, project), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_project_info2__WEBPACK_IMPORTED_MODULE_9__.ProjectInfo2, {
           data2: content.project_relationship_field.document.data,
           uid: content.project_relationship_field.document.uid
         })));
       } else if (isPageWide == false) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_one_up_carousel__WEBPACK_IMPORTED_MODULE_20__.ProjectCarousel, {
-          projectLength: projectLength
-        }, react__WEBPACK_IMPORTED_MODULE_0___default().Children.map(project, child => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().cloneElement(child, {
-          changedSlide: false
-        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_project_info2__WEBPACK_IMPORTED_MODULE_17__.ProjectInfo2, {
-          data2: content.project_relationship_field.document.data,
-          uid: content.project_relationship_field.document.uid
-        }));
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ProjectCon, null);
       }
     }
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(GlobalStyle, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_helmet__WEBPACK_IMPORTED_MODULE_4__.Helmet, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("head", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("title", null, "(10) Pagination 1")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(IntroConCon, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(GlobalStyle, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_helmet__WEBPACK_IMPORTED_MODULE_3__.Helmet, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("head", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("title", null, "(10) Pagination 1")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(IntroConCon, {
     style: {
       opacity: pageLoad ? 1 : 0
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_intro__WEBPACK_IMPORTED_MODULE_15__.Intro, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NavSpacer, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NavIndexGridIndex, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageCon, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_index_intro__WEBPACK_IMPORTED_MODULE_8__.Intro, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NavSpacer, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NavIndexGridIndex, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PageCon, {
     style: {
       opacity: pageLoad ? 1 : 0
     }
   }, overview));
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,gatsby_plugin_prismic_previews__WEBPACK_IMPORTED_MODULE_28__.withPrismicPreview)(Index));
-const query = "1267050292";
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,gatsby_plugin_prismic_previews__WEBPACK_IMPORTED_MODULE_17__.withPrismicPreview)(Index));
+const query = "2167911604";
 
 /***/ }),
 
-/***/ "./node_modules/lodash.debounce/index.js":
-/*!***********************************************!*\
-  !*** ./node_modules/lodash.debounce/index.js ***!
-  \***********************************************/
-/***/ ((module) => {
-
-/**
- * lodash (Custom Build) <https://lodash.com/>
- * Build: `lodash modularize exports="npm" -o ./`
- * Copyright jQuery Foundation and other contributors <https://jquery.org/>
- * Released under MIT license <https://lodash.com/license>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- */
-
-/** Used as the `TypeError` message for "Functions" methods. */
-var FUNC_ERROR_TEXT = 'Expected a function';
-
-/** Used as references for various `Number` constants. */
-var NAN = 0 / 0;
-
-/** `Object#toString` result references. */
-var symbolTag = '[object Symbol]';
-
-/** Used to match leading and trailing whitespace. */
-var reTrim = /^\s+|\s+$/g;
-
-/** Used to detect bad signed hexadecimal string values. */
-var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
-
-/** Used to detect binary string values. */
-var reIsBinary = /^0b[01]+$/i;
-
-/** Used to detect octal string values. */
-var reIsOctal = /^0o[0-7]+$/i;
-
-/** Built-in method references without a dependency on `root`. */
-var freeParseInt = parseInt;
-
-/** Detect free variable `global` from Node.js. */
-var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
-
-/** Detect free variable `self`. */
-var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-
-/** Used as a reference to the global object. */
-var root = freeGlobal || freeSelf || Function('return this')();
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objectToString = objectProto.toString;
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeMax = Math.max,
-    nativeMin = Math.min;
-
-/**
- * Gets the timestamp of the number of milliseconds that have elapsed since
- * the Unix epoch (1 January 1970 00:00:00 UTC).
- *
- * @static
- * @memberOf _
- * @since 2.4.0
- * @category Date
- * @returns {number} Returns the timestamp.
- * @example
- *
- * _.defer(function(stamp) {
- *   console.log(_.now() - stamp);
- * }, _.now());
- * // => Logs the number of milliseconds it took for the deferred invocation.
- */
-var now = function() {
-  return root.Date.now();
-};
-
-/**
- * Creates a debounced function that delays invoking `func` until after `wait`
- * milliseconds have elapsed since the last time the debounced function was
- * invoked. The debounced function comes with a `cancel` method to cancel
- * delayed `func` invocations and a `flush` method to immediately invoke them.
- * Provide `options` to indicate whether `func` should be invoked on the
- * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
- * with the last arguments provided to the debounced function. Subsequent
- * calls to the debounced function return the result of the last `func`
- * invocation.
- *
- * **Note:** If `leading` and `trailing` options are `true`, `func` is
- * invoked on the trailing edge of the timeout only if the debounced function
- * is invoked more than once during the `wait` timeout.
- *
- * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
- * until to the next tick, similar to `setTimeout` with a timeout of `0`.
- *
- * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
- * for details over the differences between `_.debounce` and `_.throttle`.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Function
- * @param {Function} func The function to debounce.
- * @param {number} [wait=0] The number of milliseconds to delay.
- * @param {Object} [options={}] The options object.
- * @param {boolean} [options.leading=false]
- *  Specify invoking on the leading edge of the timeout.
- * @param {number} [options.maxWait]
- *  The maximum time `func` is allowed to be delayed before it's invoked.
- * @param {boolean} [options.trailing=true]
- *  Specify invoking on the trailing edge of the timeout.
- * @returns {Function} Returns the new debounced function.
- * @example
- *
- * // Avoid costly calculations while the window size is in flux.
- * jQuery(window).on('resize', _.debounce(calculateLayout, 150));
- *
- * // Invoke `sendMail` when clicked, debouncing subsequent calls.
- * jQuery(element).on('click', _.debounce(sendMail, 300, {
- *   'leading': true,
- *   'trailing': false
- * }));
- *
- * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
- * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
- * var source = new EventSource('/stream');
- * jQuery(source).on('message', debounced);
- *
- * // Cancel the trailing debounced invocation.
- * jQuery(window).on('popstate', debounced.cancel);
- */
-function debounce(func, wait, options) {
-  var lastArgs,
-      lastThis,
-      maxWait,
-      result,
-      timerId,
-      lastCallTime,
-      lastInvokeTime = 0,
-      leading = false,
-      maxing = false,
-      trailing = true;
-
-  if (typeof func != 'function') {
-    throw new TypeError(FUNC_ERROR_TEXT);
-  }
-  wait = toNumber(wait) || 0;
-  if (isObject(options)) {
-    leading = !!options.leading;
-    maxing = 'maxWait' in options;
-    maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
-    trailing = 'trailing' in options ? !!options.trailing : trailing;
-  }
-
-  function invokeFunc(time) {
-    var args = lastArgs,
-        thisArg = lastThis;
-
-    lastArgs = lastThis = undefined;
-    lastInvokeTime = time;
-    result = func.apply(thisArg, args);
-    return result;
-  }
-
-  function leadingEdge(time) {
-    // Reset any `maxWait` timer.
-    lastInvokeTime = time;
-    // Start the timer for the trailing edge.
-    timerId = setTimeout(timerExpired, wait);
-    // Invoke the leading edge.
-    return leading ? invokeFunc(time) : result;
-  }
-
-  function remainingWait(time) {
-    var timeSinceLastCall = time - lastCallTime,
-        timeSinceLastInvoke = time - lastInvokeTime,
-        result = wait - timeSinceLastCall;
-
-    return maxing ? nativeMin(result, maxWait - timeSinceLastInvoke) : result;
-  }
-
-  function shouldInvoke(time) {
-    var timeSinceLastCall = time - lastCallTime,
-        timeSinceLastInvoke = time - lastInvokeTime;
-
-    // Either this is the first call, activity has stopped and we're at the
-    // trailing edge, the system time has gone backwards and we're treating
-    // it as the trailing edge, or we've hit the `maxWait` limit.
-    return (lastCallTime === undefined || (timeSinceLastCall >= wait) ||
-      (timeSinceLastCall < 0) || (maxing && timeSinceLastInvoke >= maxWait));
-  }
-
-  function timerExpired() {
-    var time = now();
-    if (shouldInvoke(time)) {
-      return trailingEdge(time);
-    }
-    // Restart the timer.
-    timerId = setTimeout(timerExpired, remainingWait(time));
-  }
-
-  function trailingEdge(time) {
-    timerId = undefined;
-
-    // Only invoke if we have `lastArgs` which means `func` has been
-    // debounced at least once.
-    if (trailing && lastArgs) {
-      return invokeFunc(time);
-    }
-    lastArgs = lastThis = undefined;
-    return result;
-  }
-
-  function cancel() {
-    if (timerId !== undefined) {
-      clearTimeout(timerId);
-    }
-    lastInvokeTime = 0;
-    lastArgs = lastCallTime = lastThis = timerId = undefined;
-  }
-
-  function flush() {
-    return timerId === undefined ? result : trailingEdge(now());
-  }
-
-  function debounced() {
-    var time = now(),
-        isInvoking = shouldInvoke(time);
-
-    lastArgs = arguments;
-    lastThis = this;
-    lastCallTime = time;
-
-    if (isInvoking) {
-      if (timerId === undefined) {
-        return leadingEdge(lastCallTime);
-      }
-      if (maxing) {
-        // Handle invocations in a tight loop.
-        timerId = setTimeout(timerExpired, wait);
-        return invokeFunc(lastCallTime);
-      }
-    }
-    if (timerId === undefined) {
-      timerId = setTimeout(timerExpired, wait);
-    }
-    return result;
-  }
-  debounced.cancel = cancel;
-  debounced.flush = flush;
-  return debounced;
-}
-
-/**
- * Checks if `value` is the
- * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
- * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(_.noop);
- * // => true
- *
- * _.isObject(null);
- * // => false
- */
-function isObject(value) {
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-/**
- * Checks if `value` is object-like. A value is object-like if it's not `null`
- * and has a `typeof` result of "object".
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- * @example
- *
- * _.isObjectLike({});
- * // => true
- *
- * _.isObjectLike([1, 2, 3]);
- * // => true
- *
- * _.isObjectLike(_.noop);
- * // => false
- *
- * _.isObjectLike(null);
- * // => false
- */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
-
-/**
- * Checks if `value` is classified as a `Symbol` primitive or object.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
- * @example
- *
- * _.isSymbol(Symbol.iterator);
- * // => true
- *
- * _.isSymbol('abc');
- * // => false
- */
-function isSymbol(value) {
-  return typeof value == 'symbol' ||
-    (isObjectLike(value) && objectToString.call(value) == symbolTag);
-}
-
-/**
- * Converts `value` to a number.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to process.
- * @returns {number} Returns the number.
- * @example
- *
- * _.toNumber(3.2);
- * // => 3.2
- *
- * _.toNumber(Number.MIN_VALUE);
- * // => 5e-324
- *
- * _.toNumber(Infinity);
- * // => Infinity
- *
- * _.toNumber('3.2');
- * // => 3.2
- */
-function toNumber(value) {
-  if (typeof value == 'number') {
-    return value;
-  }
-  if (isSymbol(value)) {
-    return NAN;
-  }
-  if (isObject(value)) {
-    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
-    value = isObject(other) ? (other + '') : other;
-  }
-  if (typeof value != 'string') {
-    return value === 0 ? value : +value;
-  }
-  value = value.replace(reTrim, '');
-  var isBinary = reIsBinary.test(value);
-  return (isBinary || reIsOctal.test(value))
-    ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
-    : (reIsBadHex.test(value) ? NAN : +value);
-}
-
-module.exports = debounce;
-
-
-/***/ }),
-
-/***/ "./src/components/slick/slick-theme.css":
-/*!**********************************************!*\
-  !*** ./src/components/slick/slick-theme.css ***!
-  \**********************************************/
+/***/ "./node_modules/slick-carousel/slick/slick-theme.css":
+/*!***********************************************************!*\
+  !*** ./node_modules/slick-carousel/slick/slick-theme.css ***!
+  \***********************************************************/
 /***/ (() => {
 
 
 
 /***/ }),
 
-/***/ "./src/components/slick/slick.css":
-/*!****************************************!*\
-  !*** ./src/components/slick/slick.css ***!
-  \****************************************/
+/***/ "./node_modules/slick-carousel/slick/slick.css":
+/*!*****************************************************!*\
+  !*** ./node_modules/slick-carousel/slick/slick.css ***!
+  \*****************************************************/
 /***/ (() => {
 
 
@@ -33386,2943 +34920,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./node_modules/react-slick/lib/arrows.js":
-/*!************************************************!*\
-  !*** ./node_modules/react-slick/lib/arrows.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.PrevArrow = exports.NextArrow = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
-
-var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
-
-var _innerSliderUtils = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/react-slick/lib/utils/innerSliderUtils.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var PrevArrow = /*#__PURE__*/function (_React$PureComponent) {
-  _inherits(PrevArrow, _React$PureComponent);
-
-  var _super = _createSuper(PrevArrow);
-
-  function PrevArrow() {
-    _classCallCheck(this, PrevArrow);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(PrevArrow, [{
-    key: "clickHandler",
-    value: function clickHandler(options, e) {
-      if (e) {
-        e.preventDefault();
-      }
-
-      this.props.clickHandler(options, e);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var prevClasses = {
-        "slick-arrow": true,
-        "slick-prev": true
-      };
-      var prevHandler = this.clickHandler.bind(this, {
-        message: "previous"
-      });
-
-      if (!this.props.infinite && (this.props.currentSlide === 0 || this.props.slideCount <= this.props.slidesToShow)) {
-        prevClasses["slick-disabled"] = true;
-        prevHandler = null;
-      }
-
-      var prevArrowProps = {
-        key: "0",
-        "data-role": "none",
-        className: (0, _classnames["default"])(prevClasses),
-        style: {
-          display: "block"
-        },
-        onClick: prevHandler
-      };
-      var customProps = {
-        currentSlide: this.props.currentSlide,
-        slideCount: this.props.slideCount
-      };
-      var prevArrow;
-
-      if (this.props.prevArrow) {
-        prevArrow = /*#__PURE__*/_react["default"].cloneElement(this.props.prevArrow, _objectSpread(_objectSpread({}, prevArrowProps), customProps));
-      } else {
-        prevArrow = /*#__PURE__*/_react["default"].createElement("button", _extends({
-          key: "0",
-          type: "button"
-        }, prevArrowProps), " ", "Previous");
-      }
-
-      return prevArrow;
-    }
-  }]);
-
-  return PrevArrow;
-}(_react["default"].PureComponent);
-
-exports.PrevArrow = PrevArrow;
-
-var NextArrow = /*#__PURE__*/function (_React$PureComponent2) {
-  _inherits(NextArrow, _React$PureComponent2);
-
-  var _super2 = _createSuper(NextArrow);
-
-  function NextArrow() {
-    _classCallCheck(this, NextArrow);
-
-    return _super2.apply(this, arguments);
-  }
-
-  _createClass(NextArrow, [{
-    key: "clickHandler",
-    value: function clickHandler(options, e) {
-      if (e) {
-        e.preventDefault();
-      }
-
-      this.props.clickHandler(options, e);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var nextClasses = {
-        "slick-arrow": true,
-        "slick-next": true
-      };
-      var nextHandler = this.clickHandler.bind(this, {
-        message: "next"
-      });
-
-      if (!(0, _innerSliderUtils.canGoNext)(this.props)) {
-        nextClasses["slick-disabled"] = true;
-        nextHandler = null;
-      }
-
-      var nextArrowProps = {
-        key: "1",
-        "data-role": "none",
-        className: (0, _classnames["default"])(nextClasses),
-        style: {
-          display: "block"
-        },
-        onClick: nextHandler
-      };
-      var customProps = {
-        currentSlide: this.props.currentSlide,
-        slideCount: this.props.slideCount
-      };
-      var nextArrow;
-
-      if (this.props.nextArrow) {
-        nextArrow = /*#__PURE__*/_react["default"].cloneElement(this.props.nextArrow, _objectSpread(_objectSpread({}, nextArrowProps), customProps));
-      } else {
-        nextArrow = /*#__PURE__*/_react["default"].createElement("button", _extends({
-          key: "1",
-          type: "button"
-        }, nextArrowProps), " ", "Next");
-      }
-
-      return nextArrow;
-    }
-  }]);
-
-  return NextArrow;
-}(_react["default"].PureComponent);
-
-exports.NextArrow = NextArrow;
-
-/***/ }),
-
-/***/ "./node_modules/react-slick/lib/default-props.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/react-slick/lib/default-props.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var defaultProps = {
-  accessibility: true,
-  adaptiveHeight: false,
-  afterChange: null,
-  appendDots: function appendDots(dots) {
-    return /*#__PURE__*/_react["default"].createElement("ul", {
-      style: {
-        display: "block"
-      }
-    }, dots);
-  },
-  arrows: true,
-  autoplay: false,
-  autoplaySpeed: 3000,
-  beforeChange: null,
-  centerMode: false,
-  centerPadding: "50px",
-  className: "",
-  cssEase: "ease",
-  customPaging: function customPaging(i) {
-    return /*#__PURE__*/_react["default"].createElement("button", null, i + 1);
-  },
-  dots: false,
-  dotsClass: "slick-dots",
-  draggable: true,
-  easing: "linear",
-  edgeFriction: 0.35,
-  fade: false,
-  focusOnSelect: false,
-  infinite: true,
-  initialSlide: 0,
-  lazyLoad: null,
-  nextArrow: null,
-  onEdge: null,
-  onInit: null,
-  onLazyLoadError: null,
-  onReInit: null,
-  pauseOnDotsHover: false,
-  pauseOnFocus: false,
-  pauseOnHover: true,
-  prevArrow: null,
-  responsive: null,
-  rows: 1,
-  rtl: false,
-  slide: "div",
-  slidesPerRow: 1,
-  slidesToScroll: 1,
-  slidesToShow: 1,
-  speed: 500,
-  swipe: true,
-  swipeEvent: null,
-  swipeToSlide: false,
-  touchMove: true,
-  touchThreshold: 5,
-  useCSS: true,
-  useTransform: true,
-  variableWidth: false,
-  vertical: false,
-  waitForAnimate: true
-};
-var _default = defaultProps;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ "./node_modules/react-slick/lib/dots.js":
-/*!**********************************************!*\
-  !*** ./node_modules/react-slick/lib/dots.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.Dots = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
-
-var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
-
-var _innerSliderUtils = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/react-slick/lib/utils/innerSliderUtils.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var getDotCount = function getDotCount(spec) {
-  var dots;
-
-  if (spec.infinite) {
-    dots = Math.ceil(spec.slideCount / spec.slidesToScroll);
-  } else {
-    dots = Math.ceil((spec.slideCount - spec.slidesToShow) / spec.slidesToScroll) + 1;
-  }
-
-  return dots;
-};
-
-var Dots = /*#__PURE__*/function (_React$PureComponent) {
-  _inherits(Dots, _React$PureComponent);
-
-  var _super = _createSuper(Dots);
-
-  function Dots() {
-    _classCallCheck(this, Dots);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Dots, [{
-    key: "clickHandler",
-    value: function clickHandler(options, e) {
-      // In Autoplay the focus stays on clicked button even after transition
-      // to next slide. That only goes away by click somewhere outside
-      e.preventDefault();
-      this.props.clickHandler(options);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          onMouseEnter = _this$props.onMouseEnter,
-          onMouseOver = _this$props.onMouseOver,
-          onMouseLeave = _this$props.onMouseLeave,
-          infinite = _this$props.infinite,
-          slidesToScroll = _this$props.slidesToScroll,
-          slidesToShow = _this$props.slidesToShow,
-          slideCount = _this$props.slideCount,
-          currentSlide = _this$props.currentSlide;
-      var dotCount = getDotCount({
-        slideCount: slideCount,
-        slidesToScroll: slidesToScroll,
-        slidesToShow: slidesToShow,
-        infinite: infinite
-      });
-      var mouseEvents = {
-        onMouseEnter: onMouseEnter,
-        onMouseOver: onMouseOver,
-        onMouseLeave: onMouseLeave
-      };
-      var dots = [];
-
-      for (var i = 0; i < dotCount; i++) {
-        var _rightBound = (i + 1) * slidesToScroll - 1;
-
-        var rightBound = infinite ? _rightBound : (0, _innerSliderUtils.clamp)(_rightBound, 0, slideCount - 1);
-
-        var _leftBound = rightBound - (slidesToScroll - 1);
-
-        var leftBound = infinite ? _leftBound : (0, _innerSliderUtils.clamp)(_leftBound, 0, slideCount - 1);
-        var className = (0, _classnames["default"])({
-          "slick-active": infinite ? currentSlide >= leftBound && currentSlide <= rightBound : currentSlide === leftBound
-        });
-        var dotOptions = {
-          message: "dots",
-          index: i,
-          slidesToScroll: slidesToScroll,
-          currentSlide: currentSlide
-        };
-        var onClick = this.clickHandler.bind(this, dotOptions);
-        dots = dots.concat( /*#__PURE__*/_react["default"].createElement("li", {
-          key: i,
-          className: className
-        }, /*#__PURE__*/_react["default"].cloneElement(this.props.customPaging(i), {
-          onClick: onClick
-        })));
-      }
-
-      return /*#__PURE__*/_react["default"].cloneElement(this.props.appendDots(dots), _objectSpread({
-        className: this.props.dotsClass
-      }, mouseEvents));
-    }
-  }]);
-
-  return Dots;
-}(_react["default"].PureComponent);
-
-exports.Dots = Dots;
-
-/***/ }),
-
-/***/ "./node_modules/react-slick/lib/index.js":
-/*!***********************************************!*\
-  !*** ./node_modules/react-slick/lib/index.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _slider = _interopRequireDefault(__webpack_require__(/*! ./slider */ "./node_modules/react-slick/lib/slider.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var _default = _slider["default"];
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ "./node_modules/react-slick/lib/initial-state.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/react-slick/lib/initial-state.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var initialState = {
-  animating: false,
-  autoplaying: null,
-  currentDirection: 0,
-  currentLeft: null,
-  currentSlide: 0,
-  direction: 1,
-  dragging: false,
-  edgeDragged: false,
-  initialized: false,
-  lazyLoadedList: [],
-  listHeight: null,
-  listWidth: null,
-  scrolling: false,
-  slideCount: null,
-  slideHeight: null,
-  slideWidth: null,
-  swipeLeft: null,
-  swiped: false,
-  // used by swipeEvent. differentites between touch and swipe.
-  swiping: false,
-  touchObject: {
-    startX: 0,
-    startY: 0,
-    curX: 0,
-    curY: 0
-  },
-  trackStyle: {},
-  trackWidth: 0,
-  targetSlide: 0
-};
-var _default = initialState;
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ "./node_modules/react-slick/lib/inner-slider.js":
-/*!******************************************************!*\
-  !*** ./node_modules/react-slick/lib/inner-slider.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.InnerSlider = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
-
-var _initialState = _interopRequireDefault(__webpack_require__(/*! ./initial-state */ "./node_modules/react-slick/lib/initial-state.js"));
-
-var _lodash = _interopRequireDefault(__webpack_require__(/*! lodash.debounce */ "./node_modules/lodash.debounce/index.js"));
-
-var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
-
-var _innerSliderUtils = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/react-slick/lib/utils/innerSliderUtils.js");
-
-var _track = __webpack_require__(/*! ./track */ "./node_modules/react-slick/lib/track.js");
-
-var _dots = __webpack_require__(/*! ./dots */ "./node_modules/react-slick/lib/dots.js");
-
-var _arrows = __webpack_require__(/*! ./arrows */ "./node_modules/react-slick/lib/arrows.js");
-
-var _resizeObserverPolyfill = _interopRequireDefault(__webpack_require__(/*! resize-observer-polyfill */ "./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var InnerSlider = /*#__PURE__*/function (_React$Component) {
-  _inherits(InnerSlider, _React$Component);
-
-  var _super = _createSuper(InnerSlider);
-
-  function InnerSlider(props) {
-    var _this;
-
-    _classCallCheck(this, InnerSlider);
-
-    _this = _super.call(this, props);
-
-    _defineProperty(_assertThisInitialized(_this), "listRefHandler", function (ref) {
-      return _this.list = ref;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "trackRefHandler", function (ref) {
-      return _this.track = ref;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "adaptHeight", function () {
-      if (_this.props.adaptiveHeight && _this.list) {
-        var elem = _this.list.querySelector("[data-index=\"".concat(_this.state.currentSlide, "\"]"));
-
-        _this.list.style.height = (0, _innerSliderUtils.getHeight)(elem) + "px";
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
-      _this.props.onInit && _this.props.onInit();
-
-      if (_this.props.lazyLoad) {
-        var slidesToLoad = (0, _innerSliderUtils.getOnDemandLazySlides)(_objectSpread(_objectSpread({}, _this.props), _this.state));
-
-        if (slidesToLoad.length > 0) {
-          _this.setState(function (prevState) {
-            return {
-              lazyLoadedList: prevState.lazyLoadedList.concat(slidesToLoad)
-            };
-          });
-
-          if (_this.props.onLazyLoad) {
-            _this.props.onLazyLoad(slidesToLoad);
-          }
-        }
-      }
-
-      var spec = _objectSpread({
-        listRef: _this.list,
-        trackRef: _this.track
-      }, _this.props);
-
-      _this.updateState(spec, true, function () {
-        _this.adaptHeight();
-
-        _this.props.autoplay && _this.autoPlay("update");
-      });
-
-      if (_this.props.lazyLoad === "progressive") {
-        _this.lazyLoadTimer = setInterval(_this.progressiveLazyLoad, 1000);
-      }
-
-      _this.ro = new _resizeObserverPolyfill["default"](function () {
-        if (_this.state.animating) {
-          _this.onWindowResized(false); // don't set trackStyle hence don't break animation
-
-
-          _this.callbackTimers.push(setTimeout(function () {
-            return _this.onWindowResized();
-          }, _this.props.speed));
-        } else {
-          _this.onWindowResized();
-        }
-      });
-
-      _this.ro.observe(_this.list);
-
-      document.querySelectorAll && Array.prototype.forEach.call(document.querySelectorAll(".slick-slide"), function (slide) {
-        slide.onfocus = _this.props.pauseOnFocus ? _this.onSlideFocus : null;
-        slide.onblur = _this.props.pauseOnFocus ? _this.onSlideBlur : null;
-      });
-
-      if (window.addEventListener) {
-        window.addEventListener("resize", _this.onWindowResized);
-      } else {
-        window.attachEvent("onresize", _this.onWindowResized);
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "componentWillUnmount", function () {
-      if (_this.animationEndCallback) {
-        clearTimeout(_this.animationEndCallback);
-      }
-
-      if (_this.lazyLoadTimer) {
-        clearInterval(_this.lazyLoadTimer);
-      }
-
-      if (_this.callbackTimers.length) {
-        _this.callbackTimers.forEach(function (timer) {
-          return clearTimeout(timer);
-        });
-
-        _this.callbackTimers = [];
-      }
-
-      if (window.addEventListener) {
-        window.removeEventListener("resize", _this.onWindowResized);
-      } else {
-        window.detachEvent("onresize", _this.onWindowResized);
-      }
-
-      if (_this.autoplayTimer) {
-        clearInterval(_this.autoplayTimer);
-      }
-
-      _this.ro.disconnect();
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "componentDidUpdate", function (prevProps) {
-      _this.checkImagesLoad();
-
-      _this.props.onReInit && _this.props.onReInit();
-
-      if (_this.props.lazyLoad) {
-        var slidesToLoad = (0, _innerSliderUtils.getOnDemandLazySlides)(_objectSpread(_objectSpread({}, _this.props), _this.state));
-
-        if (slidesToLoad.length > 0) {
-          _this.setState(function (prevState) {
-            return {
-              lazyLoadedList: prevState.lazyLoadedList.concat(slidesToLoad)
-            };
-          });
-
-          if (_this.props.onLazyLoad) {
-            _this.props.onLazyLoad(slidesToLoad);
-          }
-        }
-      } // if (this.props.onLazyLoad) {
-      //   this.props.onLazyLoad([leftMostSlide])
-      // }
-
-
-      _this.adaptHeight();
-
-      var spec = _objectSpread(_objectSpread({
-        listRef: _this.list,
-        trackRef: _this.track
-      }, _this.props), _this.state);
-
-      var setTrackStyle = _this.didPropsChange(prevProps);
-
-      setTrackStyle && _this.updateState(spec, setTrackStyle, function () {
-        if (_this.state.currentSlide >= _react["default"].Children.count(_this.props.children)) {
-          _this.changeSlide({
-            message: "index",
-            index: _react["default"].Children.count(_this.props.children) - _this.props.slidesToShow,
-            currentSlide: _this.state.currentSlide
-          });
-        }
-
-        if (_this.props.autoplay) {
-          _this.autoPlay("update");
-        } else {
-          _this.pause("paused");
-        }
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onWindowResized", function (setTrackStyle) {
-      if (_this.debouncedResize) _this.debouncedResize.cancel();
-      _this.debouncedResize = (0, _lodash["default"])(function () {
-        return _this.resizeWindow(setTrackStyle);
-      }, 50);
-
-      _this.debouncedResize();
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "resizeWindow", function () {
-      var setTrackStyle = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-      var isTrackMounted = Boolean(_this.track && _this.track.node); // prevent warning: setting state on unmounted component (server side rendering)
-
-      if (!isTrackMounted) return;
-
-      var spec = _objectSpread(_objectSpread({
-        listRef: _this.list,
-        trackRef: _this.track
-      }, _this.props), _this.state);
-
-      _this.updateState(spec, setTrackStyle, function () {
-        if (_this.props.autoplay) _this.autoPlay("update");else _this.pause("paused");
-      }); // animating state should be cleared while resizing, otherwise autoplay stops working
-
-
-      _this.setState({
-        animating: false
-      });
-
-      clearTimeout(_this.animationEndCallback);
-      delete _this.animationEndCallback;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "updateState", function (spec, setTrackStyle, callback) {
-      var updatedState = (0, _innerSliderUtils.initializedState)(spec);
-      spec = _objectSpread(_objectSpread(_objectSpread({}, spec), updatedState), {}, {
-        slideIndex: updatedState.currentSlide
-      });
-      var targetLeft = (0, _innerSliderUtils.getTrackLeft)(spec);
-      spec = _objectSpread(_objectSpread({}, spec), {}, {
-        left: targetLeft
-      });
-      var trackStyle = (0, _innerSliderUtils.getTrackCSS)(spec);
-
-      if (setTrackStyle || _react["default"].Children.count(_this.props.children) !== _react["default"].Children.count(spec.children)) {
-        updatedState["trackStyle"] = trackStyle;
-      }
-
-      _this.setState(updatedState, callback);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "ssrInit", function () {
-      if (_this.props.variableWidth) {
-        var _trackWidth = 0,
-            _trackLeft = 0;
-        var childrenWidths = [];
-        var preClones = (0, _innerSliderUtils.getPreClones)(_objectSpread(_objectSpread(_objectSpread({}, _this.props), _this.state), {}, {
-          slideCount: _this.props.children.length
-        }));
-        var postClones = (0, _innerSliderUtils.getPostClones)(_objectSpread(_objectSpread(_objectSpread({}, _this.props), _this.state), {}, {
-          slideCount: _this.props.children.length
-        }));
-
-        _this.props.children.forEach(function (child) {
-          childrenWidths.push(child.props.style.width);
-          _trackWidth += child.props.style.width;
-        });
-
-        for (var i = 0; i < preClones; i++) {
-          _trackLeft += childrenWidths[childrenWidths.length - 1 - i];
-          _trackWidth += childrenWidths[childrenWidths.length - 1 - i];
-        }
-
-        for (var _i = 0; _i < postClones; _i++) {
-          _trackWidth += childrenWidths[_i];
-        }
-
-        for (var _i2 = 0; _i2 < _this.state.currentSlide; _i2++) {
-          _trackLeft += childrenWidths[_i2];
-        }
-
-        var _trackStyle = {
-          width: _trackWidth + "px",
-          left: -_trackLeft + "px"
-        };
-
-        if (_this.props.centerMode) {
-          var currentWidth = "".concat(childrenWidths[_this.state.currentSlide], "px");
-          _trackStyle.left = "calc(".concat(_trackStyle.left, " + (100% - ").concat(currentWidth, ") / 2 ) ");
-        }
-
-        return {
-          trackStyle: _trackStyle
-        };
-      }
-
-      var childrenCount = _react["default"].Children.count(_this.props.children);
-
-      var spec = _objectSpread(_objectSpread(_objectSpread({}, _this.props), _this.state), {}, {
-        slideCount: childrenCount
-      });
-
-      var slideCount = (0, _innerSliderUtils.getPreClones)(spec) + (0, _innerSliderUtils.getPostClones)(spec) + childrenCount;
-      var trackWidth = 100 / _this.props.slidesToShow * slideCount;
-      var slideWidth = 100 / slideCount;
-      var trackLeft = -slideWidth * ((0, _innerSliderUtils.getPreClones)(spec) + _this.state.currentSlide) * trackWidth / 100;
-
-      if (_this.props.centerMode) {
-        trackLeft += (100 - slideWidth * trackWidth / 100) / 2;
-      }
-
-      var trackStyle = {
-        width: trackWidth + "%",
-        left: trackLeft + "%"
-      };
-      return {
-        slideWidth: slideWidth + "%",
-        trackStyle: trackStyle
-      };
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "checkImagesLoad", function () {
-      var images = _this.list && _this.list.querySelectorAll && _this.list.querySelectorAll(".slick-slide img") || [];
-      var imagesCount = images.length,
-          loadedCount = 0;
-      Array.prototype.forEach.call(images, function (image) {
-        var handler = function handler() {
-          return ++loadedCount && loadedCount >= imagesCount && _this.onWindowResized();
-        };
-
-        if (!image.onclick) {
-          image.onclick = function () {
-            return image.parentNode.focus();
-          };
-        } else {
-          var prevClickHandler = image.onclick;
-
-          image.onclick = function () {
-            prevClickHandler();
-            image.parentNode.focus();
-          };
-        }
-
-        if (!image.onload) {
-          if (_this.props.lazyLoad) {
-            image.onload = function () {
-              _this.adaptHeight();
-
-              _this.callbackTimers.push(setTimeout(_this.onWindowResized, _this.props.speed));
-            };
-          } else {
-            image.onload = handler;
-
-            image.onerror = function () {
-              handler();
-              _this.props.onLazyLoadError && _this.props.onLazyLoadError();
-            };
-          }
-        }
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "progressiveLazyLoad", function () {
-      var slidesToLoad = [];
-
-      var spec = _objectSpread(_objectSpread({}, _this.props), _this.state);
-
-      for (var index = _this.state.currentSlide; index < _this.state.slideCount + (0, _innerSliderUtils.getPostClones)(spec); index++) {
-        if (_this.state.lazyLoadedList.indexOf(index) < 0) {
-          slidesToLoad.push(index);
-          break;
-        }
-      }
-
-      for (var _index = _this.state.currentSlide - 1; _index >= -(0, _innerSliderUtils.getPreClones)(spec); _index--) {
-        if (_this.state.lazyLoadedList.indexOf(_index) < 0) {
-          slidesToLoad.push(_index);
-          break;
-        }
-      }
-
-      if (slidesToLoad.length > 0) {
-        _this.setState(function (state) {
-          return {
-            lazyLoadedList: state.lazyLoadedList.concat(slidesToLoad)
-          };
-        });
-
-        if (_this.props.onLazyLoad) {
-          _this.props.onLazyLoad(slidesToLoad);
-        }
-      } else {
-        if (_this.lazyLoadTimer) {
-          clearInterval(_this.lazyLoadTimer);
-          delete _this.lazyLoadTimer;
-        }
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "slideHandler", function (index) {
-      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-      var _this$props = _this.props,
-          asNavFor = _this$props.asNavFor,
-          beforeChange = _this$props.beforeChange,
-          onLazyLoad = _this$props.onLazyLoad,
-          speed = _this$props.speed,
-          afterChange = _this$props.afterChange; // capture currentslide before state is updated
-
-      var currentSlide = _this.state.currentSlide;
-
-      var _slideHandler = (0, _innerSliderUtils.slideHandler)(_objectSpread(_objectSpread(_objectSpread({
-        index: index
-      }, _this.props), _this.state), {}, {
-        trackRef: _this.track,
-        useCSS: _this.props.useCSS && !dontAnimate
-      })),
-          state = _slideHandler.state,
-          nextState = _slideHandler.nextState;
-
-      if (!state) return;
-      beforeChange && beforeChange(currentSlide, state.currentSlide);
-      var slidesToLoad = state.lazyLoadedList.filter(function (value) {
-        return _this.state.lazyLoadedList.indexOf(value) < 0;
-      });
-      onLazyLoad && slidesToLoad.length > 0 && onLazyLoad(slidesToLoad);
-
-      if (!_this.props.waitForAnimate && _this.animationEndCallback) {
-        clearTimeout(_this.animationEndCallback);
-        afterChange && afterChange(currentSlide);
-        delete _this.animationEndCallback;
-      }
-
-      _this.setState(state, function () {
-        // asNavForIndex check is to avoid recursive calls of slideHandler in waitForAnimate=false mode
-        if (asNavFor && _this.asNavForIndex !== index) {
-          _this.asNavForIndex = index;
-          asNavFor.innerSlider.slideHandler(index);
-        }
-
-        if (!nextState) return;
-        _this.animationEndCallback = setTimeout(function () {
-          var animating = nextState.animating,
-              firstBatch = _objectWithoutProperties(nextState, ["animating"]);
-
-          _this.setState(firstBatch, function () {
-            _this.callbackTimers.push(setTimeout(function () {
-              return _this.setState({
-                animating: animating
-              });
-            }, 10));
-
-            afterChange && afterChange(state.currentSlide);
-            delete _this.animationEndCallback;
-          });
-        }, speed);
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "changeSlide", function (options) {
-      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
-      var spec = _objectSpread(_objectSpread({}, _this.props), _this.state);
-
-      var targetSlide = (0, _innerSliderUtils.changeSlide)(spec, options);
-      if (targetSlide !== 0 && !targetSlide) return;
-
-      if (dontAnimate === true) {
-        _this.slideHandler(targetSlide, dontAnimate);
-      } else {
-        _this.slideHandler(targetSlide);
-      }
-
-      _this.props.autoplay && _this.autoPlay("update");
-
-      if (_this.props.focusOnSelect) {
-        var nodes = _this.list.querySelectorAll(".slick-current");
-
-        nodes[0] && nodes[0].focus();
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "clickHandler", function (e) {
-      if (_this.clickable === false) {
-        e.stopPropagation();
-        e.preventDefault();
-      }
-
-      _this.clickable = true;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "keyHandler", function (e) {
-      var dir = (0, _innerSliderUtils.keyHandler)(e, _this.props.accessibility, _this.props.rtl);
-      dir !== "" && _this.changeSlide({
-        message: dir
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "selectHandler", function (options) {
-      _this.changeSlide(options);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "disableBodyScroll", function () {
-      var preventDefault = function preventDefault(e) {
-        e = e || window.event;
-        if (e.preventDefault) e.preventDefault();
-        e.returnValue = false;
-      };
-
-      window.ontouchmove = preventDefault;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "enableBodyScroll", function () {
-      window.ontouchmove = null;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "swipeStart", function (e) {
-      if (_this.props.verticalSwiping) {
-        _this.disableBodyScroll();
-      }
-
-      var state = (0, _innerSliderUtils.swipeStart)(e, _this.props.swipe, _this.props.draggable);
-      state !== "" && _this.setState(state);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "swipeMove", function (e) {
-      var state = (0, _innerSliderUtils.swipeMove)(e, _objectSpread(_objectSpread(_objectSpread({}, _this.props), _this.state), {}, {
-        trackRef: _this.track,
-        listRef: _this.list,
-        slideIndex: _this.state.currentSlide
-      }));
-      if (!state) return;
-
-      if (state["swiping"]) {
-        _this.clickable = false;
-      }
-
-      _this.setState(state);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "swipeEnd", function (e) {
-      var state = (0, _innerSliderUtils.swipeEnd)(e, _objectSpread(_objectSpread(_objectSpread({}, _this.props), _this.state), {}, {
-        trackRef: _this.track,
-        listRef: _this.list,
-        slideIndex: _this.state.currentSlide
-      }));
-      if (!state) return;
-      var triggerSlideHandler = state["triggerSlideHandler"];
-      delete state["triggerSlideHandler"];
-
-      _this.setState(state);
-
-      if (triggerSlideHandler === undefined) return;
-
-      _this.slideHandler(triggerSlideHandler);
-
-      if (_this.props.verticalSwiping) {
-        _this.enableBodyScroll();
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "touchEnd", function (e) {
-      _this.swipeEnd(e);
-
-      _this.clickable = true;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "slickPrev", function () {
-      // this and fellow methods are wrapped in setTimeout
-      // to make sure initialize setState has happened before
-      // any of such methods are called
-      _this.callbackTimers.push(setTimeout(function () {
-        return _this.changeSlide({
-          message: "previous"
-        });
-      }, 0));
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "slickNext", function () {
-      _this.callbackTimers.push(setTimeout(function () {
-        return _this.changeSlide({
-          message: "next"
-        });
-      }, 0));
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "slickGoTo", function (slide) {
-      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-      slide = Number(slide);
-      if (isNaN(slide)) return "";
-
-      _this.callbackTimers.push(setTimeout(function () {
-        return _this.changeSlide({
-          message: "index",
-          index: slide,
-          currentSlide: _this.state.currentSlide
-        }, dontAnimate);
-      }, 0));
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "play", function () {
-      var nextIndex;
-
-      if (_this.props.rtl) {
-        nextIndex = _this.state.currentSlide - _this.props.slidesToScroll;
-      } else {
-        if ((0, _innerSliderUtils.canGoNext)(_objectSpread(_objectSpread({}, _this.props), _this.state))) {
-          nextIndex = _this.state.currentSlide + _this.props.slidesToScroll;
-        } else {
-          return false;
-        }
-      }
-
-      _this.slideHandler(nextIndex);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "autoPlay", function (playType) {
-      if (_this.autoplayTimer) {
-        clearInterval(_this.autoplayTimer);
-      }
-
-      var autoplaying = _this.state.autoplaying;
-
-      if (playType === "update") {
-        if (autoplaying === "hovered" || autoplaying === "focused" || autoplaying === "paused") {
-          return;
-        }
-      } else if (playType === "leave") {
-        if (autoplaying === "paused" || autoplaying === "focused") {
-          return;
-        }
-      } else if (playType === "blur") {
-        if (autoplaying === "paused" || autoplaying === "hovered") {
-          return;
-        }
-      }
-
-      _this.autoplayTimer = setInterval(_this.play, _this.props.autoplaySpeed + 50);
-
-      _this.setState({
-        autoplaying: "playing"
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "pause", function (pauseType) {
-      if (_this.autoplayTimer) {
-        clearInterval(_this.autoplayTimer);
-        _this.autoplayTimer = null;
-      }
-
-      var autoplaying = _this.state.autoplaying;
-
-      if (pauseType === "paused") {
-        _this.setState({
-          autoplaying: "paused"
-        });
-      } else if (pauseType === "focused") {
-        if (autoplaying === "hovered" || autoplaying === "playing") {
-          _this.setState({
-            autoplaying: "focused"
-          });
-        }
-      } else {
-        // pauseType  is 'hovered'
-        if (autoplaying === "playing") {
-          _this.setState({
-            autoplaying: "hovered"
-          });
-        }
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onDotsOver", function () {
-      return _this.props.autoplay && _this.pause("hovered");
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onDotsLeave", function () {
-      return _this.props.autoplay && _this.state.autoplaying === "hovered" && _this.autoPlay("leave");
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onTrackOver", function () {
-      return _this.props.autoplay && _this.pause("hovered");
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onTrackLeave", function () {
-      return _this.props.autoplay && _this.state.autoplaying === "hovered" && _this.autoPlay("leave");
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onSlideFocus", function () {
-      return _this.props.autoplay && _this.pause("focused");
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onSlideBlur", function () {
-      return _this.props.autoplay && _this.state.autoplaying === "focused" && _this.autoPlay("blur");
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "render", function () {
-      var className = (0, _classnames["default"])("slick-slider", _this.props.className, {
-        "slick-vertical": _this.props.vertical,
-        "slick-initialized": true
-      });
-
-      var spec = _objectSpread(_objectSpread({}, _this.props), _this.state);
-
-      var trackProps = (0, _innerSliderUtils.extractObject)(spec, ["fade", "cssEase", "speed", "infinite", "centerMode", "focusOnSelect", "currentSlide", "lazyLoad", "lazyLoadedList", "rtl", "slideWidth", "slideHeight", "listHeight", "vertical", "slidesToShow", "slidesToScroll", "slideCount", "trackStyle", "variableWidth", "unslick", "centerPadding", "targetSlide", "useCSS"]);
-      var pauseOnHover = _this.props.pauseOnHover;
-      trackProps = _objectSpread(_objectSpread({}, trackProps), {}, {
-        onMouseEnter: pauseOnHover ? _this.onTrackOver : null,
-        onMouseLeave: pauseOnHover ? _this.onTrackLeave : null,
-        onMouseOver: pauseOnHover ? _this.onTrackOver : null,
-        focusOnSelect: _this.props.focusOnSelect && _this.clickable ? _this.selectHandler : null
-      });
-      var dots;
-
-      if (_this.props.dots === true && _this.state.slideCount >= _this.props.slidesToShow) {
-        var dotProps = (0, _innerSliderUtils.extractObject)(spec, ["dotsClass", "slideCount", "slidesToShow", "currentSlide", "slidesToScroll", "clickHandler", "children", "customPaging", "infinite", "appendDots"]);
-        var pauseOnDotsHover = _this.props.pauseOnDotsHover;
-        dotProps = _objectSpread(_objectSpread({}, dotProps), {}, {
-          clickHandler: _this.changeSlide,
-          onMouseEnter: pauseOnDotsHover ? _this.onDotsLeave : null,
-          onMouseOver: pauseOnDotsHover ? _this.onDotsOver : null,
-          onMouseLeave: pauseOnDotsHover ? _this.onDotsLeave : null
-        });
-        dots = /*#__PURE__*/_react["default"].createElement(_dots.Dots, dotProps);
-      }
-
-      var prevArrow, nextArrow;
-      var arrowProps = (0, _innerSliderUtils.extractObject)(spec, ["infinite", "centerMode", "currentSlide", "slideCount", "slidesToShow", "prevArrow", "nextArrow"]);
-      arrowProps.clickHandler = _this.changeSlide;
-
-      if (_this.props.arrows) {
-        prevArrow = /*#__PURE__*/_react["default"].createElement(_arrows.PrevArrow, arrowProps);
-        nextArrow = /*#__PURE__*/_react["default"].createElement(_arrows.NextArrow, arrowProps);
-      }
-
-      var verticalHeightStyle = null;
-
-      if (_this.props.vertical) {
-        verticalHeightStyle = {
-          height: _this.state.listHeight
-        };
-      }
-
-      var centerPaddingStyle = null;
-
-      if (_this.props.vertical === false) {
-        if (_this.props.centerMode === true) {
-          centerPaddingStyle = {
-            padding: "0px " + _this.props.centerPadding
-          };
-        }
-      } else {
-        if (_this.props.centerMode === true) {
-          centerPaddingStyle = {
-            padding: _this.props.centerPadding + " 0px"
-          };
-        }
-      }
-
-      var listStyle = _objectSpread(_objectSpread({}, verticalHeightStyle), centerPaddingStyle);
-
-      var touchMove = _this.props.touchMove;
-      var listProps = {
-        className: "slick-list",
-        style: listStyle,
-        onClick: _this.clickHandler,
-        onMouseDown: touchMove ? _this.swipeStart : null,
-        onMouseMove: _this.state.dragging && touchMove ? _this.swipeMove : null,
-        onMouseUp: touchMove ? _this.swipeEnd : null,
-        onMouseLeave: _this.state.dragging && touchMove ? _this.swipeEnd : null,
-        onTouchStart: touchMove ? _this.swipeStart : null,
-        onTouchMove: _this.state.dragging && touchMove ? _this.swipeMove : null,
-        onTouchEnd: touchMove ? _this.touchEnd : null,
-        onTouchCancel: _this.state.dragging && touchMove ? _this.swipeEnd : null,
-        onKeyDown: _this.props.accessibility ? _this.keyHandler : null
-      };
-      var innerSliderProps = {
-        className: className,
-        dir: "ltr",
-        style: _this.props.style
-      };
-
-      if (_this.props.unslick) {
-        listProps = {
-          className: "slick-list"
-        };
-        innerSliderProps = {
-          className: className
-        };
-      }
-
-      return /*#__PURE__*/_react["default"].createElement("div", innerSliderProps, !_this.props.unslick ? prevArrow : "", /*#__PURE__*/_react["default"].createElement("div", _extends({
-        ref: _this.listRefHandler
-      }, listProps), /*#__PURE__*/_react["default"].createElement(_track.Track, _extends({
-        ref: _this.trackRefHandler
-      }, trackProps), _this.props.children)), !_this.props.unslick ? nextArrow : "", !_this.props.unslick ? dots : "");
-    });
-
-    _this.list = null;
-    _this.track = null;
-    _this.state = _objectSpread(_objectSpread({}, _initialState["default"]), {}, {
-      currentSlide: _this.props.initialSlide,
-      slideCount: _react["default"].Children.count(_this.props.children)
-    });
-    _this.callbackTimers = [];
-    _this.clickable = true;
-    _this.debouncedResize = null;
-
-    var ssrState = _this.ssrInit();
-
-    _this.state = _objectSpread(_objectSpread({}, _this.state), ssrState);
-    return _this;
-  }
-
-  _createClass(InnerSlider, [{
-    key: "didPropsChange",
-    value: function didPropsChange(prevProps) {
-      var setTrackStyle = false;
-
-      for (var _i3 = 0, _Object$keys = Object.keys(this.props); _i3 < _Object$keys.length; _i3++) {
-        var key = _Object$keys[_i3];
-
-        if (!prevProps.hasOwnProperty(key)) {
-          setTrackStyle = true;
-          break;
-        }
-
-        if (_typeof(prevProps[key]) === "object" || typeof prevProps[key] === "function") {
-          continue;
-        }
-
-        if (prevProps[key] !== this.props[key]) {
-          setTrackStyle = true;
-          break;
-        }
-      }
-
-      return setTrackStyle || _react["default"].Children.count(this.props.children) !== _react["default"].Children.count(prevProps.children);
-    }
-  }]);
-
-  return InnerSlider;
-}(_react["default"].Component);
-
-exports.InnerSlider = InnerSlider;
-
-/***/ }),
-
-/***/ "./node_modules/react-slick/lib/slider.js":
-/*!************************************************!*\
-  !*** ./node_modules/react-slick/lib/slider.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
-
-var _innerSlider = __webpack_require__(/*! ./inner-slider */ "./node_modules/react-slick/lib/inner-slider.js");
-
-var _json2mq = _interopRequireDefault(__webpack_require__(/*! json2mq */ "./node_modules/json2mq/index.js"));
-
-var _defaultProps = _interopRequireDefault(__webpack_require__(/*! ./default-props */ "./node_modules/react-slick/lib/default-props.js"));
-
-var _innerSliderUtils = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/react-slick/lib/utils/innerSliderUtils.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var enquire = (0, _innerSliderUtils.canUseDOM)() && __webpack_require__(/*! enquire.js */ "./node_modules/enquire.js/src/index.js");
-
-var Slider = /*#__PURE__*/function (_React$Component) {
-  _inherits(Slider, _React$Component);
-
-  var _super = _createSuper(Slider);
-
-  function Slider(props) {
-    var _this;
-
-    _classCallCheck(this, Slider);
-
-    _this = _super.call(this, props);
-
-    _defineProperty(_assertThisInitialized(_this), "innerSliderRefHandler", function (ref) {
-      return _this.innerSlider = ref;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "slickPrev", function () {
-      return _this.innerSlider.slickPrev();
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "slickNext", function () {
-      return _this.innerSlider.slickNext();
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "slickGoTo", function (slide) {
-      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-      return _this.innerSlider.slickGoTo(slide, dontAnimate);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "slickPause", function () {
-      return _this.innerSlider.pause("paused");
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "slickPlay", function () {
-      return _this.innerSlider.autoPlay("play");
-    });
-
-    _this.state = {
-      breakpoint: null
-    };
-    _this._responsiveMediaHandlers = [];
-    return _this;
-  }
-
-  _createClass(Slider, [{
-    key: "media",
-    value: function media(query, handler) {
-      // javascript handler for  css media query
-      enquire.register(query, handler);
-
-      this._responsiveMediaHandlers.push({
-        query: query,
-        handler: handler
-      });
-    } // handles responsive breakpoints
-
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      // performance monitoring
-      //if (process.env.NODE_ENV !== 'production') {
-      //const { whyDidYouUpdate } = require('why-did-you-update')
-      //whyDidYouUpdate(React)
-      //}
-      if (this.props.responsive) {
-        var breakpoints = this.props.responsive.map(function (breakpt) {
-          return breakpt.breakpoint;
-        }); // sort them in increasing order of their numerical value
-
-        breakpoints.sort(function (x, y) {
-          return x - y;
-        });
-        breakpoints.forEach(function (breakpoint, index) {
-          // media query for each breakpoint
-          var bQuery;
-
-          if (index === 0) {
-            bQuery = (0, _json2mq["default"])({
-              minWidth: 0,
-              maxWidth: breakpoint
-            });
-          } else {
-            bQuery = (0, _json2mq["default"])({
-              minWidth: breakpoints[index - 1] + 1,
-              maxWidth: breakpoint
-            });
-          } // when not using server side rendering
-
-
-          (0, _innerSliderUtils.canUseDOM)() && _this2.media(bQuery, function () {
-            _this2.setState({
-              breakpoint: breakpoint
-            });
-          });
-        }); // Register media query for full screen. Need to support resize from small to large
-        // convert javascript object to media query string
-
-        var query = (0, _json2mq["default"])({
-          minWidth: breakpoints.slice(-1)[0]
-        });
-        (0, _innerSliderUtils.canUseDOM)() && this.media(query, function () {
-          _this2.setState({
-            breakpoint: null
-          });
-        });
-      }
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this._responsiveMediaHandlers.forEach(function (obj) {
-        enquire.unregister(obj.query, obj.handler);
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this3 = this;
-
-      var settings;
-      var newProps;
-
-      if (this.state.breakpoint) {
-        newProps = this.props.responsive.filter(function (resp) {
-          return resp.breakpoint === _this3.state.breakpoint;
-        });
-        settings = newProps[0].settings === "unslick" ? "unslick" : _objectSpread(_objectSpread(_objectSpread({}, _defaultProps["default"]), this.props), newProps[0].settings);
-      } else {
-        settings = _objectSpread(_objectSpread({}, _defaultProps["default"]), this.props);
-      } // force scrolling by one if centerMode is on
-
-
-      if (settings.centerMode) {
-        if (settings.slidesToScroll > 1 && "development" !== "production") {
-          console.warn("slidesToScroll should be equal to 1 in centerMode, you are using ".concat(settings.slidesToScroll));
-        }
-
-        settings.slidesToScroll = 1;
-      } // force showing one slide and scrolling by one if the fade mode is on
-
-
-      if (settings.fade) {
-        if (settings.slidesToShow > 1 && "development" !== "production") {
-          console.warn("slidesToShow should be equal to 1 when fade is true, you're using ".concat(settings.slidesToShow));
-        }
-
-        if (settings.slidesToScroll > 1 && "development" !== "production") {
-          console.warn("slidesToScroll should be equal to 1 when fade is true, you're using ".concat(settings.slidesToScroll));
-        }
-
-        settings.slidesToShow = 1;
-        settings.slidesToScroll = 1;
-      } // makes sure that children is an array, even when there is only 1 child
-
-
-      var children = _react["default"].Children.toArray(this.props.children); // Children may contain false or null, so we should filter them
-      // children may also contain string filled with spaces (in certain cases where we use jsx strings)
-
-
-      children = children.filter(function (child) {
-        if (typeof child === "string") {
-          return !!child.trim();
-        }
-
-        return !!child;
-      }); // rows and slidesPerRow logic is handled here
-
-      if (settings.variableWidth && (settings.rows > 1 || settings.slidesPerRow > 1)) {
-        console.warn("variableWidth is not supported in case of rows > 1 or slidesPerRow > 1");
-        settings.variableWidth = false;
-      }
-
-      var newChildren = [];
-      var currentWidth = null;
-
-      for (var i = 0; i < children.length; i += settings.rows * settings.slidesPerRow) {
-        var newSlide = [];
-
-        for (var j = i; j < i + settings.rows * settings.slidesPerRow; j += settings.slidesPerRow) {
-          var row = [];
-
-          for (var k = j; k < j + settings.slidesPerRow; k += 1) {
-            if (settings.variableWidth && children[k].props.style) {
-              currentWidth = children[k].props.style.width;
-            }
-
-            if (k >= children.length) break;
-            row.push( /*#__PURE__*/_react["default"].cloneElement(children[k], {
-              key: 100 * i + 10 * j + k,
-              tabIndex: -1,
-              style: {
-                width: "".concat(100 / settings.slidesPerRow, "%"),
-                display: "inline-block"
-              }
-            }));
-          }
-
-          newSlide.push( /*#__PURE__*/_react["default"].createElement("div", {
-            key: 10 * i + j
-          }, row));
-        }
-
-        if (settings.variableWidth) {
-          newChildren.push( /*#__PURE__*/_react["default"].createElement("div", {
-            key: i,
-            style: {
-              width: currentWidth
-            }
-          }, newSlide));
-        } else {
-          newChildren.push( /*#__PURE__*/_react["default"].createElement("div", {
-            key: i
-          }, newSlide));
-        }
-      }
-
-      if (settings === "unslick") {
-        var className = "regular slider " + (this.props.className || "");
-        return /*#__PURE__*/_react["default"].createElement("div", {
-          className: className
-        }, children);
-      } else if (newChildren.length <= settings.slidesToShow) {
-        settings.unslick = true;
-      }
-
-      return /*#__PURE__*/_react["default"].createElement(_innerSlider.InnerSlider, _extends({
-        style: this.props.style,
-        ref: this.innerSliderRefHandler
-      }, settings), newChildren);
-    }
-  }]);
-
-  return Slider;
-}(_react["default"].Component);
-
-exports["default"] = Slider;
-
-/***/ }),
-
-/***/ "./node_modules/react-slick/lib/track.js":
-/*!***********************************************!*\
-  !*** ./node_modules/react-slick/lib/track.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.Track = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
-
-var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
-
-var _innerSliderUtils = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/react-slick/lib/utils/innerSliderUtils.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-// given specifications/props for a slide, fetch all the classes that need to be applied to the slide
-var getSlideClasses = function getSlideClasses(spec) {
-  var slickActive, slickCenter, slickCloned;
-  var centerOffset, index;
-
-  if (spec.rtl) {
-    index = spec.slideCount - 1 - spec.index;
-  } else {
-    index = spec.index;
-  }
-
-  slickCloned = index < 0 || index >= spec.slideCount;
-
-  if (spec.centerMode) {
-    centerOffset = Math.floor(spec.slidesToShow / 2);
-    slickCenter = (index - spec.currentSlide) % spec.slideCount === 0;
-
-    if (index > spec.currentSlide - centerOffset - 1 && index <= spec.currentSlide + centerOffset) {
-      slickActive = true;
-    }
-  } else {
-    slickActive = spec.currentSlide <= index && index < spec.currentSlide + spec.slidesToShow;
-  }
-
-  var focusedSlide;
-
-  if (spec.targetSlide < 0) {
-    focusedSlide = spec.targetSlide + spec.slideCount;
-  } else if (spec.targetSlide >= spec.slideCount) {
-    focusedSlide = spec.targetSlide - spec.slideCount;
-  } else {
-    focusedSlide = spec.targetSlide;
-  }
-
-  var slickCurrent = index === focusedSlide;
-  return {
-    "slick-slide": true,
-    "slick-active": slickActive,
-    "slick-center": slickCenter,
-    "slick-cloned": slickCloned,
-    "slick-current": slickCurrent // dubious in case of RTL
-
-  };
-};
-
-var getSlideStyle = function getSlideStyle(spec) {
-  var style = {};
-
-  if (spec.variableWidth === undefined || spec.variableWidth === false) {
-    style.width = spec.slideWidth;
-  }
-
-  if (spec.fade) {
-    style.position = "relative";
-
-    if (spec.vertical) {
-      style.top = -spec.index * parseInt(spec.slideHeight);
-    } else {
-      style.left = -spec.index * parseInt(spec.slideWidth);
-    }
-
-    style.opacity = spec.currentSlide === spec.index ? 1 : 0;
-
-    if (spec.useCSS) {
-      style.transition = "opacity " + spec.speed + "ms " + spec.cssEase + ", " + "visibility " + spec.speed + "ms " + spec.cssEase;
-    }
-  }
-
-  return style;
-};
-
-var getKey = function getKey(child, fallbackKey) {
-  return child.key || fallbackKey;
-};
-
-var renderSlides = function renderSlides(spec) {
-  var key;
-  var slides = [];
-  var preCloneSlides = [];
-  var postCloneSlides = [];
-
-  var childrenCount = _react["default"].Children.count(spec.children);
-
-  var startIndex = (0, _innerSliderUtils.lazyStartIndex)(spec);
-  var endIndex = (0, _innerSliderUtils.lazyEndIndex)(spec);
-
-  _react["default"].Children.forEach(spec.children, function (elem, index) {
-    var child;
-    var childOnClickOptions = {
-      message: "children",
-      index: index,
-      slidesToScroll: spec.slidesToScroll,
-      currentSlide: spec.currentSlide
-    }; // in case of lazyLoad, whether or not we want to fetch the slide
-
-    if (!spec.lazyLoad || spec.lazyLoad && spec.lazyLoadedList.indexOf(index) >= 0) {
-      child = elem;
-    } else {
-      child = /*#__PURE__*/_react["default"].createElement("div", null);
-    }
-
-    var childStyle = getSlideStyle(_objectSpread(_objectSpread({}, spec), {}, {
-      index: index
-    }));
-    var slideClass = child.props.className || "";
-    var slideClasses = getSlideClasses(_objectSpread(_objectSpread({}, spec), {}, {
-      index: index
-    })); // push a cloned element of the desired slide
-
-    slides.push( /*#__PURE__*/_react["default"].cloneElement(child, {
-      key: "original" + getKey(child, index),
-      "data-index": index,
-      className: (0, _classnames["default"])(slideClasses, slideClass),
-      tabIndex: "-1",
-      "aria-hidden": !slideClasses["slick-active"],
-      style: _objectSpread(_objectSpread({
-        outline: "none"
-      }, child.props.style || {}), childStyle),
-      onClick: function onClick(e) {
-        child.props && child.props.onClick && child.props.onClick(e);
-
-        if (spec.focusOnSelect) {
-          spec.focusOnSelect(childOnClickOptions);
-        }
-      }
-    })); // if slide needs to be precloned or postcloned
-
-    if (spec.infinite && spec.fade === false) {
-      var preCloneNo = childrenCount - index;
-
-      if (preCloneNo <= (0, _innerSliderUtils.getPreClones)(spec) && childrenCount !== spec.slidesToShow) {
-        key = -preCloneNo;
-
-        if (key >= startIndex) {
-          child = elem;
-        }
-
-        slideClasses = getSlideClasses(_objectSpread(_objectSpread({}, spec), {}, {
-          index: key
-        }));
-        preCloneSlides.push( /*#__PURE__*/_react["default"].cloneElement(child, {
-          key: "precloned" + getKey(child, key),
-          "data-index": key,
-          tabIndex: "-1",
-          className: (0, _classnames["default"])(slideClasses, slideClass),
-          "aria-hidden": !slideClasses["slick-active"],
-          style: _objectSpread(_objectSpread({}, child.props.style || {}), childStyle),
-          onClick: function onClick(e) {
-            child.props && child.props.onClick && child.props.onClick(e);
-
-            if (spec.focusOnSelect) {
-              spec.focusOnSelect(childOnClickOptions);
-            }
-          }
-        }));
-      }
-
-      if (childrenCount !== spec.slidesToShow) {
-        key = childrenCount + index;
-
-        if (key < endIndex) {
-          child = elem;
-        }
-
-        slideClasses = getSlideClasses(_objectSpread(_objectSpread({}, spec), {}, {
-          index: key
-        }));
-        postCloneSlides.push( /*#__PURE__*/_react["default"].cloneElement(child, {
-          key: "postcloned" + getKey(child, key),
-          "data-index": key,
-          tabIndex: "-1",
-          className: (0, _classnames["default"])(slideClasses, slideClass),
-          "aria-hidden": !slideClasses["slick-active"],
-          style: _objectSpread(_objectSpread({}, child.props.style || {}), childStyle),
-          onClick: function onClick(e) {
-            child.props && child.props.onClick && child.props.onClick(e);
-
-            if (spec.focusOnSelect) {
-              spec.focusOnSelect(childOnClickOptions);
-            }
-          }
-        }));
-      }
-    }
-  });
-
-  if (spec.rtl) {
-    return preCloneSlides.concat(slides, postCloneSlides).reverse();
-  } else {
-    return preCloneSlides.concat(slides, postCloneSlides);
-  }
-};
-
-var Track = /*#__PURE__*/function (_React$PureComponent) {
-  _inherits(Track, _React$PureComponent);
-
-  var _super = _createSuper(Track);
-
-  function Track() {
-    var _this;
-
-    _classCallCheck(this, Track);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "node", null);
-
-    _defineProperty(_assertThisInitialized(_this), "handleRef", function (ref) {
-      _this.node = ref;
-    });
-
-    return _this;
-  }
-
-  _createClass(Track, [{
-    key: "render",
-    value: function render() {
-      var slides = renderSlides(this.props);
-      var _this$props = this.props,
-          onMouseEnter = _this$props.onMouseEnter,
-          onMouseOver = _this$props.onMouseOver,
-          onMouseLeave = _this$props.onMouseLeave;
-      var mouseEvents = {
-        onMouseEnter: onMouseEnter,
-        onMouseOver: onMouseOver,
-        onMouseLeave: onMouseLeave
-      };
-      return /*#__PURE__*/_react["default"].createElement("div", _extends({
-        ref: this.handleRef,
-        className: "slick-track",
-        style: this.props.trackStyle
-      }, mouseEvents), slides);
-    }
-  }]);
-
-  return Track;
-}(_react["default"].PureComponent);
-
-exports.Track = Track;
-
-/***/ }),
-
-/***/ "./node_modules/react-slick/lib/utils/innerSliderUtils.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/react-slick/lib/utils/innerSliderUtils.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.checkSpecKeys = exports.checkNavigable = exports.changeSlide = exports.canUseDOM = exports.canGoNext = void 0;
-exports.clamp = clamp;
-exports.swipeStart = exports.swipeMove = exports.swipeEnd = exports.slidesOnRight = exports.slidesOnLeft = exports.slideHandler = exports.siblingDirection = exports.safePreventDefault = exports.lazyStartIndex = exports.lazySlidesOnRight = exports.lazySlidesOnLeft = exports.lazyEndIndex = exports.keyHandler = exports.initializedState = exports.getWidth = exports.getTrackLeft = exports.getTrackCSS = exports.getTrackAnimateCSS = exports.getTotalSlides = exports.getSwipeDirection = exports.getSlideCount = exports.getRequiredLazySlides = exports.getPreClones = exports.getPostClones = exports.getOnDemandLazySlides = exports.getNavigableIndexes = exports.getHeight = exports.extractObject = void 0;
-
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function clamp(number, lowerBound, upperBound) {
-  return Math.max(lowerBound, Math.min(number, upperBound));
-}
-
-var safePreventDefault = function safePreventDefault(event) {
-  var passiveEvents = ["onTouchStart", "onTouchMove", "onWheel"];
-
-  if (!passiveEvents.includes(event._reactName)) {
-    event.preventDefault();
-  }
-};
-
-exports.safePreventDefault = safePreventDefault;
-
-var getOnDemandLazySlides = function getOnDemandLazySlides(spec) {
-  var onDemandSlides = [];
-  var startIndex = lazyStartIndex(spec);
-  var endIndex = lazyEndIndex(spec);
-
-  for (var slideIndex = startIndex; slideIndex < endIndex; slideIndex++) {
-    if (spec.lazyLoadedList.indexOf(slideIndex) < 0) {
-      onDemandSlides.push(slideIndex);
-    }
-  }
-
-  return onDemandSlides;
-}; // return list of slides that need to be present
-
-
-exports.getOnDemandLazySlides = getOnDemandLazySlides;
-
-var getRequiredLazySlides = function getRequiredLazySlides(spec) {
-  var requiredSlides = [];
-  var startIndex = lazyStartIndex(spec);
-  var endIndex = lazyEndIndex(spec);
-
-  for (var slideIndex = startIndex; slideIndex < endIndex; slideIndex++) {
-    requiredSlides.push(slideIndex);
-  }
-
-  return requiredSlides;
-}; // startIndex that needs to be present
-
-
-exports.getRequiredLazySlides = getRequiredLazySlides;
-
-var lazyStartIndex = function lazyStartIndex(spec) {
-  return spec.currentSlide - lazySlidesOnLeft(spec);
-};
-
-exports.lazyStartIndex = lazyStartIndex;
-
-var lazyEndIndex = function lazyEndIndex(spec) {
-  return spec.currentSlide + lazySlidesOnRight(spec);
-};
-
-exports.lazyEndIndex = lazyEndIndex;
-
-var lazySlidesOnLeft = function lazySlidesOnLeft(spec) {
-  return spec.centerMode ? Math.floor(spec.slidesToShow / 2) + (parseInt(spec.centerPadding) > 0 ? 1 : 0) : 0;
-};
-
-exports.lazySlidesOnLeft = lazySlidesOnLeft;
-
-var lazySlidesOnRight = function lazySlidesOnRight(spec) {
-  return spec.centerMode ? Math.floor((spec.slidesToShow - 1) / 2) + 1 + (parseInt(spec.centerPadding) > 0 ? 1 : 0) : spec.slidesToShow;
-}; // get width of an element
-
-
-exports.lazySlidesOnRight = lazySlidesOnRight;
-
-var getWidth = function getWidth(elem) {
-  return elem && elem.offsetWidth || 0;
-};
-
-exports.getWidth = getWidth;
-
-var getHeight = function getHeight(elem) {
-  return elem && elem.offsetHeight || 0;
-};
-
-exports.getHeight = getHeight;
-
-var getSwipeDirection = function getSwipeDirection(touchObject) {
-  var verticalSwiping = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-  var xDist, yDist, r, swipeAngle;
-  xDist = touchObject.startX - touchObject.curX;
-  yDist = touchObject.startY - touchObject.curY;
-  r = Math.atan2(yDist, xDist);
-  swipeAngle = Math.round(r * 180 / Math.PI);
-
-  if (swipeAngle < 0) {
-    swipeAngle = 360 - Math.abs(swipeAngle);
-  }
-
-  if (swipeAngle <= 45 && swipeAngle >= 0 || swipeAngle <= 360 && swipeAngle >= 315) {
-    return "left";
-  }
-
-  if (swipeAngle >= 135 && swipeAngle <= 225) {
-    return "right";
-  }
-
-  if (verticalSwiping === true) {
-    if (swipeAngle >= 35 && swipeAngle <= 135) {
-      return "up";
-    } else {
-      return "down";
-    }
-  }
-
-  return "vertical";
-}; // whether or not we can go next
-
-
-exports.getSwipeDirection = getSwipeDirection;
-
-var canGoNext = function canGoNext(spec) {
-  var canGo = true;
-
-  if (!spec.infinite) {
-    if (spec.centerMode && spec.currentSlide >= spec.slideCount - 1) {
-      canGo = false;
-    } else if (spec.slideCount <= spec.slidesToShow || spec.currentSlide >= spec.slideCount - spec.slidesToShow) {
-      canGo = false;
-    }
-  }
-
-  return canGo;
-}; // given an object and a list of keys, return new object with given keys
-
-
-exports.canGoNext = canGoNext;
-
-var extractObject = function extractObject(spec, keys) {
-  var newObject = {};
-  keys.forEach(function (key) {
-    return newObject[key] = spec[key];
-  });
-  return newObject;
-}; // get initialized state
-
-
-exports.extractObject = extractObject;
-
-var initializedState = function initializedState(spec) {
-  // spec also contains listRef, trackRef
-  var slideCount = _react["default"].Children.count(spec.children);
-
-  var listNode = spec.listRef;
-  var listWidth = Math.ceil(getWidth(listNode));
-  var trackNode = spec.trackRef && spec.trackRef.node;
-  var trackWidth = Math.ceil(getWidth(trackNode));
-  var slideWidth;
-
-  if (!spec.vertical) {
-    var centerPaddingAdj = spec.centerMode && parseInt(spec.centerPadding) * 2;
-
-    if (typeof spec.centerPadding === "string" && spec.centerPadding.slice(-1) === "%") {
-      centerPaddingAdj *= listWidth / 100;
-    }
-
-    slideWidth = Math.ceil((listWidth - centerPaddingAdj) / spec.slidesToShow);
-  } else {
-    slideWidth = listWidth;
-  }
-
-  var slideHeight = listNode && getHeight(listNode.querySelector('[data-index="0"]'));
-  var listHeight = slideHeight * spec.slidesToShow;
-  var currentSlide = spec.currentSlide === undefined ? spec.initialSlide : spec.currentSlide;
-
-  if (spec.rtl && spec.currentSlide === undefined) {
-    currentSlide = slideCount - 1 - spec.initialSlide;
-  }
-
-  var lazyLoadedList = spec.lazyLoadedList || [];
-  var slidesToLoad = getOnDemandLazySlides(_objectSpread(_objectSpread({}, spec), {}, {
-    currentSlide: currentSlide,
-    lazyLoadedList: lazyLoadedList
-  }));
-  lazyLoadedList = lazyLoadedList.concat(slidesToLoad);
-  var state = {
-    slideCount: slideCount,
-    slideWidth: slideWidth,
-    listWidth: listWidth,
-    trackWidth: trackWidth,
-    currentSlide: currentSlide,
-    slideHeight: slideHeight,
-    listHeight: listHeight,
-    lazyLoadedList: lazyLoadedList
-  };
-
-  if (spec.autoplaying === null && spec.autoplay) {
-    state["autoplaying"] = "playing";
-  }
-
-  return state;
-};
-
-exports.initializedState = initializedState;
-
-var slideHandler = function slideHandler(spec) {
-  var waitForAnimate = spec.waitForAnimate,
-      animating = spec.animating,
-      fade = spec.fade,
-      infinite = spec.infinite,
-      index = spec.index,
-      slideCount = spec.slideCount,
-      lazyLoad = spec.lazyLoad,
-      currentSlide = spec.currentSlide,
-      centerMode = spec.centerMode,
-      slidesToScroll = spec.slidesToScroll,
-      slidesToShow = spec.slidesToShow,
-      useCSS = spec.useCSS;
-  var lazyLoadedList = spec.lazyLoadedList;
-  if (waitForAnimate && animating) return {};
-  var animationSlide = index,
-      finalSlide,
-      animationLeft,
-      finalLeft;
-  var state = {},
-      nextState = {};
-  var targetSlide = infinite ? index : clamp(index, 0, slideCount - 1);
-
-  if (fade) {
-    if (!infinite && (index < 0 || index >= slideCount)) return {};
-
-    if (index < 0) {
-      animationSlide = index + slideCount;
-    } else if (index >= slideCount) {
-      animationSlide = index - slideCount;
-    }
-
-    if (lazyLoad && lazyLoadedList.indexOf(animationSlide) < 0) {
-      lazyLoadedList = lazyLoadedList.concat(animationSlide);
-    }
-
-    state = {
-      animating: true,
-      currentSlide: animationSlide,
-      lazyLoadedList: lazyLoadedList,
-      targetSlide: animationSlide
-    };
-    nextState = {
-      animating: false,
-      targetSlide: animationSlide
-    };
-  } else {
-    finalSlide = animationSlide;
-
-    if (animationSlide < 0) {
-      finalSlide = animationSlide + slideCount;
-      if (!infinite) finalSlide = 0;else if (slideCount % slidesToScroll !== 0) finalSlide = slideCount - slideCount % slidesToScroll;
-    } else if (!canGoNext(spec) && animationSlide > currentSlide) {
-      animationSlide = finalSlide = currentSlide;
-    } else if (centerMode && animationSlide >= slideCount) {
-      animationSlide = infinite ? slideCount : slideCount - 1;
-      finalSlide = infinite ? 0 : slideCount - 1;
-    } else if (animationSlide >= slideCount) {
-      finalSlide = animationSlide - slideCount;
-      if (!infinite) finalSlide = slideCount - slidesToShow;else if (slideCount % slidesToScroll !== 0) finalSlide = 0;
-    }
-
-    if (!infinite && animationSlide + slidesToShow >= slideCount) {
-      finalSlide = slideCount - slidesToShow;
-    }
-
-    animationLeft = getTrackLeft(_objectSpread(_objectSpread({}, spec), {}, {
-      slideIndex: animationSlide
-    }));
-    finalLeft = getTrackLeft(_objectSpread(_objectSpread({}, spec), {}, {
-      slideIndex: finalSlide
-    }));
-
-    if (!infinite) {
-      if (animationLeft === finalLeft) animationSlide = finalSlide;
-      animationLeft = finalLeft;
-    }
-
-    if (lazyLoad) {
-      lazyLoadedList = lazyLoadedList.concat(getOnDemandLazySlides(_objectSpread(_objectSpread({}, spec), {}, {
-        currentSlide: animationSlide
-      })));
-    }
-
-    if (!useCSS) {
-      state = {
-        currentSlide: finalSlide,
-        trackStyle: getTrackCSS(_objectSpread(_objectSpread({}, spec), {}, {
-          left: finalLeft
-        })),
-        lazyLoadedList: lazyLoadedList,
-        targetSlide: targetSlide
-      };
-    } else {
-      state = {
-        animating: true,
-        currentSlide: finalSlide,
-        trackStyle: getTrackAnimateCSS(_objectSpread(_objectSpread({}, spec), {}, {
-          left: animationLeft
-        })),
-        lazyLoadedList: lazyLoadedList,
-        targetSlide: targetSlide
-      };
-      nextState = {
-        animating: false,
-        currentSlide: finalSlide,
-        trackStyle: getTrackCSS(_objectSpread(_objectSpread({}, spec), {}, {
-          left: finalLeft
-        })),
-        swipeLeft: null,
-        targetSlide: targetSlide
-      };
-    }
-  }
-
-  return {
-    state: state,
-    nextState: nextState
-  };
-};
-
-exports.slideHandler = slideHandler;
-
-var changeSlide = function changeSlide(spec, options) {
-  var indexOffset, previousInt, slideOffset, unevenOffset, targetSlide;
-  var slidesToScroll = spec.slidesToScroll,
-      slidesToShow = spec.slidesToShow,
-      slideCount = spec.slideCount,
-      currentSlide = spec.currentSlide,
-      previousTargetSlide = spec.targetSlide,
-      lazyLoad = spec.lazyLoad,
-      infinite = spec.infinite;
-  unevenOffset = slideCount % slidesToScroll !== 0;
-  indexOffset = unevenOffset ? 0 : (slideCount - currentSlide) % slidesToScroll;
-
-  if (options.message === "previous") {
-    slideOffset = indexOffset === 0 ? slidesToScroll : slidesToShow - indexOffset;
-    targetSlide = currentSlide - slideOffset;
-
-    if (lazyLoad && !infinite) {
-      previousInt = currentSlide - slideOffset;
-      targetSlide = previousInt === -1 ? slideCount - 1 : previousInt;
-    }
-
-    if (!infinite) {
-      targetSlide = previousTargetSlide - slidesToScroll;
-    }
-  } else if (options.message === "next") {
-    slideOffset = indexOffset === 0 ? slidesToScroll : indexOffset;
-    targetSlide = currentSlide + slideOffset;
-
-    if (lazyLoad && !infinite) {
-      targetSlide = (currentSlide + slidesToScroll) % slideCount + indexOffset;
-    }
-
-    if (!infinite) {
-      targetSlide = previousTargetSlide + slidesToScroll;
-    }
-  } else if (options.message === "dots") {
-    // Click on dots
-    targetSlide = options.index * options.slidesToScroll;
-  } else if (options.message === "children") {
-    // Click on the slides
-    targetSlide = options.index;
-
-    if (infinite) {
-      var direction = siblingDirection(_objectSpread(_objectSpread({}, spec), {}, {
-        targetSlide: targetSlide
-      }));
-
-      if (targetSlide > options.currentSlide && direction === "left") {
-        targetSlide = targetSlide - slideCount;
-      } else if (targetSlide < options.currentSlide && direction === "right") {
-        targetSlide = targetSlide + slideCount;
-      }
-    }
-  } else if (options.message === "index") {
-    targetSlide = Number(options.index);
-  }
-
-  return targetSlide;
-};
-
-exports.changeSlide = changeSlide;
-
-var keyHandler = function keyHandler(e, accessibility, rtl) {
-  if (e.target.tagName.match("TEXTAREA|INPUT|SELECT") || !accessibility) return "";
-  if (e.keyCode === 37) return rtl ? "next" : "previous";
-  if (e.keyCode === 39) return rtl ? "previous" : "next";
-  return "";
-};
-
-exports.keyHandler = keyHandler;
-
-var swipeStart = function swipeStart(e, swipe, draggable) {
-  e.target.tagName === "IMG" && safePreventDefault(e);
-  if (!swipe || !draggable && e.type.indexOf("mouse") !== -1) return "";
-  return {
-    dragging: true,
-    touchObject: {
-      startX: e.touches ? e.touches[0].pageX : e.clientX,
-      startY: e.touches ? e.touches[0].pageY : e.clientY,
-      curX: e.touches ? e.touches[0].pageX : e.clientX,
-      curY: e.touches ? e.touches[0].pageY : e.clientY
-    }
-  };
-};
-
-exports.swipeStart = swipeStart;
-
-var swipeMove = function swipeMove(e, spec) {
-  // spec also contains, trackRef and slideIndex
-  var scrolling = spec.scrolling,
-      animating = spec.animating,
-      vertical = spec.vertical,
-      swipeToSlide = spec.swipeToSlide,
-      verticalSwiping = spec.verticalSwiping,
-      rtl = spec.rtl,
-      currentSlide = spec.currentSlide,
-      edgeFriction = spec.edgeFriction,
-      edgeDragged = spec.edgeDragged,
-      onEdge = spec.onEdge,
-      swiped = spec.swiped,
-      swiping = spec.swiping,
-      slideCount = spec.slideCount,
-      slidesToScroll = spec.slidesToScroll,
-      infinite = spec.infinite,
-      touchObject = spec.touchObject,
-      swipeEvent = spec.swipeEvent,
-      listHeight = spec.listHeight,
-      listWidth = spec.listWidth;
-  if (scrolling) return;
-  if (animating) return safePreventDefault(e);
-  if (vertical && swipeToSlide && verticalSwiping) safePreventDefault(e);
-  var swipeLeft,
-      state = {};
-  var curLeft = getTrackLeft(spec);
-  touchObject.curX = e.touches ? e.touches[0].pageX : e.clientX;
-  touchObject.curY = e.touches ? e.touches[0].pageY : e.clientY;
-  touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curX - touchObject.startX, 2)));
-  var verticalSwipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curY - touchObject.startY, 2)));
-
-  if (!verticalSwiping && !swiping && verticalSwipeLength > 10) {
-    return {
-      scrolling: true
-    };
-  }
-
-  if (verticalSwiping) touchObject.swipeLength = verticalSwipeLength;
-  var positionOffset = (!rtl ? 1 : -1) * (touchObject.curX > touchObject.startX ? 1 : -1);
-  if (verticalSwiping) positionOffset = touchObject.curY > touchObject.startY ? 1 : -1;
-  var dotCount = Math.ceil(slideCount / slidesToScroll);
-  var swipeDirection = getSwipeDirection(spec.touchObject, verticalSwiping);
-  var touchSwipeLength = touchObject.swipeLength;
-
-  if (!infinite) {
-    if (currentSlide === 0 && (swipeDirection === "right" || swipeDirection === "down") || currentSlide + 1 >= dotCount && (swipeDirection === "left" || swipeDirection === "up") || !canGoNext(spec) && (swipeDirection === "left" || swipeDirection === "up")) {
-      touchSwipeLength = touchObject.swipeLength * edgeFriction;
-
-      if (edgeDragged === false && onEdge) {
-        onEdge(swipeDirection);
-        state["edgeDragged"] = true;
-      }
-    }
-  }
-
-  if (!swiped && swipeEvent) {
-    swipeEvent(swipeDirection);
-    state["swiped"] = true;
-  }
-
-  if (!vertical) {
-    if (!rtl) {
-      swipeLeft = curLeft + touchSwipeLength * positionOffset;
-    } else {
-      swipeLeft = curLeft - touchSwipeLength * positionOffset;
-    }
-  } else {
-    swipeLeft = curLeft + touchSwipeLength * (listHeight / listWidth) * positionOffset;
-  }
-
-  if (verticalSwiping) {
-    swipeLeft = curLeft + touchSwipeLength * positionOffset;
-  }
-
-  state = _objectSpread(_objectSpread({}, state), {}, {
-    touchObject: touchObject,
-    swipeLeft: swipeLeft,
-    trackStyle: getTrackCSS(_objectSpread(_objectSpread({}, spec), {}, {
-      left: swipeLeft
-    }))
-  });
-
-  if (Math.abs(touchObject.curX - touchObject.startX) < Math.abs(touchObject.curY - touchObject.startY) * 0.8) {
-    return state;
-  }
-
-  if (touchObject.swipeLength > 10) {
-    state["swiping"] = true;
-    safePreventDefault(e);
-  }
-
-  return state;
-};
-
-exports.swipeMove = swipeMove;
-
-var swipeEnd = function swipeEnd(e, spec) {
-  var dragging = spec.dragging,
-      swipe = spec.swipe,
-      touchObject = spec.touchObject,
-      listWidth = spec.listWidth,
-      touchThreshold = spec.touchThreshold,
-      verticalSwiping = spec.verticalSwiping,
-      listHeight = spec.listHeight,
-      swipeToSlide = spec.swipeToSlide,
-      scrolling = spec.scrolling,
-      onSwipe = spec.onSwipe,
-      targetSlide = spec.targetSlide,
-      currentSlide = spec.currentSlide,
-      infinite = spec.infinite;
-
-  if (!dragging) {
-    if (swipe) safePreventDefault(e);
-    return {};
-  }
-
-  var minSwipe = verticalSwiping ? listHeight / touchThreshold : listWidth / touchThreshold;
-  var swipeDirection = getSwipeDirection(touchObject, verticalSwiping); // reset the state of touch related state variables.
-
-  var state = {
-    dragging: false,
-    edgeDragged: false,
-    scrolling: false,
-    swiping: false,
-    swiped: false,
-    swipeLeft: null,
-    touchObject: {}
-  };
-
-  if (scrolling) {
-    return state;
-  }
-
-  if (!touchObject.swipeLength) {
-    return state;
-  }
-
-  if (touchObject.swipeLength > minSwipe) {
-    safePreventDefault(e);
-
-    if (onSwipe) {
-      onSwipe(swipeDirection);
-    }
-
-    var slideCount, newSlide;
-    var activeSlide = infinite ? currentSlide : targetSlide;
-
-    switch (swipeDirection) {
-      case "left":
-      case "up":
-        newSlide = activeSlide + getSlideCount(spec);
-        slideCount = swipeToSlide ? checkNavigable(spec, newSlide) : newSlide;
-        state["currentDirection"] = 0;
-        break;
-
-      case "right":
-      case "down":
-        newSlide = activeSlide - getSlideCount(spec);
-        slideCount = swipeToSlide ? checkNavigable(spec, newSlide) : newSlide;
-        state["currentDirection"] = 1;
-        break;
-
-      default:
-        slideCount = activeSlide;
-    }
-
-    state["triggerSlideHandler"] = slideCount;
-  } else {
-    // Adjust the track back to it's original position.
-    var currentLeft = getTrackLeft(spec);
-    state["trackStyle"] = getTrackAnimateCSS(_objectSpread(_objectSpread({}, spec), {}, {
-      left: currentLeft
-    }));
-  }
-
-  return state;
-};
-
-exports.swipeEnd = swipeEnd;
-
-var getNavigableIndexes = function getNavigableIndexes(spec) {
-  var max = spec.infinite ? spec.slideCount * 2 : spec.slideCount;
-  var breakpoint = spec.infinite ? spec.slidesToShow * -1 : 0;
-  var counter = spec.infinite ? spec.slidesToShow * -1 : 0;
-  var indexes = [];
-
-  while (breakpoint < max) {
-    indexes.push(breakpoint);
-    breakpoint = counter + spec.slidesToScroll;
-    counter += Math.min(spec.slidesToScroll, spec.slidesToShow);
-  }
-
-  return indexes;
-};
-
-exports.getNavigableIndexes = getNavigableIndexes;
-
-var checkNavigable = function checkNavigable(spec, index) {
-  var navigables = getNavigableIndexes(spec);
-  var prevNavigable = 0;
-
-  if (index > navigables[navigables.length - 1]) {
-    index = navigables[navigables.length - 1];
-  } else {
-    for (var n in navigables) {
-      if (index < navigables[n]) {
-        index = prevNavigable;
-        break;
-      }
-
-      prevNavigable = navigables[n];
-    }
-  }
-
-  return index;
-};
-
-exports.checkNavigable = checkNavigable;
-
-var getSlideCount = function getSlideCount(spec) {
-  var centerOffset = spec.centerMode ? spec.slideWidth * Math.floor(spec.slidesToShow / 2) : 0;
-
-  if (spec.swipeToSlide) {
-    var swipedSlide;
-    var slickList = spec.listRef;
-    var slides = slickList.querySelectorAll && slickList.querySelectorAll(".slick-slide") || [];
-    Array.from(slides).every(function (slide) {
-      if (!spec.vertical) {
-        if (slide.offsetLeft - centerOffset + getWidth(slide) / 2 > spec.swipeLeft * -1) {
-          swipedSlide = slide;
-          return false;
-        }
-      } else {
-        if (slide.offsetTop + getHeight(slide) / 2 > spec.swipeLeft * -1) {
-          swipedSlide = slide;
-          return false;
-        }
-      }
-
-      return true;
-    });
-
-    if (!swipedSlide) {
-      return 0;
-    }
-
-    var currentIndex = spec.rtl === true ? spec.slideCount - spec.currentSlide : spec.currentSlide;
-    var slidesTraversed = Math.abs(swipedSlide.dataset.index - currentIndex) || 1;
-    return slidesTraversed;
-  } else {
-    return spec.slidesToScroll;
-  }
-};
-
-exports.getSlideCount = getSlideCount;
-
-var checkSpecKeys = function checkSpecKeys(spec, keysArray) {
-  return keysArray.reduce(function (value, key) {
-    return value && spec.hasOwnProperty(key);
-  }, true) ? null : console.error("Keys Missing:", spec);
-};
-
-exports.checkSpecKeys = checkSpecKeys;
-
-var getTrackCSS = function getTrackCSS(spec) {
-  checkSpecKeys(spec, ["left", "variableWidth", "slideCount", "slidesToShow", "slideWidth"]);
-  var trackWidth, trackHeight;
-  var trackChildren = spec.slideCount + 2 * spec.slidesToShow;
-
-  if (!spec.vertical) {
-    trackWidth = getTotalSlides(spec) * spec.slideWidth;
-  } else {
-    trackHeight = trackChildren * spec.slideHeight;
-  }
-
-  var style = {
-    opacity: 1,
-    transition: "",
-    WebkitTransition: ""
-  };
-
-  if (spec.useTransform) {
-    var WebkitTransform = !spec.vertical ? "translate3d(" + spec.left + "px, 0px, 0px)" : "translate3d(0px, " + spec.left + "px, 0px)";
-    var transform = !spec.vertical ? "translate3d(" + spec.left + "px, 0px, 0px)" : "translate3d(0px, " + spec.left + "px, 0px)";
-    var msTransform = !spec.vertical ? "translateX(" + spec.left + "px)" : "translateY(" + spec.left + "px)";
-    style = _objectSpread(_objectSpread({}, style), {}, {
-      WebkitTransform: WebkitTransform,
-      transform: transform,
-      msTransform: msTransform
-    });
-  } else {
-    if (spec.vertical) {
-      style["top"] = spec.left;
-    } else {
-      style["left"] = spec.left;
-    }
-  }
-
-  if (spec.fade) style = {
-    opacity: 1
-  };
-  if (trackWidth) style.width = trackWidth;
-  if (trackHeight) style.height = trackHeight; // Fallback for IE8
-
-  if (window && !window.addEventListener && window.attachEvent) {
-    if (!spec.vertical) {
-      style.marginLeft = spec.left + "px";
-    } else {
-      style.marginTop = spec.left + "px";
-    }
-  }
-
-  return style;
-};
-
-exports.getTrackCSS = getTrackCSS;
-
-var getTrackAnimateCSS = function getTrackAnimateCSS(spec) {
-  checkSpecKeys(spec, ["left", "variableWidth", "slideCount", "slidesToShow", "slideWidth", "speed", "cssEase"]);
-  var style = getTrackCSS(spec); // useCSS is true by default so it can be undefined
-
-  if (spec.useTransform) {
-    style.WebkitTransition = "-webkit-transform " + spec.speed + "ms " + spec.cssEase;
-    style.transition = "transform " + spec.speed + "ms " + spec.cssEase;
-  } else {
-    if (spec.vertical) {
-      style.transition = "top " + spec.speed + "ms " + spec.cssEase;
-    } else {
-      style.transition = "left " + spec.speed + "ms " + spec.cssEase;
-    }
-  }
-
-  return style;
-};
-
-exports.getTrackAnimateCSS = getTrackAnimateCSS;
-
-var getTrackLeft = function getTrackLeft(spec) {
-  if (spec.unslick) {
-    return 0;
-  }
-
-  checkSpecKeys(spec, ["slideIndex", "trackRef", "infinite", "centerMode", "slideCount", "slidesToShow", "slidesToScroll", "slideWidth", "listWidth", "variableWidth", "slideHeight"]);
-  var slideIndex = spec.slideIndex,
-      trackRef = spec.trackRef,
-      infinite = spec.infinite,
-      centerMode = spec.centerMode,
-      slideCount = spec.slideCount,
-      slidesToShow = spec.slidesToShow,
-      slidesToScroll = spec.slidesToScroll,
-      slideWidth = spec.slideWidth,
-      listWidth = spec.listWidth,
-      variableWidth = spec.variableWidth,
-      slideHeight = spec.slideHeight,
-      fade = spec.fade,
-      vertical = spec.vertical;
-  var slideOffset = 0;
-  var targetLeft;
-  var targetSlide;
-  var verticalOffset = 0;
-
-  if (fade || spec.slideCount === 1) {
-    return 0;
-  }
-
-  var slidesToOffset = 0;
-
-  if (infinite) {
-    slidesToOffset = -getPreClones(spec); // bring active slide to the beginning of visual area
-    // if next scroll doesn't have enough children, just reach till the end of original slides instead of shifting slidesToScroll children
-
-    if (slideCount % slidesToScroll !== 0 && slideIndex + slidesToScroll > slideCount) {
-      slidesToOffset = -(slideIndex > slideCount ? slidesToShow - (slideIndex - slideCount) : slideCount % slidesToScroll);
-    } // shift current slide to center of the frame
-
-
-    if (centerMode) {
-      slidesToOffset += parseInt(slidesToShow / 2);
-    }
-  } else {
-    if (slideCount % slidesToScroll !== 0 && slideIndex + slidesToScroll > slideCount) {
-      slidesToOffset = slidesToShow - slideCount % slidesToScroll;
-    }
-
-    if (centerMode) {
-      slidesToOffset = parseInt(slidesToShow / 2);
-    }
-  }
-
-  slideOffset = slidesToOffset * slideWidth;
-  verticalOffset = slidesToOffset * slideHeight;
-
-  if (!vertical) {
-    targetLeft = slideIndex * slideWidth * -1 + slideOffset;
-  } else {
-    targetLeft = slideIndex * slideHeight * -1 + verticalOffset;
-  }
-
-  if (variableWidth === true) {
-    var targetSlideIndex;
-    var trackElem = trackRef && trackRef.node;
-    targetSlideIndex = slideIndex + getPreClones(spec);
-    targetSlide = trackElem && trackElem.childNodes[targetSlideIndex];
-    targetLeft = targetSlide ? targetSlide.offsetLeft * -1 : 0;
-
-    if (centerMode === true) {
-      targetSlideIndex = infinite ? slideIndex + getPreClones(spec) : slideIndex;
-      targetSlide = trackElem && trackElem.children[targetSlideIndex];
-      targetLeft = 0;
-
-      for (var slide = 0; slide < targetSlideIndex; slide++) {
-        targetLeft -= trackElem && trackElem.children[slide] && trackElem.children[slide].offsetWidth;
-      }
-
-      targetLeft -= parseInt(spec.centerPadding);
-      targetLeft += targetSlide && (listWidth - targetSlide.offsetWidth) / 2;
-    }
-  }
-
-  return targetLeft;
-};
-
-exports.getTrackLeft = getTrackLeft;
-
-var getPreClones = function getPreClones(spec) {
-  if (spec.unslick || !spec.infinite) {
-    return 0;
-  }
-
-  if (spec.variableWidth) {
-    return spec.slideCount;
-  }
-
-  return spec.slidesToShow + (spec.centerMode ? 1 : 0);
-};
-
-exports.getPreClones = getPreClones;
-
-var getPostClones = function getPostClones(spec) {
-  if (spec.unslick || !spec.infinite) {
-    return 0;
-  }
-
-  return spec.slideCount;
-};
-
-exports.getPostClones = getPostClones;
-
-var getTotalSlides = function getTotalSlides(spec) {
-  return spec.slideCount === 1 ? 1 : getPreClones(spec) + spec.slideCount + getPostClones(spec);
-};
-
-exports.getTotalSlides = getTotalSlides;
-
-var siblingDirection = function siblingDirection(spec) {
-  if (spec.targetSlide > spec.currentSlide) {
-    if (spec.targetSlide > spec.currentSlide + slidesOnRight(spec)) {
-      return "left";
-    }
-
-    return "right";
-  } else {
-    if (spec.targetSlide < spec.currentSlide - slidesOnLeft(spec)) {
-      return "right";
-    }
-
-    return "left";
-  }
-};
-
-exports.siblingDirection = siblingDirection;
-
-var slidesOnRight = function slidesOnRight(_ref) {
-  var slidesToShow = _ref.slidesToShow,
-      centerMode = _ref.centerMode,
-      rtl = _ref.rtl,
-      centerPadding = _ref.centerPadding;
-
-  // returns no of slides on the right of active slide
-  if (centerMode) {
-    var right = (slidesToShow - 1) / 2 + 1;
-    if (parseInt(centerPadding) > 0) right += 1;
-    if (rtl && slidesToShow % 2 === 0) right += 1;
-    return right;
-  }
-
-  if (rtl) {
-    return 0;
-  }
-
-  return slidesToShow - 1;
-};
-
-exports.slidesOnRight = slidesOnRight;
-
-var slidesOnLeft = function slidesOnLeft(_ref2) {
-  var slidesToShow = _ref2.slidesToShow,
-      centerMode = _ref2.centerMode,
-      rtl = _ref2.rtl,
-      centerPadding = _ref2.centerPadding;
-
-  // returns no of slides on the left of active slide
-  if (centerMode) {
-    var left = (slidesToShow - 1) / 2 + 1;
-    if (parseInt(centerPadding) > 0) left += 1;
-    if (!rtl && slidesToShow % 2 === 0) left += 1;
-    return left;
-  }
-
-  if (rtl) {
-    return slidesToShow - 1;
-  }
-
-  return 0;
-};
-
-exports.slidesOnLeft = slidesOnLeft;
-
-var canUseDOM = function canUseDOM() {
-  return !!(typeof window !== "undefined" && window.document && window.document.createElement);
-};
-
-exports.canUseDOM = canUseDOM;
-
-/***/ }),
-
 /***/ "./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js":
 /*!*************************************************************************!*\
   !*** ./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js ***!
@@ -37945,6 +36542,477 @@ module.exports = WhiteLogo;
 
 WhiteLogo.default = WhiteLogo;
 
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/react-slick/node_modules/throttle-debounce/esm/index.js":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/@ant-design/react-slick/node_modules/throttle-debounce/esm/index.js ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   debounce: () => (/* binding */ debounce),
+/* harmony export */   throttle: () => (/* binding */ throttle)
+/* harmony export */ });
+/* eslint-disable no-undefined,no-param-reassign,no-shadow */
+
+/**
+ * Throttle execution of a function. Especially useful for rate limiting
+ * execution of handlers on events like resize and scroll.
+ *
+ * @param {number} delay -                  A zero-or-greater delay in milliseconds. For event callbacks, values around 100 or 250 (or even higher)
+ *                                            are most useful.
+ * @param {Function} callback -               A function to be executed after delay milliseconds. The `this` context and all arguments are passed through,
+ *                                            as-is, to `callback` when the throttled-function is executed.
+ * @param {object} [options] -              An object to configure options.
+ * @param {boolean} [options.noTrailing] -   Optional, defaults to false. If noTrailing is true, callback will only execute every `delay` milliseconds
+ *                                            while the throttled-function is being called. If noTrailing is false or unspecified, callback will be executed
+ *                                            one final time after the last throttled-function call. (After the throttled-function has not been called for
+ *                                            `delay` milliseconds, the internal counter is reset).
+ * @param {boolean} [options.noLeading] -   Optional, defaults to false. If noLeading is false, the first throttled-function call will execute callback
+ *                                            immediately. If noLeading is true, the first the callback execution will be skipped. It should be noted that
+ *                                            callback will never executed if both noLeading = true and noTrailing = true.
+ * @param {boolean} [options.debounceMode] - If `debounceMode` is true (at begin), schedule `clear` to execute after `delay` ms. If `debounceMode` is
+ *                                            false (at end), schedule `callback` to execute after `delay` ms.
+ *
+ * @returns {Function} A new, throttled, function.
+ */
+function throttle (delay, callback, options) {
+  var _ref = options || {},
+      _ref$noTrailing = _ref.noTrailing,
+      noTrailing = _ref$noTrailing === void 0 ? false : _ref$noTrailing,
+      _ref$noLeading = _ref.noLeading,
+      noLeading = _ref$noLeading === void 0 ? false : _ref$noLeading,
+      _ref$debounceMode = _ref.debounceMode,
+      debounceMode = _ref$debounceMode === void 0 ? undefined : _ref$debounceMode;
+  /*
+   * After wrapper has stopped being called, this timeout ensures that
+   * `callback` is executed at the proper times in `throttle` and `end`
+   * debounce modes.
+   */
+
+
+  var timeoutID;
+  var cancelled = false; // Keep track of the last time `callback` was executed.
+
+  var lastExec = 0; // Function to clear existing timeout
+
+  function clearExistingTimeout() {
+    if (timeoutID) {
+      clearTimeout(timeoutID);
+    }
+  } // Function to cancel next exec
+
+
+  function cancel(options) {
+    var _ref2 = options || {},
+        _ref2$upcomingOnly = _ref2.upcomingOnly,
+        upcomingOnly = _ref2$upcomingOnly === void 0 ? false : _ref2$upcomingOnly;
+
+    clearExistingTimeout();
+    cancelled = !upcomingOnly;
+  }
+  /*
+   * The `wrapper` function encapsulates all of the throttling / debouncing
+   * functionality and when executed will limit the rate at which `callback`
+   * is executed.
+   */
+
+
+  function wrapper() {
+    for (var _len = arguments.length, arguments_ = new Array(_len), _key = 0; _key < _len; _key++) {
+      arguments_[_key] = arguments[_key];
+    }
+
+    var self = this;
+    var elapsed = Date.now() - lastExec;
+
+    if (cancelled) {
+      return;
+    } // Execute `callback` and update the `lastExec` timestamp.
+
+
+    function exec() {
+      lastExec = Date.now();
+      callback.apply(self, arguments_);
+    }
+    /*
+     * If `debounceMode` is true (at begin) this is used to clear the flag
+     * to allow future `callback` executions.
+     */
+
+
+    function clear() {
+      timeoutID = undefined;
+    }
+
+    if (!noLeading && debounceMode && !timeoutID) {
+      /*
+       * Since `wrapper` is being called for the first time and
+       * `debounceMode` is true (at begin), execute `callback`
+       * and noLeading != true.
+       */
+      exec();
+    }
+
+    clearExistingTimeout();
+
+    if (debounceMode === undefined && elapsed > delay) {
+      if (noLeading) {
+        /*
+         * In throttle mode with noLeading, if `delay` time has
+         * been exceeded, update `lastExec` and schedule `callback`
+         * to execute after `delay` ms.
+         */
+        lastExec = Date.now();
+
+        if (!noTrailing) {
+          timeoutID = setTimeout(debounceMode ? clear : exec, delay);
+        }
+      } else {
+        /*
+         * In throttle mode without noLeading, if `delay` time has been exceeded, execute
+         * `callback`.
+         */
+        exec();
+      }
+    } else if (noTrailing !== true) {
+      /*
+       * In trailing throttle mode, since `delay` time has not been
+       * exceeded, schedule `callback` to execute `delay` ms after most
+       * recent execution.
+       *
+       * If `debounceMode` is true (at begin), schedule `clear` to execute
+       * after `delay` ms.
+       *
+       * If `debounceMode` is false (at end), schedule `callback` to
+       * execute after `delay` ms.
+       */
+      timeoutID = setTimeout(debounceMode ? clear : exec, debounceMode === undefined ? delay - elapsed : delay);
+    }
+  }
+
+  wrapper.cancel = cancel; // Return the wrapper function.
+
+  return wrapper;
+}
+
+/* eslint-disable no-undefined */
+/**
+ * Debounce execution of a function. Debouncing, unlike throttling,
+ * guarantees that a function is only executed a single time, either at the
+ * very beginning of a series of calls, or at the very end.
+ *
+ * @param {number} delay -               A zero-or-greater delay in milliseconds. For event callbacks, values around 100 or 250 (or even higher) are most useful.
+ * @param {Function} callback -          A function to be executed after delay milliseconds. The `this` context and all arguments are passed through, as-is,
+ *                                        to `callback` when the debounced-function is executed.
+ * @param {object} [options] -           An object to configure options.
+ * @param {boolean} [options.atBegin] -  Optional, defaults to false. If atBegin is false or unspecified, callback will only be executed `delay` milliseconds
+ *                                        after the last debounced-function call. If atBegin is true, callback will be executed only at the first debounced-function call.
+ *                                        (After the throttled-function has not been called for `delay` milliseconds, the internal counter is reset).
+ *
+ * @returns {Function} A new, debounced function.
+ */
+
+function debounce (delay, callback, options) {
+  var _ref = options || {},
+      _ref$atBegin = _ref.atBegin,
+      atBegin = _ref$atBegin === void 0 ? false : _ref$atBegin;
+
+  return throttle(delay, callback, {
+    debounceMode: atBegin !== false
+  });
+}
+
+
+//# sourceMappingURL=index.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _classCallCheck)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/createClass.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/createClass.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _createClass)
+/* harmony export */ });
+/* harmony import */ var _toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toPropertyKey.js */ "./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js");
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, (0,_toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__["default"])(descriptor.key), descriptor);
+  }
+}
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
+  return Constructor;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/createSuper.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/createSuper.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _createSuper)
+/* harmony export */ });
+/* harmony import */ var _getPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getPrototypeOf.js */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _isNativeReflectConstruct_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isNativeReflectConstruct.js */ "./node_modules/@babel/runtime/helpers/esm/isNativeReflectConstruct.js");
+/* harmony import */ var _possibleConstructorReturn_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./possibleConstructorReturn.js */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+
+
+
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = (0,_isNativeReflectConstruct_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  return function _createSuperInternal() {
+    var Super = (0,_getPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Derived),
+      result;
+    if (hasNativeReflectConstruct) {
+      var NewTarget = (0,_getPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this).constructor;
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+    return (0,_possibleConstructorReturn_js__WEBPACK_IMPORTED_MODULE_2__["default"])(this, result);
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _getPrototypeOf)
+/* harmony export */ });
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/inherits.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/inherits.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _inherits)
+/* harmony export */ });
+/* harmony import */ var _setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPrototypeOf.js */ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js");
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  Object.defineProperty(subClass, "prototype", {
+    writable: false
+  });
+  if (superClass) (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(subClass, superClass);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/isNativeReflectConstruct.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/isNativeReflectConstruct.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _isNativeReflectConstruct)
+/* harmony export */ });
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+  try {
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _objectSpread2)
+/* harmony export */ });
+/* harmony import */ var _defineProperty_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+
+function ownKeys(e, r) {
+  var t = Object.keys(e);
+  if (Object.getOwnPropertySymbols) {
+    var o = Object.getOwnPropertySymbols(e);
+    r && (o = o.filter(function (r) {
+      return Object.getOwnPropertyDescriptor(e, r).enumerable;
+    })), t.push.apply(t, o);
+  }
+  return t;
+}
+function _objectSpread2(e) {
+  for (var r = 1; r < arguments.length; r++) {
+    var t = null != arguments[r] ? arguments[r] : {};
+    r % 2 ? ownKeys(Object(t), !0).forEach(function (r) {
+      (0,_defineProperty_js__WEBPACK_IMPORTED_MODULE_0__["default"])(e, r, t[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
+      Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
+    });
+  }
+  return e;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _objectWithoutProperties)
+/* harmony export */ });
+/* harmony import */ var _objectWithoutPropertiesLoose_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./objectWithoutPropertiesLoose.js */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+  var target = (0,_objectWithoutPropertiesLoose_js__WEBPACK_IMPORTED_MODULE_0__["default"])(source, excluded);
+  var key, i;
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+  return target;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _objectWithoutPropertiesLoose)
+/* harmony export */ });
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+  return target;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _possibleConstructorReturn)
+/* harmony export */ });
+/* harmony import */ var _typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./typeof.js */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assertThisInitialized.js */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+
+
+function _possibleConstructorReturn(self, call) {
+  if (call && ((0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__["default"])(call) === "object" || typeof call === "function")) {
+    return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
+  }
+  return (0,_assertThisInitialized_js__WEBPACK_IMPORTED_MODULE_1__["default"])(self);
+}
 
 /***/ }),
 
