@@ -9,7 +9,7 @@ import React, {
 import ReactDOM, { findDOMNode } from "react-dom";
 import { graphql, Link, useScrollRestoration } from "gatsby";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
 import { ImageOrientation } from "../components/utils/image-orientation";
 import { Helmet } from "react-helmet";
@@ -28,7 +28,7 @@ import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo } from "../components/tf/index/project-info";
 import { ProjectInfo2 } from "../components/tf/index/project-info2";
 import { ImgComponent } from "../components/tf/img-component";
-import { TwoUpProjectCarousel } from "../components/tf/index/two-up-carousel";
+import { TwoUpProjectCarouselSlickDefault } from "../components/tf/index/two-up-carousels/two-up-carousel-slick-default";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
 import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
@@ -177,7 +177,7 @@ const SquareImg = styled.div`
 `;
 
 const Index = ({ data }) => {
-  console.log("2023/10/17 15:22")
+  console.log("2023/10/17 15:22");
   const [pageLoad, setPageLoad] = useState(null);
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef2 = useRef(null);
@@ -330,7 +330,7 @@ const Index = ({ data }) => {
           (content_four, index) => {
             if (content_four.slice_type == "image") {
               // console.log("SQUARE IMAGE");
-              const image = getImage(content_four.primary.image)
+              const image = getImage(content_four.primary.image);
               // console.log(image);
               return (
                 // <ImgComponent
@@ -339,7 +339,6 @@ const Index = ({ data }) => {
                 <SquareImg>
                   <GatsbyImage image={image} />
                 </SquareImg>
-                
               );
             }
             if (content_four.slice_type == "video") {
@@ -369,7 +368,7 @@ const Index = ({ data }) => {
         if (isPageWide && projectLength > 1) {
           return (
             <ProjectCon>
-              <TwoUpProjectCarousel
+              <TwoUpProjectCarouselSlickDefault
                 projectLength={
                   content.project_relationship_field.document.data.body.length
                 }
@@ -380,7 +379,7 @@ const Index = ({ data }) => {
                   })
                 )}
                 {/* {project} */}
-              </TwoUpProjectCarousel>
+              </TwoUpProjectCarouselSlickDefault>
               <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
@@ -537,7 +536,7 @@ export const query = graphql`
                           dimensions {
                             height
                             width
-                          }                          
+                          }
                         }
                       }
                     }
