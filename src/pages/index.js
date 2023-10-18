@@ -475,7 +475,7 @@ export const query = graphql`
                       slice_type
                       primary {
                         image {
-                          gatsbyImageData
+                          gatsbyImageData(placeholder: BLURRED)
                         }
                       }
                     }
@@ -490,7 +490,7 @@ export const query = graphql`
                           url
                         }
                         index_image {
-                          gatsbyImageData
+                          gatsbyImageData(placeholder: BLURRED)
                         }
                       }
                     }
@@ -530,7 +530,7 @@ export const query = graphql`
                           url
                         }
                         video_thumbnail {
-                          gatsbyImageData
+                          gatsbyImageData(placeholder: BLURRED)
                           dimensions {
                             height
                             width
