@@ -164,7 +164,7 @@ const Counter = styled.p`
 `;
 
 const Index = ({ data }) => {
-  console.log("2023/10/17 15:22");
+  console.log("2023/11/08 14:43");
   const [pageLoad, setPageLoad] = useState(null);
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef2 = useRef(null);
