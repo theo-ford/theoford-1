@@ -9,8 +9,7 @@ import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 import { VideoProjectPage } from "../components/tf/project/video-project-page";
 import { NavGrid } from "../components/tf/nav-grid/nav";
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -271,15 +270,27 @@ const FilmLeadProject = ({ data }) => {
     if (content.slice_type == "video_with_play_button") {
       // console.log(content);
       // console.log(content.primary.video_thumbnail.fluid.srcSetWebp);
-      return (
-        <>
-          <VideoProjectPage
-            srcProps={content.primary.video_with_play_button.url}
-            posterProps={content.primary.video_thumbnail}
-            img={content.primary.video_thumbnail}
-          ></VideoProjectPage>
-        </>
-      );
+      if (isPageWide) {
+        return (
+          <>
+            <VideoProjectPage
+              srcProps={content.primary.video_with_play_button.url}
+              posterProps={content.primary.video_thumbnail}
+              img={content.primary.video_thumbnail}
+            ></VideoProjectPage>
+          </>
+        );
+      } else {
+        return (
+          <>
+            <VideoProjectPage
+              srcProps={content.primary.small_video_with_play_button.url}
+              posterProps={content.primary.video_thumbnail}
+              img={content.primary.video_thumbnail}
+            ></VideoProjectPage>
+          </>
+        );
+      }
     }
     if (content.slice_type == "text") {
       return (
@@ -301,13 +312,15 @@ const FilmLeadProject = ({ data }) => {
         //     );
         //   }
         // );
-        const image = getImage(content.related_projects.document.data.index_preview_img)
+        const image = getImage(
+          content.related_projects.document.data.index_preview_img
+        );
 
         return (
           <>
             <RelatedProjectsProjectCon>
               <Link to={`/${content.related_projects.document.uid}`}>
-              <RelatedProjectsImg>
+                <RelatedProjectsImg>
                   <GatsbyImage image={image} />
                 </RelatedProjectsImg>
                 <RelatedProjectProjectTitle>
@@ -323,13 +336,15 @@ const FilmLeadProject = ({ data }) => {
         content.related_projects.document.type == "film_lead_project"
       ) {
         console.log("film project");
-        const image = getImage(content.related_projects.document.data.index_preview_img)
+        const image = getImage(
+          content.related_projects.document.data.index_preview_img
+        );
 
         return (
           <>
             <RelatedProjectsProjectCon>
               <Link to={`/${content.related_projects.document.uid}`}>
-              <RelatedProjectsImg>
+                <RelatedProjectsImg>
                   <GatsbyImage image={image} />
                 </RelatedProjectsImg>
                 <RelatedProjectProjectTitle>
@@ -490,6 +505,9 @@ export const query = graphql`
                 }
               }
               video_with_play_button {
+                url
+              }
+              small_video_with_play_button {
                 url
               }
             }

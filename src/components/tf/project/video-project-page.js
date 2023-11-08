@@ -10,50 +10,50 @@ import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { useOnScreen } from "../../hooks/useOnScreen";
 import { ImageOrientation } from "../../utils/image-orientation";
 import { ImageOrientation2 } from "../../utils/image-orientation2";
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
-
-
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 
 const VideoCon = styled.div`
   margin-bottom: 200px;
   /* margin-top: 100px; */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 8 */ 1fr 1fr 1fr 1fr /* 12 */ 1fr 1fr 1fr 1fr /* 16 */ 1fr 1fr 1fr 1fr /* 20 */ 1fr 1fr 1fr 1fr /* 24 */;
   grid-gap: 12.5px;
   width: 100%;
+  /* background-color: red; */
+  @media (max-width: 666px) {
+    grid-column-gap: 10px;
+  }
 `;
 const VideoConInner = styled.div`
   /* &.portrait {
     grid-column: 4 / span 6;
   } */
-  &.lrg-portrait {
-    grid-column: 5 / span 4;
-  }
   &.sml-portrait {
-    grid-column: 4 / span 6;
+    grid-column: 8 / span 10;
   }
-
+  &.lrg-portrait {
+    grid-column: 8 / span 10;
+  }
   &.square {
-    grid-column: 3 / span 8;
+    grid-column: 7 / span 12;
   }
   &.landscape {
-    grid-column: span 12;
+    grid-column: 1 / span 24;
   }
-
-  @media (max-width: 666px) {
+  /* @media (max-width: 666px) {
     &.sml-portrait {
-      grid-column: 3 / span 8;
+      grid-column: 6 / span 16;
     }
     &.lrg-portrait {
-      grid-column: 4 / span 6;
+      grid-column: 6 / span 16;
     }
     &.square {
-      grid-column: 3 / span 8;
+      grid-column: 5 / span 18;
     }
     &.landscape {
-      grid-column: span 12;
+      grid-column: span 25;
     }
-  }
+  } */
 `;
 const ControlsCon = styled.div`
   display: grid;
@@ -150,7 +150,7 @@ export const VideoProjectPage = ({ srcProps, posterProps, img }) => {
     VideoRef.current.pause();
     setPlayingStatus(false);
   };
-  const getImageVal = getImage(posterProps)
+  const getImageVal = getImage(posterProps);
   return (
     <>
       <VideoCon>
@@ -190,20 +190,20 @@ export const VideoProjectPage = ({ srcProps, posterProps, img }) => {
               {/* <p>TEST</p> */}
             </LengthCon>
             <PlayCon>
-            {isPlaying ? (
+              {isPlaying ? (
                 <p onClick={pauseVideo}>
                   {/* <PauseButtonImg src={PauseButton} /> */}
                   <PauseButtonImg>
-                  <StaticImage src={"../../../img/pause.png"} />  
-                  </PauseButtonImg>                  
+                    <StaticImage src={"../../../img/pause.png"} />
+                  </PauseButtonImg>
                   Pause
                 </p>
               ) : (
                 <p onClick={playVideo}>
                   <PlayButtonImg>
-                  <StaticImage src={"../../../img/play.png"} />  
+                    <StaticImage src={"../../../img/play.png"} />
                   </PlayButtonImg>
-                   Play
+                  Play
                 </p>
               )}
             </PlayCon>

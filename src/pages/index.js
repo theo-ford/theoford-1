@@ -284,13 +284,25 @@ const Index = ({ data }) => {
           (content_three, index) => {
             if (content_three.slice_type == "video_with_play_button") {
               const posterImage = content_three.primary.video_thumbnail;
-              return (
-                <VideoWithControlsImg2
-                  srcProps={content_three.primary.video_with_play_button.url}
-                  posterProps={posterImage}
-                  img={posterImage}
-                ></VideoWithControlsImg2>
-              );
+              if (isPageWide) {
+                return (
+                  <VideoWithControlsImg2
+                    srcProps={content_three.primary.video_with_play_button.url}
+                    posterProps={posterImage}
+                    img={posterImage}
+                  ></VideoWithControlsImg2>
+                );
+              } else {
+                return (
+                  <VideoWithControlsImg2
+                    srcProps={
+                      content_three.primary.small_video_with_play_button.url
+                    }
+                    posterProps={posterImage}
+                    img={posterImage}
+                  ></VideoWithControlsImg2>
+                );
+              }
             }
           }
         );
@@ -533,6 +545,9 @@ export const query = graphql`
                       slice_type
                       primary {
                         video_with_play_button {
+                          url
+                        }
+                        small_video_with_play_button {
                           url
                         }
                         video_thumbnail {

@@ -99,6 +99,13 @@
                   "label": "Video With Play Button"
                 }
               },
+              "small_video_with_play_button": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Small Video With Play Button"
+                }
+              },
               "video_thumbnail": {
                 "type": "Image",
                 "config": {
@@ -286,6 +293,13 @@
                 "config": {
                   "select": "media",
                   "label": "Video With Play Button"
+                }
+              },
+              "small_video_with_play_button": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Small Video With Play Button"
                 }
               },
               "video_thumbnail": {

@@ -24,7 +24,7 @@ import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 const VideoCon = styled.div`
   display: grid;
   top: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 8 */ 1fr 1fr 1fr 1fr /* 12 */ 1fr 1fr 1fr 1fr /* 16 */ 1fr 1fr 1fr 1fr /* 20 */ 1fr 1fr 1fr 1fr /* 24 */;
   grid-column-gap: 12.5px;
   margin-left: 12.5px;
   grid-row-gap: 0;
@@ -33,7 +33,7 @@ const VideoCon = styled.div`
   align-items: center;
   height: 110vh;
   @media (max-width: 666px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 8 */ 1fr 1fr 1fr 1fr /* 12 */ 1fr 1fr 1fr 1fr /* 16 */ 1fr 1fr 1fr 1fr /* 20 */ 1fr 1fr 1fr 1fr /* 24 */;
     grid-column-gap: 10px;
     margin-left: 10px;
     grid-row-gap: 0;
@@ -61,7 +61,7 @@ const VideoConInner = styled.div`
       grid-column: 5 / span 16;
     }
     &.lrg-portrait {
-      grid-column: 6 / span 14;
+      grid-column: 5 / span 16;
     }
     &.square {
       grid-column: 4 / span 18;
@@ -82,12 +82,18 @@ const ControlsCon = styled.div`
 `;
 const PlayButtonCon = styled.div`
   margin-top: 5px;
+  /* background-color: red; */
+  padding-left: 10px;
+  /* margin-left: 10px; */
   width: calc(50%);
   display: inline-block;
   p {
     color: #d4d4d4;
     font-size: 12px;
   }
+  /* @media (max-width: 666px) {
+    padding-left: 0;
+  } */
 `;
 const PaginationCon = styled.div`
   margin-top: 5px;
