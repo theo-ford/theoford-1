@@ -4373,13 +4373,50 @@ const NextButton = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div
 const Grid16 = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div.withConfig({
   displayName: "two-up-carousel-swiper__Grid16"
 })(["display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;grid-column-gap:12.5px;margin-left:12.5px;grid-row-gap:0;width:calc(100% - 25px);z-index:20000;position:absolute;"]);
+const CarouselHeader = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div.withConfig({
+  displayName: "two-up-carousel-swiper__CarouselHeader"
+})(["position:absolute;width:100%;height:20px;margin-top:-23px;"]);
+const TwoUpCarouselCounterOneCon = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div.withConfig({
+  displayName: "two-up-carousel-swiper__TwoUpCarouselCounterOneCon"
+})(["grid-column:span 8;"]);
+const TwoUpCarouselCounterTwoCon = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div.withConfig({
+  displayName: "two-up-carousel-swiper__TwoUpCarouselCounterTwoCon"
+})(["grid-column:span 6;"]);
 const NextButtonConP = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].div.withConfig({
   displayName: "two-up-carousel-swiper__NextButtonConP"
-})(["grid-column:15 / span 2;cursor:pointer;p{color:#878787;}"]);
+})(["grid-column:span 2;cursor:pointer;p{color:#878787;}"]);
 const TwoUpProjectCarouselSwiper = ({
   children,
   projectLength
 }) => {
+  const {
+    0: currentSlide1,
+    1: setCurrentSlide1
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const {
+    0: currentSlide2,
+    1: setCurrentSlide2
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [swiper, setSwiper] = react__WEBPACK_IMPORTED_MODULE_0___default().useState(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    // initSwiper(index);
+    if (swiper) {
+      console.log(swiper);
+      setCurrentSlide1(swiper.realIndex + 1);
+      setCurrentSlide2(swiper.realIndex + 2);
+    }
+  }, [swiper]);
+  const updateCurrentSlide = index => {
+    // console.log("testing 2234");
+    console.log(index);
+    setCurrentSlide1(index.realIndex + 1);
+    setCurrentSlide2(index.realIndex + 2);
+  };
+  const initSwiper = index => {
+    console.log("init swiper");
+    setCurrentSlide1(index.previousRealIndex);
+    setCurrentSlide2(index.realIndex);
+  };
   const swiperRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   function forwardFunc() {
     swiperRef.current.swiper.slideNext();
@@ -4387,9 +4424,9 @@ const TwoUpProjectCarouselSwiper = ({
   function prevFunc() {
     swiperRef.current.swiper.slidePrev();
   }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Grid16, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NextButtonConP, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(CarouselHeader, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Grid16, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(TwoUpCarouselCounterOneCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, ("0" + currentSlide1).slice(-2))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(TwoUpCarouselCounterTwoCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, ("0" + currentSlide2).slice(-2))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NextButtonConP, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     onClick: forwardFunc
-  }, "Next"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(SwiperCarouselCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ButtonCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PrevButton, {
+  }, "Next")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(SwiperCarouselCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ButtonCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(PrevButton, {
     onClick: prevFunc
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(NextButton, {
     onClick: forwardFunc
@@ -4397,7 +4434,8 @@ const TwoUpProjectCarouselSwiper = ({
     ref: swiperRef,
     slidesPerView: 2,
     spaceBetween: 1.5,
-    loop: true
+    loop: true,
+    onSlideChange: index => updateCurrentSlide(index)
     // pagination={{
     //   clickable: true,
     // }}
@@ -4407,7 +4445,11 @@ const TwoUpProjectCarouselSwiper = ({
     // }}
     ,
     modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_5__.Navigation],
-    className: "mySwiper"
+    className: "mySwiper",
+    onSwiper: s => {
+      console.log(s);
+      setSwiper(s);
+    }
   }, children)));
 };
 
@@ -5017,7 +5059,7 @@ const Index = ({
             // <ImgComponent
             //   srcProps={content_four.primary.image.gatsbyImageData.images.sources.srcSet}
             // />
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(swiper_react__WEBPACK_IMPORTED_MODULE_16__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Counter, null, "0" + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(SquareImg, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_18__.GatsbyImage, {
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(swiper_react__WEBPACK_IMPORTED_MODULE_16__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(SquareImg, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby_plugin_image__WEBPACK_IMPORTED_MODULE_18__.GatsbyImage, {
               image: image
             })))
           );
@@ -5026,13 +5068,13 @@ const Index = ({
           if (isPageWide) {
             // postImage = getImage(content_four.primary.index_image)
             const posterImg = content_four.primary.index_image;
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(swiper_react__WEBPACK_IMPORTED_MODULE_16__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Counter, null, "0" + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(IndexAutoPlayVideoCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_autoplay_video__WEBPACK_IMPORTED_MODULE_7__.AutoPlayVideo, {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(swiper_react__WEBPACK_IMPORTED_MODULE_16__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(IndexAutoPlayVideoCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_autoplay_video__WEBPACK_IMPORTED_MODULE_7__.AutoPlayVideo, {
               srcProps: content_four.primary.video.url,
               posterProps: posterImg
             })));
           } else {
             const posterImg = content_four.primary.index_image;
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(swiper_react__WEBPACK_IMPORTED_MODULE_16__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Counter, null, "0" + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(IndexAutoPlayVideoCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_autoplay_video__WEBPACK_IMPORTED_MODULE_7__.AutoPlayVideo, {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(swiper_react__WEBPACK_IMPORTED_MODULE_16__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(IndexAutoPlayVideoCon, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_tf_autoplay_video__WEBPACK_IMPORTED_MODULE_7__.AutoPlayVideo, {
               srcProps: content_four.primary.sml_video.url,
               posterProps: posterImg
             })));

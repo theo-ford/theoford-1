@@ -58,8 +58,23 @@ const Grid16 = styled.div`
   z-index: 20000;
   position: absolute;
 `;
+const CarouselHeader = styled.div`
+  /* background-color: red; */
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  margin-top: -23px;
+`;
+
+const TwoUpCarouselCounterOneCon = styled.div`
+  grid-column: span 8;
+`;
+const TwoUpCarouselCounterTwoCon = styled.div`
+  grid-column: span 6;
+`;
+
 const NextButtonConP = styled.div`
-  grid-column: 15 / span 2;
+  grid-column: span 2;
   cursor: pointer;
   p {
     color: #878787;
@@ -70,6 +85,32 @@ export const TwoUpProjectCarouselSwiper = ({
 
   projectLength,
 }) => {
+  const [currentSlide1, setCurrentSlide1] = useState(null);
+  const [currentSlide2, setCurrentSlide2] = useState(null);
+  const [swiper, setSwiper] = React.useState(null);
+
+  useEffect(() => {
+    // initSwiper(index);
+    if (swiper) {
+      console.log(swiper);
+      setCurrentSlide1(swiper.realIndex + 1);
+      setCurrentSlide2(swiper.realIndex + 2);
+    }
+  }, [swiper]);
+
+  const updateCurrentSlide = index => {
+    // console.log("testing 2234");
+    console.log(index);
+    setCurrentSlide1(index.realIndex + 1);
+    setCurrentSlide2(index.realIndex + 2);
+  };
+
+  const initSwiper = index => {
+    console.log("init swiper");
+    setCurrentSlide1(index.previousRealIndex);
+    setCurrentSlide2(index.realIndex);
+  };
+
   const swiperRef = useRef(null);
   function forwardFunc() {
     swiperRef.current.swiper.slideNext();
@@ -79,11 +120,24 @@ export const TwoUpProjectCarouselSwiper = ({
   }
   return (
     <>
-      <Grid16>
-        <NextButtonConP>
-          <p onClick={forwardFunc}>Next</p>
-        </NextButtonConP>
-      </Grid16>
+      <CarouselHeader>
+        <Grid16>
+          <TwoUpCarouselCounterOneCon>
+            {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
+            {/* <p>{("0" + (currentSlide1 + 1)).slice(-2)}</p> */}
+            <p>{("0" + currentSlide1).slice(-2)}</p>
+          </TwoUpCarouselCounterOneCon>
+          <TwoUpCarouselCounterTwoCon>
+            {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
+            {/* <p>{("0" + (currentSlide2 + 2)).slice(-2)}</p> */}
+            <p>{("0" + currentSlide2).slice(-2)}</p>
+          </TwoUpCarouselCounterTwoCon>
+          <NextButtonConP>
+            <p onClick={forwardFunc}>Next</p>
+          </NextButtonConP>
+        </Grid16>
+      </CarouselHeader>
+
       <SwiperCarouselCon>
         <ButtonCon>
           <PrevButton onClick={prevFunc}></PrevButton>
@@ -94,6 +148,7 @@ export const TwoUpProjectCarouselSwiper = ({
           slidesPerView={2}
           spaceBetween={1.5}
           loop={true}
+          onSlideChange={index => updateCurrentSlide(index)}
           // pagination={{
           //   clickable: true,
           // }}
@@ -103,6 +158,10 @@ export const TwoUpProjectCarouselSwiper = ({
           // }}
           modules={[Navigation]}
           className="mySwiper"
+          onSwiper={s => {
+            console.log(s);
+            setSwiper(s);
+          }}
         >
           {children}
         </Swiper>

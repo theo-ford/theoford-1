@@ -336,7 +336,7 @@ const TestHomepage = ({ data }) => {
                 //   srcProps={content_four.primary.image.gatsbyImageData.images.sources.srcSet}
                 // />
                 <SwiperSlide>
-                  <Counter>{"0" + (index + 1)}</Counter>
+                  {/* <Counter>{"0" + (index + 1)}</Counter> */}
                   <SquareImg>
                     <GatsbyImage image={image} />
                   </SquareImg>
@@ -349,7 +349,7 @@ const TestHomepage = ({ data }) => {
                 const posterImg = content_four.primary.index_image;
                 return (
                   <SwiperSlide>
-                    <Counter>{"0" + (index + 1)}</Counter>
+                    {/* <Counter>{"0" + (index + 1)}</Counter> */}
                     <IndexAutoPlayVideoCon>
                       <AutoPlayVideo
                         srcProps={content_four.primary.video.url}
@@ -362,7 +362,7 @@ const TestHomepage = ({ data }) => {
                 const posterImg = content_four.primary.index_image;
                 return (
                   <SwiperSlide>
-                    <Counter>{"0" + (index + 1)}</Counter>
+                    {/* <Counter>{"0" + (index + 1)}</Counter> */}
                     <IndexAutoPlayVideoCon>
                       <AutoPlayVideo
                         srcProps={content_four.primary.sml_video.url}
