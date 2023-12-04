@@ -58,8 +58,19 @@ const Grid16 = styled.div`
   z-index: 20000;
   position: absolute;
 `;
+const CarouselHeaderCon = styled.div`
+  width: 100%;
+  background-color: red;
+  /* height: 200px; */
+  margin-top: -23px;
+  position: absolute;
+`;
+const CarouselCounterCon = styled.div`
+  grid-column: span 8;
+`;
+
 const NextButtonConP = styled.div`
-  grid-column: 9 / span 2;
+  grid-column: span 8;
   cursor: pointer;
   p {
     color: #878787;
@@ -72,8 +83,22 @@ export const OneUpProjectCarouselSwiper = ({
 }) => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [currentSlide1, setCurrentSlide1] = useState(null);
+  const [swiper, setSwiper] = React.useState(null);
   // the required distance between touchStart and touchEnd to be detected as a swipe
 
+  useEffect(() => {
+    // initSwiper(index);
+    if (swiper) {
+      console.log(swiper);
+      setCurrentSlide1(swiper.realIndex + 1);
+    }
+  }, [swiper]);
+  const updateCurrentSlide = index => {
+    // console.log("testing 2234");
+    console.log(index);
+    setCurrentSlide1(index.realIndex + 1);
+  };
   const minSwipeDistance = 50;
 
   const onTouchStart = e => {
@@ -105,11 +130,17 @@ export const OneUpProjectCarouselSwiper = ({
   }
   return (
     <>
-      <Grid16>
-        <NextButtonConP>
-          <p onClick={forwardFunc}>Next</p>
-        </NextButtonConP>
-      </Grid16>
+      <CarouselHeaderCon>
+        <Grid16>
+          <CarouselCounterCon>
+            <p>{("0" + currentSlide1).slice(-2)}</p>
+          </CarouselCounterCon>
+          <NextButtonConP>
+            <p onClick={forwardFunc}>Next</p>
+          </NextButtonConP>
+        </Grid16>
+      </CarouselHeaderCon>
+
       <SwiperCarouselCon
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
@@ -125,6 +156,7 @@ export const OneUpProjectCarouselSwiper = ({
           spaceBetween={1.5}
           loop={true}
           speed={1}
+          onSlideChange={index => updateCurrentSlide(index)}
           // pagination={{
           //   clickable: true,
           // }}
@@ -132,6 +164,10 @@ export const OneUpProjectCarouselSwiper = ({
           //   prevEl: ".swiper-slide-active",
           //   nextEl: ".swiper-slide-next",
           // }}
+          onSwiper={s => {
+            console.log(s);
+            setSwiper(s);
+          }}
           modules={[Navigation]}
           className="mySwiper"
         >
