@@ -189,6 +189,9 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     setIsVideoLoaded(true);
     // setHasStartedPlaying(true);
   };
+  // const onProgress = () => {
+  //   setHasStartedPlaying(false);
+  // };
 
   useEffect(() => {
     if (isOnScreen == true) {
@@ -216,8 +219,8 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     // setVideoSrcState(srcProps);
     // videoWithControlsRef.current.load();
     if (isVideoLoaded) {
-      setHasStartedPlaying(true);
     }
+    setHasStartedPlaying(true);
     videoWithControlsRef.current.play();
     setPlayingStatus(true);
   };
@@ -265,6 +268,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
             ref={videoWithControlsRef}
             // onLoadedData={onLoadedData}
             onCanPlayThrough={onLoadedData}
+            // onProgress={onProgress}
             style={{
               zIndex: 0,
               opacity: hasStartedPlaying ? 1 : 0,
