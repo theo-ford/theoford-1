@@ -187,7 +187,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
 
   const onLoadedData = () => {
     setIsVideoLoaded(true);
-    // setHasStartedPlaying(true);
+    setHasStartedPlaying(true);
   };
   // const onProgress = () => {
   //   setHasStartedPlaying(false);
@@ -220,7 +220,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     // videoWithControlsRef.current.load();
     if (isVideoLoaded) {
     }
-    setHasStartedPlaying(true);
+    // setHasStartedPlaying(true);
     videoWithControlsRef.current.play();
     setPlayingStatus(true);
   };
