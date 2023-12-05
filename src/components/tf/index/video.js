@@ -183,9 +183,11 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
   const [isPlaying, setPlayingStatus] = useState(false);
   const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
 
+  const [firstPlay, setFirstPlay] = useState(false);
+
   const onLoadedData = () => {
     setIsVideoLoaded(true);
-    setHasStartedPlaying(true);
+    // setHasStartedPlaying(true);
   };
 
   useEffect(() => {
@@ -205,13 +207,18 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
   }, [isOnScreen, videoSrcState]);
 
   const playVideo = () => {
+    // if (!firstPlay) {
+    //   setVideoSrcState(srcProps);
+    //   videoWithControlsRef.current.load();
+    // }
+    // setFirstPlay(true);
     // to load the video on play
     // setVideoSrcState(srcProps);
     // videoWithControlsRef.current.load();
     videoWithControlsRef.current.play();
 
     setPlayingStatus(true);
-    // setHasStartedPlaying(true);
+    setHasStartedPlaying(true);
   };
   const pauseVideo = () => {
     videoWithControlsRef.current.pause();
