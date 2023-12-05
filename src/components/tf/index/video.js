@@ -248,13 +248,13 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
               position: hasStartedPlaying ? "absolute" : "relative",
             }}
           >
-            {/* {!isVideoLoaded && isPlaying ? (
+            {!isVideoLoaded && isPlaying ? (
               <AutoplayVideoTextCon>
                 <p>Video Loading</p>
               </AutoplayVideoTextCon>
             ) : (
               " "
-            )} */}
+            )}
 
             <VideoControlsImg
               style={{
