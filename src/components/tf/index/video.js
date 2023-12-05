@@ -82,18 +82,13 @@ const ControlsCon = styled.div`
 `;
 const PlayButtonCon = styled.div`
   margin-top: 5px;
-  /* background-color: red; */
   padding-left: 10px;
-  /* margin-left: 10px; */
   width: calc(50%);
   display: inline-block;
   p {
     color: #d4d4d4;
     font-size: 12px;
   }
-  /* @media (max-width: 666px) {
-    padding-left: 0;
-  } */
 `;
 const PaginationCon = styled.div`
   margin-top: 5px;
@@ -123,6 +118,32 @@ const VideoControlsImg = styled.div`
   width: 100%;
   height: 100%;
 `;
+const breatheAnimation = keyframes`
+  0% {opacity: 0} 
+  50% {opacity: 1}
+  100% {opacity:0}
+`;
+const AutoplayVideoTextCon = styled.div`
+  position: absolute;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  p {
+    color: white;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color: black;
+    margin-top: -1px;
+    animation-name: ${breatheAnimation};
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+`;
 
 export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
   const videoWithControlsRef = useRef(null);
@@ -133,7 +154,6 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
   const [isPlaying, setPlayingStatus] = useState(false);
   const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
   const carouselLength = useContext(CarouselLengthContext);
-  // const carouselLength = 4;
   const { slideGoTo, setSlideGoTo } = useContext(CarouselIndexClicked);
   const value = useMemo(() => ({ slideGoTo, setSlideGoTo }), [slideGoTo]);
 
@@ -172,8 +192,8 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
       // console.log("on screen");
       // to load the video on scroll
       // comment out below two lines to make it load on click, test hosted
-      setVideoSrcState(srcProps);
-      videoWithControlsRef.current.load();
+      // setVideoSrcState(srcProps);
+      // videoWithControlsRef.current.load();
     } else if (isOnScreen === false) {
       setIsVideoLoaded(false);
       setVideoSrcState("");
@@ -182,8 +202,8 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
 
   const playVideo = () => {
     // to load the video on play
-    // setVideoSrcState(srcProps);
-    // videoWithControlsRef.current.load();
+    setVideoSrcState(srcProps);
+    videoWithControlsRef.current.load();
     videoWithControlsRef.current.play();
 
     setPlayingStatus(true);
@@ -207,6 +227,14 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
               position: hasStartedPlaying ? "absolute" : "relative",
             }}
           >
+            {!isVideoLoaded && isPlaying ? (
+              <AutoplayVideoTextCon>
+                <p>Video Loading</p>
+              </AutoplayVideoTextCon>
+            ) : (
+              " "
+            )}
+
             <VideoControlsImg
               ref={imgRef}
               style={{
@@ -224,7 +252,8 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
             loop
             preload="auto"
             ref={videoWithControlsRef}
-            onLoadedData={onLoadedData}
+            // onLoadedData={onLoadedData}
+            onCanPlayThrough={onLoadedData}
             style={{
               zIndex: 0,
               opacity: hasStartedPlaying ? 1 : 0,
@@ -247,7 +276,6 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
             >
               {isPlaying ? (
                 <p onClick={pauseVideo}>
-                  {/* <PauseButtonImg src={PauseButton} /> */}
                   <PauseButtonImg>
                     <StaticImage src={"../../../img/pause.png"} />
                   </PauseButtonImg>

@@ -8,8 +8,7 @@ import React, {
 } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { useOnScreen } from "../hooks/useOnScreen";
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const AutoplayVideoCon = styled.div`
   position: relative;
@@ -64,37 +63,21 @@ export const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
   const [videoSrcState, setVideoSrcState] = useState("");
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
 
-  // console.log("autoplay Video Ref");
-  // console.log(autoplayVideoRef);
-
   const onLoadedData = () => {
     setIsVideoLoaded(true);
   };
 
   useEffect(() => {
     if (isOnScreen == true) {
-      // console.log(srcProps);
-      // console.log("on screen");
       setVideoSrcState(srcProps);
       autoplayVideoRef.current.load();
       autoplayVideoRef.current.play();
     } else if (isOnScreen === false) {
-      // console.log(srcProps);
-      // console.log("off screen");
-      // caches.delete();
-      // var x = srcProps;
-      // var y = x.replace("https://theoford-1.cdn.prismic.io/theoford-1/", "");
-      // console.log(y);
-      // caches.delete(y);
-      // console.log(caches.keys());
-      // caches.keys().then(function(names) {
-      //   for (let name of names) caches.delete(name);
-      // });
       setIsVideoLoaded(false);
       setVideoSrcState("");
     }
   }, [isOnScreen]);
-  const getPosterImage = getImage(posterProps)
+  const getPosterImage = getImage(posterProps);
   return (
     <>
       <AutoplayVideoCon>
@@ -102,8 +85,6 @@ export const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
           style={{
             opacity: isVideoLoaded ? 0 : 1,
             position: isVideoLoaded ? "absolute" : "relative",
-            // opacity: 1,
-            // position: "relative",
           }}
         >
           <AutoplayVideoTextCon>
@@ -115,8 +96,6 @@ export const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
             style={{
               opacity: isVideoLoaded ? 0 : 1,
               position: isVideoLoaded ? "absolute" : "relative",
-              // opacity: 1,
-              // position: "relative",
             }}
           >
             <GatsbyImage image={getPosterImage} />
@@ -134,9 +113,6 @@ export const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
           style={{
             opacity: isVideoLoaded ? 1 : 0,
             position: isVideoLoaded ? "relative" : "absolute",
-            // display: isOnScreen ? "block" : "none",
-            // opacity: 0,
-            // position: "absolute",
           }}
         >
           <source type="video/mp4" src={videoSrcState} />
@@ -145,21 +121,3 @@ export const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
     </>
   );
 };
-
-// export function autoplayVideo(query) {
-//   const [matches, setMatches] = useState(false);
-
-//   useEffect(() => {
-//     const media = window.matchMedia(query);
-//     if (media.matches !== matches) {
-//       setMatches(media.matches);
-//     }
-//     const listener = () => {
-//       setMatches(media.matches);
-//     };
-//     media.addListener(listener);
-//     return () => media.removeListener(listener);
-//   }, [matches, query]);
-
-//   return matches;
-// }
