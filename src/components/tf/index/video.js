@@ -228,9 +228,11 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     videoWithControlsRef.current.pause();
     setPlayingStatus(false);
   };
-  // console.log("POSTER PROPS");
-  // console.log(posterProps);
+  console.log("POSTER PROPS");
+  console.log(posterProps);
+  console.log(posterProps);
   const getPosterImg = getImage(posterProps);
+  console.log(getPosterImg.images.fallback.src);
   return (
     <>
       {/* <CarouselLengthContext.Provider> */}
@@ -269,6 +271,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
             // onLoadedData={onLoadedData}
             onCanPlayThrough={onLoadedData}
             // onProgress={onProgress}
+            poster={getPosterImg.images.fallback.src}
             style={{
               zIndex: 0,
               opacity: hasStartedPlaying ? 1 : 0,

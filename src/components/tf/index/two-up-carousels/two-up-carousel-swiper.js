@@ -92,7 +92,7 @@ export const TwoUpProjectCarouselSwiper = ({
   useEffect(() => {
     // initSwiper(index);
     if (swiper) {
-      console.log(swiper);
+      // console.log(swiper);
       setCurrentSlide1(swiper.realIndex + 1);
       setCurrentSlide2(swiper.realIndex + 2);
     }
@@ -100,13 +100,13 @@ export const TwoUpProjectCarouselSwiper = ({
 
   const updateCurrentSlide = index => {
     // console.log("testing 2234");
-    console.log(index);
+    // console.log(index);
     setCurrentSlide1(index.realIndex + 1);
     setCurrentSlide2(index.realIndex + 2);
   };
 
   const initSwiper = index => {
-    console.log("init swiper");
+    // console.log("init swiper");
     setCurrentSlide1(index.previousRealIndex);
     setCurrentSlide2(index.realIndex);
   };
@@ -159,7 +159,7 @@ export const TwoUpProjectCarouselSwiper = ({
           modules={[Navigation]}
           className="mySwiper"
           onSwiper={s => {
-            console.log(s);
+            // console.log(s);
             setSwiper(s);
           }}
         >

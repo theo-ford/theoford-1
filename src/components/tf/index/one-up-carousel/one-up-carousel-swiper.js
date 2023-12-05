@@ -90,13 +90,13 @@ export const OneUpProjectCarouselSwiper = ({
   useEffect(() => {
     // initSwiper(index);
     if (swiper) {
-      console.log(swiper);
+      // console.log(swiper);
       setCurrentSlide1(swiper.realIndex + 1);
     }
   }, [swiper]);
   const updateCurrentSlide = index => {
     // console.log("testing 2234");
-    console.log(index);
+    // console.log(index);
     setCurrentSlide1(index.realIndex + 1);
   };
   const minSwipeDistance = 50;
@@ -165,7 +165,7 @@ export const OneUpProjectCarouselSwiper = ({
           //   nextEl: ".swiper-slide-next",
           // }}
           onSwiper={s => {
-            console.log(s);
+            // console.log(s);
             setSwiper(s);
           }}
           modules={[Navigation]}
