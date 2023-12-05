@@ -186,17 +186,12 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
   const [isPlaying, setPlayingStatus] = useState(false);
   const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
 
-  const [firstPlay, setFirstPlay] = useState(false);
-
   const onLoadedData = () => {
     setIsVideoLoaded(true);
     if (isPlaying) {
       setHasStartedPlaying(true);
     }
   };
-  // const onProgress = () => {
-  //   setHasStartedPlaying(false);
-  // };
 
   useEffect(() => {
     if (isOnScreen == true) {
@@ -215,16 +210,6 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
   }, [isOnScreen, videoSrcState]);
 
   const playVideo = () => {
-    // if (!firstPlay) {
-    //   setVideoSrcState(srcProps);
-    //   videoWithControlsRef.current.load();
-    // }
-    // setFirstPlay(true);
-    // to load the video on play
-    // setVideoSrcState(srcProps);
-    // videoWithControlsRef.current.load();
-
-    // setHasStartedPlaying(true);
     videoWithControlsRef.current.play();
     setPlayingStatus(true);
     if (isVideoLoaded) {
@@ -277,8 +262,6 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
             ref={videoWithControlsRef}
             // onLoadedData={onLoadedData}
             onCanPlayThrough={onLoadedData}
-            // onProgress={onProgress}
-            // poster={getPosterImg.images.fallback.src}
             style={{
               zIndex: 0,
               opacity: hasStartedPlaying ? 1 : 0,
