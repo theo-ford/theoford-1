@@ -185,6 +185,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
 
   const onLoadedData = () => {
     setIsVideoLoaded(true);
+    setHasStartedPlaying(true);
   };
 
   useEffect(() => {
@@ -210,7 +211,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     videoWithControlsRef.current.play();
 
     setPlayingStatus(true);
-    setHasStartedPlaying(true);
+    // setHasStartedPlaying(true);
   };
   const pauseVideo = () => {
     videoWithControlsRef.current.pause();
