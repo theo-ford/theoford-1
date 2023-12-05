@@ -146,20 +146,9 @@ const AutoplayVideoTextCon = styled.div`
 `;
 
 export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
-  const videoWithControlsRef = useRef(null);
-  const imgRef = useRef(null);
-  const isOnScreen = useOnScreen(videoWithControlsRef);
-  const [videoSrcState, setVideoSrcState] = useState("");
-  const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-  const [isPlaying, setPlayingStatus] = useState(false);
-  const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
   const carouselLength = useContext(CarouselLengthContext);
   const { slideGoTo, setSlideGoTo } = useContext(CarouselIndexClicked);
   const value = useMemo(() => ({ slideGoTo, setSlideGoTo }), [slideGoTo]);
-
-  const onLoadedData = () => {
-    setIsVideoLoaded(true);
-  };
 
   const Pagination = ({ carouselLength }) => {
     const array = [...Array(carouselLength)];
@@ -186,6 +175,18 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     return <div>{items}</div>;
   };
 
+  const videoWithControlsRef = useRef(null);
+  const isOnScreen = useOnScreen(videoWithControlsRef);
+  const [videoSrcState, setVideoSrcState] = useState("");
+  const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
+
+  const [isPlaying, setPlayingStatus] = useState(false);
+  const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
+
+  const onLoadedData = () => {
+    setIsVideoLoaded(true);
+  };
+
   useEffect(() => {
     if (isOnScreen == true) {
       // console.log(srcProps);
@@ -197,6 +198,8 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     } else if (isOnScreen === false) {
       setIsVideoLoaded(false);
       setVideoSrcState("");
+      setPlayingStatus(false);
+      setHasStartedPlaying(false);
     }
   }, [isOnScreen, videoSrcState]);
 
@@ -236,7 +239,6 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
             )}
 
             <VideoControlsImg
-              ref={imgRef}
               style={{
                 opacity: hasStartedPlaying ? 0 : 1,
                 position: hasStartedPlaying ? "absolute" : "relative",
