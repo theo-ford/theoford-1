@@ -268,8 +268,8 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
             loop
             preload="auto"
             ref={videoWithControlsRef}
-            // onLoadedData={onLoadedData}
-            onCanPlayThrough={onLoadedData}
+            onLoadedData={onLoadedData}
+            // onCanPlayThrough={onLoadedData}
             // onProgress={onProgress}
             poster={getPosterImg.images.fallback.src}
             style={{
