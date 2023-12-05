@@ -216,10 +216,10 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     // setVideoSrcState(srcProps);
     // videoWithControlsRef.current.load();
     if (isVideoLoaded) {
-      videoWithControlsRef.current.play();
-      setPlayingStatus(true);
       setHasStartedPlaying(true);
     }
+    videoWithControlsRef.current.play();
+    setPlayingStatus(true);
   };
   const pauseVideo = () => {
     videoWithControlsRef.current.pause();
