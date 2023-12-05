@@ -143,6 +143,9 @@ const AutoplayVideoTextCon = styled.div`
     animation-duration: 2s;
     animation-iteration-count: infinite;
   }
+  @media (min-width: 666px) {
+    display: none;
+  }
 `;
 
 export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
