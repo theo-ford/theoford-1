@@ -187,7 +187,9 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
 
   const onLoadedData = () => {
     setIsVideoLoaded(true);
-    setHasStartedPlaying(true);
+    if (isPlaying) {
+      setHasStartedPlaying(true);
+    }
   };
   // const onProgress = () => {
   //   setHasStartedPlaying(false);
