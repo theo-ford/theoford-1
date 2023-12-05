@@ -218,11 +218,13 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     // to load the video on play
     // setVideoSrcState(srcProps);
     // videoWithControlsRef.current.load();
-    if (isVideoLoaded) {
-    }
+
     // setHasStartedPlaying(true);
     videoWithControlsRef.current.play();
     setPlayingStatus(true);
+    if (isVideoLoaded) {
+      setHasStartedPlaying(true);
+    }
   };
   const pauseVideo = () => {
     videoWithControlsRef.current.pause();
@@ -268,10 +270,10 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
             loop
             preload="auto"
             ref={videoWithControlsRef}
-            onLoadedData={onLoadedData}
-            // onCanPlayThrough={onLoadedData}
+            // onLoadedData={onLoadedData}
+            onCanPlayThrough={onLoadedData}
             // onProgress={onProgress}
-            poster={getPosterImg.images.fallback.src}
+            // poster={getPosterImg.images.fallback.src}
             style={{
               zIndex: 0,
               opacity: hasStartedPlaying ? 1 : 0,
