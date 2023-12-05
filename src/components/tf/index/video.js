@@ -194,8 +194,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
       // console.log("on screen");
       // to load the video on scroll
       // comment out below two lines to make it load on click, test hosted
-      // setVideoSrcState(srcProps);
-      // videoWithControlsRef.current.load();
+      setVideoSrcState(srcProps);
       videoWithControlsRef.current.load();
     } else if (isOnScreen === false) {
       setIsVideoLoaded(false);
@@ -207,7 +206,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
 
   const playVideo = () => {
     // to load the video on play
-    setVideoSrcState(srcProps);
+    // setVideoSrcState(srcProps);
     // videoWithControlsRef.current.load();
     videoWithControlsRef.current.play();
 
