@@ -129,7 +129,7 @@ const LogoConMobile = styled.div`
   @media (max-width: 666px) {
     display: block;
     width: calc(75% - 6.25px);
-    margin-top: 14vh;
+    margin-top: 28vh;
     margin-left: 10px;
     .shrink {
       width: calc(75% - 6.25px);
@@ -149,7 +149,7 @@ const NavSpacer = styled.div`
 const PageCon = styled.div`
   margin-top: 48vh;
   @media (max-width: 666px) {
-    margin-top: 30vh;
+    margin-top: 38vh;
   }
 `;
 

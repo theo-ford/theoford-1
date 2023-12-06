@@ -72,7 +72,7 @@ export const Intro = () => {
     return dateTimeString;
   }
 
-  console.log(date());
+  // console.log(date());
 
   useEffect(() => {
     setInterval(() => {
