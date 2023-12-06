@@ -148,6 +148,9 @@ const NavSpacer = styled.div`
 /* - - - - - PAGE  - - - - - */
 const PageCon = styled.div`
   margin-top: 48vh;
+  @media (max-width: 666px) {
+    margin-top: 30vh;
+  }
 `;
 
 const ProjectCon = styled.div`
