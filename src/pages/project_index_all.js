@@ -358,25 +358,40 @@ const ProjectIndex = ({ data }) => {
       );
     }
   };
-
-  const projectIndexSelectArray = data.prismicProjectIndexSelect.data.project_relationship_group.map(
+  const squareProjects = data.allPrismicProject.edges.map((content, index) => {
+    return (
+      // <WhiteText>
+      //   {content.node.data.project_title.text}, {content.node.data.year.text}
+      // </WhiteText>
+      { content }
+    );
+  });
+  const filmsProjects = data.allPrismicFilmLeadProject.edges.map(
     (content, index) => {
-      return { content };
+      // console.log(content.node.data.year.text);
+      // console.log(content);
+      return (
+        // <WhiteText>
+        //   {content.node.data.project_title.text}, {content.node.data.year.text}
+        // </WhiteText>
+        { content }
+      );
     }
   );
+  // console.log("SQUARE PROJECTS");
+  // console.log(squareProjects);
 
-  console.log(projectIndexSelectArray);
-  // const mergedArray = squareProjects.concat(filmsProjects);
+  // console.log("FILMS PROJECTS");
+  // console.log(filmsProjects);
+
+  const mergedArray = squareProjects.concat(filmsProjects);
   // console.log("MERGED ARRAY");
   // console.log(mergedArray);
 
-  const organisedArray = projectIndexSelectArray.sort(function(a, b) {
+  const organisedArray = mergedArray.sort(function(a, b) {
     // console.log(a.content);
     // console.log(a.content.node.data.year.text);
-    return (
-      b.content.project_relationship_field.document.data.year.text -
-      a.content.project_relationship_field.document.data.year.text
-    );
+    return b.content.node.data.year.text - a.content.node.data.year.text;
   });
   // console.log("ORGANISED ARRAY");
   // console.log(organisedArray);
@@ -387,13 +402,11 @@ const ProjectIndex = ({ data }) => {
         return project;
       } else {
         console.log("PROJECT CATEGORIES");
-        console.log(
-          project.content.project_relationship_field.document.data.categories
-        );
-        return project.content.project_relationship_field.document.data.categories
+        console.log(project.content.node.data.categories);
+        return project.content.node.data.categories
           .map(category =>
             // console.log(category.category.slug);
-            textTransfrom(category.category.slug)
+            x(category.category.slug)
           )
           .includes(activeCategory);
       }
@@ -401,22 +414,24 @@ const ProjectIndex = ({ data }) => {
     .map((content, index) => {
       // console.log(content);
       // console.log(content.content.node.data.year.text);
-      var index_image = getImage(
-        content.content.project_relationship_field.document.data
-          .index_preview_img
-      );
+      var index_image = getImage(content.content.node.data.index_preview_img);
       return (
         <>
-          <Link
-            to={`/${content.content.project_relationship_field.document.uid}`}
-          >
+          <Link to={`/${content.content.node.uid}`}>
             <ProjectCon>
               <ImageBorderCon>
                 <Grid16>
                   <IndexImgCon>
+                    {/* <IndexImg
+                      className="index_img"
+                      srcSet={
+                        content.content.node.data.index_preview_img
+                      }
+                    /> */}
                     <IndexImg className="index_img">
                       <GatsbyImage image={index_image} />
                     </IndexImg>
+                    {/* <IndexImg src={PlayButton}></IndexImg> */}
                   </IndexImgCon>
                   <Border></Border>
                 </Grid16>
@@ -427,32 +442,23 @@ const ProjectIndex = ({ data }) => {
                   <ImgSpacer></ImgSpacer>
                   <ProjectTitleCon>
                     <IndexBodyP>
-                      {
-                        content.content.project_relationship_field.document.data
-                          .project_title.text
-                      }
+                      {content.content.node.data.project_title.text}
                     </IndexBodyP>
                   </ProjectTitleCon>
                   <ClientCon>
                     <IndexBodyP>
-                      {
-                        content.content.project_relationship_field.document.data
-                          .client.text
-                      }
+                      {content.content.node.data.client.text}
                     </IndexBodyP>
                   </ClientCon>
                   <SectorCon>
                     <IndexBodyP>
-                      {
-                        content.content.project_relationship_field.document.data
-                          .sector.text
-                      }
+                      {content.content.node.data.sector.text}
                     </IndexBodyP>
                   </SectorCon>
                   <CategoryCon>
                     <IndexBodyP>
                       {" "}
-                      {content.content.project_relationship_field.document.data.categories.map(
+                      {content.content.node.data.categories.map(
                         (category, index) => {
                           return (
                             <CategoryName key={index}>
@@ -466,18 +472,12 @@ const ProjectIndex = ({ data }) => {
                   <YearCon>
                     <IndexBodyP>
                       {" "}
-                      {
-                        content.content.project_relationship_field.document.data
-                          .year.text
-                      }
+                      {content.content.node.data.year.text}
                     </IndexBodyP>
                   </YearCon>
                   <LocationCon>
                     <IndexBodyP>
-                      {
-                        content.content.project_relationship_field.document.data
-                          .location.text
-                      }
+                      {content.content.node.data.location.text}
                     </IndexBodyP>
                   </LocationCon>
                 </Grid16>
@@ -487,15 +487,14 @@ const ProjectIndex = ({ data }) => {
         </>
       );
     });
-  // // console.log("ORGANISED ARRAY MAP");
-  // // console.log(organisedArrayMap);
+  // console.log("ORGANISED ARRAY MAP");
+  // console.log(organisedArrayMap);
 
-  function textTransfrom(y) {
+  function x(y) {
     return y.replace("-", " ").replace(/(?:^|\s)\S/g, a => a.toUpperCase());
   }
 
   const Categories = () => {
-    console.log("ACTIVE CATEGORY");
     console.log(activeCategory);
     return (
       <>
@@ -539,6 +538,8 @@ const ProjectIndex = ({ data }) => {
         <title>(10) Pagination 1</title>
       </Helmet>
 
+      {/* <LogoNav></LogoNav> */}
+
       <NavGrid></NavGrid>
       <CategoryMenuConCon>
         <CategoryMenuCon>
@@ -577,74 +578,68 @@ const ProjectIndex = ({ data }) => {
 export default withPrismicPreview(ProjectIndex);
 
 export const query = graphql`
-  query ProjectIndexSelectQuery {
-    prismicProjectIndexSelect {
-      data {
-        project_relationship_group {
-          project_relationship_field {
-            document {
-              ... on PrismicProject {
+  query IndexQuery37 {
+    allPrismicProject {
+      edges {
+        node {
+          uid
+          data {
+            categories {
+              category {
+                slug
                 id
-                type
-                uid
-                data {
-                  categories {
-                    category {
-                      slug
-                      id
-                    }
-                  }
-                  project_title {
-                    text
-                  }
-                  year {
-                    text
-                  }
-                  client {
-                    text
-                  }
-                  location {
-                    text
-                  }
-                  sector {
-                    text
-                  }
-                  index_preview_img {
-                    gatsbyImageData
-                  }
-                }
               }
-              ... on PrismicFilmLeadProject {
+            }
+            project_title {
+              text
+            }
+            year {
+              text
+            }
+            client {
+              text
+            }
+            location {
+              text
+            }
+            sector {
+              text
+            }
+            index_preview_img {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+    }
+    allPrismicFilmLeadProject {
+      edges {
+        node {
+          uid
+          data {
+            categories {
+              category {
+                slug
                 id
-                type
-                uid
-                data {
-                  categories {
-                    category {
-                      slug
-                      id
-                    }
-                  }
-                  project_title {
-                    text
-                  }
-                  year {
-                    text
-                  }
-                  client {
-                    text
-                  }
-                  location {
-                    text
-                  }
-                  sector {
-                    text
-                  }
-                  index_preview_img {
-                    gatsbyImageData
-                  }
-                }
               }
+            }
+            project_title {
+              text
+            }
+            year {
+              text
+            }
+            client {
+              text
+            }
+            location {
+              text
+            }
+            sector {
+              text
+            }
+            index_preview_img {
+              gatsbyImageData
             }
           }
         }

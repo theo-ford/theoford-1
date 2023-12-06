@@ -81,6 +81,7 @@ module.exports = {
           test_homepage: require("./src/schemas/test_homepage.json"),
           about: require("./src/schemas/about.json"),
           category: require("./src/schemas/category.json"),
+          project_index_select: require("./src/schemas/project_index_select.json"),
           // overview: require("./src/schemas/overview.json"),
           // now: require("./src/schemas/now.json"),
         },
