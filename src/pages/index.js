@@ -174,7 +174,7 @@ const IndexAutoPlayVideoCon = styled.div`
 const SquareImg = styled.div`
   width: calc(100% - 12.5px) !important;
   @media (max-width: 666px) {
-    width: 100%;
+    width: 100% !important;
   }
 `;
 
@@ -415,6 +415,18 @@ const Index = ({ data }) => {
             </ProjectCon>
           );
         } else if (isPageWide && projectLength <= 1) {
+          return (
+            <>
+              <ProjectCon>
+                <SingleAssetProject>{project}</SingleAssetProject>
+                <ProjectInfo2
+                  data2={content.project_relationship_field.document.data}
+                  uid={content.project_relationship_field.document.uid}
+                ></ProjectInfo2>
+              </ProjectCon>
+            </>
+          );
+        } else if (!isPageWide && projectLength <= 1) {
           return (
             <>
               <ProjectCon>
