@@ -174,7 +174,7 @@ const IndexAutoPlayVideoCon = styled.div`
 const SquareImg = styled.div`
   width: calc(100% - 12.5px) !important;
   @media (max-width: 666px) {
-    width: 100% !important;
+    /* width: 100% !important; */
   }
 `;
 
