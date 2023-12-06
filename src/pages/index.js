@@ -52,7 +52,7 @@ const LogoGridCon = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 12.5px;
-
+  /* background-color: green; */
   @media (max-width: 666px) {
     width: calc(100% - 20px);
     margin-left: 10px;
@@ -61,12 +61,28 @@ const LogoGridCon = styled.div`
 `;
 /* DESKTOP */
 const LogoConCon = styled.div`
-  grid-column: span 2;
+  /* grid-column: span 2; */
+
   mix-blend-mode: exclusion;
+  width: calc(50vw - 18.75px);
+  /* background-color: red; */
+  position: sticky;
+  top: 12.5px;
+  margin-left: 12.5px;
+  float: left;
+  z-index: 200000;
 `;
 const MenuCon = styled.div`
-  grid-column: 3 / span 2;
   mix-blend-mode: exclusion;
+  width: 200px;
+  float: left;
+  /* margin-left: calc(50vw - 18.75px); */
+  /* background-color: orange; */
+  position: sticky;
+  top: 12.5px;
+  margin-top: -2px;
+  margin-left: 12.5px;
+  z-index: 200000;
 `;
 const LogoCon = styled.div`
   mix-blend-mode: exclusion;
@@ -122,7 +138,7 @@ const LogoConMobile = styled.div`
 `;
 
 const NavSpacer = styled.div`
-  height: 25vh;
+  height: 32vh;
   width: 100%;
   @media (max-width: 666px) {
     display: none;
@@ -131,7 +147,7 @@ const NavSpacer = styled.div`
 
 /* - - - - - PAGE  - - - - - */
 const PageCon = styled.div`
-  margin-top: 30vh;
+  margin-top: 48vh;
 `;
 
 const ProjectCon = styled.div`
@@ -225,25 +241,23 @@ const Index = ({ data }) => {
     if (isPageWide) {
       return (
         <>
-          <LogoGridCon style={{ opacity: pageLoad ? 1 : 0 }}>
-            <LogoConCon>
-              <LogoCon ref={LogoConRef}>
-                <Link to="/">
-                  <Icon />
-                </Link>
-              </LogoCon>
-            </LogoConCon>
-            <MenuCon style={{ opacity: pageLoad ? 1 : 0 }}>
-              <DesktopNavP>
-                <Link to="/" className="selected">
-                  Select,{" "}
-                </Link>
-                <Link to="/project_index">Index, </Link>
-                <Link to="/office">Office</Link>
-                {/* <br></br>Instagram, Twitter */}
-              </DesktopNavP>
-            </MenuCon>
-          </LogoGridCon>
+          <LogoConCon style={{ opacity: pageLoad ? 1 : 0 }}>
+            <LogoCon ref={LogoConRef}>
+              <Link to="/">
+                <Icon />
+              </Link>
+            </LogoCon>
+          </LogoConCon>
+          <MenuCon style={{ opacity: pageLoad ? 1 : 0 }}>
+            <DesktopNavP>
+              <Link to="/" className="selected">
+                Select,{" "}
+              </Link>
+              <Link to="/project_index">Index, </Link>
+              <Link to="/office">Office</Link>
+              {/* <br></br>Instagram, Twitter */}
+            </DesktopNavP>
+          </MenuCon>
         </>
       );
     }

@@ -17,7 +17,7 @@ const LogoGridCon = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 12.5px;
-
+  background-color: blue;
   @media (max-width: 666px) {
     width: calc(100% - 20px);
     margin-left: 10px;
@@ -28,10 +28,12 @@ const LogoGridCon = styled.div`
 const LogoConCon = styled.div`
   grid-column: span 2;
   mix-blend-mode: exclusion;
+  background-color: green;
 `;
 const MenuCon = styled.div`
   grid-column: 3 / span 2;
   mix-blend-mode: exclusion;
+  background-color: orange;
 `;
 const LogoCon = styled.div`
   mix-blend-mode: exclusion;

@@ -29,7 +29,11 @@ const Grid16 = styled.div`
   z-index: 20000;
 `;
 const AboutCon = styled.div`
-  grid-column: span 6;
+  grid-column: span 7;
+  /* p,
+  span {
+    font-size: 22px;
+  } */
 `;
 const LocationCon = styled.div`
   grid-column: 9 / span 5;
@@ -84,7 +88,7 @@ export const Intro = () => {
             The design office of Theo Ford. Specialising in graphic design, art
             direction, moving-image and web development. Recent commisions and
             collaborations include identites for{" "}
-            <span className="grey">Tesla</span>, adverts for{" "}
+            <span className="grey">Lunar Energy</span>, adverts for{" "}
             <span className="grey">American Apparel</span>, and printed matter
             for <span className="grey">COS</span>.<br />
           </p>
