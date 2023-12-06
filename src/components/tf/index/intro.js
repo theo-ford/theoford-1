@@ -43,30 +43,36 @@ const ContactCon = styled.div`
 
 export const Intro = () => {
   // https://stackoverflow.com/questions/71201160/how-to-update-a-clock-every-second-in-react-js-recursively
-  const [time, setTime] = React.useState("");
+  const [time, setTime] = React.useState(date());
+
+  function date() {
+    let nwDate = new Date();
+    var year = nwDate.getFullYear();
+    var month = nwDate.getMonth();
+    var day = nwDate.getDate();
+    var hours = nwDate.getHours();
+    var minutes = nwDate.getMinutes();
+    var seconds = nwDate.getSeconds();
+    var dateTimeString =
+      year +
+      "/" +
+      ("0" + month).slice(-2) +
+      "/" +
+      ("0" + day).slice(-2) +
+      " " +
+      ("0" + hours).slice(-2) +
+      ":" +
+      ("0" + minutes).slice(-2) +
+      ":" +
+      ("0" + seconds).slice(-2);
+    return dateTimeString;
+  }
+
+  console.log(date());
 
   useEffect(() => {
     setInterval(() => {
-      let nwDate = new Date();
-      var year = nwDate.getFullYear();
-      var month = nwDate.getMonth();
-      var day = nwDate.getDate();
-      var hours = nwDate.getHours();
-      var minutes = nwDate.getMinutes();
-      var seconds = nwDate.getSeconds();
-      var dateTimeString =
-        year +
-        "/" +
-        month +
-        "/" +
-        day +
-        " " +
-        hours +
-        ":" +
-        minutes +
-        ":" +
-        seconds;
-      setTime(dateTimeString);
+      setTime(date());
     }, 1000);
   }, []);
 
