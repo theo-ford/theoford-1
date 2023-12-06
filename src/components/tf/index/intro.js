@@ -42,6 +42,34 @@ const ContactCon = styled.div`
 `;
 
 export const Intro = () => {
+  // https://stackoverflow.com/questions/71201160/how-to-update-a-clock-every-second-in-react-js-recursively
+  const [time, setTime] = React.useState("");
+
+  useEffect(() => {
+    setInterval(() => {
+      let nwDate = new Date();
+      var year = nwDate.getFullYear();
+      var month = nwDate.getMonth();
+      var day = nwDate.getDate();
+      var hours = nwDate.getHours();
+      var minutes = nwDate.getMinutes();
+      var seconds = nwDate.getSeconds();
+      var dateTimeString =
+        year +
+        "/" +
+        month +
+        "/" +
+        day +
+        " " +
+        hours +
+        ":" +
+        minutes +
+        ":" +
+        seconds;
+      setTime(dateTimeString);
+    }, 1000);
+  }, []);
+
   return (
     <IntroCon>
       <Grid16>
@@ -63,7 +91,8 @@ export const Intro = () => {
               Los Angeles, Beijing, Stockholm, Gothenburg, Glasgow, Falmouth,
               Philadelphia.
             </span>{" "}
-            2023/03/23 21:32.
+            {/* 2023/03/23 21:32.  */}
+            {time.toString()}.
           </p>
         </LocationCon>
         <ContactCon>
