@@ -10,6 +10,7 @@ import Icon from "../../assets/WhiteLogo.svg";
 import { VideoProjectPage } from "../components/tf/project/video-project-page";
 import { NavGrid } from "../components/tf/nav-grid/nav";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { AutoPlayVideo } from "../components/tf/autoplay-video";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -168,8 +169,24 @@ const BodyTextCon = styled.div`
   margin-bottom: 20px;
   p {
     line-height: 125%;
+    margin-top: 10px;
   }
   @media (max-width: 666px) {
+  }
+`;
+const SquareImage = styled.div`
+  width: calc(100%);
+  margin-bottom: 12.5px;
+
+  @media (max-width: 666px) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+`;
+const ProjectPageAutoPlayVideoCon = styled.div`
+  margin-bottom: 12.5px;
+  @media (max-width: 666px) {
+    margin-bottom: 10px;
   }
 `;
 const Footer = styled.div`
@@ -291,13 +308,50 @@ const FilmLeadProject = ({ data }) => {
           </>
         );
       }
-    }
-    if (content.slice_type == "text") {
+    } else if (content.slice_type == "text") {
       return (
         <BodyTextCon>
-          <p>{content.primary.text.text}</p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: content.primary.text.html,
+            }}
+          />
         </BodyTextCon>
       );
+    } else if (content.slice_type == "image") {
+      const image = getImage(content.primary.image);
+      return (
+        <>
+          {/* <Img src={content.primary.image.fluid.src} /> */}
+          <SquareImage>
+            <GatsbyImage image={image} />
+          </SquareImage>
+        </>
+      );
+    } else if (content.slice_type == "video") {
+      if (isPageWide) {
+        const posterImgProps = content.primary.index_image;
+        return (
+          <ProjectPageAutoPlayVideoCon>
+            <AutoPlayVideo
+              srcProps={content.primary.video.url}
+              posterProps={posterImgProps}
+            />
+          </ProjectPageAutoPlayVideoCon>
+        );
+      } else {
+        const posterImgProps = content.primary.index_image;
+        console.log("SMALL VIDEO");
+        console.log(content.primary.sml_video.url);
+        return (
+          <ProjectPageAutoPlayVideoCon>
+            <AutoPlayVideo
+              srcProps={content.primary.sml_video.url}
+              posterProps={posterImgProps}
+            />
+          </ProjectPageAutoPlayVideoCon>
+        );
+      }
     }
   });
   var RelatedProjects = data.prismicFilmLeadProject.data.related_projects_group.map(

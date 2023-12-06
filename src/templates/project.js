@@ -9,8 +9,7 @@ import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { NavGrid } from "../components/tf/nav-grid/nav";
 import { PageLoad } from "../components/tf/page-load";
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
@@ -173,6 +172,7 @@ const BodyTextCon = styled.div`
   margin-bottom: 20px;
   p {
     line-height: 125%;
+    margin-top: 10px;
   }
   @media (max-width: 666px) {
   }
@@ -296,7 +296,7 @@ const Project = ({ data }) => {
   };
   const projectBody = data.prismicProject.data.body1.map((content, index) => {
     if (content.slice_type == "image") {
-      const image = getImage(content.primary.image)
+      const image = getImage(content.primary.image);
       return (
         <>
           {/* <Img src={content.primary.image.fluid.src} /> */}
@@ -310,7 +310,11 @@ const Project = ({ data }) => {
       return (
         <>
           <BodyTextCon>
-            <p>{content.primary.text.text}</p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: content.primary.text.html,
+              }}
+            />
           </BodyTextCon>
         </>
       );
@@ -361,7 +365,9 @@ const Project = ({ data }) => {
         //     );
         //   }
         // );
-        const image = getImage(content.related_projects.document.data.index_preview_img);
+        const image = getImage(
+          content.related_projects.document.data.index_preview_img
+        );
         return (
           <>
             <RelatedProjectsProjectCon>
@@ -381,13 +387,15 @@ const Project = ({ data }) => {
       } else if (
         content.related_projects.document.type == "film_lead_project"
       ) {
-        const image = getImage(content.related_projects.document.data.index_preview_img);
+        const image = getImage(
+          content.related_projects.document.data.index_preview_img
+        );
         console.log("film project");
         return (
           <>
             <RelatedProjectsProjectCon>
               <Link to={`/${content.related_projects.document.uid}`}>
-              <RelatedProjectsImg>
+                <RelatedProjectsImg>
                   <GatsbyImage image={image} />
                 </RelatedProjectsImg>
                 <RelatedProjectProjectTitle>
