@@ -291,6 +291,7 @@ const FilmLeadProject = ({ data }) => {
         return (
           <>
             <VideoProjectPage
+              pageColour={"black"}
               srcProps={content.primary.video_with_play_button.url}
               posterProps={content.primary.video_thumbnail}
               img={content.primary.video_thumbnail}
@@ -301,6 +302,7 @@ const FilmLeadProject = ({ data }) => {
         return (
           <>
             <VideoProjectPage
+              pageColour={"black"}
               srcProps={content.primary.small_video_with_play_button.url}
               posterProps={content.primary.video_thumbnail}
               img={content.primary.video_thumbnail}

@@ -10,6 +10,7 @@ import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { NavGrid } from "../components/tf/nav-grid/nav";
 import { PageLoad } from "../components/tf/page-load";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { VideoProjectPage } from "../components/tf/project/video-project-page";
 
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
@@ -343,6 +344,32 @@ const Project = ({ data }) => {
           </ProjectPageAutoPlayVideoCon>
         );
       }
+    } else if (content.slice_type == "video_with_play_button") {
+      // console.log(content);
+      // console.log(content.primary.video_thumbnail.fluid.srcSetWebp);
+      if (isPageWide) {
+        return (
+          <>
+            <VideoProjectPage
+              pageColour={"white"}
+              srcProps={content.primary.video_with_play_button.url}
+              posterProps={content.primary.video_thumbnail}
+              img={content.primary.video_thumbnail}
+            ></VideoProjectPage>
+          </>
+        );
+      } else {
+        return (
+          <>
+            <VideoProjectPage
+              pageColour={"white"}
+              srcProps={content.primary.small_video_with_play_button.url}
+              posterProps={content.primary.video_thumbnail}
+              img={content.primary.video_thumbnail}
+            ></VideoProjectPage>
+          </>
+        );
+      }
     }
   });
 
@@ -577,7 +604,27 @@ export const query = graphql`
               }
             }
           }
+          ... on PrismicProjectDataBody1VideoWithPlayButton {
+            id
+            slice_type
+            primary {
+              small_video_with_play_button {
+                url
+              }
+              video_with_play_button {
+                url
+              }
+              video_thumbnail {
+                gatsbyImageData
+                dimensions {
+                  height
+                  width
+                }
+              }
+            }
+          }
         }
+
         related_projects_group {
           related_projects {
             uid

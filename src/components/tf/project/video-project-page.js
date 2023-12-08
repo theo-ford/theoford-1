@@ -11,6 +11,7 @@ import { useOnScreen } from "../../hooks/useOnScreen";
 import { ImageOrientation } from "../../utils/image-orientation";
 import { ImageOrientation2 } from "../../utils/image-orientation2";
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
+import { playWhite } from "../../../img/Play_White.svg";
 
 const VideoCon = styled.div`
   margin-bottom: 200px;
@@ -67,29 +68,53 @@ const LengthCon = styled.div`
   p {
     font-size: 12px;
     color: #545454;
+    color: ${props => (props.pageColour == "black" ? "#545454" : "#878787")};
   }
+`;
+const PlayPauseButtonCon = styled.div`
+  height: 12px;
 `;
 const PlayCon = styled.div`
   grid-column: span 1;
-  p {
-    font-size: 12px;
-    color: white;
-  }
+  /* background-color: red; */
 `;
-const PauseButtonImg = styled.div`
+const PauseButtonImgCon = styled.div`
   width: 8px;
   display: inline-block !important;
   margin-right: 5px;
+  margin-top: 2px;
+  img {
+    fill: #ff0000;
+  }
 `;
-const PlayButtonImg = styled.div`
+const PlayButtonText = styled.p`
+  font-size: 12px;
+  color: #545454;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  position: absolute;
+  color: ${props => (props.pageColour == "black" ? "White" : "Black")};
+`;
+
+const PlayButtonImgCon = styled.div`
   width: 8px;
+  margin-right: 5px;
+  margin-top: 2px;
   display: inline-block !important;
+  /* background-color: blue; */
 `;
 const Poster = styled.div`
   width: 100%;
   height: 100%;
 `;
-export const VideoProjectPage = ({ srcProps, posterProps, img }) => {
+export const VideoProjectPage = ({
+  srcProps,
+  posterProps,
+  img,
+  pageColour,
+}) => {
   const VideoRef = useRef(null);
   const imgRef = useRef(null);
   const [isPlaying, setPlayingStatus] = useState(false);
@@ -151,6 +176,27 @@ export const VideoProjectPage = ({ srcProps, posterProps, img }) => {
     setPlayingStatus(false);
   };
   const getImageVal = getImage(posterProps);
+
+  const PlayButtonImg = pageColour => {
+    console.log(pageColour);
+    console.log(pageColour.pageColour);
+    if (pageColour.pageColour === "white") {
+      return <StaticImage src={"../../../img/Play_Black.svg"} />;
+    } else if (pageColour.pageColour === "black") {
+      return <StaticImage src={"../../../img/Play_White.svg"} />;
+    }
+  };
+
+  const PauseButtonImg = pageColour => {
+    console.log(pageColour);
+    console.log(pageColour.pageColour);
+    if (pageColour.pageColour === "white") {
+      return <StaticImage src={"../../../img/Pause_Black.svg"} />;
+    } else if (pageColour.pageColour === "black") {
+      return <StaticImage src={"../../../img/Pause_White.svg"} />;
+    }
+  };
+
   return (
     <>
       <VideoCon>
@@ -185,26 +231,27 @@ export const VideoProjectPage = ({ srcProps, posterProps, img }) => {
             <source src={srcProps}></source>
           </video>
           <ControlsCon>
-            <LengthCon>
+            <LengthCon pageColour={pageColour}>
               <p>{vidDuration}</p>
               {/* <p>TEST</p> */}
             </LengthCon>
             <PlayCon>
               {isPlaying ? (
-                <p onClick={pauseVideo}>
+                <PlayPauseButtonCon onClick={pauseVideo}>
                   {/* <PauseButtonImg src={PauseButton} /> */}
-                  <PauseButtonImg>
-                    <StaticImage src={"../../../img/pause.png"} />
-                  </PauseButtonImg>
-                  Pause
-                </p>
+                  <PauseButtonImgCon>
+                    <PauseButtonImg pageColour={pageColour} />
+                  </PauseButtonImgCon>
+
+                  <PlayButtonText pageColour={pageColour}>Pause</PlayButtonText>
+                </PlayPauseButtonCon>
               ) : (
-                <p onClick={playVideo}>
-                  <PlayButtonImg>
-                    <StaticImage src={"../../../img/play.png"} />
-                  </PlayButtonImg>
-                  Play
-                </p>
+                <PlayPauseButtonCon onClick={playVideo}>
+                  <PlayButtonImgCon>
+                    <PlayButtonImg pageColour={pageColour} />
+                  </PlayButtonImgCon>
+                  <PlayButtonText pageColour={pageColour}>Play</PlayButtonText>
+                </PlayPauseButtonCon>
               )}
             </PlayCon>
           </ControlsCon>
