@@ -14,8 +14,12 @@ import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import { playWhite } from "../../../img/Play_White.svg";
 
 const VideoCon = styled.div`
-  margin-bottom: 200px;
-  /* margin-top: 100px; */
+  /* margin-bottom: 200px; */
+  /* margin-bottom: 12.5px; */
+  /* margin-top: 25px;
+  margin-bottom: 25px; */
+  margin-top: 100px;
+  margin-bottom: 100px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 8 */ 1fr 1fr 1fr 1fr /* 12 */ 1fr 1fr 1fr 1fr /* 16 */ 1fr 1fr 1fr 1fr /* 20 */ 1fr 1fr 1fr 1fr /* 24 */;
   grid-gap: 12.5px;
@@ -107,7 +111,7 @@ const PlayButtonImgCon = styled.div`
 `;
 const Poster = styled.div`
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 `;
 export const VideoProjectPage = ({
   srcProps,
