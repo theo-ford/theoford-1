@@ -72,7 +72,7 @@ const VideoConInner = styled.div`
       /* grid-column: span 24; */
       grid-column: span 36;
     }
-    
+  }
 `;
 const ControlsCon = styled.div`
   display: grid;
