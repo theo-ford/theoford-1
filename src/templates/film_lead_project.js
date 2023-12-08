@@ -164,6 +164,9 @@ const TableTitle = styled.div`
   grid-column: span 2;
   p {
     font-weight: bold;
+    font-family: "HelveticaNowText";
+    line-height: 110%;
+    letter-spacing: -0.5px;
   }
 `;
 const TableContent = styled.div`
@@ -223,6 +226,8 @@ const CategoryName = styled.span`
 const RelatedProjectsCon = styled.div`
   margin-top: 100px;
   margin-bottom: 100px;
+  position: relative;
+  float: left;
 `;
 const RelatedProjectsTitle = styled.p`
   margin-bottom: 10px;

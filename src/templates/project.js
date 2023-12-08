@@ -131,10 +131,13 @@ const Grid8 = styled.div`
   width: calc(100%);
 `;
 const Table = styled.div`
-  margin-bottom: 12.5px;
+  margin-bottom: 0px;
+  position: relative;
+  float: left;
+  width: 100%;
   border-bottom: 1px solid black;
   @media (max-width: 666px) {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
 `;
 const TableRow = styled.div`
@@ -147,10 +150,18 @@ const TableTitle = styled.div`
   grid-column: span 2;
   p {
     font-weight: bold;
+    font-family: "HelveticaNowText";
+    line-height: 110%;
+    letter-spacing: -0.5px;
   }
 `;
 const TableContent = styled.div`
   grid-column: span 6;
+  p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 `;
 const PageConCon = styled.div`
   width: calc(100% - 25px);
@@ -174,17 +185,22 @@ const PageCon = styled.div`
 `;
 const BodyTextCon = styled.div`
   /* margin-bottom: 12.5px; */
-  margin-top: 7.5px;
-  margin-bottom: 7.5px;
+  /* margin-top: 7.5px;
+  margin-bottom: 7.5px; */
+  position: relative;
+  float: left;
+
   p {
     line-height: 125%;
+    /* margin-top: 10px; */
     margin-top: 10px;
+    margin-bottom: 10px;
   }
   @media (max-width: 666px) {
     /* margin-top: 7.5px;
     margin-bottom: 7.5px; */
-    margin-top: 5px;
-    margin-bottom: 5px;
+    /* margin-top: 5px;
+    margin-bottom: 5px; */
   }
 `;
 const SquareImage = styled.div`
@@ -216,6 +232,8 @@ const CategoryName = styled.span`
 const RelatedProjectsCon = styled.div`
   margin-top: 100px;
   margin-bottom: 100px;
+  position: relative;
+  float: left;
 `;
 const RelatedProjectsTitle = styled.p`
   margin-bottom: 10px;

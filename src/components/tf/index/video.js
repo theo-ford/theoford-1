@@ -124,14 +124,13 @@ const PauseButtonImgCon = styled.div`
 `;
 const PlayButtonText = styled.p`
   font-size: 12px;
-  color: #545454;
   color: white;
   margin: 0;
   padding: 0;
   display: inline-block;
   position: absolute;
   margin-left: 5px;
-  color: ${props => (props.pageColour == "black" ? "White" : "Black")};
+  color: #545454 !important;
 `;
 
 const PlayButtonImgCon = styled.div`
@@ -311,7 +310,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
               {isPlaying ? (
                 <PlayPauseButtonCon onClick={pauseVideo}>
                   <PauseButtonImgCon>
-                    <StaticImage src={"../../../img/Pause_White.svg"} />
+                    <StaticImage src={"../../../img/Pause_54.svg"} />
                   </PauseButtonImgCon>
 
                   <PlayButtonText>Pause</PlayButtonText>
@@ -319,7 +318,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
               ) : (
                 <PlayPauseButtonCon onClick={playVideo}>
                   <PlayButtonImgCon>
-                    <StaticImage src={"../../../img/Play_White.svg"} />
+                    <StaticImage src={"../../../img/Play_54.svg"} />
                   </PlayButtonImgCon>
                   <PlayButtonText>Play</PlayButtonText>
                 </PlayPauseButtonCon>
