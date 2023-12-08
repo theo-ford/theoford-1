@@ -20,10 +20,13 @@ const VideoCon = styled.div`
   margin-bottom: 25px; */
   margin-top: 100px;
   margin-bottom: 100px;
+  position: relative;
+  float: left;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 8 */ 1fr 1fr 1fr 1fr /* 12 */ 1fr 1fr 1fr 1fr /* 16 */ 1fr 1fr 1fr 1fr /* 20 */ 1fr 1fr 1fr 1fr /* 24 */;
   grid-gap: 12.5px;
   width: 100%;
+  /* background-color: red; */
   /* background-color: red; */
   @media (max-width: 666px) {
     grid-column-gap: 10px;
@@ -40,13 +43,13 @@ const VideoConInner = styled.div`
     grid-column: 4 / span 6;
   } */
   &.sml-portrait {
-    grid-column: 8 / span 10;
+    grid-column: 7 / span 12;
   }
   &.lrg-portrait {
     grid-column: 8 / span 10;
   }
   &.square {
-    grid-column: 7 / span 12;
+    grid-column: 6 / span 14;
   }
   &.landscape {
     grid-column: 1 / span 24;
@@ -116,7 +119,7 @@ const PlayButtonText = styled.p`
   display: inline-block;
   position: absolute;
   margin-left: 5px;
-  color: ${props => (props.pageColour == "black" ? "White" : "Black")};
+  color: ${props => (props.pageColour == "black" ? "#545454" : "#878787")};
 `;
 
 const PlayButtonImgCon = styled.div`
@@ -198,17 +201,17 @@ export const VideoProjectPage = ({
 
   const PlayButtonImg = pageColour => {
     if (pageColour.pageColour === "white") {
-      return <StaticImage src={"../../../img/Play_Black.svg"} />;
+      return <StaticImage src={"../../../img/Play_87.svg"} />;
     } else if (pageColour.pageColour === "black") {
-      return <StaticImage src={"../../../img/Play_White.svg"} />;
+      return <StaticImage src={"../../../img/Play_54.svg"} />;
     }
   };
 
   const PauseButtonImg = pageColour => {
     if (pageColour.pageColour === "white") {
-      return <StaticImage src={"../../../img/Pause_Black.svg"} />;
+      return <StaticImage src={"../../../img/Pause_87.svg"} />;
     } else if (pageColour.pageColour === "black") {
-      return <StaticImage src={"../../../img/Pause_White.svg"} />;
+      return <StaticImage src={"../../../img/Pause_54.svg"} />;
     }
   };
 

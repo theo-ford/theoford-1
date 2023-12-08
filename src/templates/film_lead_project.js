@@ -148,10 +148,13 @@ const Grid8 = styled.div`
 `;
 const Table = styled.div`
   /* margin-bottom: 20px; */
-  margin-bottom: 12.5px;
+  /* margin-bottom: 12.5px; */
+  position: relative;
+  float: left;
+  width: 100%;
   border-bottom: 1px solid white;
   @media (max-width: 666px) {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
 `;
 const TableRow = styled.div`
@@ -178,18 +181,23 @@ const TableContent = styled.div`
   }
 `;
 const BodyTextCon = styled.div`
-  /* margin-bottom: 20px; */
-  margin-top: 7.5px;
-  margin-bottom: 7.5px;
+  /* margin-bottom: 12.5px; */
+  /* margin-top: 7.5px;
+  margin-bottom: 7.5px; */
+  position: relative;
+  float: left;
+
   p {
     line-height: 125%;
+    /* margin-top: 10px; */
     margin-top: 10px;
+    margin-bottom: 10px;
   }
   @media (max-width: 666px) {
     /* margin-top: 7.5px;
     margin-bottom: 7.5px; */
-    margin-top: 5px;
-    margin-bottom: 5px;
+    /* margin-top: 5px;
+    margin-bottom: 5px; */
   }
 `;
 const SquareImage = styled.div`
