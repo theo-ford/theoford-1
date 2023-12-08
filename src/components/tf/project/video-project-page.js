@@ -159,8 +159,6 @@ export const VideoProjectPage = ({
     return ret;
   }
 
-  // console.log(format(VideoRef.current.duration));
-
   const handleLoadedMetadata = () => {
     console.log(VideoRef.current.duration);
     console.log(format(VideoRef.current.duration));
@@ -178,8 +176,6 @@ export const VideoProjectPage = ({
   const getImageVal = getImage(posterProps);
 
   const PlayButtonImg = pageColour => {
-    console.log(pageColour);
-    console.log(pageColour.pageColour);
     if (pageColour.pageColour === "white") {
       return <StaticImage src={"../../../img/Play_Black.svg"} />;
     } else if (pageColour.pageColour === "black") {
@@ -188,8 +184,6 @@ export const VideoProjectPage = ({
   };
 
   const PauseButtonImg = pageColour => {
-    console.log(pageColour);
-    console.log(pageColour.pageColour);
     if (pageColour.pageColour === "white") {
       return <StaticImage src={"../../../img/Pause_Black.svg"} />;
     } else if (pageColour.pageColour === "black") {
@@ -238,7 +232,6 @@ export const VideoProjectPage = ({
             <PlayCon>
               {isPlaying ? (
                 <PlayPauseButtonCon onClick={pauseVideo}>
-                  {/* <PauseButtonImg src={PauseButton} /> */}
                   <PauseButtonImgCon>
                     <PauseButtonImg pageColour={pageColour} />
                   </PauseButtonImgCon>

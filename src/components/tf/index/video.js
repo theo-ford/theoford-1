@@ -24,7 +24,7 @@ import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 const VideoCon = styled.div`
   display: grid;
   top: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 8 */ 1fr 1fr 1fr 1fr /* 12 */ 1fr 1fr 1fr 1fr /* 16 */ 1fr 1fr 1fr 1fr /* 20 */ 1fr 1fr 1fr 1fr /* 24 */;
+  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 8 */ 1fr 1fr 1fr 1fr /* 12 */ 1fr 1fr 1fr 1fr /* 16 */ 1fr 1fr 1fr 1fr /* 20 */ 1fr 1fr 1fr 1fr /* 24 */ 1fr 1fr 1fr 1fr /* 28 */ 1fr 1fr 1fr 1fr /* 32 */ 1fr 1fr 1fr 1fr /* 36 */ 1fr 1fr 1fr 1fr /* 40 */ 1fr 1fr 1fr 1fr /* 44 */ 1fr 1fr 1fr 1fr /* 48 */;
   grid-column-gap: 12.5px;
   margin-left: 12.5px;
   grid-row-gap: 0;
@@ -45,16 +45,16 @@ const VideoCon = styled.div`
 `;
 const VideoConInner = styled.div`
   &.sml-portrait {
-    grid-column: 10 / span 6;
+    grid-column: 19 / span 12;
   }
   &.lrg-portrait {
-    grid-column: 10 / span 6;
+    grid-column: 20 / span 10;
   }
   &.square {
-    grid-column: 9 / span 8;
+    grid-column: 18 / span 14;
   }
   &.landscape {
-    grid-column: 7 / span 12;
+    grid-column: 13 / span 24;
   }
   @media (max-width: 666px) {
     &.sml-portrait {
