@@ -53,22 +53,26 @@ const VideoConInner = styled.div`
     &.sml-portrait {
       /* grid-column: 5 / span 16; */
       /* grid-column: 4 / span 30; */
-      grid-column: 6 / span 26;
+      /* grid-column: 6 / span 26; */
+      grid-column: span 36;
     }
     &.lrg-portrait {
       /* grid-column: 5 / span 16; */
-      grid-column: 7 / span 24;
+      /* grid-column: 7 / span 24; */
+      grid-column: span 36;
     }
     &.square {
       /* grid-column: 4 / span 18; */
       /* grid-column: 3 / span 32; */
       /* grid-column: span 36; */
-      grid-column: 5 / span 28;
+      /* grid-column: 5 / span 28; */
+      grid-column: span 36;
     }
     &.landscape {
       /* grid-column: span 24; */
       grid-column: span 36;
     }
+    
 `;
 const ControlsCon = styled.div`
   display: grid;
