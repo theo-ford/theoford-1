@@ -93,7 +93,7 @@ const PlayButtonCon = styled.div`
   width: calc(50%);
   display: inline-block;
   p {
-    color: #d4d4d4;
+    color: white;
     font-size: 12px;
   }
 `;
@@ -110,15 +110,36 @@ const PaginationControlP = styled.p`
     color: white;
   }
 `;
-const PauseButtonImg = styled.div`
-  width: 8px;
-  display: inline-block !important;
-  margin-right: 5px;
+const PlayPauseButtonCon = styled.div`
+  height: 12px;
 `;
-const PlayButtonImg = styled.div`
+const PauseButtonImgCon = styled.div`
   width: 8px;
-  margin-right: 5px;
   display: inline-block !important;
+  /* margin-right: 5px; */
+  margin-top: 2px;
+  img {
+    fill: #ff0000;
+  }
+`;
+const PlayButtonText = styled.p`
+  font-size: 12px;
+  color: #545454;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  position: absolute;
+  margin-left: 5px;
+  color: ${props => (props.pageColour == "black" ? "White" : "Black")};
+`;
+
+const PlayButtonImgCon = styled.div`
+  width: 8px;
+  /* margin-right: 5px; */
+  margin-top: 2px;
+  display: inline-block !important;
+  /* background-color: blue; */
 `;
 const VideoControlsImgCon = styled.div``;
 const VideoControlsImg = styled.div`
@@ -288,19 +309,20 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
               }}
             >
               {isPlaying ? (
-                <p onClick={pauseVideo}>
-                  <PauseButtonImg>
-                    <StaticImage src={"../../../img/pause.png"} />
-                  </PauseButtonImg>
-                  Pause
-                </p>
+                <PlayPauseButtonCon onClick={pauseVideo}>
+                  <PauseButtonImgCon>
+                    <StaticImage src={"../../../img/Pause_White.svg"} />
+                  </PauseButtonImgCon>
+
+                  <PlayButtonText>Pause</PlayButtonText>
+                </PlayPauseButtonCon>
               ) : (
-                <p onClick={playVideo}>
-                  <PlayButtonImg>
-                    <StaticImage src={"../../../img/play.png"} />
-                  </PlayButtonImg>
-                  Play
-                </p>
+                <PlayPauseButtonCon onClick={playVideo}>
+                  <PlayButtonImgCon>
+                    <StaticImage src={"../../../img/Play_White.svg"} />
+                  </PlayButtonImgCon>
+                  <PlayButtonText>Play</PlayButtonText>
+                </PlayPauseButtonCon>
               )}
             </PlayButtonCon>
           </ControlsCon>
