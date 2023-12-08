@@ -397,6 +397,16 @@ const Project = ({ data }) => {
             <TableRow>
               <Grid8>
                 <TableTitle>
+                  <p>Client</p>
+                </TableTitle>
+                <TableContent>
+                  <p> {data.prismicProject.data.client.text}</p>
+                </TableContent>
+              </Grid8>
+            </TableRow>
+            <TableRow>
+              <Grid8>
+                <TableTitle>
                   <p>Location</p>
                 </TableTitle>
                 <TableContent>
@@ -427,10 +437,10 @@ const Project = ({ data }) => {
             <TableRow>
               <Grid8>
                 <TableTitle>
-                  <p>Client</p>
+                  <p>Year</p>
                 </TableTitle>
                 <TableContent>
-                  <p> {data.prismicProject.data.client.text}</p>
+                  <p> {data.prismicProject.data.year.text}</p>
                 </TableContent>
               </Grid8>
             </TableRow>
