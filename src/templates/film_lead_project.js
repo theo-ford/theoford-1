@@ -150,6 +150,9 @@ const Table = styled.div`
   /* margin-bottom: 20px; */
   margin-bottom: 12.5px;
   border-bottom: 1px solid white;
+  @media (max-width: 666px) {
+    margin-bottom: 10px;
+  }
 `;
 const TableRow = styled.div`
   border-top: 1px solid white;
@@ -168,27 +171,40 @@ const TableContent = styled.div`
 `;
 const BodyTextCon = styled.div`
   /* margin-bottom: 20px; */
-  margin-bottom: 12.5px;
+  margin-top: 7.5px;
+  margin-bottom: 7.5px;
   p {
     line-height: 125%;
     margin-top: 10px;
   }
   @media (max-width: 666px) {
+    /* margin-top: 7.5px;
+    margin-bottom: 7.5px; */
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 `;
 const SquareImage = styled.div`
   width: calc(100%);
-  margin-bottom: 12.5px;
+  margin-top: 6.25px;
+  margin-bottom: 6.25px;
+  position: relative;
+  float: left;
 
   @media (max-width: 666px) {
     width: 100%;
-    margin-bottom: 10px;
+    margin-top: 5;
+    margin-bottom: 5;
   }
 `;
 const ProjectPageAutoPlayVideoCon = styled.div`
-  margin-bottom: 12.5px;
+  margin-top: 6.25px;
+  margin-bottom: 6.25px;
+  position: relative;
+  float: left;
   @media (max-width: 666px) {
-    margin-bottom: 10px;
+    margin-top: 5;
+    margin-bottom: 5;
   }
 `;
 const Footer = styled.div`
