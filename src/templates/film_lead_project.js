@@ -147,7 +147,8 @@ const Grid8 = styled.div`
   width: calc(100%);
 `;
 const Table = styled.div`
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  margin-bottom: 12.5px;
   border-bottom: 1px solid white;
 `;
 const TableRow = styled.div`
@@ -166,7 +167,8 @@ const TableContent = styled.div`
   grid-column: span 6;
 `;
 const BodyTextCon = styled.div`
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  margin-bottom: 12.5px;
   p {
     line-height: 125%;
     margin-top: 10px;

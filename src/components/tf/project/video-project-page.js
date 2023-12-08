@@ -30,7 +30,7 @@ const VideoCon = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 8 */ 1fr 1fr 1fr 1fr /* 12 */ 1fr 1fr 1fr 1fr /* 16 */ 1fr 1fr 1fr 1fr /* 20 */ 1fr 1fr 1fr 1fr /* 24 */ 1fr 1fr 1fr 1fr /* 28 */ 1fr 1fr 1fr 1fr /* 32 */ 1fr 1fr 1fr 1fr /* 36 */;
     grid-column-gap: 10px;
     grid-row-gap: 0;
-    width: calc(100% - 20px);
+    /* width: calc(100% - 20px); */
   }
 `;
 const VideoConInner = styled.div`
