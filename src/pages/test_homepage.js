@@ -376,7 +376,6 @@ const TestHomepage = ({ data }) => {
           }
         );
         if (isPageWide && projectLength > 1) {
-          console.log("ANT DESIGN");
           return (
             <ProjectCon>
               <TwoUpProjectCarouselSwiper

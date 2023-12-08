@@ -313,15 +313,10 @@ const ProjectIndex = ({ data }) => {
                     <Link to="/about17">
                       <span className="navItem">Office</span>
                     </Link>
-                    {/* <br></br>Instagram, Twitter */}
                   </p>
                 </NavCon1>
               </Col2>
-              <Col3>
-                {/* <TextImgToggleP>
-                  <span class="active">Text</span>, Img
-                </TextImgToggleP> */}
-              </Col3>
+              <Col3></Col3>
               <Col4>
                 <Categories></Categories>
               </Col4>
@@ -359,61 +354,32 @@ const ProjectIndex = ({ data }) => {
     }
   };
   const squareProjects = data.allPrismicProject.edges.map((content, index) => {
-    return (
-      // <WhiteText>
-      //   {content.node.data.project_title.text}, {content.node.data.year.text}
-      // </WhiteText>
-      { content }
-    );
+    return { content };
   });
   const filmsProjects = data.allPrismicFilmLeadProject.edges.map(
     (content, index) => {
-      // console.log(content.node.data.year.text);
-      // console.log(content);
-      return (
-        // <WhiteText>
-        //   {content.node.data.project_title.text}, {content.node.data.year.text}
-        // </WhiteText>
-        { content }
-      );
+      return { content };
     }
   );
-  // console.log("SQUARE PROJECTS");
-  // console.log(squareProjects);
-
-  // console.log("FILMS PROJECTS");
-  // console.log(filmsProjects);
 
   const mergedArray = squareProjects.concat(filmsProjects);
-  // console.log("MERGED ARRAY");
-  // console.log(mergedArray);
 
   const organisedArray = mergedArray.sort(function(a, b) {
-    // console.log(a.content);
-    // console.log(a.content.node.data.year.text);
     return b.content.node.data.year.text - a.content.node.data.year.text;
   });
-  // console.log("ORGANISED ARRAY");
-  // console.log(organisedArray);
 
   const organisedArrayMap = organisedArray
     .filter(project => {
       if (activeCategory === null) {
         return project;
       } else {
-        console.log("PROJECT CATEGORIES");
         console.log(project.content.node.data.categories);
         return project.content.node.data.categories
-          .map(category =>
-            // console.log(category.category.slug);
-            x(category.category.slug)
-          )
+          .map(category => x(category.category.slug))
           .includes(activeCategory);
       }
     })
     .map((content, index) => {
-      // console.log(content);
-      // console.log(content.content.node.data.year.text);
       var index_image = getImage(content.content.node.data.index_preview_img);
       return (
         <>
@@ -422,16 +388,9 @@ const ProjectIndex = ({ data }) => {
               <ImageBorderCon>
                 <Grid16>
                   <IndexImgCon>
-                    {/* <IndexImg
-                      className="index_img"
-                      srcSet={
-                        content.content.node.data.index_preview_img
-                      }
-                    /> */}
                     <IndexImg className="index_img">
                       <GatsbyImage image={index_image} />
                     </IndexImg>
-                    {/* <IndexImg src={PlayButton}></IndexImg> */}
                   </IndexImgCon>
                   <Border></Border>
                 </Grid16>
@@ -487,9 +446,6 @@ const ProjectIndex = ({ data }) => {
         </>
       );
     });
-  // console.log("ORGANISED ARRAY MAP");
-  // console.log(organisedArrayMap);
-
   function x(y) {
     return y.replace("-", " ").replace(/(?:^|\s)\S/g, a => a.toUpperCase());
   }
@@ -511,8 +467,6 @@ const ProjectIndex = ({ data }) => {
   };
 
   const categoriesList = data.allPrismicCategory.edges.map((content, index) => {
-    // console.log(content.node.data.name.length);
-    // console.log(index);
     return (
       <>
         <CategoryItem>{index ? ", " : ""}</CategoryItem>
@@ -521,7 +475,6 @@ const ProjectIndex = ({ data }) => {
           className={activeCategory === content.node.data.name ? `active` : ``}
           key={index}
           onClick={() => {
-            // console.log("testing");
             setCategory(content.node.data.name);
           }}
         >
@@ -537,8 +490,6 @@ const ProjectIndex = ({ data }) => {
       <Helmet>
         <title>(10) Pagination 1</title>
       </Helmet>
-
-      {/* <LogoNav></LogoNav> */}
 
       <NavGrid></NavGrid>
       <CategoryMenuConCon>

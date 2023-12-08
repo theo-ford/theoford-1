@@ -212,95 +212,15 @@ const RelatedProjectProjectTitle = styled.p`
 `;
 const RelatedProjectsImg = styled.div`
   width: 100%;
-  /* filter: grayscale(100%);
-  &:hover {
-    filter: none;
-  } */
 `;
 const Project = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
-  // PageLoad;
-  const LogoConRef = useRef(null);
-  // const LogoNav = scrollPosition => {
-  //   if (isPageWide) {
-  //     return (
-  //       <>
-  //         <LogoGridCon>
-  //           <Grid2B>
-  //             <Col1>
-  //               <LogoCon ref={LogoConRef}>
-  //                 <Icon />
-  //               </LogoCon>
-  //             </Col1>
-  //             <Col2>
-  //               <NavCon1>
-  //                 <p>
-  //                   <Link to="/">
-  //                     <span className="selected">Select,</span>{" "}
-  //                   </Link>
-  //                   <Link to="/project_index">
-  //                     <span className="navItem">Index,</span>{" "}
-  //                   </Link>
-  //                   <Link to="/about17">
-  //                     <span className="navItem">Office</span>
-  //                   </Link>
-  //                   {/* <br></br>Instagram, Twitter */}
-  //                 </p>
-  //               </NavCon1>
-  //             </Col2>
-  //           </Grid2B>
-  //         </LogoGridCon>
-  //       </>
-  //     );
-  //   }
-  //   if (!isPageWide) {
-  //     return (
-  //       <>
-  //         <LogoGridCon>
-  //           <NavCon1>
-  //             <Link to="/">
-  //               <p className="selected">Selected</p>
-  //             </Link>
-  //             <Link to="/project_index">
-  //               <p>
-  //                 <span className="navItem">Index</span>{" "}
-  //               </p>
-  //             </Link>
-  //           </NavCon1>
-  //           <NavCon2>
-  //             <Link to="/about17">
-  //               <p>Office</p>
-  //             </Link>
-  //             <p>Instagram</p>
-  //           </NavCon2>
-  //         </LogoGridCon>
-  //         {/* <LogoCon ref={LogoConRef}>
-  //           <Icon />
-  //         </LogoCon> */}
-  //       </>
-  //     );
-  //   }
-  // };
-  const ImgComponent = ({ srcProps, videoLoad }) => {
-    // console.log(srcProps);
-    var x = srcProps;
-    // console.log("x");
-    // console.log(x);
-    var y = x.replace(
-      /\?auto=&w=(800|1400|1600|2400|3600)&h=(800|1400|1600|2400|3600)/g,
-      ""
-    );
-    // console.log("y");
-    // console.log(y);
-    return <SquareImage srcSet={y} />;
-    //return <SquareImage src={srcProps} />;
-  };
+
   const projectBody = data.prismicProject.data.body1.map((content, index) => {
     if (content.slice_type == "image") {
       const image = getImage(content.primary.image);
       return (
         <>
-          {/* <Img src={content.primary.image.fluid.src} /> */}
           <SquareImage>
             <GatsbyImage image={image} />
           </SquareImage>
@@ -333,8 +253,6 @@ const Project = ({ data }) => {
         );
       } else {
         const posterImgProps = content.primary.index_image;
-        console.log("SMALL VIDEO");
-        console.log(content.primary.sml_video.url);
         return (
           <ProjectPageAutoPlayVideoCon>
             <AutoPlayVideo
@@ -345,8 +263,6 @@ const Project = ({ data }) => {
         );
       }
     } else if (content.slice_type == "video_with_play_button") {
-      // console.log(content);
-      // console.log(content.primary.video_thumbnail.fluid.srcSetWebp);
       if (isPageWide) {
         return (
           <>
@@ -373,25 +289,9 @@ const Project = ({ data }) => {
     }
   });
 
-  // var testArray = ["a", "b", "c", "d"];
-  // var testArrayMap = testArray.map((content, index) => {
-  //   return content;
-  // });
-
-  // console.log(testArrayMap[1]);
-
   var RelatedProjects = data.prismicProject.data.related_projects_group.map(
     (content, index) => {
       if (content.related_projects.document.type == "project") {
-        console.log("square project");
-        // const project = content.related_projects.document.data.map(
-        //   (content3, index) => {
-        //     return (
-        //       //test
-        //       { content3 }
-        //     );
-        //   }
-        // );
         const image = getImage(
           content.related_projects.document.data.index_preview_img
         );
@@ -407,8 +307,6 @@ const Project = ({ data }) => {
                 </RelatedProjectProjectTitle>
               </Link>
             </RelatedProjectsProjectCon>
-
-            {/* {content.related_projects} */}
           </>
         );
       } else if (
@@ -430,16 +328,9 @@ const Project = ({ data }) => {
                 </RelatedProjectProjectTitle>
               </Link>
             </RelatedProjectsProjectCon>
-
-            {/* {content.related_projects} */}
           </>
         );
       }
-      // return (
-      //   // test
-      //   // test
-      //   { content }
-      // );
     }
   );
 
@@ -454,7 +345,6 @@ const Project = ({ data }) => {
 
   return (
     <>
-      {/* <LogoNav></LogoNav> */}
       <NavGrid></NavGrid>
       <PageConCon>
         <PageCon>

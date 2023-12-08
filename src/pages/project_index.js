@@ -313,15 +313,10 @@ const ProjectIndex = ({ data }) => {
                     <Link to="/about17">
                       <span className="navItem">Office</span>
                     </Link>
-                    {/* <br></br>Instagram, Twitter */}
                   </p>
                 </NavCon1>
               </Col2>
-              <Col3>
-                {/* <TextImgToggleP>
-                  <span class="active">Text</span>, Img
-                </TextImgToggleP> */}
-              </Col3>
+              <Col3></Col3>
               <Col4>
                 <Categories></Categories>
               </Col4>
@@ -351,9 +346,6 @@ const ProjectIndex = ({ data }) => {
               <p>Instagram</p>
             </NavCon2>
           </LogoGridCon>
-          {/* <LogoCon ref={LogoConRef}>
-            <Icon />
-          </LogoCon> */}
         </>
       );
     }
@@ -365,42 +357,24 @@ const ProjectIndex = ({ data }) => {
     }
   );
 
-  console.log(projectIndexSelectArray);
-  // const mergedArray = squareProjects.concat(filmsProjects);
-  // console.log("MERGED ARRAY");
-  // console.log(mergedArray);
-
   const organisedArray = projectIndexSelectArray.sort(function(a, b) {
-    // console.log(a.content);
-    // console.log(a.content.node.data.year.text);
     return (
       b.content.project_relationship_field.document.data.year.text -
       a.content.project_relationship_field.document.data.year.text
     );
   });
-  // console.log("ORGANISED ARRAY");
-  // console.log(organisedArray);
 
   const organisedArrayMap = organisedArray
     .filter(project => {
       if (activeCategory === null) {
         return project;
       } else {
-        console.log("PROJECT CATEGORIES");
-        console.log(
-          project.content.project_relationship_field.document.data.categories
-        );
         return project.content.project_relationship_field.document.data.categories
-          .map(category =>
-            // console.log(category.category.slug);
-            textTransfrom(category.category.slug)
-          )
+          .map(category => textTransfrom(category.category.slug))
           .includes(activeCategory);
       }
     })
     .map((content, index) => {
-      // console.log(content);
-      // console.log(content.content.node.data.year.text);
       var index_image = getImage(
         content.content.project_relationship_field.document.data
           .index_preview_img
@@ -487,16 +461,12 @@ const ProjectIndex = ({ data }) => {
         </>
       );
     });
-  // // console.log("ORGANISED ARRAY MAP");
-  // // console.log(organisedArrayMap);
 
   function textTransfrom(y) {
     return y.replace("-", " ").replace(/(?:^|\s)\S/g, a => a.toUpperCase());
   }
 
   const Categories = () => {
-    console.log("ACTIVE CATEGORY");
-    console.log(activeCategory);
     return (
       <>
         <CategoryItem
@@ -512,8 +482,6 @@ const ProjectIndex = ({ data }) => {
   };
 
   const categoriesList = data.allPrismicCategory.edges.map((content, index) => {
-    // console.log(content.node.data.name.length);
-    // console.log(index);
     return (
       <>
         <CategoryItem>{index ? ", " : ""}</CategoryItem>
@@ -522,7 +490,6 @@ const ProjectIndex = ({ data }) => {
           className={activeCategory === content.node.data.name ? `active` : ``}
           key={index}
           onClick={() => {
-            // console.log("testing");
             setCategory(content.node.data.name);
           }}
         >

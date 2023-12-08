@@ -219,7 +219,6 @@ const RelatedProjectsImg = styled.div`
   } */
 `;
 const FilmLeadProject = ({ data }) => {
-  // test
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef = useRef(null);
   const LogoNav = scrollPosition => {
@@ -245,7 +244,6 @@ const FilmLeadProject = ({ data }) => {
                     <Link to="/about17">
                       <span className="navItem">Office</span>
                     </Link>
-                    {/* <br></br>Instagram, Twitter */}
                   </p>
                 </NavCon1>
               </Col2>
@@ -275,9 +273,6 @@ const FilmLeadProject = ({ data }) => {
               <p>Instagram</p>
             </NavCon2>
           </LogoGridCon>
-          {/* <LogoCon ref={LogoConRef}>
-            <Icon />
-          </LogoCon> */}
         </>
       );
     }
@@ -285,8 +280,6 @@ const FilmLeadProject = ({ data }) => {
 
   const work = data.prismicFilmLeadProject.data.body1.map((content, index) => {
     if (content.slice_type == "video_with_play_button") {
-      // console.log(content);
-      // console.log(content.primary.video_thumbnail.fluid.srcSetWebp);
       if (isPageWide) {
         return (
           <>
@@ -324,7 +317,6 @@ const FilmLeadProject = ({ data }) => {
       const image = getImage(content.primary.image);
       return (
         <>
-          {/* <Img src={content.primary.image.fluid.src} /> */}
           <SquareImage>
             <GatsbyImage image={image} />
           </SquareImage>
@@ -343,8 +335,6 @@ const FilmLeadProject = ({ data }) => {
         );
       } else {
         const posterImgProps = content.primary.index_image;
-        console.log("SMALL VIDEO");
-        console.log(content.primary.sml_video.url);
         return (
           <ProjectPageAutoPlayVideoCon>
             <AutoPlayVideo
@@ -359,15 +349,6 @@ const FilmLeadProject = ({ data }) => {
   var RelatedProjects = data.prismicFilmLeadProject.data.related_projects_group.map(
     (content, index) => {
       if (content.related_projects.document.type == "project") {
-        console.log("square project");
-        // const project = content.related_projects.document.data.map(
-        //   (content3, index) => {
-        //     return (
-        //       //test
-        //       { content3 }
-        //     );
-        //   }
-        // );
         const image = getImage(
           content.related_projects.document.data.index_preview_img
         );
@@ -384,14 +365,11 @@ const FilmLeadProject = ({ data }) => {
                 </RelatedProjectProjectTitle>
               </Link>
             </RelatedProjectsProjectCon>
-
-            {/* {content.related_projects} */}
           </>
         );
       } else if (
         content.related_projects.document.type == "film_lead_project"
       ) {
-        console.log("film project");
         const image = getImage(
           content.related_projects.document.data.index_preview_img
         );
@@ -408,16 +386,9 @@ const FilmLeadProject = ({ data }) => {
                 </RelatedProjectProjectTitle>
               </Link>
             </RelatedProjectsProjectCon>
-
-            {/* {content.related_projects} */}
           </>
         );
       }
-      // return (
-      //   // test
-      //   // test
-      //   { content }
-      // );
     }
   );
 
@@ -432,7 +403,6 @@ const FilmLeadProject = ({ data }) => {
   return (
     <>
       <GlobalStyle />
-      {/* <LogoNav></LogoNav> */}
       <NavGrid></NavGrid>
       <PageConCon>
         <PageCon>
