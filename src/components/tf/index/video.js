@@ -59,7 +59,8 @@ const VideoConInner = styled.div`
   @media (max-width: 666px) {
     &.sml-portrait {
       /* grid-column: 5 / span 16; */
-      grid-column: 4 / span 30;
+      /* grid-column: 4 / span 30; */
+      grid-column: 5 / span 28;
     }
     &.lrg-portrait {
       /* grid-column: 5 / span 16; */
@@ -67,8 +68,8 @@ const VideoConInner = styled.div`
     }
     &.square {
       /* grid-column: 4 / span 18; */
-      grid-column: 3 / span 32;
-      /* grid-column: span 36; */
+      /* grid-column: 3 / span 32; */
+      grid-column: span 36;
     }
     &.landscape {
       /* grid-column: span 24; */
