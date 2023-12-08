@@ -101,7 +101,7 @@ const PlayCon = styled.div`
 const PauseButtonImgCon = styled.div`
   width: 8px;
   display: inline-block !important;
-  margin-right: 5px;
+  /* margin-right: 5px; */
   margin-top: 2px;
   img {
     fill: #ff0000;
@@ -115,15 +115,14 @@ const PlayButtonText = styled.p`
   padding: 0;
   display: inline-block;
   position: absolute;
+  margin-left: 5px;
   color: ${props => (props.pageColour == "black" ? "White" : "Black")};
 `;
 
 const PlayButtonImgCon = styled.div`
   width: 8px;
-  margin-right: 5px;
+  /* margin-right: 5px; */
   margin-top: 2px;
-  float: left;
-  position: relative;
   display: inline-block !important;
   /* background-color: blue; */
 `;
