@@ -168,6 +168,11 @@ const TableTitle = styled.div`
 `;
 const TableContent = styled.div`
   grid-column: span 6;
+  p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 `;
 const BodyTextCon = styled.div`
   /* margin-bottom: 20px; */

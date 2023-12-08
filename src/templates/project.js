@@ -151,6 +151,11 @@ const TableTitle = styled.div`
 `;
 const TableContent = styled.div`
   grid-column: span 6;
+  p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 `;
 const PageConCon = styled.div`
   width: calc(100% - 25px);

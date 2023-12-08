@@ -122,6 +122,8 @@ const PlayButtonImgCon = styled.div`
   width: 8px;
   margin-right: 5px;
   margin-top: 2px;
+  float: left;
+  position: relative;
   display: inline-block !important;
   /* background-color: blue; */
 `;
