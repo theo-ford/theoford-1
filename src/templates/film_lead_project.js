@@ -439,7 +439,9 @@ const FilmLeadProject = ({ data }) => {
   return (
     <>
       <Helmet>
-        <title>Theo Ford – {data.prismicProject.data.project_title.text}</title>
+        <title>
+          Theo Ford – {data.prismicFilmLeadProject.data.project_title.text}
+        </title>
       </Helmet>
       <GlobalStyle />
       <NavGrid></NavGrid>
