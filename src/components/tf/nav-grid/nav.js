@@ -18,9 +18,12 @@ const LogoGridCon = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 12.5px;
   @media (max-width: 666px) {
-    width: calc(100% - 20px);
+    /* width: calc(100% - 20px);
     margin-left: 10px;
-    top: 10px;
+    top: 10px; */
+    width: calc(100% - 25px);
+    margin-left: 12.5px;
+    top: 12.5px;
   }
 `;
 /* DESKTOP */

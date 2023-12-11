@@ -13,16 +13,17 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 const SwiperCarouselCon = styled.div`
-  margin-left: 12.5px;
-  width: calc(100%-12.5px);
-  /* background-color: red; */
+  /* margin-left: 12.5px;
+  width: calc(100%-12.5px); */
+
   position: relative;
-  /* cursor: e-resize; */
-  /* .swiper-slide-active {
-    cursor: w-resize;
-  }
-  .swiper-slide-next {
-    cursor: e-resize;
+
+  width: calc(100% - 6px);
+  margin-left: 10px;
+
+  margin-top: 6px;
+  /* @media (max-width: 666px) {
+    
   } */
 `;
 const ButtonCon = styled.div`
@@ -57,12 +58,18 @@ const Grid16 = styled.div`
   width: calc(100% - 25px);
   z-index: 20000;
   position: absolute;
+  @media (max-width: 666px) {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    top: 10px;
+  }
 `;
 const CarouselHeaderCon = styled.div`
   width: 100%;
   background-color: red;
   /* height: 200px; */
-  margin-top: -23px;
+  /* margin-top: -23px; */
+  margin-top: -32px;
   position: absolute;
 `;
 const CarouselCounterCon = styled.div`

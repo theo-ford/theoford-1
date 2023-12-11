@@ -20,6 +20,11 @@ const Grid16 = styled.div`
   grid-row-gap: 0;
   width: calc(100% - 25px);
   z-index: 20000;
+  @media (max-width: 666px) {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
 `;
 const Grid2 = styled.div`
   display: grid;
@@ -30,6 +35,7 @@ const Grid2 = styled.div`
   grid-row-gap: 0;
   width: calc(100% - 20px);
   z-index: 20000;
+  margin-bottom: 8px;
 `;
 
 const ProjectInfoCon = styled.div`
