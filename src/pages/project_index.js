@@ -41,109 +41,6 @@ const PageCon = styled.div`
     padding-bottom: 0vh;
   }
 `;
-const LogoGridCon = styled.div`
-  width: calc(100% - 25px);
-  margin-left: 12.5px;
-  position: fixed;
-  top: 12.5px;
-  z-index: 300000;
-  mix-blend-mode: exclusion;
-
-  @media (max-width: 666px) {
-    /* display: none; */
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 10px;
-    width: calc(100% - 20px);
-    margin-left: 10px;
-  }
-`;
-const Grid2B = styled.div`
-  display: grid;
-  top: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 12.5px;
-  grid-row-gap: 0;
-  width: calc(100%);
-  z-index: 20000;
-`;
-const Col1 = styled.div`
-  grid-column: span 8;
-`;
-const Col2 = styled.div`
-  grid-column: span 3;
-`;
-const Col3 = styled.div`
-  grid-column: span 1;
-`;
-const Col4 = styled.div`
-  grid-column: span 4;
-`;
-const LogoCon = styled.div`
-  top: 12.5px;
-  mix-blend-mode: exclusion;
-  width: calc(50% - 6.25px);
-  display: inline-block;
-  vertical-align: top;
-  transition: all 2s;
-  vertical-align: top;
-
-  .shrink {
-    width: calc(37.5% - 6.25px);
-  }
-  @media (max-width: 666px) {
-    /* display: none; */
-    width: calc(75% - 6.25px);
-    margin-top: 14vh;
-    margin-left: 10px;
-    .shrink {
-      width: calc(75% - 6.25px);
-    }
-  }
-`;
-const NavCon1 = styled.div`
-  display: inline-block;
-  position: sticky;
-  top: 12.5px;
-  z-index: 300000;
-  margin-top: -3px;
-  vertical-align: top;
-  mix-blend-mode: exclusion;
-  p {
-    color: #878787;
-  }
-  span.selected {
-    color: white;
-  }
-  span.navItem {
-  }
-  @media (max-width: 666px) {
-    /* display: none; */
-    margin-left: 0px;
-    grid-column: span 1;
-  }
-`;
-const NavCon2 = styled.div`
-  display: inline-block;
-  position: sticky;
-  top: 12.5px;
-  margin-left: 12.5px;
-  margin-top: -3px;
-  mix-blend-mode: exclusion;
-  z-index: 300000;
-  p {
-    color: #878787;
-    /* font-size: 12px; */
-  }
-  p.selected {
-    color: white;
-  }
-  @media (max-width: 666px) {
-    /* display: none; */
-    margin-left: 0px;
-    grid-column: span 1;
-  }
-`;
 const WhiteText = styled.p`
   color: white;
 `;
@@ -161,6 +58,11 @@ const Grid16 = styled.div`
   grid-row-gap: 0;
   width: calc(100% - 25px);
   z-index: 20000;
+  @media (max-width: 666px) {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    grid-gap: 10px;
+  }
 `;
 
 const ImageBorderCon = styled.div`
@@ -299,67 +201,6 @@ const ProjectIndex = ({ data }) => {
   const LogoConRef = useRef(null);
   const [activeCategory, setCategory] = useState(null);
   const [categoriesVisible, setCategoriesVisible] = useState(false);
-
-  const LogoNav = scrollPosition => {
-    if (isPageWide) {
-      return (
-        <>
-          <LogoGridCon>
-            <Grid2B>
-              <Col1>
-                <LogoCon ref={LogoConRef}>
-                  <Icon />
-                </LogoCon>
-              </Col1>
-              <Col2>
-                <NavCon1>
-                  <p>
-                    <Link to="/">
-                      <span className="selected">Select,</span>{" "}
-                    </Link>
-                    <Link to="/project_index">
-                      <span className="navItem">Index,</span>{" "}
-                    </Link>
-                    <Link to="/about17">
-                      <span className="navItem">Office</span>
-                    </Link>
-                  </p>
-                </NavCon1>
-              </Col2>
-              <Col3></Col3>
-              <Col4>
-                <Categories></Categories>
-              </Col4>
-            </Grid2B>
-          </LogoGridCon>
-        </>
-      );
-    }
-    if (!isPageWide) {
-      return (
-        <>
-          <LogoGridCon>
-            <NavCon1>
-              <Link to="/">
-                <p className="selected">Selected</p>
-              </Link>
-              <Link to="/project_index">
-                <p>
-                  <span className="navItem">Index</span>
-                </p>
-              </Link>
-            </NavCon1>
-            <NavCon2>
-              <Link to="/about17">
-                <p>Office</p>
-              </Link>
-              <p>Instagram</p>
-            </NavCon2>
-          </LogoGridCon>
-        </>
-      );
-    }
-  };
 
   const projectIndexSelectArray = data.prismicProjectIndexSelect.data.project_relationship_group.map(
     (content, index) => {

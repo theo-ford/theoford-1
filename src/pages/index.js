@@ -54,8 +54,11 @@ const LogoGridCon = styled.div`
   grid-gap: 12.5px;
   /* background-color: green; */
   @media (max-width: 666px) {
-    width: calc(100% - 25px);
+    /* width: calc(100% - 25px);
     margin-left: 12.5px;
+    top: 10px; */
+    width: calc(100% - 20px);
+    margin-left: 10px;
     top: 10px;
   }
 `;
