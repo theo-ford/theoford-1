@@ -214,11 +214,19 @@ export const VideoProjectPage = ({
       return <StaticImage src={"../../../img/Pause_54.svg"} />;
     }
   };
-
+  const playPause = () => {
+    if (isPlaying) {
+      VideoRef.current.pause();
+      setPlayingStatus(false);
+    } else {
+      VideoRef.current.play();
+      setPlayingStatus(true);
+    }
+  };
   return (
     <>
       <VideoCon>
-        <VideoConInner className={ImageOrientation2(img)}>
+        <VideoConInner className={ImageOrientation2(img)} onClick={playPause}>
           <Poster
             ref={imgRef}
             style={{
@@ -227,6 +235,7 @@ export const VideoProjectPage = ({
               zIndex: hasStartedPlaying ? -100 : 0,
               display: hasStartedPlaying ? "none" : "block",
             }}
+            onClick={playVideo}
           >
             <GatsbyImage image={getImageVal} />
           </Poster>
