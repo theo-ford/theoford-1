@@ -247,6 +247,15 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     videoWithControlsRef.current.pause();
     setPlayingStatus(false);
   };
+  const playPause = () => {
+    if (isPlaying) {
+      videoWithControlsRef.current.pause();
+      setPlayingStatus(false);
+    } else {
+      videoWithControlsRef.current.play();
+      setPlayingStatus(true);
+    }
+  };
 
   const getPosterImg = getImage(posterProps);
 
@@ -254,7 +263,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
     <>
       {/* <CarouselLengthContext.Provider> */}
       <VideoCon>
-        <VideoConInner className={ImageOrientation2(img)}>
+        <VideoConInner className={ImageOrientation2(img)} onClick={playPause}>
           <VideoControlsImgCon
             style={{
               opacity: hasStartedPlaying ? 0 : 1,

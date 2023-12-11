@@ -12,6 +12,30 @@ import { PageLoad } from "../components/tf/page-load";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { VideoProjectPage } from "../components/tf/project/video-project-page";
 
+const PageConCon = styled.div`
+  width: calc(100% - 25px);
+  margin: 12.5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr /* 1 */ 1fr 1fr 1fr 1fr /* 2 */ 1fr 1fr 1fr 1fr /* 3 */ 1fr 1fr 1fr 1fr /* 4 */;
+  grid-gap: 12.5px;
+  @media (max-width: 666px) {
+    /* width: calc(100% - 25px);
+    margin-left: 12.5px;
+    top: 10px; */
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    top: 10px;
+    grid-gap: 10px;
+  }
+`;
+const PageCon = styled.div`
+  grid-column: 5 / span 8;
+  margin-top: 20vh;
+  @media (max-width: 666px) {
+    grid-column: span 16;
+    margin-top: 10vh;
+  }
+`;
 const Grid8 = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -55,30 +79,7 @@ const TableContent = styled.div`
     overflow: hidden;
   }
 `;
-const PageConCon = styled.div`
-  width: calc(100% - 25px);
-  margin: 12.5px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr /* 1 */ 1fr 1fr 1fr 1fr /* 2 */ 1fr 1fr 1fr 1fr /* 3 */ 1fr 1fr 1fr 1fr /* 4 */;
-  grid-gap: 12.5px;
-  @media (max-width: 666px) {
-    /* width: calc(100% - 25px);
-    margin-left: 12.5px;
-    top: 10px; */
-    width: calc(100% - 20px);
-    margin-left: 10px;
-    top: 10px;
-    grid-gap: 10px;
-  }
-`;
-const PageCon = styled.div`
-  grid-column: 5 / span 8;
-  margin-top: 20vh;
-  @media (max-width: 666px) {
-    grid-column: span 16;
-    margin-top: 10vh;
-  }
-`;
+
 const BodyTextCon = styled.div`
   position: relative;
   float: left;
