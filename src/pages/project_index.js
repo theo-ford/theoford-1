@@ -32,7 +32,15 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100vw;
   }
 `;
-
+const PageCon = styled.div`
+  background-color: black;
+  /* min-height: 100vh; */
+  /* overflow: hidden; */
+  padding-bottom: 18vh;
+  @media (max-width: 666px) {
+    padding-bottom: 0vh;
+  }
+`;
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
   margin-left: 12.5px;
@@ -141,6 +149,8 @@ const WhiteText = styled.p`
 `;
 const TableCon = styled.div`
   margin-top: 20px;
+  margin-bottom: 20px;
+  /* background-color: blue; */
 `;
 const Grid16 = styled.div`
   display: grid;
@@ -503,40 +513,41 @@ const ProjectIndex = ({ data }) => {
     <>
       <GlobalStyle />
       <Helmet>
-        <title>(10) Pagination 1</title>
+        <title>Theo Ford – Index</title>
       </Helmet>
+      <PageCon>
+        <NavGrid></NavGrid>
+        <CategoryMenuConCon>
+          <CategoryMenuCon>
+            <Categories></Categories>
+          </CategoryMenuCon>
+        </CategoryMenuConCon>
 
-      <NavGrid></NavGrid>
-      <CategoryMenuConCon>
-        <CategoryMenuCon>
-          <Categories></Categories>
-        </CategoryMenuCon>
-      </CategoryMenuConCon>
-
-      <TableHeaderCon>
-        <Grid16>
-          <ImgSpacer></ImgSpacer>
-          <ProjectTitleCon>
-            <IndexTitleP>Project</IndexTitleP>
-          </ProjectTitleCon>
-          <ClientCon>
-            <IndexTitleP>Client</IndexTitleP>
-          </ClientCon>
-          <SectorCon>
-            <IndexTitleP>Sector</IndexTitleP>
-          </SectorCon>
-          <CategoryCon>
-            <IndexTitleP>Category</IndexTitleP>
-          </CategoryCon>
-          <YearCon>
-            <IndexTitleP>Year</IndexTitleP>
-          </YearCon>
-          <LocationCon>
-            <IndexTitleP>Location</IndexTitleP>
-          </LocationCon>
-        </Grid16>
-      </TableHeaderCon>
-      <TableCon>{organisedArrayMap}</TableCon>
+        <TableHeaderCon>
+          <Grid16>
+            <ImgSpacer></ImgSpacer>
+            <ProjectTitleCon>
+              <IndexTitleP>Project</IndexTitleP>
+            </ProjectTitleCon>
+            <ClientCon>
+              <IndexTitleP>Client</IndexTitleP>
+            </ClientCon>
+            <SectorCon>
+              <IndexTitleP>Sector</IndexTitleP>
+            </SectorCon>
+            <CategoryCon>
+              <IndexTitleP>Category</IndexTitleP>
+            </CategoryCon>
+            <YearCon>
+              <IndexTitleP>Year</IndexTitleP>
+            </YearCon>
+            <LocationCon>
+              <IndexTitleP>Location</IndexTitleP>
+            </LocationCon>
+          </Grid16>
+        </TableHeaderCon>
+        <TableCon>{organisedArrayMap}</TableCon>
+      </PageCon>
     </>
   );
 };

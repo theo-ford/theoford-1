@@ -482,7 +482,7 @@ const About = ({ data }) => {
     <>
       <GlobalStyle />
       <Helmet>
-        <title>(10) Pagination 1</title>
+        <title>Theo Ford – Office</title>
       </Helmet>
 
       {/* <LogoNav></LogoNav> */}

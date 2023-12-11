@@ -380,6 +380,9 @@ const Project = ({ data }) => {
 
   return (
     <>
+      <Helmet>
+        <title>Theo Ford – {data.prismicProject.data.project_title.text}</title>
+      </Helmet>
       <NavGrid></NavGrid>
       <PageConCon>
         <PageCon>

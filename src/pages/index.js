@@ -445,8 +445,7 @@ const Index = ({ data }) => {
     <>
       <GlobalStyle />
       <Helmet>
-        <head></head>
-        <title>(10) Pagination 1</title>
+        <title>Theo Ford</title>
       </Helmet>
       <IntroConCon style={{ opacity: pageLoad ? 1 : 0 }}>
         <Intro></Intro>
