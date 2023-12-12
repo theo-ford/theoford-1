@@ -231,10 +231,10 @@ export const VideoProjectPage = ({
         VideoRef.current.load();
       }
     } else if (isOnScreen === false) {
-      // setIsVideoLoaded(false);
-      // setVideoSrcState("");
-      // setPlayingStatus(false);
-      // setHasStartedPlaying(false);
+      setIsVideoLoaded(false);
+      setVideoSrcState("");
+      setPlayingStatus(false);
+      setHasStartedPlaying(false);
     }
   }, [isOnScreen, videoSrcState]);
 
