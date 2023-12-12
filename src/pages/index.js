@@ -494,6 +494,7 @@ export const query = graphql`
                   client {
                     text
                   }
+                  show_client_on_index
                   body {
                     ... on PrismicProjectDataBodyImage {
                       id
@@ -549,6 +550,7 @@ export const query = graphql`
                     html
                     text
                   }
+                  show_client_on_index
                   homepage_intro {
                     text
                   }

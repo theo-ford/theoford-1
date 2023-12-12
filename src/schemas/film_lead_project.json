@@ -27,6 +27,13 @@
         "label": "Client"
       }
     },
+    "show_client_on_index": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Show Client on Index"
+      }
+    },
     "year": {
       "type": "StructuredText",
       "config": {

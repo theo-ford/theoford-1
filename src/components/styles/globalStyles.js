@@ -51,7 +51,7 @@ p, a, span {
   margin: 0;
   padding: 0;
   line-height: 110%;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.4px;
 }
 
 

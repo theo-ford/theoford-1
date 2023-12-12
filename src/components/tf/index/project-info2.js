@@ -103,6 +103,7 @@ export const ProjectInfo2 = ({ data2, uid }) => {
             ) : (
               <p>{data2.client.text}</p>
             )} */}
+            {data2.show_client_on_index ? <p>{data2.client.text}</p> : ""}
           </ProjectTitleCon>
           <ProjectLocationYearCon>
             <p>{data2.location.text}</p>
