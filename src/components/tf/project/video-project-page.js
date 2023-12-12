@@ -227,9 +227,10 @@ export const VideoProjectPage = ({
   useEffect(() => {
     if (isOnScreen == true) {
       setVideoSrcState(srcProps);
-      if (!isVideoLoaded) {
-        VideoRef.current.load();
-      }
+      VideoRef.current.load();
+      // if (!isVideoLoaded) {
+      //   VideoRef.current.load();
+      // }
     } else if (isOnScreen === false) {
       setIsVideoLoaded(false);
       setVideoSrcState("");
