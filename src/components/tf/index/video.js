@@ -290,7 +290,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
           </VideoControlsImgCon>
           <VideoWithContolsSC
             playsInline
-            muted
+            // muted
             loop
             preload="auto"
             ref={videoWithControlsRef}

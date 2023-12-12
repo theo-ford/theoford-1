@@ -315,7 +315,7 @@ export const VideoProjectPage = ({
           </VideoControlsImgCon>
           <VideoWithContolsSC
             playsInline
-            muted
+            // muted
             loop
             preload="auto"
             ref={VideoRef}
