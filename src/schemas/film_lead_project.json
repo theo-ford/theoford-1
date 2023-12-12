@@ -120,14 +120,6 @@
                   "thumbnails": [],
                   "label": "Video Thumbnail"
                 }
-              },
-              "index_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Index Image"
-                }
               }
             },
             "repeat": {}
@@ -188,14 +180,6 @@
                   "thumbnails": [],
                   "label": "Image"
                 }
-              },
-              "index_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Index Image"
-                }
               }
             },
             "repeat": {}
@@ -243,14 +227,6 @@
                   "constraint": {},
                   "thumbnails": [],
                   "label": "Image"
-                }
-              },
-              "index_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Index Image"
                 }
               }
             },
@@ -316,14 +292,6 @@
                   "thumbnails": [],
                   "label": "Video Thumbnail"
                 }
-              },
-              "index_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Index Image"
-                }
               }
             },
             "repeat": {}
@@ -341,14 +309,6 @@
                   "constraint": {},
                   "thumbnails": [],
                   "label": "Non Square Image"
-                }
-              },
-              "index_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Index Image"
                 }
               }
             },
