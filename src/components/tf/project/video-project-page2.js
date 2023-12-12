@@ -129,54 +129,44 @@ const PlayButtonImgCon = styled.div`
   display: inline-block !important;
   /* background-color: blue; */
 `;
-// const Poster = styled.div`
-//   width: 100%;
-//   /* height: 100%; */
-// `;
-const VideoWithContolsSC = styled.video`
+const Poster = styled.div`
   width: 100%;
+  /* height: 100%; */
 `;
-const VideoControlsImgCon = styled.div``;
-const VideoControlsImg = styled.div`
-  width: 100%;
-  height: 100%;
-`;
-const breatheAnimation = keyframes`
-  0% {opacity: 0} 
-  50% {opacity: 1}
-  100% {opacity:0}
-`;
-const AutoplayVideoTextCon = styled.div`
-  position: absolute;
-  z-index: 10000;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  p {
-    color: white;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    background-color: black;
-    margin-top: -1px;
-    animation-name: ${breatheAnimation};
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-  }
-  @media (min-width: 666px) {
-    display: none;
-  }
-`;
-
 export const VideoProjectPage = ({
   srcProps,
   posterProps,
   img,
   pageColour,
 }) => {
+  const VideoRef = useRef(null);
+  const imgRef = useRef(null);
+  const [isPlaying, setPlayingStatus] = useState(false);
+  const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
+  const [imgOrientation, setOrientationState] = useState("");
+  const [vidDuration, setVidDuration] = useState("");
+
+  // useEffect(() => {
+  //   // Update the document title using the browser API
+  //   console.log(VideoRef.current.duration);
+  //   console.log(format(VideoRef.current.duration));
+  //   setVidDuration(format(VideoRef.current.duration));
+  // }, [VideoRef, vidDuration]);
+  // function y(seconds) {
+  //   const minutes = Math.floor(time / 60);
+  //   const seconds = time - minutes * 60;
+
+  //   function str_pad_left(string, pad, length) {
+  //     return (new Array(length + 1).join(pad) + string).slice(-length);
+  //   }
+
+  //   const finalTime =
+  //     str_pad_left(minutes, "0", 2) + ":" + str_pad_left(seconds, "0", 2);
+  //   return finalTime;
+  // }
+
+  // console.log(y(VideoRef.current.duration));
+
   function format(time) {
     // Hours, minutes and seconds
     var hrs = ~~(time / 3600);
@@ -198,6 +188,16 @@ export const VideoProjectPage = ({
     console.log(format(VideoRef.current.duration));
     setVidDuration(format(VideoRef.current.duration));
   };
+  const playVideo = () => {
+    VideoRef.current.play();
+    setPlayingStatus(true);
+    setHasStartedPlaying(true);
+  };
+  const pauseVideo = () => {
+    VideoRef.current.pause();
+    setPlayingStatus(false);
+  };
+  const getImageVal = getImage(posterProps);
 
   const PlayButtonImg = pageColour => {
     if (pageColour.pageColour === "white") {
@@ -214,48 +214,6 @@ export const VideoProjectPage = ({
       return <StaticImage src={"../../../img/Pause_54.svg"} />;
     }
   };
-
-  const VideoRef = useRef(null);
-  const isOnScreen = useOnScreen(VideoRef);
-  const imgRef = useRef(null);
-  const [isPlaying, setPlayingStatus] = useState(false);
-  const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
-  const [vidDuration, setVidDuration] = useState("");
-  const [videoSrcState, setVideoSrcState] = useState("");
-  const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-
-  useEffect(() => {
-    if (isOnScreen == true) {
-      setVideoSrcState(srcProps);
-      VideoRef.current.load();
-    } else if (isOnScreen === false) {
-      setIsVideoLoaded(false);
-      setVideoSrcState("");
-      setPlayingStatus(false);
-      setHasStartedPlaying(false);
-    }
-  }, [isOnScreen, videoSrcState]);
-
-  const onLoadedData = () => {
-    setIsVideoLoaded(true);
-    if (isPlaying) {
-      setHasStartedPlaying(true);
-    }
-  };
-
-  const playVideo = () => {
-    VideoRef.current.play();
-    setPlayingStatus(true);
-    if (isVideoLoaded) {
-      setHasStartedPlaying(true);
-    }
-  };
-  const pauseVideo = () => {
-    VideoRef.current.pause();
-    setPlayingStatus(false);
-  };
-  const getImageVal = getImage(posterProps);
-
   const playPause = () => {
     if (isPlaying) {
       VideoRef.current.pause();
@@ -269,34 +227,7 @@ export const VideoProjectPage = ({
     <>
       <VideoCon>
         <VideoConInner className={ImageOrientation2(img)} onClick={playPause}>
-          <VideoControlsImgCon
-            style={{
-              opacity: hasStartedPlaying ? 0 : 1,
-              position: hasStartedPlaying ? "absolute" : "relative",
-            }}
-          >
-            {!isVideoLoaded && isPlaying ? (
-              <AutoplayVideoTextCon>
-                <p>Video Loading</p>
-              </AutoplayVideoTextCon>
-            ) : (
-              " "
-            )}
-            <VideoControlsImgCon
-              style={{
-                opacity: hasStartedPlaying ? 0 : 1,
-                position: hasStartedPlaying ? "absolute" : "relative",
-              }}
-            >
-              {!isVideoLoaded && isPlaying ? (
-                <AutoplayVideoTextCon>
-                  <p>Video Loading</p>
-                </AutoplayVideoTextCon>
-              ) : (
-                " "
-              )}
-              <GatsbyImage image={getImageVal} />
-              {/* <Poster
+          <Poster
             ref={imgRef}
             style={{
               opacity: hasStartedPlaying ? 0 : 1,
@@ -305,31 +236,27 @@ export const VideoProjectPage = ({
               display: hasStartedPlaying ? "none" : "block",
             }}
             onClick={playVideo}
-          > 
-            
-          </Poster> */}
-            </VideoControlsImgCon>
-          </VideoControlsImgCon>
-          <VideoWithContolsSC
+          >
+            <GatsbyImage image={getImageVal} />
+          </Poster>
+          <video
             playsInline
-            muted
             loop
-            preload="auto"
             ref={VideoRef}
-            // onLoadedData={onLoadedData}
-            onCanPlayThrough={onLoadedData}
             style={{
               zIndex: 0,
+
               opacity: hasStartedPlaying ? 1 : 0,
               position: hasStartedPlaying ? "relative" : "absolute",
+              display: hasStartedPlaying ? "block" : "none",
               // https://stackoverflow.com/questions/3680429/click-through-div-to-underlying-elements
               // click through video to controls
               pointerEvents: "none",
             }}
             onLoadedMetadata={handleLoadedMetadata}
           >
-            <source type="video/mp4" src={videoSrcState} />
-          </VideoWithContolsSC>
+            <source src={srcProps}></source>
+          </video>
           <ControlsCon>
             <LengthCon pageColour={pageColour}>
               <p>{vidDuration}</p>

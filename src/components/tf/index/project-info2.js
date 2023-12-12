@@ -81,13 +81,6 @@ const ProjectLink = styled.div`
   }
 `;
 
-// const Client = data2 => {
-//   if (data2.project_title.text == data2.client.text) {
-//     return <p>""</p>;
-//   } else if (data2.project_title.text != data2.client.text) {
-//     return <p>data2.client.text</p>;
-//   }
-// };
 export const ProjectInfo2 = ({ data2, uid }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
   if (isPageWide) {
@@ -96,13 +89,6 @@ export const ProjectInfo2 = ({ data2, uid }) => {
         <Grid16>
           <ProjectTitleCon>
             <Link to={uid}>{data2.project_title.text}</Link>
-            {/* <Client data2={data2} /> */}
-
-            {/* {data2.project_title.text == data2.client.text ? (
-              ""
-            ) : (
-              <p>{data2.client.text}</p>
-            )} */}
             {data2.show_client_on_index ? <p>{data2.client.text}</p> : ""}
           </ProjectTitleCon>
           <ProjectLocationYearCon>
