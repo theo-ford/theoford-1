@@ -74,7 +74,7 @@ const ProjectIndexAbout = styled.div`
 const ProjectLink = styled.div`
   grid-column: 15 / span 2;
   a {
-    color: #878787;
+    color: #878787 !important;
   }
   @media (max-width: 666px) {
     display: none;
