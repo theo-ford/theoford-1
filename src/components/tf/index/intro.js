@@ -86,8 +86,8 @@ export const Intro = () => {
         <AboutCon>
           <p>
             The design office of Theo Ford. Specialising in graphic design, art
-            direction, moving-image and web development. Recent commisions and
-            collaborations include identites for{" "}
+            direction, moving-image and web development. Recent commissions and
+            collaborations include identities for{" "}
             <span className="grey">Lunar Energy</span>, adverts for{" "}
             <span className="grey">American Apparel</span>, and printed matter
             for <span className="grey">COS</span>.<br />
