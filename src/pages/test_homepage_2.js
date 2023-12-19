@@ -54,6 +54,9 @@ const LogoGridCon = styled.div`
   grid-gap: 12.5px;
   /* background-color: green; */
   @media (max-width: 666px) {
+    /* width: calc(100% - 25px);
+    margin-left: 12.5px;
+    top: 10px; */
     width: calc(100% - 20px);
     margin-left: 10px;
     top: 10px;
@@ -208,12 +211,6 @@ const Index = ({ data }) => {
     }
   }, []);
 
-  // const FourSeconds = setTimeout(overflowAllow, 4000);
-
-  // function overflowAllow() {
-  //   document.body.style.position = "relative";
-  // }
-
   const NavIndexGridIndex = () => {
     let isPageWide = useMediaQuery("(min-width: 667px)");
     var [currentPage, setCurrentPage] = useState(null);
@@ -258,7 +255,6 @@ const Index = ({ data }) => {
               </Link>
               <Link to="/project_index">Index, </Link>
               <Link to="/office">Office</Link>
-              {/* <br></br>Instagram, Twitter */}
             </DesktopNavP>
           </MenuCon>
         </>
@@ -345,15 +341,9 @@ const Index = ({ data }) => {
         const project = content.project_relationship_field.document.data.body.map(
           (content_four, index) => {
             if (content_four.slice_type == "image") {
-              // console.log("SQUARE IMAGE");
               const image = getImage(content_four.primary.image);
-              // console.log(image);
               return (
-                // <ImgComponent
-                //   srcProps={content_four.primary.image.gatsbyImageData.images.sources.srcSet}
-                // />
                 <SwiperSlide>
-                  {/* <Counter>{"0" + (index + 1)}</Counter> */}
                   <SquareImg>
                     <GatsbyImage image={image} />
                   </SquareImg>
@@ -362,11 +352,9 @@ const Index = ({ data }) => {
             }
             if (content_four.slice_type == "video") {
               if (isPageWide) {
-                // postImage = getImage(content_four.primary.index_image)
                 const posterImg = content_four.primary.index_image;
                 return (
                   <SwiperSlide>
-                    {/* <Counter>{"0" + (index + 1)}</Counter> */}
                     <IndexAutoPlayVideoCon>
                       <AutoPlayVideo
                         srcProps={content_four.primary.video.url}
@@ -379,7 +367,6 @@ const Index = ({ data }) => {
                 const posterImg = content_four.primary.index_image;
                 return (
                   <SwiperSlide>
-                    {/* <Counter>{"0" + (index + 1)}</Counter> */}
                     <IndexAutoPlayVideoCon>
                       <AutoPlayVideo
                         srcProps={content_four.primary.sml_video.url}
@@ -393,7 +380,6 @@ const Index = ({ data }) => {
           }
         );
         if (isPageWide && projectLength > 1) {
-          console.log("ANT DESIGN");
           return (
             <ProjectCon>
               <TwoUpProjectCarouselSwiper
@@ -406,7 +392,6 @@ const Index = ({ data }) => {
                     changedSlide: false,
                   })
                 )}
-                {/* {project} */}
               </TwoUpProjectCarouselSwiper>
               <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
@@ -463,8 +448,7 @@ const Index = ({ data }) => {
     <>
       <GlobalStyle />
       <Helmet>
-        <head></head>
-        <title>(10) Pagination 1</title>
+        <title>Theo Ford</title>
       </Helmet>
       <IntroConCon style={{ opacity: pageLoad ? 1 : 0 }}>
         <Intro></Intro>
@@ -481,7 +465,7 @@ const Index = ({ data }) => {
 export default withPrismicPreview(Index);
 
 export const query = graphql`
-  query IndexQuery51 {
+  query IndexQuery45 {
     prismicTestHomepage {
       data {
         project_relationship_group {
@@ -510,6 +494,7 @@ export const query = graphql`
                   client {
                     text
                   }
+                  show_client_on_index
                   body {
                     ... on PrismicProjectDataBodyImage {
                       id
@@ -565,6 +550,7 @@ export const query = graphql`
                     html
                     text
                   }
+                  show_client_on_index
                   homepage_intro {
                     text
                   }
