@@ -50,12 +50,16 @@ const Grid16 = styled.div`
     grid-gap: 10px;
   }
 `;
+const PageConCon = styled.div`
+  background-color: black;
+`;
 const PageCon = styled.div`
   /* margin-top: 34vh; */
   /* margin-top: 25px; */
   /* overflow-x: hidden;
   max-width: 100vw; */
-  margin-bottom: 100px;
+  /* background-color: red; */
+  padding-bottom: 100px;
   margin-top: 140px;
   @media (max-width: 666px) {
     margin-top: 40px;
@@ -290,197 +294,202 @@ const About = ({ data }) => {
       <Helmet>
         <title>Theo Ford – Office</title>
       </Helmet>
+      <PageConCon>
+        <NavGrid></NavGrid>
+        <PageCon>
+          <Grid16>
+            <AboutTextCon>
+              <>
+                {/* {data.prismicAbout.data.about_page_intro.text} */}
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: data.prismicAbout.data.about_page_intro.html,
+                  }}
+                />
+                {"  "}
+                <CopyrightSpan>
+                  &copy; All rights reserved by Theo Ford
+                </CopyrightSpan>
+              </>
+            </AboutTextCon>
+          </Grid16>
 
-      <NavGrid></NavGrid>
-      <PageCon>
-        <Grid16>
-          <AboutTextCon>
+          {isPageWide ? (
             <>
-              {/* {data.prismicAbout.data.about_page_intro.text} */}
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: data.prismicAbout.data.about_page_intro.html,
-                }}
-              />
-              {"  "}
-              <CopyrightSpan>
-                &copy; All rights reserved by Theo Ford
-              </CopyrightSpan>
+              <Grid16 style={{ marginTop: "100px" }}>
+                <ContactCon>
+                  <h5>Contact</h5>
+                  <a href={data.prismicAbout.data.email.url}>
+                    info@theoford.com
+                  </a>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.phone_number.html,
+                    }}
+                  />
+                  <a href={data.prismicAbout.data.website_url.text}>
+                    theoford.com
+                  </a>
+                </ContactCon>
+                <AddressCon>
+                  <h5>Address</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.address.html,
+                    }}
+                  />
+                </AddressCon>
+                <FollowCon>
+                  <h5>Follow</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.instagram.html,
+                    }}
+                  />
+                  <a>Twitter</a>
+                </FollowCon>
+              </Grid16>
+              <Grid16 style={{ marginTop: "100px" }}>
+                <ListCol1>
+                  <h5>Clients</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.clients.html,
+                    }}
+                  />
+                </ListCol1>
+                <ListCol2>
+                  <h5>Previous Employeres</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.previous_employers.html,
+                    }}
+                  />
+                  <br></br>
+                  <br></br>
+                  <h5>Press</h5>
+                  <p>
+                    It's Nice That<br></br>
+                    It's Nice That<br></br>
+                  </p>
+                </ListCol2>
+                <ListCol3>
+                  <h5>Services</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.services.html,
+                    }}
+                  />
+                </ListCol3>
+                <ListCol4>
+                  <h5>Collaborators</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.collaborators.html,
+                    }}
+                  />
+                  <br></br>
+                  <br></br>
+                  <h5>Location</h5>
+                  <p>
+                    <span className="active">London</span> <br></br>
+                    Los Angeles<br></br>
+                    Stockholm<br></br>
+                    Gothenburg<br></br>
+                    Glasgow<br></br>
+                    Falmouth<br></br>
+                    Beijing<br></br>
+                    Philadelphia
+                  </p>
+                </ListCol4>
+              </Grid16>
             </>
-          </AboutTextCon>
-        </Grid16>
-
-        {isPageWide ? (
-          <>
-            <Grid16 style={{ marginTop: "100px" }}>
-              <ContactCon>
-                <h5>Contact</h5>
-                <a href={data.prismicAbout.data.email.url}>info@theoford.com</a>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.phone_number.html,
-                  }}
-                />
-                <a href={data.prismicAbout.data.website_url.text}>
-                  theoford.com
-                </a>
-              </ContactCon>
-              <AddressCon>
-                <h5>Address</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.address.html,
-                  }}
-                />
-              </AddressCon>
-              <FollowCon>
-                <h5>Follow</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.instagram.html,
-                  }}
-                />
-                <a>Twitter</a>
-              </FollowCon>
-            </Grid16>
-            <Grid16 style={{ marginTop: "100px" }}>
-              <ListCol1>
-                <h5>Clients</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.clients.html,
-                  }}
-                />
-              </ListCol1>
-              <ListCol2>
-                <h5>Previous Employeres</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.previous_employers.html,
-                  }}
-                />
-                <br></br>
-                <br></br>
-                <h5>Press</h5>
-                <p>
-                  It's Nice That<br></br>
-                  It's Nice That<br></br>
-                </p>
-              </ListCol2>
-              <ListCol3>
-                <h5>Services</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.services.html,
-                  }}
-                />
-              </ListCol3>
-              <ListCol4>
-                <h5>Collaborators</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.collaborators.html,
-                  }}
-                />
-                <br></br>
-                <br></br>
-                <h5>Location</h5>
-                <p>
-                  <span className="active">London</span> <br></br>
-                  Los Angeles<br></br>
-                  Stockholm<br></br>
-                  Gothenburg<br></br>
-                  Glasgow<br></br>
-                  Falmouth<br></br>
-                  Beijing<br></br>
-                  Philadelphia
-                </p>
-              </ListCol4>
-            </Grid16>
-          </>
-        ) : (
-          <>
-            <Grid16 style={{ marginTop: "100px" }}>
-              <ListCol1>
-                <h5>Contact</h5>
-                <a href={data.prismicAbout.data.email.url}>info@theoford.com</a>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.phone_number.html,
-                  }}
-                />
-                <a href={data.prismicAbout.data.website_url.text}>
-                  theoford.com
-                </a>
-                <br></br>
-                <br></br>
-                <h5>Follow</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.instagram.html,
-                  }}
-                />
-                <a>Twitter</a>
-              </ListCol1>
-              <ListCol2>
-                <h5>Address</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.address.html,
-                  }}
-                />
-              </ListCol2>
-            </Grid16>
-            <Grid16 style={{ marginTop: "100px" }}>
-              <ListCol1>
-                <h5>Clients</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.clients.html,
-                  }}
-                />
-                <br></br>
-                <br></br>
-                <h5>Location</h5>
-                <p>
-                  <span className="active">London</span> <br></br>
-                  Los Angeles<br></br>
-                  Stockholm<br></br>
-                  Gothenburg<br></br>
-                  Glasgow<br></br>
-                  Falmouth<br></br>
-                  Beijing<br></br>
-                  Philadelphia
-                </p>
-              </ListCol1>
-              <ListCol2>
-                <h5>Previous Employeres</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.previous_employers.html,
-                  }}
-                />
-                <br></br>
-                <br></br>
-                <h5>Collaborators</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.collaborators.html,
-                  }}
-                />
-                <br></br>
-                <br></br>
-                <h5>Services</h5>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: data.prismicAbout.data.services.html,
-                  }}
-                />
-              </ListCol2>
-            </Grid16>
-          </>
-        )}
-      </PageCon>
+          ) : (
+            <>
+              <Grid16 style={{ marginTop: "100px" }}>
+                <ListCol1>
+                  <h5>Contact</h5>
+                  <a href={data.prismicAbout.data.email.url}>
+                    info@theoford.com
+                  </a>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.phone_number.html,
+                    }}
+                  />
+                  <a href={data.prismicAbout.data.website_url.text}>
+                    theoford.com
+                  </a>
+                  <br></br>
+                  <br></br>
+                  <h5>Follow</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.instagram.html,
+                    }}
+                  />
+                  <a>Twitter</a>
+                </ListCol1>
+                <ListCol2>
+                  <h5>Address</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.address.html,
+                    }}
+                  />
+                </ListCol2>
+              </Grid16>
+              <Grid16 style={{ marginTop: "100px" }}>
+                <ListCol1>
+                  <h5>Clients</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.clients.html,
+                    }}
+                  />
+                  <br></br>
+                  <br></br>
+                  <h5>Location</h5>
+                  <p>
+                    <span className="active">London</span> <br></br>
+                    Los Angeles<br></br>
+                    Stockholm<br></br>
+                    Gothenburg<br></br>
+                    Glasgow<br></br>
+                    Falmouth<br></br>
+                    Beijing<br></br>
+                    Philadelphia
+                  </p>
+                </ListCol1>
+                <ListCol2>
+                  <h5>Previous Employeres</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.previous_employers.html,
+                    }}
+                  />
+                  <br></br>
+                  <br></br>
+                  <h5>Collaborators</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.collaborators.html,
+                    }}
+                  />
+                  <br></br>
+                  <br></br>
+                  <h5>Services</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.services.html,
+                    }}
+                  />
+                </ListCol2>
+              </Grid16>
+            </>
+          )}
+        </PageCon>
+      </PageConCon>
     </>
   );
 };

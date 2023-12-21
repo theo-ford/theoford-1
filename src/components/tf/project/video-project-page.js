@@ -290,6 +290,7 @@ export const VideoProjectPage = ({
                 opacity: hasStartedPlaying ? 0 : 1,
                 position: hasStartedPlaying ? "absolute" : "relative",
               }}
+              onClick={playVideo}
             >
               {!isVideoLoaded && isPlaying ? (
                 <AutoplayVideoTextCon>

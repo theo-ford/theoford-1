@@ -83,29 +83,42 @@ const VideoWithContolsSC = styled.video`
 `;
 const ControlsCon = styled.div`
   z-index: 1;
+  padding-top: 6px;
   &.landscape {
     width: 50%;
   }
 `;
 const PlayButtonCon = styled.div`
-  margin-top: 5px;
+  // margin-top: 5px;
   padding-left: 10px;
   width: calc(50%);
+  float: left;
   display: inline-block;
+  /* background-color: blue; */
+  height: 13px;
+  padding-top: 3px;
+
   p {
     color: white;
     font-size: 12px;
   }
 `;
 const PaginationCon = styled.div`
-  margin-top: 5px;
+  // margin-top: 5px;
   width: calc(50%);
   display: inline-block;
+  float: left;
+  /* background-color: red; */
+  height: 13px;
 `;
 const PaginationControlP = styled.p`
   display: inline-block;
   color: #545454;
   font-size: 12px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  /* position: absolute; */
   &.active {
     color: white;
   }
@@ -290,7 +303,7 @@ export const VideoWithControlsImg2 = ({ srcProps, posterProps, img }) => {
           </VideoControlsImgCon>
           <VideoWithContolsSC
             playsInline
-            // muted
+            muted
             loop
             preload="auto"
             ref={videoWithControlsRef}
