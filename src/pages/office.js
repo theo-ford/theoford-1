@@ -359,7 +359,7 @@ const About = ({ data }) => {
                   />
                 </ListCol1>
                 <ListCol2>
-                  <h5>Previous Employeres</h5>
+                  <h5>Background</h5>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: data.prismicAbout.data.previous_employers.html,
@@ -390,16 +390,16 @@ const About = ({ data }) => {
                   />
                   <br></br>
                   <br></br>
-                  <h5>Location</h5>
+                  <h5>Previous Locations</h5>
                   <p>
-                    <span className="active">London</span> <br></br>
-                    Los Angeles<br></br>
-                    Stockholm<br></br>
-                    Gothenburg<br></br>
-                    Glasgow<br></br>
-                    Falmouth<br></br>
-                    Beijing<br></br>
-                    Philadelphia
+                    <span className="active">London, UK</span> <br></br>
+                    Los Angeles, US<br></br>
+                    Stockholm, SE<br></br>
+                    Gothenburg, SE<br></br>
+                    Glasgow, UK<br></br>
+                    Falmouth, UK<br></br>
+                    Beijing, CH<br></br>
+                    Philadelphia, US
                   </p>
                 </ListCol4>
               </Grid16>
@@ -449,7 +449,9 @@ const About = ({ data }) => {
                   />
                   <br></br>
                   <br></br>
-                  <h5>Location</h5>
+                  <h5>
+                    Previous <br></br>Locations
+                  </h5>
                   <p>
                     <span className="active">London</span> <br></br>
                     Los Angeles<br></br>
@@ -462,7 +464,7 @@ const About = ({ data }) => {
                   </p>
                 </ListCol1>
                 <ListCol2>
-                  <h5>Previous Employeres</h5>
+                  <h5>Background</h5>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: data.prismicAbout.data.previous_employers.html,
