@@ -127,6 +127,21 @@ const CopyrightSpan = styled.span`
   text-indent: 0px;
 `;
 const ContactCon = styled.div`
+  grid-column: 0 / span 3;
+  h5 {
+    font-family: "HelveticaNowText";
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+  }
+  p {
+    color: white;
+  }
+  a {
+    color: white;
+  }
+`;
+const ContactCon2 = styled.div`
   grid-column: 3 / span 3;
   h5 {
     font-family: "HelveticaNowText";
@@ -156,8 +171,38 @@ const AddressCon = styled.div`
     color: white;
   }
 `;
+// const AddressCon2 = styled.div`
+//   grid-column: 9 / span 3;
+//   h5 {
+//     font-family: "HelveticaNowText";
+//     font-weight: bold;
+//     color: white;
+//     font-size: 16px;
+//   }
+//   p {
+//     color: white;
+//   }
+//   a {
+//     color: white;
+//   }
+// `;
 const FollowCon = styled.div`
   grid-column: 9 / span 3;
+  h5 {
+    font-family: "HelveticaNowText";
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+  }
+  p {
+    color: white;
+  }
+  a {
+    color: white;
+  }
+`;
+const TRXCon = styled.div`
+  grid-column: 12 / span 3;
   h5 {
     font-family: "HelveticaNowText";
     font-weight: bold;
@@ -308,7 +353,7 @@ const About = ({ data }) => {
                 />
                 {"  "}
                 <CopyrightSpan>
-                  &copy; All rights reserved by Theo Ford
+                  &copy; All rights reserved by Theo Ford &copy;2023
                 </CopyrightSpan>
               </>
             </AboutTextCon>
@@ -318,6 +363,21 @@ const About = ({ data }) => {
             <>
               <Grid16 style={{ marginTop: "100px" }}>
                 <ContactCon>
+                  {/* <h5>Information</h5> */}
+                  {/* <h5>TF-1.1</h5>
+                  <br></br>
+                  <h5>
+                    Last Update
+                    <br></br> 01/01/24
+                  </h5> */}
+                  {/* <a href={data.prismicAbout.data.email.url}>Email</a>
+                  <br></br>
+                  <a>Phone</a>
+                  <br></br>
+                  <a>Web</a>
+                  <br></br> */}
+                </ContactCon>
+                <ContactCon2>
                   <h5>Contact</h5>
                   <a href={data.prismicAbout.data.email.url}>
                     info@theoford.com
@@ -330,7 +390,7 @@ const About = ({ data }) => {
                   <a href={data.prismicAbout.data.website_url.text}>
                     theoford.com
                   </a>
-                </ContactCon>
+                </ContactCon2>
                 <AddressCon>
                   <h5>Address</h5>
                   <div
@@ -339,19 +399,43 @@ const About = ({ data }) => {
                     }}
                   />
                 </AddressCon>
+                {/* <AddressCon2>
+                  <p>
+                    <br></br>
+                    (US)
+                    <br></br>
+                    New York coming<br></br> 2024
+                  </p>
+                </AddressCon2> */}
                 <FollowCon>
                   <h5>Follow</h5>
-                  <div
+                  {/* <div
                     dangerouslySetInnerHTML={{
                       __html: data.prismicAbout.data.instagram.html,
                     }}
-                  />
+                  /> */}
+                  <a>Instagram</a>
+                  <br></br>
                   <a>Twitter</a>
+                  <br></br>
+                  <a>Linked In</a>
                 </FollowCon>
+                <TRXCon>
+                  {/* <h5>News</h5>
+                  <p>
+                    Instagram coming soon<br></br> Next location - New York, US
+                  </p> */}
+                  <h5>TF-1.1</h5>
+                  <p>
+                    Last Update
+                    <br></br> 01/01/24
+                    <br></br>
+                  </p>
+                </TRXCon>
               </Grid16>
               <Grid16 style={{ marginTop: "100px" }}>
                 <ListCol1>
-                  <h5>Clients</h5>
+                  <h5>Select Clients</h5>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: data.prismicAbout.data.clients.html,
@@ -369,8 +453,8 @@ const About = ({ data }) => {
                   <br></br>
                   <h5>Press</h5>
                   <p>
-                    It's Nice That<br></br>
-                    It's Nice That<br></br>
+                    It's Nice That A<br></br>
+                    It's Nice That B<br></br>
                   </p>
                 </ListCol2>
                 <ListCol3>
@@ -423,11 +507,12 @@ const About = ({ data }) => {
                   <br></br>
                   <br></br>
                   <h5>Follow</h5>
-                  <div
+                  {/* <div
                     dangerouslySetInnerHTML={{
                       __html: data.prismicAbout.data.instagram.html,
                     }}
-                  />
+                  /> */}
+                  <a>Instagram</a>
                   <a>Twitter</a>
                 </ListCol1>
                 <ListCol2>
