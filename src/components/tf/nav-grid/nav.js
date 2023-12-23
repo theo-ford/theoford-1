@@ -51,6 +51,13 @@ const DesktopNavP = styled.p`
   @media (max-width: 666px) {
     display: none;
   }
+
+  &aria-current {
+    color: white;
+  }
+  /* a {
+    color: white;
+  } */
 `;
 
 /* MOBILE */
@@ -81,11 +88,10 @@ export const NavGrid = () => {
 
   useEffect(() => {
     var inputString = window.location.href;
-    var outputString = inputString.replace(/.*\//, "");
-    if (outputString == "project_index") {
-      setCurrentPage(outputString);
-    } else if (outputString == "office") {
-      setCurrentPage(outputString);
+    if (inputString.includes("project_index")) {
+      setCurrentPage("project_index");
+    } else if (inputString.includes("office")) {
+      setCurrentPage("office");
     } else {
       setCurrentPage(null);
     }
