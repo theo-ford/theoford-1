@@ -153,7 +153,11 @@ export const NavGrid = () => {
                 Office
               </MobileNavP>
             </Link>
-            <MobileNavP>Instagram</MobileNavP>
+            <MobileNavP>
+              <Link target="_blank" to="https://www.instagram.com/tf.public/">
+                <span style={{ marginLeft: "0px" }}>Instagram</span>
+              </Link>
+            </MobileNavP>
           </MobileRightCol>
         </LogoGridCon>
       </>
