@@ -89,7 +89,7 @@ const ControlsCon = styled.div`
     width: 50%;
   }
   @media (max-width: 666px) {
-    padding-top: 4px;
+    padding-top: 3px;
   }
 `;
 const PlayButtonCon = styled.div`

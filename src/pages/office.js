@@ -19,6 +19,7 @@ import { useOnScreen } from "../components/hooks/useOnScreen";
 import ReactPlayer from "react-player";
 import Icon from "../../assets/WhiteLogo.svg";
 import { NavGrid } from "../components/tf/nav-grid/nav";
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -194,11 +195,9 @@ const FollowCon = styled.div`
     color: white;
     font-size: 16px;
   }
-  p {
-    color: white;
-  }
   a {
-    color: white;
+    color: #878787;
+    /* text-decoration: underline; */
   }
 `;
 const TRXCon = styled.div`
@@ -231,11 +230,11 @@ const ListCol1 = styled.div`
     color: white;
     font-size: 16px;
   }
-  p {
-    color: white;
-  }
+
   a {
     color: white;
+
+    color: #878787;
   }
   @media (max-width: 666px) {
     /* display: none; */
@@ -256,11 +255,12 @@ const ListCol2 = styled.div`
     color: white;
     font-size: 16px;
   }
-  p {
-    color: white;
-  }
+
+  /* li {
+    color: #878787;
+  } */
   a {
-    color: white;
+    color: #878787;
   }
   @media (max-width: 666px) {
     /* display: none; */
@@ -303,12 +303,18 @@ const ListCol4 = styled.div`
     color: white;
     font-size: 16px;
   }
-  p {
-    color: white;
-  }
   a {
-    color: white;
+    color: #878787;
   }
+`;
+const LinkCon = styled.div`
+  height: 13px;
+  width: 13px;
+  display: inline-block;
+  /* margin-left: 4px; */
+  /* margin-top: 4px; */
+  position: absolute;
+  bottom: 2px;
 `;
 const About = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
@@ -353,7 +359,7 @@ const About = ({ data }) => {
                 />
                 {"  "}
                 <CopyrightSpan>
-                  &copy; All rights reserved by Theo Ford &copy;2023
+                  &copy; All rights reserved by Theo Ford &copy;2023{" "}
                 </CopyrightSpan>
               </>
             </AboutTextCon>
@@ -362,34 +368,16 @@ const About = ({ data }) => {
           {isPageWide ? (
             <>
               <Grid16 style={{ marginTop: "100px" }}>
-                <ContactCon>
-                  {/* <h5>Information</h5> */}
-                  {/* <h5>TF-1.1</h5>
-                  <br></br>
-                  <h5>
-                    Last Update
-                    <br></br> 01/01/24
-                  </h5> */}
-                  {/* <a href={data.prismicAbout.data.email.url}>Email</a>
-                  <br></br>
-                  <a>Phone</a>
-                  <br></br>
-                  <a>Web</a>
-                  <br></br> */}
-                </ContactCon>
+                <ContactCon></ContactCon>
                 <ContactCon2>
                   <h5>Contact</h5>
-                  <a href={data.prismicAbout.data.email.url}>
-                    info@theoford.com
-                  </a>
+                  <p>info@theoford.com</p>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: data.prismicAbout.data.phone_number.html,
                     }}
                   />
-                  <a href={data.prismicAbout.data.website_url.text}>
-                    theoford.com
-                  </a>
+                  <p>theoford.com</p>
                 </ContactCon2>
                 <AddressCon>
                   <h5>Address</h5>
@@ -399,32 +387,35 @@ const About = ({ data }) => {
                     }}
                   />
                 </AddressCon>
-                {/* <AddressCon2>
-                  <p>
-                    <br></br>
-                    (US)
-                    <br></br>
-                    New York coming<br></br> 2024
-                  </p>
-                </AddressCon2> */}
+
                 <FollowCon>
                   <h5>Follow</h5>
-                  {/* <div
-                    dangerouslySetInnerHTML={{
-                      __html: data.prismicAbout.data.instagram.html,
-                    }}
-                  /> */}
-                  <a>Instagram</a>
-                  <br></br>
-                  <a>Twitter</a>
-                  <br></br>
-                  <a>Linked In</a>
+
+                  <div style={{ display: "block" }}>
+                    <Link
+                      target="_blank"
+                      to={data.prismicAbout.data.instagram_office_link.url}
+                    >
+                      <span style={{ marginLeft: "0px" }}>Instagram</span>
+                    </Link>
+
+                    {/* <LinkCon>
+                      <StaticImage src={"../img/Link.svg"} />
+                    </LinkCon> */}
+                  </div>
+                  <div style={{ display: "block" }}>
+                    {/* <LinkCon>
+                      <StaticImage src={"../img/Link.svg"} />
+                    </LinkCon> */}
+                    <Link
+                      to={data.prismicAbout.data.twitter.url}
+                      target="_blank"
+                    >
+                      <span style={{ marginLeft: "0px" }}>Twitter</span>
+                    </Link>
+                  </div>
                 </FollowCon>
                 <TRXCon>
-                  {/* <h5>News</h5>
-                  <p>
-                    Instagram coming soon<br></br> Next location - New York, US
-                  </p> */}
                   <h5>TF-1.1</h5>
                   <p>
                     Last Update
@@ -452,10 +443,11 @@ const About = ({ data }) => {
                   <br></br>
                   <br></br>
                   <h5>Press</h5>
-                  <p>
-                    It's Nice That A<br></br>
-                    It's Nice That B<br></br>
-                  </p>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.press.html,
+                    }}
+                  />
                 </ListCol2>
                 <ListCol3>
                   <h5>Services</h5>
@@ -493,27 +485,39 @@ const About = ({ data }) => {
               <Grid16 style={{ marginTop: "100px" }}>
                 <ListCol1>
                   <h5>Contact</h5>
-                  <a href={data.prismicAbout.data.email.url}>
-                    info@theoford.com
-                  </a>
+                  info@theoford.com
                   <div
                     dangerouslySetInnerHTML={{
                       __html: data.prismicAbout.data.phone_number.html,
                     }}
                   />
-                  <a href={data.prismicAbout.data.website_url.text}>
-                    theoford.com
-                  </a>
+                  theoford.com
                   <br></br>
                   <br></br>
                   <h5>Follow</h5>
-                  {/* <div
-                    dangerouslySetInnerHTML={{
-                      __html: data.prismicAbout.data.instagram.html,
-                    }}
-                  /> */}
-                  <a>Instagram</a>
-                  <a>Twitter</a>
+                  <div style={{ display: "block" }}>
+                    <Link
+                      target="_blank"
+                      to={data.prismicAbout.data.instagram_office_link.url}
+                    >
+                      <span style={{ marginLeft: "0px" }}>Instagram</span>
+                    </Link>
+
+                    {/* <LinkCon>
+                      <StaticImage src={"../img/Link.svg"} />
+                    </LinkCon> */}
+                  </div>
+                  <div style={{ display: "block" }}>
+                    {/* <LinkCon>
+                      <StaticImage src={"../img/Link.svg"} />
+                    </LinkCon> */}
+                    <Link
+                      target="_blank"
+                      to={data.prismicAbout.data.twitter.url}
+                    >
+                      <span style={{ marginLeft: "0px" }}>Twitter</span>
+                    </Link>
+                  </div>
                 </ListCol1>
                 <ListCol2>
                   <h5>Address</h5>
@@ -547,6 +551,14 @@ const About = ({ data }) => {
                     Beijing<br></br>
                     Philadelphia
                   </p>
+                  <br></br>
+                  <br></br>
+                  <h5>Press</h5>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.prismicAbout.data.press.html,
+                    }}
+                  />
                 </ListCol1>
                 <ListCol2>
                   <h5>Background</h5>
@@ -622,6 +634,15 @@ export const query = graphql`
         email {
           url
         }
+        instagram_office_link {
+          url
+        }
+        linked_in {
+          url
+        }
+        twitter {
+          url
+        }
         current_location {
           html
           text
@@ -641,6 +662,9 @@ export const query = graphql`
         about_page_intro {
           html
           text
+        }
+        press {
+          html
         }
       }
     }

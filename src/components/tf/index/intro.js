@@ -7,6 +7,7 @@ import React, {
   useContext,
   useMemo,
 } from "react";
+import { graphql, Link, useScrollRestoration } from "gatsby";
 
 const IntroCon = styled.div`
   margin-top: 10px;
@@ -112,7 +113,9 @@ export const Intro = () => {
               <br />
               +44 7599 759 529
               <br />
-              @tf.public
+              <Link target="_blank" to="https://www.instagram.com/tf.public/">
+                @tf.public
+              </Link>
             </span>
           </p>
         </ContactCon>
