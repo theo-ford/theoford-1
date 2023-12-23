@@ -83,9 +83,13 @@ const VideoWithContolsSC = styled.video`
 `;
 const ControlsCon = styled.div`
   z-index: 1;
-  padding-top: 6px;
+  padding-top: 4px;
+
   &.landscape {
     width: 50%;
+  }
+  @media (max-width: 666px) {
+    padding-top: 2px;
   }
 `;
 const PlayButtonCon = styled.div`

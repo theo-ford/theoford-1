@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 const PageCon = styled.div`
   background-color: black;
+  min-height: 100vh;
   /* min-height: 100vh; */
   /* overflow: hidden; */
   padding-bottom: 18vh;
