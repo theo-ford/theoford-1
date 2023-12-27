@@ -88,7 +88,7 @@ const AboutTextCon = styled.div`
     /* display: none; */
     grid-column: span 16;
     p {
-      font-size: 23px;
+      font-size: 24px;
     }
   }
 `;
