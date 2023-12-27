@@ -64,6 +64,7 @@ const PageCon = styled.div`
   margin-top: 140px;
   @media (max-width: 666px) {
     margin-top: 40px;
+    padding-bottom: 50px;
   }
 `;
 const AboutTextCon = styled.div`
@@ -81,40 +82,17 @@ const AboutTextCon = styled.div`
     letter-spacing: -0.8px !important;
     margin-top: 10px;
     margin-bottom: 10px;
+    float: left;
   }
   @media (max-width: 666px) {
     /* display: none; */
     grid-column: span 16;
     p {
-      font-size: 26px;
+      font-size: 22px;
     }
   }
 `;
-const AboutP = styled.div`
-  p {
-    font-size: 36px;
 
-    line-height: 110%;
-    color: white;
-    font-family: "Times Now";
-
-    font-weight: 300;
-    font-style: normal;
-    /* text-indent: 50px; */
-    letter-spacing: -1.3px !important;
-    @media (max-width: 666px) {
-      /* times now; */
-      font-size: 26px;
-
-      /*helvetica; */
-      /* font-family: "Helvetica Now Var Roman";
-    font-variation-settings: "wght" 390;
-    color: white;
-    font-size: 16px;
-    letter-spacing: -0.5px !important; */
-    }
-  }
-`;
 const CopyrightSpan = styled.span`
   font-family: "Helvetica Now Var Roman";
   font-variation-settings: "wght" 390;
@@ -126,6 +104,10 @@ const CopyrightSpan = styled.span`
   letter-spacing: -0.5px;
   display: inline-block;
   text-indent: 0px;
+  float: left;
+  @media (max-width: 666px) {
+    display: none;
+  }
 `;
 const ContactCon = styled.div`
   grid-column: 0 / span 3;
@@ -172,21 +154,7 @@ const AddressCon = styled.div`
     color: white;
   }
 `;
-// const AddressCon2 = styled.div`
-//   grid-column: 9 / span 3;
-//   h5 {
-//     font-family: "HelveticaNowText";
-//     font-weight: bold;
-//     color: white;
-//     font-size: 16px;
-//   }
-//   p {
-//     color: white;
-//   }
-//   a {
-//     color: white;
-//   }
-// `;
+
 const FollowCon = styled.div`
   grid-column: 9 / span 3;
   h5 {
@@ -197,7 +165,6 @@ const FollowCon = styled.div`
   }
   a {
     color: #878787;
-    /* text-decoration: underline; */
   }
 `;
 const TRXCon = styled.div`
@@ -482,7 +449,7 @@ const About = ({ data }) => {
             </>
           ) : (
             <>
-              <Grid16 style={{ marginTop: "100px" }}>
+              <Grid16 style={{ marginTop: "50px" }}>
                 <ListCol1>
                   <h5>Contact</h5>
                   info@theoford.com
@@ -526,11 +493,18 @@ const About = ({ data }) => {
                       __html: data.prismicAbout.data.address.html,
                     }}
                   />
+                  <br></br>
+                  <h5>TF-1.1</h5>
+                  <p>
+                    Last Update
+                    <br></br> 01/01/24
+                    <br></br>
+                  </p>
                 </ListCol2>
               </Grid16>
-              <Grid16 style={{ marginTop: "100px" }}>
+              <Grid16 style={{ marginTop: "50px" }}>
                 <ListCol1>
-                  <h5>Clients</h5>
+                  <h5>Select Clients</h5>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: data.prismicAbout.data.clients.html,
@@ -538,18 +512,16 @@ const About = ({ data }) => {
                   />
                   <br></br>
                   <br></br>
-                  <h5>
-                    Previous <br></br>Locations
-                  </h5>
+                  <h5>Previous Locations</h5>
                   <p>
-                    <span className="active">London</span> <br></br>
-                    Los Angeles<br></br>
-                    Stockholm<br></br>
-                    Gothenburg<br></br>
-                    Glasgow<br></br>
-                    Falmouth<br></br>
-                    Beijing<br></br>
-                    Philadelphia
+                    <span className="active">London, UK</span> <br></br>
+                    Los Angeles, US<br></br>
+                    Stockholm, SE<br></br>
+                    Gothenburg, SE<br></br>
+                    Glasgow, UK<br></br>
+                    Falmouth, UK<br></br>
+                    Beijing, CH<br></br>
+                    Philadelphia, US
                   </p>
                   <br></br>
                   <br></br>
