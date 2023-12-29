@@ -88,8 +88,17 @@ export const ProjectInfo2 = ({ data2, uid }) => {
       <ProjectInfoCon>
         <Grid16>
           <ProjectTitleCon>
-            <Link to={uid}>{data2.project_title.text}</Link>
-            {data2.show_client_on_index ? <p>{data2.client.text}</p> : ""}
+            <Link to={uid}>
+              <p>
+                {data2.project_title.text}
+                <br></br>
+                {data2.show_client_on_index ? (
+                  <span>{data2.client.text}</span>
+                ) : (
+                  ""
+                )}
+              </p>
+            </Link>
           </ProjectTitleCon>
           <ProjectLocationYearCon>
             <p>{data2.location.text}</p>
@@ -109,7 +118,17 @@ export const ProjectInfo2 = ({ data2, uid }) => {
       <ProjectInfoCon>
         <Grid2>
           <ProjectTitleCon>
-            <Link to={uid}>{data2.project_title.text}</Link>
+            <Link to={uid}>
+              <p>
+                {data2.project_title.text}
+                <br></br>
+                {data2.show_client_on_index ? (
+                  <span>{data2.client.text}</span>
+                ) : (
+                  ""
+                )}
+              </p>
+            </Link>
           </ProjectTitleCon>
           <ProjectLocationYearCon>
             <p>{data2.location.text}</p>
