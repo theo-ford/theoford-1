@@ -87,6 +87,10 @@ export const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
             position: isVideoLoaded ? "absolute" : "relative",
           }}
         >
+          <AutoplayVideoTextCon>
+            <p>Video Loading</p>
+          </AutoplayVideoTextCon>
+
           <AutoplayVideoImg
             srcSet={posterProps}
             style={{
