@@ -53,6 +53,9 @@ const AutoplayVideoTextCon = styled.div`
     animation-duration: 2s;
     animation-iteration-count: infinite;
   }
+  @media (min-width: 666px) {
+    display: none;
+  }
 `;
 
 export const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
@@ -87,6 +90,9 @@ export const AutoPlayVideo = ({ srcProps, posterProps, changedSlide }) => {
             position: isVideoLoaded ? "absolute" : "relative",
           }}
         >
+          <AutoplayVideoTextCon>
+            <p>Video Loading</p>
+          </AutoplayVideoTextCon>
           <AutoplayVideoImg
             srcSet={posterProps}
             style={{

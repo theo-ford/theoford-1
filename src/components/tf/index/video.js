@@ -44,6 +44,7 @@ const VideoCon = styled.div`
   }
 `;
 const VideoConInner = styled.div`
+  cursor: pointer;
   &.sml-portrait {
     grid-column: 19 / span 12;
   }

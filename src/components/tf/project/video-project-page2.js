@@ -42,6 +42,7 @@ const VideoConInner = styled.div`
   /* &.portrait {
     grid-column: 4 / span 6;
   } */
+  cursor: pointer;
   &.sml-portrait {
     grid-column: 7 / span 12;
   }

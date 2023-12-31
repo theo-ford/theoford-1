@@ -327,7 +327,7 @@ const About = ({ data }) => {
                 />
                 {"  "}
                 <CopyrightSpan>
-                  &copy; All rights reserved by Theo Ford &copy;2023{" "}
+                  &copy; All rights reserved by Theo Ford &copy;2024{" "}
                 </CopyrightSpan>
               </>
             </AboutTextCon>
