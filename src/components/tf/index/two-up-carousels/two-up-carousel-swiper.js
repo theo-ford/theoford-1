@@ -47,6 +47,7 @@ const NextButton = styled.div`
   float: right;
   cursor: e-resize;
 `;
+
 const Grid16 = styled.div`
   display: grid;
   /* top: 12.5px; */
@@ -72,14 +73,23 @@ const TwoUpCarouselCounterOneCon = styled.div`
 const TwoUpCarouselCounterTwoCon = styled.div`
   grid-column: span 6;
 `;
-
+const breatheAnimation = keyframes`
+  0% {opacity: 0.4} 
+  50% {opacity: 1}
+  100% {opacity: 0.4}
+`;
 const NextButtonConP = styled.div`
   grid-column: span 2;
   cursor: pointer;
   p {
     color: #878787;
+    /* color: #ff0000; */
   }
+  animation-name: ${breatheAnimation};
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 `;
+
 export const TwoUpProjectCarouselSwiper = ({
   children,
 

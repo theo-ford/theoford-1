@@ -47,11 +47,15 @@ const ProjectInfoCon = styled.div`
 `;
 const ProjectTitleCon = styled.div`
   grid-column: span 4;
-
+  a {
+    /* color: #878787; */
+    /* color: #0047ff; */
+  }
   @media (max-width: 666px) {
     grid-column: span 1;
     a {
       color: #878787;
+      /* color: #0047ff; */
     }
   }
 `;
