@@ -75,13 +75,20 @@ const CarouselHeaderCon = styled.div`
 const CarouselCounterCon = styled.div`
   grid-column: span 8;
 `;
-
+const breatheAnimation = keyframes`
+  0% {opacity: 0.4} 
+  50% {opacity: 1}
+  100% {opacity: 0.4}
+`;
 const NextButtonConP = styled.div`
   grid-column: span 8;
   cursor: pointer;
   p {
     color: #878787;
   }
+  animation-name: ${breatheAnimation};
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 `;
 export const OneUpProjectCarouselSwiper = ({
   children,
