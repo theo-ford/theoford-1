@@ -19,6 +19,7 @@ import { SingleAssetProject } from "../components/tf/index/single-asset-project1
 import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
 import { VideoWithControlsImg2 } from "../components/tf/index/video";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperIndexContext from "../components/tf/index/two-up-carousels/swiper-index-context";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -344,9 +345,15 @@ const Index = ({ data }) => {
               const image = getImage(content_four.primary.image);
               return (
                 <SwiperSlide>
-                  <SquareImg>
-                    <GatsbyImage image={image} />
-                  </SquareImg>
+                  {/* {console.log(swiperSlideIndex)} */}
+                  <SwiperIndexContext.Provider value={index}>
+                    {/* <p>
+                      {index + 1} of {projectLength}
+                    </p> */}
+                    <SquareImg>
+                      <GatsbyImage image={image} />
+                    </SquareImg>
+                  </SwiperIndexContext.Provider>
                 </SwiperSlide>
               );
             }
@@ -354,14 +361,16 @@ const Index = ({ data }) => {
               if (isPageWide) {
                 const posterImg = content_four.primary.index_image;
                 return (
-                  <SwiperSlide>
-                    <IndexAutoPlayVideoCon>
-                      <AutoPlayVideo
-                        srcProps={content_four.primary.video.url}
-                        posterProps={posterImg}
-                      />
-                    </IndexAutoPlayVideoCon>
-                  </SwiperSlide>
+                  <SwiperIndexContext.Provider value={index}>
+                    <SwiperSlide>
+                      <IndexAutoPlayVideoCon>
+                        <AutoPlayVideo
+                          srcProps={content_four.primary.video.url}
+                          posterProps={posterImg}
+                        />
+                      </IndexAutoPlayVideoCon>
+                    </SwiperSlide>
+                  </SwiperIndexContext.Provider>
                 );
               } else {
                 const posterImg = content_four.primary.index_image;

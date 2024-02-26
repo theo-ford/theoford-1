@@ -12,6 +12,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+import SwiperIndexContext from "./swiper-index-context";
+
 const SwiperCarouselCon = styled.div`
   margin-left: 12.5px;
   width: calc(100%-12.5px);
@@ -98,6 +100,10 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
   const [currentSlide1, setCurrentSlide1] = useState(null);
   const [currentSlide2, setCurrentSlide2] = useState(null);
   const [swiper, setSwiper] = React.useState(null);
+  const [currentSlide3, setCurrentSlide3] = useState();
+  const carouselIndex = useContext(SwiperIndexContext);
+  console.log("HELLO");
+  console.log(carouselIndex);
 
   useEffect(() => {
     // initSwiper(index);
@@ -105,6 +111,7 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
       // console.log(swiper);
       setCurrentSlide1(swiper.realIndex + 1);
       setCurrentSlide2(swiper.realIndex + 2);
+      setCurrentSlide3(swiper.snapIndex);
     }
   }, [swiper]);
 
@@ -113,6 +120,7 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
     // console.log(index);
     setCurrentSlide1(index.realIndex + 1);
     setCurrentSlide2(index.realIndex + 2);
+    setCurrentSlide3(index.snapIndex);
   };
 
   const initSwiper = index => {
@@ -145,6 +153,7 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
             {/* <p>{("0" + (currentSlide2 + 2)).slice(-2)}</p> */}
             {/* <p>{("0" + currentSlide2).slice(-2)}</p> */}
             <p>
+              {/* {currentSlide3} of {projectLength} */}
               {currentSlide2} of {projectLength + 1}
             </p>
           </TwoUpCarouselCounterTwoCon>
@@ -162,6 +171,7 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
         <Swiper
           ref={swiperRef}
           slidesPerView={2}
+          slidesPerGroup={1}
           spaceBetween={1.5}
           loop={true}
           onSlideChange={index => updateCurrentSlide(index)}
