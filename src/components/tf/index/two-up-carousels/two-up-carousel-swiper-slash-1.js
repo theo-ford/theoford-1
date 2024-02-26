@@ -138,7 +138,7 @@ export const TwoUpProjectCarouselSwiperSlash1 = ({
             {/* <p>{("0" + currentSlide1).slice(-2)}</p> */}
             <p>
               {/* {("0" + currentSlide1).slice(-2)} / {"0" + projectLength} */}
-              {currentSlide1}/{projectLength}
+              {currentSlide1}/{projectLength + 1}
             </p>
           </TwoUpCarouselCounterOneCon>
           <TwoUpCarouselCounterTwoCon>
@@ -146,7 +146,7 @@ export const TwoUpProjectCarouselSwiperSlash1 = ({
             {/* <p>{("0" + (currentSlide2 + 2)).slice(-2)}</p> */}
             <p>
               {/* {("0" + currentSlide2).slice(-2)} / {"0" + projectLength} */}
-              {currentSlide2}/{projectLength}
+              {currentSlide2}/{projectLength + 1}
             </p>
           </TwoUpCarouselCounterTwoCon>
           <NextButtonConP>

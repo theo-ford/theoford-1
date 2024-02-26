@@ -137,7 +137,7 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
             {/* <p>{("0" + (currentSlide1 + 1)).slice(-2)}</p> */}
             {/* <p>{("0" + currentSlide1).slice(-2)}</p> */}
             <p>
-              {currentSlide1} of {projectLength}
+              {currentSlide1} of {projectLength + 1}
             </p>
           </TwoUpCarouselCounterOneCon>
           <TwoUpCarouselCounterTwoCon>
@@ -145,7 +145,7 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
             {/* <p>{("0" + (currentSlide2 + 2)).slice(-2)}</p> */}
             {/* <p>{("0" + currentSlide2).slice(-2)}</p> */}
             <p>
-              {currentSlide2} of {projectLength}
+              {currentSlide2} of {projectLength + 1}
             </p>
           </TwoUpCarouselCounterTwoCon>
           <NextButtonConP>
