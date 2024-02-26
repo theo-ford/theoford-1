@@ -12,8 +12,8 @@ import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo2 } from "../components/tf/index/project-info2";
 
-import { TwoUpProjectCarouselSwiper } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper";
-import { OneUpProjectCarouselSwiper } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper";
+import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1";
+import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
 import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
@@ -382,7 +382,7 @@ const Index = ({ data }) => {
         if (isPageWide && projectLength > 1) {
           return (
             <ProjectCon>
-              <TwoUpProjectCarouselSwiper
+              <TwoUpProjectCarouselSwiperOf1
                 projectLength={
                   content.project_relationship_field.document.data.body.length
                 }
@@ -392,7 +392,7 @@ const Index = ({ data }) => {
                     changedSlide: false,
                   })
                 )}
-              </TwoUpProjectCarouselSwiper>
+              </TwoUpProjectCarouselSwiperOf1>
               <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
@@ -426,13 +426,13 @@ const Index = ({ data }) => {
         } else if (isPageWide == false) {
           return (
             <ProjectCon>
-              <OneUpProjectCarouselSwiper projectLength={projectLength}>
+              <OneUpProjectCarouselSwiperOf1 projectLength={projectLength}>
                 {React.Children.map(project, child =>
                   React.cloneElement(child, {
                     changedSlide: false,
                   })
                 )}
-              </OneUpProjectCarouselSwiper>
+              </OneUpProjectCarouselSwiperOf1>
               <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
