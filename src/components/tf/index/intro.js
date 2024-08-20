@@ -53,7 +53,8 @@ export const Intro = () => {
   function date() {
     let nwDate = new Date();
     var year = nwDate.getFullYear();
-    var month = nwDate.getMonth();
+    var month = nwDate.getMonth() + 1;
+    var monthString = month.toString();
     var day = nwDate.getDate();
     var hours = nwDate.getHours();
     var minutes = nwDate.getMinutes();
@@ -61,7 +62,7 @@ export const Intro = () => {
     var dateTimeString =
       year +
       "/" +
-      ("0" + month).slice(-2) +
+      ("0" + monthString).slice(-2) +
       "/" +
       ("0" + day).slice(-2) +
       " " +
