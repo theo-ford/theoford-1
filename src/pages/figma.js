@@ -42,6 +42,13 @@ import AA_PB_A3_Vid from "../img/AA_PB_A3.mp4";
 import AA_PB_Square_Img from "../img/AA_PB_Square.jpg";
 import AA_PB_Square_Vid from "../img/AA_PB_Square.mp4";
 
+import FD_Business from "../img/FD_Business.jpg";
+import FD_Letterhead from "../img/FD_Letterhead.jpg";
+import FD_Mobile_Img from "../img/FD_Mobile.jpg";
+import FD_Mobile_Vid from "../img/FD_Mobile.mp4";
+import FD_Web_Img from "../img/FD_Web.jpg";
+import FD_Web_Vid from "../img/FD_Web.mp4";
+
 const ProjectCon = styled.div`
   width: 100vw;
   height: auto;
@@ -158,6 +165,24 @@ const Index = ({ data }) => {
           <video muted loop autoPlay playsInlin>
             <source type="video/mp4" src={AA_PB_Square_Vid}></source>
           </video>
+        </AssetCon>
+      </ProjectCon>
+      <ProjectCon>
+        <AssetCon>
+          <video muted loop autoPlay playsInlin>
+            <source type="video/mp4" src={FD_Web_Vid}></source>
+          </video>
+        </AssetCon>
+        <AssetCon>
+          <video muted loop autoPlay playsInlin>
+            <source type="video/mp4" src={FD_Mobile_Vid}></source>
+          </video>
+        </AssetCon>
+        <AssetCon>
+          <img src={FD_Business} />
+        </AssetCon>
+        <AssetCon>
+          <img src={FD_Letterhead} />
         </AssetCon>
       </ProjectCon>
     </>
