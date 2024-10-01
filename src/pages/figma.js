@@ -59,6 +59,13 @@ import RS_Poster_Yellow from "../img/RS_Poster_Yellow.jpg";
 import RS_Web_Img from "../img/RS_Web.jpg";
 import RS_Web_Vid from "../img/RS_Web.mp4";
 
+import Mayku_Billboard from "../img/Mayku_Billboard.jpg";
+import Mayku_Business_Card from "../img/Mayku_Business_Card.jpg";
+import Mayku_Logo from "../img/Mayku_Logo.jpg";
+import Mayku_Machine from "../img/Mayku_Machine.jpg";
+import Mayku_Manual from "../img/Mayku_Manual.jpg";
+import Mayku_Posters from "../img/Mayku_Posters.jpg";
+
 const ProjectCon = styled.div`
   width: 100vw;
   height: auto;
@@ -221,6 +228,26 @@ const Index = ({ data }) => {
         </AssetCon>
         <AssetCon>
           <img src={RS_Poster_Yellow} />
+        </AssetCon>
+      </ProjectCon>
+      <ProjectCon>
+        <AssetCon>
+          <img src={Mayku_Billboard} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Mayku_Business_Card} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Mayku_Logo} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Mayku_Machine} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Mayku_Manual} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Mayku_Posters} />
         </AssetCon>
       </ProjectCon>
     </>
