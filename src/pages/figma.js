@@ -33,6 +33,15 @@ import Lunar_Sundial_Square_Vid from "../img/Lunar_Sundial_Square.mp4";
 import Lunar_Web_Img from "../img/Lunar_Web.jpg";
 import Lunar_Web_Vid from "../img/Lunar_Web.mp4";
 
+import AA_Denim_1_Img from "../img/AA_Denim_1.jpg";
+import AA_Denim_1_Vid from "../img/AA_Denim_1.mp4";
+import AA_Liana_Img from "../img/AA_Liana.jpg";
+import AA_Liana_Vid from "../img/AA_Liana.mp4";
+import AA_PB_A3_Img from "../img/AA_PB_A3.jpg";
+import AA_PB_A3_Vid from "../img/AA_PB_A3.mp4";
+import AA_PB_Square_Img from "../img/AA_PB_Square.jpg";
+import AA_PB_Square_Vid from "../img/AA_PB_Square.mp4";
+
 const ProjectCon = styled.div`
   width: 100vw;
   height: auto;
@@ -127,6 +136,28 @@ const Index = ({ data }) => {
         </AssetCon>
         <AssetCon>
           <img src={Lunar_OOH} />
+        </AssetCon>
+      </ProjectCon>
+      <ProjectCon>
+        <AssetCon>
+          <video muted loop autoPlay playsInlin>
+            <source type="video/mp4" src={AA_Denim_1_Vid}></source>
+          </video>
+        </AssetCon>
+        <AssetCon>
+          <video muted loop autoPlay playsInlin>
+            <source type="video/mp4" src={AA_Liana_Vid}></source>
+          </video>
+        </AssetCon>
+        <AssetCon>
+          <video muted loop autoPlay playsInlin>
+            <source type="video/mp4" src={AA_PB_A3_Vid}></source>
+          </video>
+        </AssetCon>
+        <AssetCon>
+          <video muted loop autoPlay playsInlin>
+            <source type="video/mp4" src={AA_PB_Square_Vid}></source>
+          </video>
         </AssetCon>
       </ProjectCon>
     </>
