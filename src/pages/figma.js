@@ -17,6 +17,22 @@ import G4C_Mobile_Vid from "../img/G4C_Mobile.mp4";
 import G4C_Poster from "../img/G4C_Poster.jpg";
 import G4C_Web_Img from "../img/G4C_Web.jpg";
 import G4C_Web_Vid from "../img/G4C_Web.mp4";
+
+import Lunar_Brand_Book_Colour from "../img/Lunar_Brand_Book_Colour.jpg";
+import Lunar_Brand_Book_Cover from "../img/Lunar_Brand_Book_Cover.jpg";
+import Lunar_Brand_Book_Photography from "../img/Lunar_Brand_Book_Photography.jpg";
+import Lunar_Business_Card from "../img/Lunar_Business_Card.jpg";
+import Lunar_Letterhead from "../img/Lunar_Letterhead.jpg";
+import Lunar_Logo_Blue from "../img/Lunar_Logo_Blue.jpg";
+import Lunar_Logo_White from "../img/Lunar_Logo_White.jpg";
+import Lunar_Mobile_Img from "../img/Lunar_Mobile.jpg";
+import Lunar_Mobile_Vid from "../img/Lunar_Mobile.mp4";
+import Lunar_OOH from "../img/Lunar_OOH.jpg";
+import Lunar_Sundial_Square_Img from "../img/Lunar_Sundial_Square.jpg";
+import Lunar_Sundial_Square_Vid from "../img/Lunar_Sundial_Square.mp4";
+import Lunar_Web_Img from "../img/Lunar_Web.jpg";
+import Lunar_Web_Vid from "../img/Lunar_Web.mp4";
+
 const ProjectCon = styled.div`
   width: 100vw;
   height: auto;
@@ -70,6 +86,47 @@ const Index = ({ data }) => {
         </AssetCon>
         <AssetCon>
           <img src={G4C_Poster} />
+        </AssetCon>
+      </ProjectCon>
+      <ProjectCon>
+        <AssetCon>
+          <video muted loop autoPlay playsInlin>
+            <source type="video/mp4" src={Lunar_Mobile_Vid}></source>
+          </video>
+        </AssetCon>
+        <AssetCon>
+          <video muted loop autoPlay playsInlin>
+            <source type="video/mp4" src={Lunar_Sundial_Square_Vid}></source>
+          </video>
+        </AssetCon>
+        <AssetCon>
+          <video muted loop autoPlay playsInlin>
+            <source type="video/mp4" src={Lunar_Web_Vid}></source>
+          </video>
+        </AssetCon>
+        <AssetCon>
+          <img src={Lunar_Brand_Book_Colour} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Lunar_Brand_Book_Cover} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Lunar_Brand_Book_Photography} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Lunar_Business_Card} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Lunar_Letterhead} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Lunar_Logo_Blue} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Lunar_Logo_White} />
+        </AssetCon>
+        <AssetCon>
+          <img src={Lunar_OOH} />
         </AssetCon>
       </ProjectCon>
     </>
