@@ -49,6 +49,16 @@ import FD_Mobile_Vid from "../img/FD_Mobile.mp4";
 import FD_Web_Img from "../img/FD_Web.jpg";
 import FD_Web_Vid from "../img/FD_Web.mp4";
 
+import RS_Business_Card from "../img/RS_Business_Card.jpg";
+import RS_Letterhead from "../img/RS_Letterhead.jpg";
+import RS_Logo from "../img/RS_Logo.jpg";
+import RS_Menu from "../img/RS_Menu.jpg";
+import RS_Poster_Blue from "../img/RS_Poster_Blue.jpg";
+import RS_Poster_Red from "../img/RS_Poster_Red.jpg";
+import RS_Poster_Yellow from "../img/RS_Poster_Yellow.jpg";
+import RS_Web_Img from "../img/RS_Web.jpg";
+import RS_Web_Vid from "../img/RS_Web.mp4";
+
 const ProjectCon = styled.div`
   width: 100vw;
   height: auto;
@@ -183,6 +193,34 @@ const Index = ({ data }) => {
         </AssetCon>
         <AssetCon>
           <img src={FD_Letterhead} />
+        </AssetCon>
+      </ProjectCon>
+      <ProjectCon>
+        <AssetCon>
+          <video muted loop autoPlay playsInlin>
+            <source type="video/mp4" src={RS_Web_Vid}></source>
+          </video>
+        </AssetCon>
+        <AssetCon>
+          <img src={RS_Business_Card} />
+        </AssetCon>
+        <AssetCon>
+          <img src={RS_Letterhead} />
+        </AssetCon>
+        <AssetCon>
+          <img src={RS_Logo} />
+        </AssetCon>
+        <AssetCon>
+          <img src={RS_Menu} />
+        </AssetCon>
+        <AssetCon>
+          <img src={RS_Poster_Blue} />
+        </AssetCon>
+        <AssetCon>
+          <img src={RS_Poster_Red} />
+        </AssetCon>
+        <AssetCon>
+          <img src={RS_Poster_Yellow} />
         </AssetCon>
       </ProjectCon>
     </>
