@@ -148,7 +148,83 @@ const NavButton = styled.div`
     grid-column: span 1;
   }
 `;
-
+const FooterCon = styled.div`
+  position: fixed;
+  bottom: 12.5px;
+  z-index: 400000;
+  margin-top: 12.5px;
+  width: calc(100% - 25px);
+  margin-left: 12.5px;
+  display: grid;
+  grid-gap: 12.5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */;
+  @media (max-width: 666px) {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */;
+  }
+`;
+const FooterConBlur = styled.div`
+  position: fixed;
+  bottom: 12.5px;
+  z-index: 300000;
+  margin-top: 12.5px;
+  width: calc(100% - 25px);
+  margin-left: 12.5px;
+  grid-gap: 12.5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */;
+  @media (max-width: 666px) {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */;
+  }
+`;
+const FooterButtonBlur = styled.div`
+  grid-column: span 1;
+  background-color: #c0baba;
+  border-radius: 6px;
+  opacity: 0.5;
+  filter: blur(5px);
+  p {
+    color: white;
+    font-size: 12px;
+    padding: 2px;
+    padding-left: 4px;
+  }
+  &.title {
+    grid-column: span 2;
+  }
+  &.meta {
+    grid-column: span 2;
+  }
+  &.about {
+    grid-column: span 4;
+  }
+`;
+const FooterButton = styled.div`
+  grid-column: span 1;
+  background-color: #c0baba;
+  border-radius: 6px;
+  opacity: 0.5;
+  p {
+    color: white;
+    font-size: 12px;
+    padding: 2px;
+    padding-left: 4px;
+  }
+  &.title {
+    grid-column: span 2;
+  }
+  &.meta {
+    grid-column: span 2;
+  }
+  &.about {
+    grid-column: span 4;
+  }
+`;
 const HeroCon = styled.div`
   p {
     color: black;
@@ -223,8 +299,14 @@ const SquareImg = styled.div`
     margin-left: 10px;
   }
 `;
+
 const Index = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
+  const [linkState, setLinkState] = useState("tbd");
+  const [titleState, setTitleState] = useState("Hello World");
+  const [locationState, setLocationState] = useState("Florida, NE");
+  const [yearState, setYearState] = useState("2024");
+  const [aboutState, setAboutSTate] = useState("A Paragraph");
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
     (content, index) => {
       if (
@@ -343,10 +425,10 @@ const Index = ({ data }) => {
               >
                 {project}
               </TwoUpProjectCarouselSwiperOf1>
-              <ProjectInfo2
+              {/* <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
+              ></ProjectInfo2> */}
             </ProjectCon>
           );
         } else if (isPageWide == false) {
@@ -355,10 +437,10 @@ const Index = ({ data }) => {
               <OneUpProjectCarouselSwiperOf1 projectLength={projectLength}>
                 {project}
               </OneUpProjectCarouselSwiperOf1>
-              <ProjectInfo2
+              {/* <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
+              ></ProjectInfo2> */}
             </ProjectCon>
           );
         }
@@ -417,7 +499,30 @@ const Index = ({ data }) => {
           <p>Twitter</p>
         </NavButton>
       </NavCon>
-
+      <FooterCon>
+        <FooterButton className="title">
+          <p>{titleState}</p>
+        </FooterButton>
+        <FooterButton className="meta">
+          <p>
+            {locationState}
+            <br></br>
+            {yearState}
+          </p>
+        </FooterButton>
+      </FooterCon>
+      <FooterConBlur>
+        <FooterButtonBlur className="title">
+          <p>{titleState}</p>
+        </FooterButtonBlur>
+        <FooterButtonBlur className="meta">
+          <p>
+            {locationState}
+            <br></br>
+            {yearState}
+          </p>
+        </FooterButtonBlur>
+      </FooterConBlur>
       <HeroCon>
         <p>
           The design office of Theo Ford. Specialising in graphic design,
