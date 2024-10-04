@@ -68,6 +68,7 @@ const NavButtonBlur = styled.div`
     color: white;
     font-size: 12px;
     padding: 2px;
+    padding-left: 4px;
   }
   &.theo {
     grid-column: span 2;
@@ -90,6 +91,7 @@ const NavButton = styled.div`
     color: white;
     font-size: 12px;
     padding: 2px;
+    padding-left: 4px;
   }
   &.theo {
     grid-column: span 2;
@@ -111,10 +113,12 @@ const HeroCon = styled.div`
     margin-left: 12.5px;
     margin-top: 30vh;
     margin-bottom: 30vh;
-    width: 1059px;
+    width: 1100px;
     font-size: 48px;
     line-height: 110%;
-    letter-spacing: -2.064px;
+    letter-spacing: -1.1px !important;
+    font-family: "Helvetica Now Var Roman", helvetica, sans-serif;
+    font-variation-settings: "wght" 375;
     span.brands {
       color: #d4d4d4;
       margin-top: 30vh;
@@ -386,8 +390,8 @@ const Index = ({ data }) => {
           The design office of Theo Ford. Specialising in graphic design,
           art-direction, moving-image and web development. Recent commissions
           and collaborations include identities for{" "}
-          <span className="brands">Lunar</span> and creative direction for{" "}
-          <span className="brands">American Apparel</span>.
+          <span className="brands">Lunar Energy</span> and creative direction
+          for <span className="brands">American Apparel</span>.
         </p>
       </HeroCon>
 

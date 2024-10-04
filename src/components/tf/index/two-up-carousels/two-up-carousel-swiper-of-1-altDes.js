@@ -99,6 +99,7 @@ const NextButtonConP = styled.div`
     color: white;
     font-size: 12px;
     padding: 2px;
+    padding-left: 4px;
   }
   animation-name: ${breatheAnimation};
   animation-duration: 2s;
@@ -116,6 +117,7 @@ const NextButtonConPBlur = styled.div`
     color: white;
     font-size: 12px;
     padding: 2px;
+    padding-left: 4px;
   }
 `;
 
@@ -189,7 +191,7 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
               <p onClick={forwardFunc}>Next</p>
             </NextButtonConP>
             <NextButtonConPBlur>
-              <p>Next</p>
+              <p onClick={forwardFunc}>Next</p>
             </NextButtonConPBlur>
           </NextButtonCon>
         </Grid16>
