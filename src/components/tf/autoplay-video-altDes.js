@@ -84,7 +84,7 @@ const AutoplayVideoImg = styled.div`
   overflow: hidden;
 `;
 const AutoplayVideoVideo = styled.video`
-  width: 100% !important;
+  /* width: 100% !important; */
   /* height: auto; */
   border-radius: 10px !important;
   border-top-left-radius: 10px;
