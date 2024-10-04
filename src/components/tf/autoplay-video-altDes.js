@@ -12,7 +12,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { ImageOrientation2 } from "../utils/image-orientation2";
 
 const AutoplayVideoCon = styled.div`
-  position: relative;
+  /* position: relative; */
   width: calc(100%);
   display: grid;
   top: 12.5px;
@@ -73,18 +73,16 @@ const AutoPlayVideoConInner = styled.div`
     &.landscape {
       grid-column: span 36;
     }
-    /* border-radius: 10px;
-    overflow: hidden; */
   }
 `;
 const AutoplayVideoImg = styled.div`
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
   border-radius: 10px !important;
   overflow: hidden;
 `;
 const AutoplayVideoVideo = styled.video`
-  /* width: 100% !important; */
+  width: 100%;
   /* height: auto; */
   border-radius: 10px !important;
   border-top-left-radius: 10px;
