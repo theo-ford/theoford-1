@@ -117,6 +117,39 @@ const NextButtonConPBlur = styled.div`
     padding-left: 4px;
   }
 `;
+const MoreButtonCon = styled.div`
+  grid-column: span 1;
+`;
+const MoreButtonConP = styled.div`
+  cursor: pointer;
+  background-color: #c0baba;
+  border-radius: 6px;
+  opacity: 0.5;
+  p {
+    color: white;
+    font-size: 12px;
+    padding: 2px;
+    padding-left: 4px;
+  }
+  /* animation-name: ${breatheAnimation};
+  animation-duration: 2s;
+  animation-iteration-count: infinite; */
+`;
+const MoreButtonConPBlur = styled.div`
+  /* position: absolute; */
+  filter: blur(5px);
+  cursor: pointer;
+  background-color: #c0baba;
+  border-radius: 6px;
+  opacity: 0.5;
+  margin-top: -16px;
+  p {
+    color: white;
+    font-size: 12px;
+    padding: 2px;
+    padding-left: 4px;
+  }
+`;
 
 export const OneUpProjectCarouselSwiperOf1 = ({
   children,
@@ -188,6 +221,14 @@ export const OneUpProjectCarouselSwiperOf1 = ({
               <p onClick={forwardFunc}>Next</p>
             </NextButtonConPBlur>
           </NextButtonCon>
+          <MoreButtonCon>
+            <MoreButtonConP>
+              <p>More</p>
+            </MoreButtonConP>
+            <MoreButtonConPBlur>
+              <p>More</p>
+            </MoreButtonConPBlur>
+          </MoreButtonCon>
         </Grid16>
       </CarouselHeaderCon>
 
