@@ -88,14 +88,14 @@ const AutoplayVideoImg = styled.div`
   /* position: absolute; */
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 10px !important;
   overflow: hidden;
 `;
 const AutoplayVideoVideo = styled.video`
   /* position: absolute; */
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 10px !important;
   overflow: hidden;
 `;
 const AutoplayVideoImgCon = styled.div``;
