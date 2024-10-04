@@ -14,14 +14,13 @@ import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo2 } from "../components/tf/index/project-info2";
 
 import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-altDes";
-import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1";
+import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1-altDes";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
 import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel-altDes";
 import { VideoWithControlsImg3 } from "../components/tf/index/video-auto";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperIndexContext from "../components/tf/index/two-up-carousels/swiper-index-context";
-import { useOnScreen } from "../components/hooks/useOnScreen";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -49,6 +48,12 @@ const NavCon = styled.div`
   display: grid;
   grid-gap: 12.5px;
   grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */;
+  @media (max-width: 666px) {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */;
+  }
 `;
 const NavConBlur = styled.div`
   position: fixed;
@@ -59,6 +64,12 @@ const NavConBlur = styled.div`
   grid-gap: 12.5px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */;
+  @media (max-width: 666px) {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */;
+  }
 `;
 const NavButtonBlur = styled.div`
   grid-column: span 1;
@@ -83,6 +94,21 @@ const NavButtonBlur = styled.div`
   &.instagram {
     grid-column: 15 / span 1;
   }
+  @media (max-width: 666px) {
+    &.select {
+      grid-column: span 1;
+    }
+    &.theo {
+      display: none;
+    }
+    &.instagram {
+      display: none;
+    }
+    &.twitter {
+      display: none;
+    }
+    grid-column: span 1;
+  }
 `;
 const NavButton = styled.div`
   grid-column: span 1;
@@ -106,73 +132,23 @@ const NavButton = styled.div`
   &.instagram {
     grid-column: 15 / span 1;
   }
+  @media (max-width: 666px) {
+    &.select {
+      grid-column: span 1;
+    }
+    &.theo {
+      display: none;
+    }
+    &.instagram {
+      display: none;
+    }
+    &.twitter {
+      display: none;
+    }
+    grid-column: span 1;
+  }
 `;
 
-const FooterCon = styled.div`
-  position: fixed;
-  bottom: 12.5px;
-  z-index: 400000;
-  margin-top: 12.5px;
-  width: calc(100% - 25px);
-  margin-left: 12.5px;
-  display: grid;
-  grid-gap: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */;
-`;
-const FooterConBlur = styled.div`
-  position: fixed;
-  bottom: 12.5px;
-  z-index: 300000;
-  margin-top: 12.5px;
-  width: calc(100% - 25px);
-  margin-left: 12.5px;
-  grid-gap: 12.5px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */;
-`;
-const FooterButtonBlur = styled.div`
-  grid-column: span 1;
-  background-color: #c0baba;
-  border-radius: 6px;
-  opacity: 0.5;
-  filter: blur(5px);
-  p {
-    color: white;
-    font-size: 12px;
-    padding: 2px;
-    padding-left: 4px;
-  }
-  &.title {
-    grid-column: span 2;
-  }
-  &.meta {
-    grid-column: span 2;
-  }
-  &.about {
-    grid-column: span 4;
-  }
-`;
-const FooterButton = styled.div`
-  grid-column: span 1;
-  background-color: #c0baba;
-  border-radius: 6px;
-  opacity: 0.5;
-  p {
-    color: white;
-    font-size: 12px;
-    padding: 2px;
-    padding-left: 4px;
-  }
-  &.title {
-    grid-column: span 2;
-  }
-  &.meta {
-    grid-column: span 2;
-  }
-  &.about {
-    grid-column: span 4;
-  }
-`;
 const HeroCon = styled.div`
   p {
     color: black;
@@ -188,12 +164,21 @@ const HeroCon = styled.div`
     font-variation-settings: "wght" 375;
     span.brands {
       color: #d4d4d4;
-      margin-top: 30vh;
-      margin-bottom: 30vh;
-      width: 1059px;
       font-size: 48px;
       line-height: 110%;
       letter-spacing: -2.064px;
+    }
+  }
+  @media (max-width: 666px) {
+    p {
+      font-size: 18px;
+      width: calc(100% - 20px);
+      letter-spacing: -0.6px !important;
+      span.brands {
+        color: #d4d4d4;
+        font-size: 18px;
+        letter-spacing: -0.6px !important;
+      }
     }
   }
 `;
@@ -209,7 +194,16 @@ const IndexAutoPlayVideoCon = styled.div`
   margin-top: 12.5px;
   margin-bottom: 12.5px;
   @media (max-width: 666px) {
-    width: 100%;
+    /* width: 100% !important; */
+    width: calc(100% - 20px);
+    margin-left: 10px;
+  }
+`;
+
+const ProjectCon = styled.div`
+  margin-bottom: 100px;
+  @media (max-width: 666px) {
+    margin-bottom: 200px;
   }
 `;
 
@@ -225,23 +219,12 @@ const SquareImg = styled.div`
   margin-bottom: 12.5px;
   @media (max-width: 666px) {
     /* width: 100% !important; */
-  }
-`;
-const ProjectCon = styled.div`
-  margin-bottom: 225px;
-
-  @media (max-width: 666px) {
-    margin-bottom: 200px;
+    width: calc(100% - 20px);
+    margin-left: 10px;
   }
 `;
 const Index = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
-  const [linkState, setLinkState] = useState("tbd");
-  const [titleState, setTitleState] = useState("Hello World");
-  const [locationState, setLocationState] = useState("Florida, NE");
-  const [yearState, setYearState] = useState("2024");
-  const [aboutState, setAboutSTate] = useState("A Paragraph");
-
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
     (content, index) => {
       if (
@@ -251,24 +234,49 @@ const Index = ({ data }) => {
           (content_three, index) => {
             if (content_three.slice_type == "video_with_play_button") {
               const posterImage = content_three.primary.video_thumbnail;
-              return (
-                <AutoPlayVideoAltDes
-                  srcProps={content_three.primary.video_with_play_button.url}
-                  posterProps={posterImage}
-                />
-              );
+              if (isPageWide) {
+                return (
+                  // <VideoWithControlsImg3
+                  //   srcProps={content_three.primary.video_with_play_button.url}
+                  //   posterProps={posterImage}
+                  //   img={posterImage}
+                  // ></VideoWithControlsImg3>
+                  <AutoPlayVideoAltDes
+                    srcProps={content_three.primary.video_with_play_button.url}
+                    posterProps={posterImage}
+                  />
+                );
+              } else {
+                return (
+                  // <VideoWithControlsImg3
+                  //   srcProps={
+                  //     content_three.primary.small_video_with_play_button.url
+                  //   }
+                  //   posterProps={posterImage}
+                  //   img={posterImage}
+                  // ></VideoWithControlsImg3>
+                  <AutoPlayVideoAltDes
+                    srcProps={content_three.primary.video_with_play_button.url}
+                    posterProps={posterImage}
+                  />
+                );
+              }
             }
           }
         );
         return (
           <>
             <ProjectCon>
-              <FilmLeadCarousel2>{filmLeadProject}</FilmLeadCarousel2>
-
-              {/* <ProjectInfo2
+              <FilmLeadCarousel2>
+                {React.Children.map(filmLeadProject, child =>
+                  React.cloneElement(child, {})
+                )}
+              </FilmLeadCarousel2>
+              <ProjectInfo2
+                // style={{ marginTop: "40px" }}
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2> */}
+              ></ProjectInfo2>
             </ProjectCon>
           </>
         );
@@ -282,7 +290,11 @@ const Index = ({ data }) => {
               const image = getImage(content_four.primary.image);
               return (
                 <SwiperSlide>
+                  {/* {console.log(swiperSlideIndex)} */}
                   <SwiperIndexContext.Provider value={index}>
+                    {/* <p>
+                          {index + 1} of {projectLength}
+                        </p> */}
                     <SquareImg>
                       <GatsbyImage image={image} />
                     </SquareImg>
@@ -323,21 +335,31 @@ const Index = ({ data }) => {
         );
         if (isPageWide) {
           return (
-            <div>
-              <ProjectCon>
-                <TwoUpProjectCarouselSwiperOf1
-                  projectLength={
-                    content.project_relationship_field.document.data.body.length
-                  }
-                >
-                  {project}
-                </TwoUpProjectCarouselSwiperOf1>
-                {/* <ProjectInfo2
-                  data2={content.project_relationship_field.document.data}
-                  uid={content.project_relationship_field.document.uid}
-                ></ProjectInfo2> */}
-              </ProjectCon>
-            </div>
+            <ProjectCon>
+              <TwoUpProjectCarouselSwiperOf1
+                projectLength={
+                  content.project_relationship_field.document.data.body.length
+                }
+              >
+                {project}
+              </TwoUpProjectCarouselSwiperOf1>
+              <ProjectInfo2
+                data2={content.project_relationship_field.document.data}
+                uid={content.project_relationship_field.document.uid}
+              ></ProjectInfo2>
+            </ProjectCon>
+          );
+        } else if (isPageWide == false) {
+          return (
+            <ProjectCon>
+              <OneUpProjectCarouselSwiperOf1 projectLength={projectLength}>
+                {project}
+              </OneUpProjectCarouselSwiperOf1>
+              <ProjectInfo2
+                data2={content.project_relationship_field.document.data}
+                uid={content.project_relationship_field.document.uid}
+              ></ProjectInfo2>
+            </ProjectCon>
           );
         }
       }
@@ -395,36 +417,7 @@ const Index = ({ data }) => {
           <p>Twitter</p>
         </NavButton>
       </NavCon>
-      <FooterCon>
-        <FooterButton className="title">
-          <p>{titleState}</p>
-        </FooterButton>
-        <FooterButton className="meta">
-          <p>
-            {locationState}
-            <br></br>
-            {yearState}
-          </p>
-        </FooterButton>
-        <FooterButton className="about">
-          <p>{aboutState}</p>
-        </FooterButton>
-      </FooterCon>
-      <FooterConBlur>
-        <FooterButtonBlur className="title">
-          <p>{titleState}</p>
-        </FooterButtonBlur>
-        <FooterButtonBlur className="meta">
-          <p>
-            {locationState}
-            <br></br>
-            {yearState}
-          </p>
-        </FooterButtonBlur>
-        <FooterButtonBlur className="about">
-          <p>{aboutState}</p>
-        </FooterButtonBlur>
-      </FooterConBlur>
+
       <HeroCon>
         <p>
           The design office of Theo Ford. Specialising in graphic design,
@@ -444,7 +437,7 @@ const Index = ({ data }) => {
 export default withPrismicPreview(Index);
 
 export const query = graphql`
-  query IndexQuery71 {
+  query IndexQuery75 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {
