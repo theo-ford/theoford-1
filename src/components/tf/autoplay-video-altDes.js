@@ -96,6 +96,11 @@ const AutoplayVideoVideo = styled.video`
   width: 100%;
   height: 100%;
   border-radius: 10px !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-collapse: separate;
   overflow: hidden;
 `;
 const AutoplayVideoImgCon = styled.div``;
