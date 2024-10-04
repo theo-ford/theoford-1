@@ -88,6 +88,7 @@ const AutoplayVideoVideo = styled.video`
   /* position: absolute; */
   width: 100%;
   /* height: 100%; */
+  height: auto;
   border-radius: 10px !important;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
