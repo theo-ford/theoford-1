@@ -171,6 +171,9 @@ const HeroCon = styled.div`
       line-height: 110%;
       letter-spacing: -2.064px;
     }
+    @media (max-width: 666px) {
+      font-size: 24px;
+    }
   }
 `;
 
@@ -227,25 +230,6 @@ const Index = ({ data }) => {
               const posterImage = content_three.primary.video_thumbnail;
               if (isPageWide) {
                 return (
-                  // <VideoWithControlsImg3
-                  //   srcProps={content_three.primary.video_with_play_button.url}
-                  //   posterProps={posterImage}
-                  //   img={posterImage}
-                  // ></VideoWithControlsImg3>
-                  <AutoPlayVideoAltDes
-                    srcProps={content_three.primary.video_with_play_button.url}
-                    posterProps={posterImage}
-                  />
-                );
-              } else {
-                return (
-                  // <VideoWithControlsImg3
-                  //   srcProps={
-                  //     content_three.primary.small_video_with_play_button.url
-                  //   }
-                  //   posterProps={posterImage}
-                  //   img={posterImage}
-                  // ></VideoWithControlsImg3>
                   <AutoPlayVideoAltDes
                     srcProps={content_three.primary.video_with_play_button.url}
                     posterProps={posterImage}

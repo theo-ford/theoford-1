@@ -29,7 +29,11 @@ const VideoCarouselCon = styled.div`
   height: auto;
   box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.13);
   background-color: black;
+  margin-bottom: 8px;
   @media (max-width: 666px) {
+    width: calc(100%);
+    margin-left: 0px;
+    border-radius: 0px;
   }
 `;
 const PaginationControlP = styled.p`

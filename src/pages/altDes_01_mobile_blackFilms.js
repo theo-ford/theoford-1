@@ -164,12 +164,21 @@ const HeroCon = styled.div`
     font-variation-settings: "wght" 375;
     span.brands {
       color: #d4d4d4;
-      margin-top: 30vh;
-      margin-bottom: 30vh;
-      width: 1059px;
       font-size: 48px;
       line-height: 110%;
       letter-spacing: -2.064px;
+    }
+  }
+  @media (max-width: 666px) {
+    p {
+      font-size: 18px;
+      width: calc(100% - 20px);
+      letter-spacing: -0.6px !important;
+      span.brands {
+        color: #d4d4d4;
+        font-size: 18px;
+        letter-spacing: -0.6px !important;
+      }
     }
   }
 `;

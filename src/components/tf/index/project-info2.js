@@ -13,7 +13,7 @@ import { useMediaQuery } from "../media-query";
 /* - - - - - PROJECT INFO - - - - - */
 const Grid16 = styled.div`
   display: grid;
-  top: 12.5px;
+  /* top: 12.5px; */
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 12.5px;
   margin-left: 12.5px;
@@ -40,7 +40,7 @@ const Grid2 = styled.div`
 
 const ProjectInfoCon = styled.div`
   height: 80px;
-  margin-top: 8px;
+  /* margin-top: 8px; */
   @media (max-width: 666px) {
     margin-top: 4px;
   }
@@ -84,7 +84,36 @@ const ProjectLink = styled.div`
     display: none;
   }
 `;
-
+const MoreButtonCon = styled.div`
+  grid-column: 15 / span 1;
+`;
+const MoreButtonConP = styled.div`
+  cursor: pointer;
+  background-color: #c0baba;
+  border-radius: 6px;
+  opacity: 0.5;
+  p {
+    color: white;
+    font-size: 12px;
+    padding: 2px;
+    padding-left: 4px;
+  }
+`;
+const MoreButtonConPBlur = styled.div`
+  /* position: absolute; */
+  filter: blur(5px);
+  cursor: pointer;
+  background-color: #c0baba;
+  border-radius: 6px;
+  opacity: 0.5;
+  margin-top: -16px;
+  p {
+    color: white;
+    font-size: 12px;
+    padding: 2px;
+    padding-left: 4px;
+  }
+`;
 export const ProjectInfo2 = ({ data2, uid }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
   if (isPageWide) {
@@ -111,9 +140,14 @@ export const ProjectInfo2 = ({ data2, uid }) => {
           <ProjectIndexAbout>
             <p>{data2.homepage_intro.text}</p>
           </ProjectIndexAbout>
-          <ProjectLink>
-            <Link to={uid}>More Info</Link>
-          </ProjectLink>
+          <MoreButtonCon>
+            <MoreButtonConP>
+              <p>More</p>
+            </MoreButtonConP>
+            <MoreButtonConPBlur>
+              <p>More</p>
+            </MoreButtonConPBlur>
+          </MoreButtonCon>
         </Grid16>
       </ProjectInfoCon>
     );
