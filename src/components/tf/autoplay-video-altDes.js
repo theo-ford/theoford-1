@@ -23,7 +23,7 @@ const AutoplayVideoCon = styled.div`
   width: calc(100% - 25px);
   z-index: 20000;
   align-items: center;
-  height: 110vh;
+  height: calc(100vh - 25px);
   &.landscape {
     height: auto;
     top: 0;

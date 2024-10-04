@@ -9,10 +9,7 @@ import "../components/styles/index.css";
 import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
-import {
-  AutoPlayVideAltDes,
-  AutoPlayVideoAltDes,
-} from "../components/tf/autoplay-video-altDes";
+import { AutoPlayVideoAltDes } from "../components/tf/autoplay-video-altDes";
 import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo2 } from "../components/tf/index/project-info2";
 
