@@ -73,22 +73,19 @@ const AutoPlayVideoConInner = styled.div`
     &.landscape {
       grid-column: span 36;
     }
-    border-radius: 10px;
-    overflow: hidden;
+    /* border-radius: 10px;
+    overflow: hidden; */
   }
 `;
 const AutoplayVideoImg = styled.div`
-  /* position: absolute; */
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   border-radius: 10px !important;
   overflow: hidden;
 `;
 const AutoplayVideoVideo = styled.video`
-  /* position: absolute; */
-  width: 100%;
-  /* height: 100%; */
-  height: auto;
+  width: 100% !important;
+  /* height: auto; */
   border-radius: 10px !important;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -121,6 +118,7 @@ const AutoplayVideoTextCon = styled.div`
     padding-left: 10px;
     background-color: white;
     border-radius: 10px !important;
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.13);
     overflow: hidden;
     margin-top: -1px;
     animation-name: ${breatheAnimation};
