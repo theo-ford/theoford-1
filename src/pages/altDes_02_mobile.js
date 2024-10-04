@@ -318,11 +318,6 @@ const Index = ({ data }) => {
               const posterImage = content_three.primary.video_thumbnail;
               if (isPageWide) {
                 return (
-                  // <VideoWithControlsImg3
-                  //   srcProps={content_three.primary.video_with_play_button.url}
-                  //   posterProps={posterImage}
-                  //   img={posterImage}
-                  // ></VideoWithControlsImg3>
                   <AutoPlayVideoAltDes
                     srcProps={content_three.primary.video_with_play_button.url}
                     posterProps={posterImage}
@@ -330,13 +325,6 @@ const Index = ({ data }) => {
                 );
               } else {
                 return (
-                  // <VideoWithControlsImg3
-                  //   srcProps={
-                  //     content_three.primary.small_video_with_play_button.url
-                  //   }
-                  //   posterProps={posterImage}
-                  //   img={posterImage}
-                  // ></VideoWithControlsImg3>
                   <AutoPlayVideoAltDes
                     srcProps={content_three.primary.video_with_play_button.url}
                     posterProps={posterImage}
@@ -354,11 +342,11 @@ const Index = ({ data }) => {
                   React.cloneElement(child, {})
                 )}
               </FilmLeadCarousel2>
-              <ProjectInfo2
-                // style={{ marginTop: "40px" }}
+              {/* <ProjectInfo2
+
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
+              ></ProjectInfo2> */}
             </ProjectCon>
           </>
         );
