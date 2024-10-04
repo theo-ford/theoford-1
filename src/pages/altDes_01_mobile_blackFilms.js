@@ -437,7 +437,7 @@ const Index = ({ data }) => {
 export default withPrismicPreview(Index);
 
 export const query = graphql`
-  query IndexQuery70 {
+  query IndexQuery74 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {
