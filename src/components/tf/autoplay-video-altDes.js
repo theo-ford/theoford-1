@@ -62,22 +62,15 @@ const AutoPlayVideoConInner = styled.div`
   }
   @media (max-width: 666px) {
     &.sml-portrait {
-      /* grid-column: 5 / span 16; */
-      /* grid-column: 4 / span 30; */
       grid-column: 6 / span 26;
     }
     &.lrg-portrait {
-      /* grid-column: 5 / span 16; */
       grid-column: 7 / span 24;
     }
     &.square {
-      /* grid-column: 4 / span 18; */
-      /* grid-column: 3 / span 32; */
-      /* grid-column: span 36; */
       grid-column: 5 / span 28;
     }
     &.landscape {
-      /* grid-column: span 24; */
       grid-column: span 36;
     }
     border-radius: 10px;
@@ -94,14 +87,15 @@ const AutoplayVideoImg = styled.div`
 const AutoplayVideoVideo = styled.video`
   /* position: absolute; */
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   border-radius: 10px !important;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border-collapse: separate;
-  overflow: hidden;
+  overflow: hidden !important;
+  perspective: 1px;
 `;
 const AutoplayVideoImgCon = styled.div``;
 const breatheAnimation = keyframes`
@@ -117,6 +111,7 @@ const AutoplayVideoTextCon = styled.div`
   display: grid;
   align-items: center;
   justify-items: center;
+
   p {
     color: black;
     padding-right: 10px;
@@ -124,6 +119,8 @@ const AutoplayVideoTextCon = styled.div`
     padding-bottom: 10px;
     padding-left: 10px;
     background-color: white;
+    border-radius: 10px !important;
+    overflow: hidden;
     margin-top: -1px;
     animation-name: ${breatheAnimation};
     animation-duration: 2s;
