@@ -22,8 +22,12 @@ import CarouselIndexClicked from "./slick-functions-context.js";
 /* - - - - - FILM LEAD CAROUSEL - - - - - */
 const VideoProjectCon = styled.div``;
 const VideoCarouselCon = styled.div`
-  width: 100%;
-  height: 110vh;
+  width: calc(100% - 25px);
+  margin-left: 12.5px;
+  border-radius: 10px;
+  overflow: hidden;
+  height: auto;
+  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.13);
   background-color: black;
   @media (max-width: 666px) {
   }

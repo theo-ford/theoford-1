@@ -9,6 +9,10 @@ import "../components/styles/index.css";
 import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
+import {
+  AutoPlayVideAltDes,
+  AutoPlayVideoAltDes,
+} from "../components/tf/autoplay-video-altDes";
 import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo2 } from "../components/tf/index/project-info2";
 
@@ -180,21 +184,29 @@ const Index = ({ data }) => {
               const posterImage = content_three.primary.video_thumbnail;
               if (isPageWide) {
                 return (
-                  <VideoWithControlsImg3
+                  // <VideoWithControlsImg3
+                  //   srcProps={content_three.primary.video_with_play_button.url}
+                  //   posterProps={posterImage}
+                  //   img={posterImage}
+                  // ></VideoWithControlsImg3>
+                  <AutoPlayVideoAltDes
                     srcProps={content_three.primary.video_with_play_button.url}
                     posterProps={posterImage}
-                    img={posterImage}
-                  ></VideoWithControlsImg3>
+                  />
                 );
               } else {
                 return (
-                  <VideoWithControlsImg3
-                    srcProps={
-                      content_three.primary.small_video_with_play_button.url
-                    }
+                  // <VideoWithControlsImg3
+                  //   srcProps={
+                  //     content_three.primary.small_video_with_play_button.url
+                  //   }
+                  //   posterProps={posterImage}
+                  //   img={posterImage}
+                  // ></VideoWithControlsImg3>
+                  <AutoPlayVideoAltDes
+                    srcProps={content_three.primary.video_with_play_button.url}
                     posterProps={posterImage}
-                    img={posterImage}
-                  ></VideoWithControlsImg3>
+                  />
                 );
               }
             }
