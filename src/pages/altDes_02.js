@@ -21,6 +21,7 @@ import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel-altDes";
 import { VideoWithControlsImg3 } from "../components/tf/index/video-auto";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperIndexContext from "../components/tf/index/two-up-carousels/swiper-index-context";
+import { useOnScreen } from "../components/hooks/useOnScreen";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -107,6 +108,71 @@ const NavButton = styled.div`
   }
 `;
 
+const FooterCon = styled.div`
+  position: fixed;
+  bottom: 12.5px;
+  z-index: 400000;
+  margin-top: 12.5px;
+  width: calc(100% - 25px);
+  margin-left: 12.5px;
+  display: grid;
+  grid-gap: 12.5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */;
+`;
+const FooterConBlur = styled.div`
+  position: fixed;
+  bottom: 12.5px;
+  z-index: 300000;
+  margin-top: 12.5px;
+  width: calc(100% - 25px);
+  margin-left: 12.5px;
+  grid-gap: 12.5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */;
+`;
+const FooterButtonBlur = styled.div`
+  grid-column: span 1;
+  background-color: #c0baba;
+  border-radius: 6px;
+  opacity: 0.5;
+  filter: blur(5px);
+  p {
+    color: white;
+    font-size: 12px;
+    padding: 2px;
+    padding-left: 4px;
+  }
+  &.title {
+    grid-column: span 2;
+  }
+  &.meta {
+    grid-column: span 2;
+  }
+  &.about {
+    grid-column: span 4;
+  }
+`;
+const FooterButton = styled.div`
+  grid-column: span 1;
+  background-color: #c0baba;
+  border-radius: 6px;
+  opacity: 0.5;
+  p {
+    color: white;
+    font-size: 12px;
+    padding: 2px;
+    padding-left: 4px;
+  }
+  &.title {
+    grid-column: span 2;
+  }
+  &.meta {
+    grid-column: span 2;
+  }
+  &.about {
+    grid-column: span 4;
+  }
+`;
 const HeroCon = styled.div`
   p {
     color: black;
@@ -170,6 +236,12 @@ const SquareImg = styled.div`
 `;
 const Index = ({ data }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
+  const [linkState, setLinkState] = useState("tbd");
+  const [titleState, setTitleState] = useState("Hello World");
+  const [locationState, setLocationState] = useState("Florida, NE");
+  const [yearState, setYearState] = useState("2024");
+  const [aboutState, setAboutSTate] = useState("A Paragraph");
+
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
     (content, index) => {
       if (
@@ -179,48 +251,24 @@ const Index = ({ data }) => {
           (content_three, index) => {
             if (content_three.slice_type == "video_with_play_button") {
               const posterImage = content_three.primary.video_thumbnail;
-              if (isPageWide) {
-                return (
-                  // <VideoWithControlsImg3
-                  //   srcProps={content_three.primary.video_with_play_button.url}
-                  //   posterProps={posterImage}
-                  //   img={posterImage}
-                  // ></VideoWithControlsImg3>
-                  <AutoPlayVideoAltDes
-                    srcProps={content_three.primary.video_with_play_button.url}
-                    posterProps={posterImage}
-                  />
-                );
-              } else {
-                return (
-                  // <VideoWithControlsImg3
-                  //   srcProps={
-                  //     content_three.primary.small_video_with_play_button.url
-                  //   }
-                  //   posterProps={posterImage}
-                  //   img={posterImage}
-                  // ></VideoWithControlsImg3>
-                  <AutoPlayVideoAltDes
-                    srcProps={content_three.primary.video_with_play_button.url}
-                    posterProps={posterImage}
-                  />
-                );
-              }
+              return (
+                <AutoPlayVideoAltDes
+                  srcProps={content_three.primary.video_with_play_button.url}
+                  posterProps={posterImage}
+                />
+              );
             }
           }
         );
         return (
           <>
             <ProjectCon>
-              <FilmLeadCarousel2>
-                {React.Children.map(filmLeadProject, child =>
-                  React.cloneElement(child, {})
-                )}
-              </FilmLeadCarousel2>
-              <ProjectInfo2
+              <FilmLeadCarousel2>{filmLeadProject}</FilmLeadCarousel2>
+
+              {/* <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
+              ></ProjectInfo2> */}
             </ProjectCon>
           </>
         );
@@ -234,11 +282,7 @@ const Index = ({ data }) => {
               const image = getImage(content_four.primary.image);
               return (
                 <SwiperSlide>
-                  {/* {console.log(swiperSlideIndex)} */}
                   <SwiperIndexContext.Provider value={index}>
-                    {/* <p>
-                          {index + 1} of {projectLength}
-                        </p> */}
                     <SquareImg>
                       <GatsbyImage image={image} />
                     </SquareImg>
@@ -277,65 +321,23 @@ const Index = ({ data }) => {
             }
           }
         );
-        if (isPageWide && projectLength > 1) {
+        if (isPageWide) {
           return (
-            <ProjectCon>
-              <TwoUpProjectCarouselSwiperOf1
-                projectLength={
-                  content.project_relationship_field.document.data.body.length
-                }
-              >
-                {React.Children.map(project, child =>
-                  React.cloneElement(child, {
-                    changedSlide: false,
-                  })
-                )}
-              </TwoUpProjectCarouselSwiperOf1>
-              <ProjectInfo2
-                data2={content.project_relationship_field.document.data}
-                uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
-            </ProjectCon>
-          );
-        } else if (isPageWide && projectLength <= 1) {
-          return (
-            <>
+            <div>
               <ProjectCon>
-                <SingleAssetProject>{project}</SingleAssetProject>
-                <ProjectInfo2
+                <TwoUpProjectCarouselSwiperOf1
+                  projectLength={
+                    content.project_relationship_field.document.data.body.length
+                  }
+                >
+                  {project}
+                </TwoUpProjectCarouselSwiperOf1>
+                {/* <ProjectInfo2
                   data2={content.project_relationship_field.document.data}
                   uid={content.project_relationship_field.document.uid}
-                ></ProjectInfo2>
+                ></ProjectInfo2> */}
               </ProjectCon>
-            </>
-          );
-        } else if (!isPageWide && projectLength <= 1) {
-          return (
-            <>
-              <ProjectCon>
-                <SingleAssetProject>{project}</SingleAssetProject>
-                <ProjectInfo2
-                  data2={content.project_relationship_field.document.data}
-                  uid={content.project_relationship_field.document.uid}
-                ></ProjectInfo2>
-              </ProjectCon>
-            </>
-          );
-        } else if (isPageWide == false) {
-          return (
-            <ProjectCon>
-              <OneUpProjectCarouselSwiperOf1 projectLength={projectLength}>
-                {React.Children.map(project, child =>
-                  React.cloneElement(child, {
-                    changedSlide: false,
-                  })
-                )}
-              </OneUpProjectCarouselSwiperOf1>
-              <ProjectInfo2
-                data2={content.project_relationship_field.document.data}
-                uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
-            </ProjectCon>
+            </div>
           );
         }
       }
@@ -393,7 +395,36 @@ const Index = ({ data }) => {
           <p>Twitter</p>
         </NavButton>
       </NavCon>
-
+      <FooterCon>
+        <FooterButton className="title">
+          <p>{titleState}</p>
+        </FooterButton>
+        <FooterButton className="meta">
+          <p>
+            {locationState}
+            <br></br>
+            {yearState}
+          </p>
+        </FooterButton>
+        <FooterButton className="about">
+          <p>{aboutState}</p>
+        </FooterButton>
+      </FooterCon>
+      <FooterConBlur>
+        <FooterButtonBlur className="title">
+          <p>{titleState}</p>
+        </FooterButtonBlur>
+        <FooterButtonBlur className="meta">
+          <p>
+            {locationState}
+            <br></br>
+            {yearState}
+          </p>
+        </FooterButtonBlur>
+        <FooterButtonBlur className="about">
+          <p>{aboutState}</p>
+        </FooterButtonBlur>
+      </FooterConBlur>
       <HeroCon>
         <p>
           The design office of Theo Ford. Specialising in graphic design,
@@ -413,7 +444,7 @@ const Index = ({ data }) => {
 export default withPrismicPreview(Index);
 
 export const query = graphql`
-  query IndexQuery70 {
+  query IndexQuery71 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {

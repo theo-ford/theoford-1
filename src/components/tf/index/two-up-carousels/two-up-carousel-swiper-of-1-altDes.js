@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import SwiperIndexContext from "./swiper-index-context";
+import { useOnScreen } from "../../../hooks/useOnScreen";
 
 const SwiperCarouselCon = styled.div`
   /* margin-left: 12.5px; */
@@ -131,8 +132,14 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
   const [swiper, setSwiper] = React.useState(null);
   const [currentSlide3, setCurrentSlide3] = useState();
   const carouselIndex = useContext(SwiperIndexContext);
-  console.log("HELLO");
-  console.log(carouselIndex);
+  const projectRef = useRef(null);
+  const isOnScreen = useOnScreen(projectRef);
+
+  useEffect(() => {
+    if (isOnScreen == true) {
+      console.log(projectRef);
+    }
+  }, [isOnScreen]);
 
   useEffect(() => {
     // initSwiper(index);
@@ -170,19 +177,12 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
       <CarouselHeader>
         <Grid16>
           <TwoUpCarouselCounterOneCon>
-            {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-            {/* <p>{("0" + (currentSlide1 + 1)).slice(-2)}</p> */}
-            {/* <p>{("0" + currentSlide1).slice(-2)}</p> */}
             <p>
               {currentSlide1} of {projectLength + 1}
             </p>
           </TwoUpCarouselCounterOneCon>
           <TwoUpCarouselCounterTwoCon>
-            {/* <p>{("0" + (currentSlide + 1)).slice(-2)}</p> */}
-            {/* <p>{("0" + (currentSlide2 + 2)).slice(-2)}</p> */}
-            {/* <p>{("0" + currentSlide2).slice(-2)}</p> */}
             <p>
-              {/* {currentSlide3} of {projectLength} */}
               {currentSlide2} of {projectLength + 1}
             </p>
           </TwoUpCarouselCounterTwoCon>
@@ -197,7 +197,7 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
         </Grid16>
       </CarouselHeader>
 
-      <SwiperCarouselCon>
+      <SwiperCarouselCon ref={projectRef}>
         <ButtonCon>
           <PrevButton onClick={prevFunc}></PrevButton>
           <NextButton onClick={forwardFunc}></NextButton>
@@ -209,13 +209,6 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
           spaceBetween={1.5}
           loop={true}
           onSlideChange={index => updateCurrentSlide(index)}
-          // pagination={{
-          //   clickable: true,
-          // }}
-          // navigation={{
-          //   prevEl: ".swiper-slide-active",
-          //   nextEl: ".swiper-slide-next",
-          // }}
           modules={[Navigation]}
           className="mySwiper"
           onSwiper={s => {
