@@ -10,15 +10,16 @@ import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { Intro } from "../components/tf/index/intro";
-import { ProjectInfo2 } from "../components/tf/index/project-info2";
+import { ProjectInfo2NoButtons } from "../components/tf/index/project-info2-noButtons";
 
-import { TwoUpProjectCarouselSwiperOf01 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-01";
-import { OneUpProjectCarouselSwiperOf01 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-01";
+import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1";
+import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
 import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
 import { VideoWithControlsImg2 } from "../components/tf/index/video";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperIndexContext from "../components/tf/index/two-up-carousels/swiper-index-context";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -327,10 +328,10 @@ const Index = ({ data }) => {
                   React.cloneElement(child, {})
                 )}
               </FilmLeadCarousel2>
-              <ProjectInfo2
+              <ProjectInfo2NoButtons
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
+              ></ProjectInfo2NoButtons>
             </ProjectCon>
           </>
         );
@@ -344,9 +345,15 @@ const Index = ({ data }) => {
               const image = getImage(content_four.primary.image);
               return (
                 <SwiperSlide>
-                  <SquareImg>
-                    <GatsbyImage image={image} />
-                  </SquareImg>
+                  {/* {console.log(swiperSlideIndex)} */}
+                  <SwiperIndexContext.Provider value={index}>
+                    {/* <p>
+                      {index + 1} of {projectLength}
+                    </p> */}
+                    <SquareImg>
+                      <GatsbyImage image={image} />
+                    </SquareImg>
+                  </SwiperIndexContext.Provider>
                 </SwiperSlide>
               );
             }
@@ -354,14 +361,16 @@ const Index = ({ data }) => {
               if (isPageWide) {
                 const posterImg = content_four.primary.index_image;
                 return (
-                  <SwiperSlide>
-                    <IndexAutoPlayVideoCon>
-                      <AutoPlayVideo
-                        srcProps={content_four.primary.video.url}
-                        posterProps={posterImg}
-                      />
-                    </IndexAutoPlayVideoCon>
-                  </SwiperSlide>
+                  <SwiperIndexContext.Provider value={index}>
+                    <SwiperSlide>
+                      <IndexAutoPlayVideoCon>
+                        <AutoPlayVideo
+                          srcProps={content_four.primary.video.url}
+                          posterProps={posterImg}
+                        />
+                      </IndexAutoPlayVideoCon>
+                    </SwiperSlide>
+                  </SwiperIndexContext.Provider>
                 );
               } else {
                 const posterImg = content_four.primary.index_image;
@@ -382,7 +391,7 @@ const Index = ({ data }) => {
         if (isPageWide && projectLength > 1) {
           return (
             <ProjectCon>
-              <TwoUpProjectCarouselSwiperOf01
+              <TwoUpProjectCarouselSwiperOf1
                 projectLength={
                   content.project_relationship_field.document.data.body.length
                 }
@@ -392,11 +401,11 @@ const Index = ({ data }) => {
                     changedSlide: false,
                   })
                 )}
-              </TwoUpProjectCarouselSwiperOf01>
-              <ProjectInfo2
+              </TwoUpProjectCarouselSwiperOf1>
+              <ProjectInfo2NoButtons
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
+              ></ProjectInfo2NoButtons>
             </ProjectCon>
           );
         } else if (isPageWide && projectLength <= 1) {
@@ -404,10 +413,10 @@ const Index = ({ data }) => {
             <>
               <ProjectCon>
                 <SingleAssetProject>{project}</SingleAssetProject>
-                <ProjectInfo2
+                <ProjectInfo2NoButtons
                   data2={content.project_relationship_field.document.data}
                   uid={content.project_relationship_field.document.uid}
-                ></ProjectInfo2>
+                ></ProjectInfo2NoButtons>
               </ProjectCon>
             </>
           );
@@ -416,27 +425,27 @@ const Index = ({ data }) => {
             <>
               <ProjectCon>
                 <SingleAssetProject>{project}</SingleAssetProject>
-                <ProjectInfo2
+                <ProjectInfo2NoButtons
                   data2={content.project_relationship_field.document.data}
                   uid={content.project_relationship_field.document.uid}
-                ></ProjectInfo2>
+                ></ProjectInfo2NoButtons>
               </ProjectCon>
             </>
           );
         } else if (isPageWide == false) {
           return (
             <ProjectCon>
-              <OneUpProjectCarouselSwiperOf01 projectLength={projectLength}>
+              <OneUpProjectCarouselSwiperOf1 projectLength={projectLength}>
                 {React.Children.map(project, child =>
                   React.cloneElement(child, {
                     changedSlide: false,
                   })
                 )}
-              </OneUpProjectCarouselSwiperOf01>
-              <ProjectInfo2
+              </OneUpProjectCarouselSwiperOf1>
+              <ProjectInfo2NoButtons
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
+              ></ProjectInfo2NoButtons>
             </ProjectCon>
           );
         }
@@ -465,7 +474,7 @@ const Index = ({ data }) => {
 export default withPrismicPreview(Index);
 
 export const query = graphql`
-  query IndexQuery53 {
+  query IndexQuery58 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {

@@ -40,7 +40,7 @@ const Grid2 = styled.div`
 
 const ProjectInfoCon = styled.div`
   height: 80px;
-  margin-top: 8px;
+  /* margin-top: 8px; */
   @media (max-width: 666px) {
     margin-top: 4px;
   }
@@ -142,14 +142,10 @@ export const ProjectInfo2 = ({ data2, uid }) => {
           </ProjectIndexAbout>
           <MoreButtonCon>
             <MoreButtonConP>
-              <Link to={uid}>
-                <p>More</p>
-              </Link>
+              <p>More</p>
             </MoreButtonConP>
             <MoreButtonConPBlur>
-              <Link to={uid}>
-                <p>More</p>
-              </Link>
+              <p>More</p>
             </MoreButtonConPBlur>
           </MoreButtonCon>
         </Grid16>

@@ -11,7 +11,7 @@ import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { AutoPlayVideoAltDes } from "../components/tf/autoplay-video-altDes";
 import { Intro } from "../components/tf/index/intro";
-import { ProjectInfo2 } from "../components/tf/index/project-info2";
+import { ProjectInfo2 } from "../components/tf/index/project-info2-altDes";
 
 import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-altDes";
 import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1-altDes";

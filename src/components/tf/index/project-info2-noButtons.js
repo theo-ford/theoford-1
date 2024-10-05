@@ -89,32 +89,19 @@ const MoreButtonCon = styled.div`
 `;
 const MoreButtonConP = styled.div`
   cursor: pointer;
-  background-color: #c0baba;
-  border-radius: 6px;
-  opacity: 0.5;
+  /* background-color: #c0baba;
+  border-radius: 6px; */
+  /* opacity: 0.5; */
   p {
     color: white;
-    font-size: 12px;
+    font-size: 16px;
     padding: 2px;
     padding-left: 4px;
+    color: #878787;
   }
 `;
-const MoreButtonConPBlur = styled.div`
-  /* position: absolute; */
-  filter: blur(5px);
-  cursor: pointer;
-  background-color: #c0baba;
-  border-radius: 6px;
-  opacity: 0.5;
-  margin-top: -16px;
-  p {
-    color: white;
-    font-size: 12px;
-    padding: 2px;
-    padding-left: 4px;
-  }
-`;
-export const ProjectInfo2 = ({ data2, uid }) => {
+
+export const ProjectInfo2NoButtons = ({ data2, uid }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
   if (isPageWide) {
     return (
@@ -146,11 +133,6 @@ export const ProjectInfo2 = ({ data2, uid }) => {
                 <p>More</p>
               </Link>
             </MoreButtonConP>
-            <MoreButtonConPBlur>
-              <Link to={uid}>
-                <p>More</p>
-              </Link>
-            </MoreButtonConPBlur>
           </MoreButtonCon>
         </Grid16>
       </ProjectInfoCon>

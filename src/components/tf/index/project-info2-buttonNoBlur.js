@@ -13,13 +13,18 @@ import { useMediaQuery } from "../media-query";
 /* - - - - - PROJECT INFO - - - - - */
 const Grid16 = styled.div`
   display: grid;
-  top: 12.5px;
+  /* top: 12.5px; */
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 12.5px;
   margin-left: 12.5px;
   grid-row-gap: 0;
   width: calc(100% - 25px);
   z-index: 20000;
+  @media (max-width: 666px) {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
 `;
 const Grid2 = styled.div`
   display: grid;
@@ -30,6 +35,7 @@ const Grid2 = styled.div`
   grid-row-gap: 0;
   width: calc(100% - 20px);
   z-index: 20000;
+  margin-bottom: 8px;
 `;
 
 const ProjectInfoCon = styled.div`
@@ -41,11 +47,15 @@ const ProjectInfoCon = styled.div`
 `;
 const ProjectTitleCon = styled.div`
   grid-column: span 4;
-
+  a {
+    /* color: #878787; */
+    /* color: #0047ff; */
+  }
   @media (max-width: 666px) {
     grid-column: span 1;
     a {
-      color: #d4d4d4;
+      color: #878787;
+      /* color: #0047ff; */
     }
   }
 `;
@@ -68,39 +78,61 @@ const ProjectIndexAbout = styled.div`
 const ProjectLink = styled.div`
   grid-column: 15 / span 2;
   a {
-    color: #d4d4d4;
+    color: #878787 !important;
   }
   @media (max-width: 666px) {
     display: none;
   }
 `;
+const MoreButtonCon = styled.div`
+  grid-column: 15 / span 1;
+`;
+const MoreButtonConP = styled.div`
+  cursor: pointer;
+  background-color: #c0baba;
+  border-radius: 6px;
+  opacity: 0.5;
+  p {
+    color: white;
+    font-size: 12px;
+    padding: 2px;
+    padding-left: 4px;
+  }
+`;
 
-export const ProjectInfo = ({
-  title,
-  year,
-  location,
-  uid,
-  homepage_intro,
-  client,
-}) => {
+export const ProjectInfo2 = ({ data2, uid }) => {
   let isPageWide = useMediaQuery("(min-width: 667px)");
   if (isPageWide) {
     return (
       <ProjectInfoCon>
         <Grid16>
           <ProjectTitleCon>
-            <Link to={uid}>{title}</Link>
+            <Link to={uid}>
+              <p>
+                {data2.project_title.text}
+                <br></br>
+                {data2.show_client_on_index ? (
+                  <span>{data2.client.text}</span>
+                ) : (
+                  ""
+                )}
+              </p>
+            </Link>
           </ProjectTitleCon>
           <ProjectLocationYearCon>
-            <p>{location}</p>
-            <p>{year}</p>
+            <p>{data2.location.text}</p>
+            <p>{data2.year.text}</p>
           </ProjectLocationYearCon>
           <ProjectIndexAbout>
-            <p>{homepage_intro}</p>
+            <p>{data2.homepage_intro.text}</p>
           </ProjectIndexAbout>
-          <ProjectLink>
-            <Link to={uid}>More Info</Link>
-          </ProjectLink>
+          <MoreButtonCon>
+            <MoreButtonConP>
+              <Link to={uid}>
+                <p>More</p>
+              </Link>
+            </MoreButtonConP>
+          </MoreButtonCon>
         </Grid16>
       </ProjectInfoCon>
     );
@@ -109,11 +141,21 @@ export const ProjectInfo = ({
       <ProjectInfoCon>
         <Grid2>
           <ProjectTitleCon>
-            <Link to={uid}>{title}</Link>
+            <Link to={uid}>
+              <p>
+                {data2.project_title.text}
+                <br></br>
+                {data2.show_client_on_index ? (
+                  <span>{data2.client.text}</span>
+                ) : (
+                  ""
+                )}
+              </p>
+            </Link>
           </ProjectTitleCon>
           <ProjectLocationYearCon>
-            <p>{location}</p>
-            <p>{year}</p>
+            <p>{data2.location.text}</p>
+            <p>{data2.year.text}</p>
           </ProjectLocationYearCon>
         </Grid2>
       </ProjectInfoCon>

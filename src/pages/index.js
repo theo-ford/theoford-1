@@ -12,7 +12,7 @@ import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo2 } from "../components/tf/index/project-info2";
 
-import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1";
+import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-button";
 import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
