@@ -385,11 +385,11 @@ const Index = ({ data }) => {
           <p>Index</p>
         </NavButtonBlur>
         <NavButtonBlur className="bio">
-          <p>Bio</p>
+          <p>About</p>
         </NavButtonBlur>
-        <NavButtonBlur className="contact">
+        {/* <NavButtonBlur className="contact">
           <p>Contact</p>
-        </NavButtonBlur>
+        </NavButtonBlur> */}
         <NavButtonBlur className="instagram">
           <p>Instagram</p>
         </NavButtonBlur>
@@ -408,11 +408,11 @@ const Index = ({ data }) => {
           <p>Index</p>
         </NavButton>
         <NavButton className="bio">
-          <p>Bio</p>
+          <p>About</p>
         </NavButton>
-        <NavButton className="contact">
+        {/* <NavButton className="contact">
           <p>Contact</p>
-        </NavButton>
+        </NavButton> */}
         <NavButton className="instagram">
           <p>Instagram</p>
         </NavButton>
