@@ -12,20 +12,28 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+import SwiperIndexContext from "./swiper-index-context";
+import { useOnScreen } from "../../../hooks/useOnScreen";
+
 const SwiperCarouselCon = styled.div`
-  /* margin-left: 12.5px;
-  width: calc(100%-12.5px); */
-
+  /* margin-left: 12.5px; */
+  width: calc(100% - 12.5px);
+  margin-left: 6.25px;
+  /* background-color: red; */
   position: relative;
-
-  width: calc(100%);
-  /* margin-left: 4px; */
-
-  margin-top: 6px;
-  margin-bottom: -10px;
-  /* @media (max-width: 666px) {
-    
+  /* cursor: e-resize; */
+  /* .swiper-slide-active {
+    cursor: w-resize;
+  }
+  .swiper-slide-next {
+    cursor: e-resize;
   } */
+  .swiper-slide {
+    /* border-radius: 10px !important;
+    overflow: hidden;
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.13); */
+    /* background-color: blue; */
+  }
 `;
 const ButtonCon = styled.div`
   width: 100%;
@@ -49,6 +57,7 @@ const NextButton = styled.div`
   float: right;
   cursor: e-resize;
 `;
+
 const Grid16 = styled.div`
   display: grid;
   /* top: 12.5px; */
@@ -59,31 +68,26 @@ const Grid16 = styled.div`
   width: calc(100% - 25px);
   z-index: 20000;
   position: absolute;
-  @media (max-width: 666px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    width: calc(100% - 20px);
-    margin-left: 10px;
-    top: 10px;
-    grid-gap: 10px;
-  }
 `;
-const CarouselHeaderCon = styled.div`
-  width: 100%;
-  background-color: red;
-  /* height: 200px; */
-  /* margin-top: -23px; */
-  margin-top: -24px;
+const CarouselHeader = styled.div`
+  /* background-color: red; */
   position: absolute;
+  width: 100%;
+  height: 20px;
+  margin-top: -12px;
 `;
-const CarouselCounterCon = styled.div`
-  grid-column: span 2;
+
+const TwoUpCarouselCounterOneCon = styled.div`
+  grid-column: span 8;
+`;
+const TwoUpCarouselCounterTwoCon = styled.div`
+  grid-column: span 6;
 `;
 const breatheAnimation = keyframes`
   0% {opacity: 0.4} 
   50% {opacity: 1}
   100% {opacity: 0.4}
 `;
-
 const NextButtonCon = styled.div`
   grid-column: span 1;
 `;
@@ -92,12 +96,12 @@ const NextButtonConP = styled.div`
   background-color: #c0baba;
   border-radius: 6px;
   opacity: 0.5;
-  margin-top: -4px;
+  margin-top: -7px;
   p {
     color: white;
     font-size: 16px;
     padding: 2px;
-    padding-left: 4px;
+    padding-left: 6px;
   }
   animation-name: ${breatheAnimation};
   animation-duration: 2s;
@@ -108,94 +112,58 @@ const NextButtonConPBlur = styled.div`
   filter: blur(5px);
   cursor: pointer;
   background-color: #c0baba;
-  border-radius: 10px;
-  opacity: 0.5;
-  margin-top: -20px;
-  p {
-    color: white;
-    font-size: 12px;
-    padding: 2px;
-    padding-left: 4px;
-  }
-`;
-const MoreButtonCon = styled.div`
-  grid-column: span 1;
-`;
-const MoreButtonConP = styled.div`
-  cursor: pointer;
-  background-color: #c0baba;
-  border-radius: 10px;
-  opacity: 0.5;
-  margin-top: -4px;
-  p {
-    color: white;
-    font-size: 16px;
-    padding: 2px;
-    padding-left: 4px;
-  }
-  /* animation-name: ${breatheAnimation};
-  animation-duration: 2s;
-  animation-iteration-count: infinite; */
-`;
-const MoreButtonConPBlur = styled.div`
-  /* position: absolute; */
-  filter: blur(5px);
-  cursor: pointer;
-  background-color: #c0baba;
   border-radius: 6px;
   opacity: 0.5;
   margin-top: -20px;
   p {
     color: white;
-    font-size: 12px;
+    font-size: 16px;
     padding: 2px;
-    padding-left: 4px;
+    padding-left: 6px;
   }
 `;
 
-export const OneUpProjectCarouselSwiperOf1 = ({
+export const TwoUpProjectCarouselSwiperOf1 = ({
   children,
 
   projectLength,
 }) => {
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
   const [currentSlide1, setCurrentSlide1] = useState(null);
+  const [currentSlide2, setCurrentSlide2] = useState(null);
   const [swiper, setSwiper] = React.useState(null);
-  // the required distance between touchStart and touchEnd to be detected as a swipe
+  const [currentSlide3, setCurrentSlide3] = useState();
+  const carouselIndex = useContext(SwiperIndexContext);
+  const projectRef = useRef(null);
+  const isOnScreen = useOnScreen(projectRef);
+
+  useEffect(() => {
+    if (isOnScreen == true) {
+      console.log(projectRef);
+    }
+  }, [isOnScreen]);
 
   useEffect(() => {
     // initSwiper(index);
     if (swiper) {
       // console.log(swiper);
       setCurrentSlide1(swiper.realIndex + 1);
+      setCurrentSlide2(swiper.realIndex + 2);
+      setCurrentSlide3(swiper.snapIndex);
     }
   }, [swiper]);
+
   const updateCurrentSlide = index => {
     // console.log("testing 2234");
     // console.log(index);
     setCurrentSlide1(index.realIndex + 1);
+    setCurrentSlide2(index.realIndex + 2);
+    setCurrentSlide3(index.snapIndex);
   };
-  const minSwipeDistance = 50;
 
-  const onTouchStart = e => {
-    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-  const onTouchMove = e => setTouchEnd(e.targetTouches[0].clientX);
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-    if (isLeftSwipe || isRightSwipe)
-      if (isLeftSwipe) {
-        // console.log("swipe", isLeftSwipe ? "left" : "right");
-        // add your conditional logic here
-        swiperRef.current.swiper.slideNext();
-      } else if (isRightSwipe) {
-        swiperRef.current.swiper.slidePrev();
-      }
+  const initSwiper = index => {
+    // console.log("init swiper");
+    setCurrentSlide1(index.previousRealIndex);
+    setCurrentSlide2(index.realIndex);
   };
 
   const swiperRef = useRef(null);
@@ -207,14 +175,18 @@ export const OneUpProjectCarouselSwiperOf1 = ({
   }
   return (
     <>
-      <CarouselHeaderCon>
+      <CarouselHeader>
         <Grid16>
-          <CarouselCounterCon>
-            {/* <p>{("0" + currentSlide1).slice(-2)}</p> */}
+          <TwoUpCarouselCounterOneCon>
             <p>
-              {currentSlide1} of {projectLength}
+              {currentSlide1} of {projectLength + 1}
             </p>
-          </CarouselCounterCon>
+          </TwoUpCarouselCounterOneCon>
+          <TwoUpCarouselCounterTwoCon>
+            <p>
+              {currentSlide2} of {projectLength + 1}
+            </p>
+          </TwoUpCarouselCounterTwoCon>
           <NextButtonCon>
             <NextButtonConP>
               <p onClick={forwardFunc}>Next</p>
@@ -223,46 +195,27 @@ export const OneUpProjectCarouselSwiperOf1 = ({
               <p onClick={forwardFunc}>Next</p>
             </NextButtonConPBlur>
           </NextButtonCon>
-          <MoreButtonCon>
-            <MoreButtonConP>
-              <p>More</p>
-            </MoreButtonConP>
-            <MoreButtonConPBlur>
-              <p>More</p>
-            </MoreButtonConPBlur>
-          </MoreButtonCon>
         </Grid16>
-      </CarouselHeaderCon>
+      </CarouselHeader>
 
-      <SwiperCarouselCon
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-      >
+      <SwiperCarouselCon ref={projectRef}>
         <ButtonCon>
           <PrevButton onClick={prevFunc}></PrevButton>
           <NextButton onClick={forwardFunc}></NextButton>
         </ButtonCon>
         <Swiper
           ref={swiperRef}
-          slidesPerView={1}
+          slidesPerView={2}
+          slidesPerGroup={1}
           spaceBetween={1.5}
           loop={true}
-          speed={1}
           onSlideChange={index => updateCurrentSlide(index)}
-          // pagination={{
-          //   clickable: true,
-          // }}
-          // navigation={{
-          //   prevEl: ".swiper-slide-active",
-          //   nextEl: ".swiper-slide-next",
-          // }}
+          modules={[Navigation]}
+          className="mySwiper"
           onSwiper={s => {
             // console.log(s);
             setSwiper(s);
           }}
-          modules={[Navigation]}
-          className="mySwiper"
         >
           {children}
         </Swiper>

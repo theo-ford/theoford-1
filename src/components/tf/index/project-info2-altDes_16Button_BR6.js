@@ -90,7 +90,7 @@ const MoreButtonCon = styled.div`
 const MoreButtonConP = styled.div`
   cursor: pointer;
   background-color: #c0baba;
-  border-radius: 10px;
+  border-radius: 6px;
   opacity: 0.5;
   margin-top: -1px;
   p {
@@ -105,7 +105,7 @@ const MoreButtonConPBlur = styled.div`
   filter: blur(5px);
   cursor: pointer;
   background-color: #c0baba;
-  border-radius: 10px;
+  border-radius: 6px;
   opacity: 0.5;
   margin-top: -22px;
   p {

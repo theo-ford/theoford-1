@@ -94,14 +94,14 @@ const NextButtonCon = styled.div`
 const NextButtonConP = styled.div`
   cursor: pointer;
   background-color: #c0baba;
-  border-radius: 6px;
+  border-radius: 10px;
   opacity: 0.5;
   margin-top: -7px;
   p {
     color: white;
     font-size: 16px;
     padding: 2px;
-    padding-left: 4px;
+    padding-left: 6px;
   }
   animation-name: ${breatheAnimation};
   animation-duration: 2s;
@@ -112,14 +112,14 @@ const NextButtonConPBlur = styled.div`
   filter: blur(5px);
   cursor: pointer;
   background-color: #c0baba;
-  border-radius: 6px;
+  border-radius: 10px;
   opacity: 0.5;
   margin-top: -20px;
   p {
     color: white;
     font-size: 16px;
     padding: 2px;
-    padding-left: 4px;
+    padding-left: 6px;
   }
 `;
 

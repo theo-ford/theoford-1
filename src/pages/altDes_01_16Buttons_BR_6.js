@@ -11,10 +11,10 @@ import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { AutoPlayVideoAltDes } from "../components/tf/autoplay-video-altDes";
 import { Intro } from "../components/tf/index/intro";
-import { ProjectInfo2 } from "../components/tf/index/project-info2-altDes_16Buttons";
+import { ProjectInfo2 } from "../components/tf/index/project-info2-altDes_16Button_BR6";
 
-import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-altDes_16Buttons";
-import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1-altDes_16Buttons";
+import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-altDes_16Buttons_BR6";
+import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1-altDes_16Buttons_BR6";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
 import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel-altDes";
@@ -74,7 +74,7 @@ const NavConBlur = styled.div`
 const NavButtonBlur = styled.div`
   grid-column: span 1;
   background-color: #c0baba;
-  border-radius: 10px;
+  border-radius: 6px;
   opacity: 0.5;
   filter: blur(5px);
   p {
@@ -113,7 +113,7 @@ const NavButtonBlur = styled.div`
 const NavButton = styled.div`
   grid-column: span 1;
   background-color: #c0baba;
-  border-radius: 10px;
+  border-radius: 6px;
   opacity: 0.5;
   p {
     color: white;
