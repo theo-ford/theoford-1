@@ -163,7 +163,7 @@ const HeroCon = styled.div`
     font-family: "Helvetica Now Var Roman", helvetica, sans-serif;
     font-variation-settings: "wght" 375;
     span.brands {
-      color: #d4d4d4;
+      color: #878787;
       margin-top: 30vh;
       margin-bottom: 30vh;
       width: 1059px;
