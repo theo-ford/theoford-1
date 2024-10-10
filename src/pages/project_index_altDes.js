@@ -535,7 +535,7 @@ const ProjectIndex = ({ data }) => {
         </NavButton>
 
         <NavButton className="select">
-          <Link to="/altDes_01_16Buttons">
+          <Link to="/altDes_01_16Buttons_ArrowsBig">
             <p>Select</p>
           </Link>
         </NavButton>

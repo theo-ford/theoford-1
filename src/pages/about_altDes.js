@@ -266,13 +266,13 @@ const ProjectIndex = ({ data }) => {
       </NavConBlur>
       <NavCon>
         <NavButton className="theo">
-          <Link to="/altDes_01_16Buttons">
+          <Link to="/altDes_01_16Buttons_ArrowsBig">
             <p>Theo Ford</p>
           </Link>
         </NavButton>
 
         <NavButton className="select">
-          <Link to="/altDes_01_16Buttons">
+          <Link to="/altDes_01_16Buttons_ArrowsBig">
             <p>Select</p>
           </Link>
         </NavButton>
