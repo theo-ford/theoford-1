@@ -150,8 +150,8 @@ const IntroCon = styled.div`
 const ImgCon = styled.div`
   width: calc(50% - 12.5px);
   margin-left: 12.5px;
-  border-radius: 10px;
-  overflow: hidden;
+  /* border-radius: 10px;
+  overflow: hidden; */
 `;
 const ImgCaptionCon = styled.div`
   width: calc(50% - 12.5px);
