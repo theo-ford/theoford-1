@@ -81,7 +81,7 @@ const NavButtonBlur = styled.div`
     color: #d6d6d6;
     font-size: 16px;
     padding: 2px;
-    padding-left: 4px;
+    padding-left: 6px;
   }
   &.theo {
     grid-column: span 2;
