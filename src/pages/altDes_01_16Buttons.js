@@ -159,7 +159,7 @@ const HeroCon = styled.div`
     width: 1100px;
     font-size: 48px;
     line-height: 110%;
-    letter-spacing: -1.1px !important;
+    letter-spacing: -0.6px !important;
     font-family: "Helvetica Now Var Roman", helvetica, sans-serif;
     font-variation-settings: "wght" 375;
     span.brands {
@@ -399,16 +399,26 @@ const Index = ({ data }) => {
       </NavConBlur>
       <NavCon>
         <NavButton className="theo">
-          <p>Theo Ford</p>
+          <Link to="/altDes_01_16Buttons">
+            <p>Theo Ford</p>
+          </Link>
         </NavButton>
+
         <NavButton className="select">
-          <p>Select</p>
+          <Link to="/altDes_01_16Buttons">
+            <p>Select</p>
+          </Link>
         </NavButton>
+
         <NavButton className="index">
-          <p>Index</p>
+          <Link to="/project_index_altDes">
+            <p>Index</p>
+          </Link>
         </NavButton>
         <NavButton className="bio">
-          <p>About</p>
+          <Link to="/about_altDes">
+            <p>About</p>
+          </Link>
         </NavButton>
         {/* <NavButton className="contact">
           <p>Contact</p>
