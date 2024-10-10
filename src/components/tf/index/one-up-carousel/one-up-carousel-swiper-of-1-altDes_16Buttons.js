@@ -97,7 +97,7 @@ const NextButtonConP = styled.div`
     color: white;
     font-size: 16px;
     padding: 2px;
-    padding-left: 4px;
+    padding-left: 6px;
   }
   animation-name: ${breatheAnimation};
   animation-duration: 2s;
@@ -115,7 +115,7 @@ const NextButtonConPBlur = styled.div`
     color: white;
     font-size: 12px;
     padding: 2px;
-    padding-left: 4px;
+    padding-left: 6px;
   }
 `;
 const MoreButtonCon = styled.div`
@@ -131,7 +131,7 @@ const MoreButtonConP = styled.div`
     color: white;
     font-size: 16px;
     padding: 2px;
-    padding-left: 4px;
+    padding-left: 6px;
   }
   /* animation-name: ${breatheAnimation};
   animation-duration: 2s;
@@ -149,7 +149,7 @@ const MoreButtonConPBlur = styled.div`
     color: white;
     font-size: 12px;
     padding: 2px;
-    padding-left: 4px;
+    padding-left: 6px;
   }
 `;
 
