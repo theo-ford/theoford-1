@@ -90,7 +90,7 @@ const NextButtonCon = styled.div`
 const NextButtonConP = styled.div`
   cursor: pointer;
   background-color: #c0baba;
-  border-radius: 6px;
+  border-radius: 10px;
   opacity: 0.5;
   margin-top: -4px;
   p {

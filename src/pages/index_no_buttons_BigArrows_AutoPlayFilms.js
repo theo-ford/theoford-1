@@ -9,16 +9,17 @@ import "../components/styles/index.css";
 import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
-import { AutoPlayVideoAltDes } from "../components/tf/autoplay-video-altDes";
-import { Intro } from "../components/tf/index/intro";
-import { ProjectInfo2 } from "../components/tf/index/project-info2-altDes_16Buttons";
 
-import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-altDes_16Buttons";
-import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1-altDes_16Buttons";
+import { AutoPlayVideoOriginalAuto } from "../components/tf/autoplay-video-OriginalAuto";
+import { Intro } from "../components/tf/index/intro";
+import { ProjectInfo2NoButtons } from "../components/tf/index/project-info2-noButtons";
+
+import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-bigArrows";
+import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
-import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel-altDes";
-import { VideoWithControlsImg3 } from "../components/tf/index/video-auto";
+import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel-originalAuto";
+import { VideoWithControlsImg2 } from "../components/tf/index/video";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperIndexContext from "../components/tf/index/two-up-carousels/swiper-index-context";
 
@@ -39,169 +40,122 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const NavCon = styled.div`
-  position: fixed;
-  z-index: 400000;
-  margin-top: 12.5px;
+/* - - - - - INTRO  - - - - -  */
+const IntroConCon = styled.div``;
+
+/* NAV */
+/* BOTH */
+const LogoGridCon = styled.div`
   width: calc(100% - 25px);
   margin-left: 12.5px;
-  display: grid;
-  grid-gap: 12.5px;
-  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */;
-  @media (max-width: 666px) {
-    width: calc(100% - 20px);
-    margin-left: 10px;
-    grid-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */;
-  }
-`;
-const NavConBlur = styled.div`
-  position: fixed;
+  position: sticky;
+  top: 12.5px;
   z-index: 300000;
-  margin-top: 12.5px;
-  width: calc(100% - 25px);
-  margin-left: 12.5px;
-  grid-gap: 12.5px;
+  mix-blend-mode: exclusion;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 4 */;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 12.5px;
+  /* background-color: green; */
   @media (max-width: 666px) {
-    width: calc(100% - 20px);
-    margin-left: 10px;
-    grid-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */;
-  }
-`;
-const NavButtonBlur = styled.div`
-  grid-column: span 1;
-  background-color: #c0baba;
-  border-radius: 10px;
-  opacity: 0.5;
-  filter: blur(5px);
-  p {
-    color: #d6d6d6;
-    font-size: 16px;
-    padding: 2px;
-    padding-left: 4px;
-  }
-  &.theo {
-    grid-column: span 2;
-    background-color: black;
-  }
-  &.select {
-    grid-column: 9 / span 1;
-    background-color: black;
-  }
-  &.instagram {
-    grid-column: 15 / span 1;
-  }
-  @media (max-width: 666px) {
-    &.select {
-      grid-column: span 1;
-    }
-    &.theo {
-      display: none;
-    }
-    &.instagram {
-      /* display: none; */
-      grid-column: span 1;
-    }
-    &.twitter {
-      display: none;
-    }
-    grid-column: span 1;
-  }
-`;
-const NavButton = styled.div`
-  grid-column: span 1;
-  background-color: #c0baba;
-  border-radius: 10px;
-  opacity: 0.5;
-  p {
-    color: white;
-    font-size: 16px;
-    padding: 2px;
-    padding-left: 6px;
-  }
-  &.theo {
-    grid-column: span 2;
-    background-color: black;
-  }
-  &.select {
-    grid-column: 9 / span 1;
-    background-color: black;
-  }
-  &.instagram {
-    grid-column: 15 / span 1;
-  }
-  @media (max-width: 666px) {
-    &.select {
-      grid-column: span 1;
-    }
-    &.theo {
-      display: none;
-    }
-    &.instagram {
-      /* display: none; */
-      grid-column: span 1;
-    }
-    &.twitter {
-      display: none;
-    }
-    grid-column: span 1;
-  }
-`;
-
-const HeroCon = styled.div`
-  p {
-    color: black;
-    opacity: 0.8;
+    /* width: calc(100% - 25px);
     margin-left: 12.5px;
-    margin-top: 30vh;
-    margin-bottom: 30vh;
-    width: 1100px;
-    font-size: 48px;
-    line-height: 110%;
-    letter-spacing: -0.6px !important;
-    font-family: "Helvetica Now Var Roman", helvetica, sans-serif;
-    font-variation-settings: "wght" 375;
-    span.brands {
-      color: #878787;
-      margin-top: 30vh;
-      margin-bottom: 30vh;
-      width: 1059px;
-      font-size: 48px;
-      line-height: 110%;
-      letter-spacing: -2.064px;
-    }
+    top: 10px; */
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    top: 10px;
+  }
+`;
+/* DESKTOP */
+const LogoConCon = styled.div`
+  /* grid-column: span 2; */
+
+  mix-blend-mode: exclusion;
+  width: calc(50vw - 18.75px);
+  /* background-color: red; */
+  position: sticky;
+  top: 12.5px;
+  margin-left: 12.5px;
+  float: left;
+  z-index: 200000;
+`;
+const MenuCon = styled.div`
+  mix-blend-mode: exclusion;
+  width: 200px;
+  float: left;
+  /* margin-left: calc(50vw - 18.75px); */
+  /* background-color: orange; */
+  position: sticky;
+  top: 12.5px;
+  margin-top: -2px;
+  margin-left: 12.5px;
+  z-index: 200000;
+`;
+const LogoCon = styled.div`
+  mix-blend-mode: exclusion;
+  width: calc(100%);
+  vertical-align: top;
+  transition: all 2s;
+  vertical-align: top;
+`;
+const DesktopNavP = styled.p`
+  color: #878787;
+  mix-blend-mode: exclusion;
+  a.selected {
+    color: white;
   }
   @media (max-width: 666px) {
-    p {
-      font-size: 18px;
-      width: calc(100% - 20px);
-      letter-spacing: -0.6px !important;
-      span.brands {
-        color: #cecece;
-        font-size: 18px;
-        letter-spacing: -0.6px !important;
-      }
+    display: none;
+  }
+`;
+
+/* MOBILE */
+
+const MobileLeftCol = styled.div`
+  grid-column: span 2;
+  mix-blend-mode: exclusion;
+`;
+const MobileRightCol = styled.div`
+  grid-column: span 2;
+  mix-blend-mode: exclusion;
+`;
+const MobileNavP = styled.p`
+  display: none;
+  color: #878787;
+  mix-blend-mode: exclusion;
+  &.selected {
+    color: white;
+  }
+  @media (max-width: 666px) {
+    display: block;
+  }
+`;
+const LogoConMobile = styled.div`
+  display: none;
+  mix-blend-mode: exclusion;
+  @media (max-width: 666px) {
+    display: block;
+    width: calc(75% - 6.25px);
+    margin-top: 28vh;
+    margin-left: 10px;
+    .shrink {
+      width: calc(75% - 6.25px);
     }
   }
 `;
 
-const IndexAutoPlayVideoCon = styled.div`
-  position: relative;
-  border-radius: 10px !important;
-  overflow: hidden;
-  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.13);
-  width: calc(100% - 12.5px);
-  margin-left: 6.25px;
-  margin-right: 6.25px;
-  margin-top: 12.5px;
-  margin-bottom: 12.5px;
+const NavSpacer = styled.div`
+  height: 32vh;
+  width: 100%;
   @media (max-width: 666px) {
-    /* width: 100% !important; */
-    width: calc(100% - 20px);
-    margin-left: 10px;
+    display: none;
+  }
+`;
+
+/* - - - - - PAGE  - - - - - */
+const PageCon = styled.div`
+  margin-top: 48vh;
+  @media (max-width: 666px) {
+    margin-top: 38vh;
   }
 `;
 
@@ -212,24 +166,131 @@ const ProjectCon = styled.div`
   }
 `;
 
-const SquareImg = styled.div`
-  /* width: calc(100% - 12.5px) !important; */
-  border-radius: 10px !important;
-  overflow: hidden;
-  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.13);
-  width: calc(100% - 12.5px);
-  margin-left: 6.25px;
-  margin-right: 6.25px;
-  margin-top: 12.5px;
-  margin-bottom: 12.5px;
+/* - - - - - INDEX AUTOPLAT VIDEO FORMATTING - - - - - */
+/* - - perhaps in the autoplay video component you put a conditional saying if page index apply this  - - */
+const IndexAutoPlayVideoCon = styled.div`
+  position: relative;
+  width: calc(100% - 12.5px) !important;
   @media (max-width: 666px) {
-    /* width: 100% !important; */
-    width: calc(100% - 20px);
-    margin-left: 10px;
+    width: 100%;
   }
 `;
+
+/* - - - - - - IMAGE - - - - - - - */
+const SquareImg = styled.div`
+  width: calc(100% - 12.5px) !important;
+  @media (max-width: 666px) {
+    /* width: 100% !important; */
+  }
+`;
+
+const Counter = styled.p`
+  margin-bottom: 5px;
+`;
+
 const Index = ({ data }) => {
+  console.log("2023/12/04 16:59");
+  const [pageLoad, setPageLoad] = useState(null);
   let isPageWide = useMediaQuery("(min-width: 667px)");
+  const LogoConRef2 = useRef(null);
+
+  // page load useEffect
+  // https://stackoverflow.com/questions/57729504/is-there-a-way-to-tell-when-your-react-app-page-is-done-loading-the-page-asset
+  useEffect(() => {
+    // callback function to call when event triggers
+    const onPageLoad = () => {
+      console.log("page loaded");
+      setPageLoad(true);
+      // do something else
+    };
+
+    // Check if the page has already loaded
+    if (document.readyState === "complete") {
+      onPageLoad();
+    } else {
+      window.addEventListener("load", onPageLoad, false);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener("load", onPageLoad);
+    }
+  }, []);
+
+  const NavIndexGridIndex = () => {
+    let isPageWide = useMediaQuery("(min-width: 667px)");
+    var [currentPage, setCurrentPage] = useState(null);
+    const LogoConRef = useRef(null);
+
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      // console.log(position);
+      if (position > 25) {
+        // console.log("greater than 100");
+        LogoConRef.current.classList.add("shrink");
+      } else if (position < 25) {
+        // console.log("less than 100");
+        LogoConRef.current.classList.remove("shrink");
+      }
+    };
+    // scroll use effect
+    useEffect(() => {
+      window.addEventListener("scroll", handleScroll, {
+        passive: true,
+      });
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
+
+    if (isPageWide) {
+      return (
+        <>
+          <LogoConCon style={{ opacity: pageLoad ? 1 : 0 }}>
+            <LogoCon ref={LogoConRef}>
+              <Link to="/">
+                <Icon />
+              </Link>
+            </LogoCon>
+          </LogoConCon>
+          <MenuCon style={{ opacity: pageLoad ? 1 : 0 }}>
+            <DesktopNavP>
+              <Link to="/" className="selected">
+                Select,{" "}
+              </Link>
+              <Link to="/project_index">Index, </Link>
+              <Link to="/office">Office</Link>
+            </DesktopNavP>
+          </MenuCon>
+        </>
+      );
+    }
+    if (!isPageWide) {
+      return (
+        <>
+          <LogoGridCon>
+            <MobileLeftCol>
+              <Link to="/">
+                <MobileNavP className="selected">Selected</MobileNavP>
+              </Link>
+              <Link to="/project_index">
+                <MobileNavP>Index</MobileNavP>
+              </Link>
+            </MobileLeftCol>
+
+            <MobileRightCol>
+              <Link to="/office">
+                <MobileNavP>Office</MobileNavP>
+              </Link>
+              <MobileNavP>Instagram</MobileNavP>
+            </MobileRightCol>
+          </LogoGridCon>
+          <LogoConMobile ref={LogoConRef}>
+            <Icon />
+          </LogoConMobile>
+        </>
+      );
+    }
+  };
+
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
     (content, index) => {
       if (
@@ -241,29 +302,21 @@ const Index = ({ data }) => {
               const posterImage = content_three.primary.video_thumbnail;
               if (isPageWide) {
                 return (
-                  // <VideoWithControlsImg3
-                  //   srcProps={content_three.primary.video_with_play_button.url}
-                  //   posterProps={posterImage}
-                  //   img={posterImage}
-                  // ></VideoWithControlsImg3>
-                  <AutoPlayVideoAltDes
+                  <AutoPlayVideoOriginalAuto
                     srcProps={content_three.primary.video_with_play_button.url}
                     posterProps={posterImage}
-                  />
+                    img={posterImage}
+                  ></AutoPlayVideoOriginalAuto>
                 );
               } else {
                 return (
-                  // <VideoWithControlsImg3
-                  //   srcProps={
-                  //     content_three.primary.small_video_with_play_button.url
-                  //   }
-                  //   posterProps={posterImage}
-                  //   img={posterImage}
-                  // ></VideoWithControlsImg3>
-                  <AutoPlayVideoAltDes
-                    srcProps={content_three.primary.video_with_play_button.url}
+                  <AutoPlayVideoOriginalAuto
+                    srcProps={
+                      content_three.primary.small_video_with_play_button.url
+                    }
                     posterProps={posterImage}
-                  />
+                    img={posterImage}
+                  ></AutoPlayVideoOriginalAuto>
                 );
               }
             }
@@ -277,11 +330,10 @@ const Index = ({ data }) => {
                   React.cloneElement(child, {})
                 )}
               </FilmLeadCarousel2>
-              <ProjectInfo2
-                // style={{ marginTop: "40px" }}
+              <ProjectInfo2NoButtons
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
+              ></ProjectInfo2NoButtons>
             </ProjectCon>
           </>
         );
@@ -298,8 +350,8 @@ const Index = ({ data }) => {
                   {/* {console.log(swiperSlideIndex)} */}
                   <SwiperIndexContext.Provider value={index}>
                     {/* <p>
-                          {index + 1} of {projectLength}
-                        </p> */}
+                      {index + 1} of {projectLength}
+                    </p> */}
                     <SquareImg>
                       <GatsbyImage image={image} />
                     </SquareImg>
@@ -338,7 +390,7 @@ const Index = ({ data }) => {
             }
           }
         );
-        if (isPageWide) {
+        if (isPageWide && projectLength > 1) {
           return (
             <ProjectCon>
               <TwoUpProjectCarouselSwiperOf1
@@ -346,105 +398,77 @@ const Index = ({ data }) => {
                   content.project_relationship_field.document.data.body.length
                 }
               >
-                {project}
+                {React.Children.map(project, child =>
+                  React.cloneElement(child, {
+                    changedSlide: false,
+                  })
+                )}
               </TwoUpProjectCarouselSwiperOf1>
-              <ProjectInfo2
+              <ProjectInfo2NoButtons
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
+              ></ProjectInfo2NoButtons>
             </ProjectCon>
+          );
+        } else if (isPageWide && projectLength <= 1) {
+          return (
+            <>
+              <ProjectCon>
+                <SingleAssetProject>{project}</SingleAssetProject>
+                <ProjectInfo2NoButtons
+                  data2={content.project_relationship_field.document.data}
+                  uid={content.project_relationship_field.document.uid}
+                ></ProjectInfo2NoButtons>
+              </ProjectCon>
+            </>
+          );
+        } else if (!isPageWide && projectLength <= 1) {
+          return (
+            <>
+              <ProjectCon>
+                <SingleAssetProject>{project}</SingleAssetProject>
+                <ProjectInfo2NoButtons
+                  data2={content.project_relationship_field.document.data}
+                  uid={content.project_relationship_field.document.uid}
+                ></ProjectInfo2NoButtons>
+              </ProjectCon>
+            </>
           );
         } else if (isPageWide == false) {
           return (
             <ProjectCon>
               <OneUpProjectCarouselSwiperOf1 projectLength={projectLength}>
-                {project}
+                {React.Children.map(project, child =>
+                  React.cloneElement(child, {
+                    changedSlide: false,
+                  })
+                )}
               </OneUpProjectCarouselSwiperOf1>
-              <ProjectInfo2
+              <ProjectInfo2NoButtons
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2>
+              ></ProjectInfo2NoButtons>
             </ProjectCon>
           );
         }
       }
     }
   );
+
   return (
     <>
       <GlobalStyle />
       <Helmet>
         <title>Theo Ford</title>
       </Helmet>
-      <NavConBlur>
-        <NavButtonBlur className="theo">
-          <p>Theo Ford</p>
-        </NavButtonBlur>
-        <NavButtonBlur className="select">
-          <p>Select</p>
-        </NavButtonBlur>
-        <NavButtonBlur className="index">
-          <p>Index</p>
-        </NavButtonBlur>
-        <NavButtonBlur className="bio">
-          <p>About</p>
-        </NavButtonBlur>
-        {/* <NavButtonBlur className="contact">
-          <p>Contact</p>
-        </NavButtonBlur> */}
-        <NavButtonBlur className="instagram">
-          <p>Instagram</p>
-        </NavButtonBlur>
-        <NavButtonBlur className="twitter">
-          <p>Twitter</p>
-        </NavButtonBlur>
-      </NavConBlur>
-      <NavCon>
-        <NavButton className="theo">
-          <Link to="/altDes_01_16Buttons">
-            <p>Theo Ford</p>
-          </Link>
-        </NavButton>
+      <IntroConCon style={{ opacity: pageLoad ? 1 : 0 }}>
+        <Intro></Intro>
+      </IntroConCon>
 
-        <NavButton className="select">
-          <Link to="/altDes_01_16Buttons">
-            <p>Select</p>
-          </Link>
-        </NavButton>
+      <NavSpacer></NavSpacer>
+      <NavIndexGridIndex></NavIndexGridIndex>
 
-        <NavButton className="index">
-          <Link to="/project_index_altDes">
-            <p>Index</p>
-          </Link>
-        </NavButton>
-        <NavButton className="bio">
-          <Link to="/about_altDes">
-            <p>About</p>
-          </Link>
-        </NavButton>
-        {/* <NavButton className="contact">
-          <p>Contact</p>
-        </NavButton> */}
-        <NavButton className="instagram">
-          <p>Instagram</p>
-        </NavButton>
-        <NavButton className="twitter">
-          <p>Twitter</p>
-        </NavButton>
-      </NavCon>
-
-      <HeroCon>
-        <p>
-          The design office of Theo Ford. Specialising in graphic design,
-          art-direction, moving-image and web development. Recent commissions
-          and collaborations include identities for{" "}
-          <span className="brands">Lunar Energy</span>, creative direction for{" "}
-          <span className="brands">American Apparel</span> and printed matter
-          for <span className="brands">Cos</span> .
-        </p>
-      </HeroCon>
-
-      {overview}
+      <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
     </>
   );
 };
@@ -452,7 +476,7 @@ const Index = ({ data }) => {
 export default withPrismicPreview(Index);
 
 export const query = graphql`
-  query IndexQuery72 {
+  query IndexQuery58 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {
