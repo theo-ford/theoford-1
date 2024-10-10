@@ -178,7 +178,7 @@ const HeroCon = styled.div`
       width: calc(100% - 20px);
       letter-spacing: -0.6px !important;
       span.brands {
-        color: #878787;
+        color: #cecece;
         font-size: 18px;
         letter-spacing: -0.6px !important;
       }
