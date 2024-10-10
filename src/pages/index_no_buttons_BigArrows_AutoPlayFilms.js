@@ -253,11 +253,14 @@ const Index = ({ data }) => {
           </LogoConCon>
           <MenuCon style={{ opacity: pageLoad ? 1 : 0 }}>
             <DesktopNavP>
-              <Link to="/" className="selected">
+              <Link
+                to="/index_no_buttons_BigArrows_AutoPlayFilms"
+                className="selected"
+              >
                 Select,{" "}
               </Link>
-              <Link to="/project_index">Index, </Link>
-              <Link to="/office">Office</Link>
+              <Link to="/project_index_altDes_CopyNav">Index, </Link>
+              <Link to="/about_altDes_Original">Office</Link>
             </DesktopNavP>
           </MenuCon>
         </>
@@ -268,16 +271,16 @@ const Index = ({ data }) => {
         <>
           <LogoGridCon>
             <MobileLeftCol>
-              <Link to="/">
+              <Link to="/index_no_buttons_BigArrows_AutoPlayFilms">
                 <MobileNavP className="selected">Selected</MobileNavP>
               </Link>
-              <Link to="/project_index">
+              <Link to="/project_index_altDes_CopyNav">
                 <MobileNavP>Index</MobileNavP>
               </Link>
             </MobileLeftCol>
 
             <MobileRightCol>
-              <Link to="/office">
+              <Link to="/about_altDes_Original">
                 <MobileNavP>Office</MobileNavP>
               </Link>
               <MobileNavP>Instagram</MobileNavP>

@@ -337,15 +337,17 @@ const ProjectIndex = ({ data }) => {
             </LogoConCon>
             <MenuCon>
               <DesktopNavP>
-                <Link to="/">Select, </Link>
+                <Link to="/index_no_buttons_BigArrows_AutoPlayFilms">
+                  Select,{" "}
+                </Link>
                 <Link
-                  to="/project_index"
+                  to="/project_index_altDes_CopyNav"
                   className={currentPage == "project_index" ? "selected" : ""}
                 >
                   Index,{" "}
                 </Link>
                 <Link
-                  to="/office"
+                  to="/about_altDes_Original"
                   className={currentPage == "office" ? "selected" : ""}
                 >
                   Office
@@ -362,10 +364,10 @@ const ProjectIndex = ({ data }) => {
         <>
           <LogoGridCon>
             <MobileLeftCol>
-              <Link to="/">
+              <Link to="/index_no_buttons_BigArrows_AutoPlayFilms">
                 <MobileNavP>Selected</MobileNavP>
               </Link>
-              <Link to="/project_index">
+              <Link to="/project_index_altDes_CopyNav">
                 <MobileNavP
                   className={currentPage == "project_index" ? "selected" : ""}
                 >
@@ -375,7 +377,7 @@ const ProjectIndex = ({ data }) => {
             </MobileLeftCol>
 
             <MobileRightCol>
-              <Link to="/office">
+              <Link to="/about_altDes_Original">
                 <MobileNavP
                   className={currentPage == "office" ? "selected" : ""}
                 >
