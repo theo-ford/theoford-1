@@ -219,7 +219,7 @@ const ProjectIndex = ({ data }) => {
                   Select,{" "}
                 </Link>
                 <Link
-                  to="/project_index_altDes_CopyNav"
+                  to="/project_index_altDes_OriginalNav"
                   className={currentPage == "project_index" ? "selected" : ""}
                 >
                   Index,{" "}
@@ -242,7 +242,7 @@ const ProjectIndex = ({ data }) => {
               <Link to="/index_no_buttons_BigArrows_AutoPlayFilms">
                 <MobileNavP>Selected</MobileNavP>
               </Link>
-              <Link to="/project_index_altDes_CopyNav">
+              <Link to="/project_index_altDes_OriginalNav">
                 <MobileNavP
                   className={currentPage == "project_index" ? "selected" : ""}
                 >

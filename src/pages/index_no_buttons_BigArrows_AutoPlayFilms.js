@@ -259,7 +259,7 @@ const Index = ({ data }) => {
               >
                 Select,{" "}
               </Link>
-              <Link to="/project_index_altDes_CopyNav">Index, </Link>
+              <Link to="/project_index_altDes_OriginalNav">Index, </Link>
               <Link to="/about_altDes_Original">Office</Link>
             </DesktopNavP>
           </MenuCon>
@@ -274,7 +274,7 @@ const Index = ({ data }) => {
               <Link to="/index_no_buttons_BigArrows_AutoPlayFilms">
                 <MobileNavP className="selected">Selected</MobileNavP>
               </Link>
-              <Link to="/project_index_altDes_CopyNav">
+              <Link to="/project_index_altDes_OriginalNav">
                 <MobileNavP>Index</MobileNavP>
               </Link>
             </MobileLeftCol>

@@ -18,6 +18,7 @@ import Icon from "../../assets/WhiteLogo.svg";
 // import PlayButton from "../../assets/Logo.jpg";
 // import PlayButton from "../../public/icons/logo.jpg";
 import { NavGrid } from "../components/tf/nav-grid/nav";
+// import Icon from "../../assets/WhiteLogo.svg";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -34,9 +35,87 @@ const GlobalStyle = createGlobalStyle`
   p {
     letter-spacing: -0.2px;
   }
+`;
 
-    
-  
+/* BOTH */
+const LogoGridCon = styled.div`
+  width: calc(100% - 25px);
+  margin-left: 12.5px;
+  position: sticky;
+  top: 12.5px;
+  z-index: 300000;
+  mix-blend-mode: exclusion;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 12.5px;
+  @media (max-width: 666px) {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    top: 10px;
+    /* width: calc(100% - 2px);
+    margin-left: 12.5px;
+    top: 12.5px; */
+  }
+`;
+/* DESKTOP */
+const LogoConCon = styled.div`
+  grid-column: span 1;
+  mix-blend-mode: exclusion;
+`;
+const MenuCon = styled.div`
+  grid-column: 3 / span 2;
+  mix-blend-mode: exclusion;
+`;
+const LogoCon = styled.div`
+  mix-blend-mode: exclusion;
+  width: calc(100%);
+  vertical-align: top;
+  transition: all 2s;
+  vertical-align: top;
+  p {
+    color: white;
+    span {
+      font-variation-settings: "wght" 600;
+    }
+  }
+`;
+const DesktopNavP = styled.p`
+  color: #878787;
+  mix-blend-mode: exclusion;
+  a.selected {
+    color: white;
+  }
+  @media (max-width: 666px) {
+    display: none;
+  }
+
+  &aria-current {
+    color: white;
+  }
+  /* a {
+    color: white;
+  } */
+`;
+
+/* MOBILE */
+const MobileLeftCol = styled.div`
+  grid-column: span 2;
+  mix-blend-mode: exclusion;
+`;
+const MobileRightCol = styled.div`
+  grid-column: span 2;
+  mix-blend-mode: exclusion;
+`;
+const MobileNavP = styled.p`
+  display: none;
+  color: #878787;
+  mix-blend-mode: exclusion;
+  &.selected {
+    color: white;
+  }
+  @media (max-width: 666px) {
+    display: block;
+  }
 `;
 
 const PageCon = styled.div`
@@ -223,6 +302,93 @@ const ProjectIndex = ({ data }) => {
   const [activeCategory, setCategory] = useState(null);
   const [categoriesVisible, setCategoriesVisible] = useState(false);
 
+  const Nav = () => {
+    let isPageWide = useMediaQuery("(min-width: 667px)");
+    var [currentPage, setCurrentPage] = useState(null);
+    const LogoConRef = useRef(null);
+
+    useEffect(() => {
+      var inputString = window.location.href;
+      if (inputString.includes("project_index")) {
+        setCurrentPage("project_index");
+      } else if (inputString.includes("office")) {
+        setCurrentPage("office");
+      } else {
+        setCurrentPage(null);
+      }
+    }, [setCurrentPage]);
+
+    if (isPageWide) {
+      return (
+        <>
+          <LogoGridCon>
+            <LogoConCon>
+              <LogoCon ref={LogoConRef}>
+                <Link to="/">
+                  <Icon />
+                </Link>
+              </LogoCon>
+            </LogoConCon>
+            <MenuCon>
+              <DesktopNavP>
+                <Link to="/index_no_buttons_BigArrows_AutoPlayFilms">
+                  Select,{" "}
+                </Link>
+                <Link
+                  to="/project_index_altDes_OriginalNav"
+                  className={currentPage == "project_index" ? "selected" : ""}
+                >
+                  Index,{" "}
+                </Link>
+                <Link
+                  to="/about_altDes_Original"
+                  className={currentPage == "office" ? "selected" : ""}
+                >
+                  Office
+                </Link>
+                {/* <br></br>Instagram, Twitter */}
+              </DesktopNavP>
+            </MenuCon>
+          </LogoGridCon>
+        </>
+      );
+    }
+    if (!isPageWide) {
+      return (
+        <>
+          <LogoGridCon>
+            <MobileLeftCol>
+              <Link to="/index_no_buttons_BigArrows_AutoPlayFilms">
+                <MobileNavP>Selected</MobileNavP>
+              </Link>
+              <Link to="/project_index_altDes_CopyNav">
+                <MobileNavP
+                  className={currentPage == "project_index" ? "selected" : ""}
+                >
+                  Index
+                </MobileNavP>
+              </Link>
+            </MobileLeftCol>
+
+            <MobileRightCol>
+              <Link to="/about_altDes_Original">
+                <MobileNavP
+                  className={currentPage == "office" ? "selected" : ""}
+                >
+                  Office
+                </MobileNavP>
+              </Link>
+              <MobileNavP>
+                <Link target="_blank" to="https://www.instagram.com/tf.public/">
+                  <span style={{ marginLeft: "0px" }}>Instagram</span>
+                </Link>
+              </MobileNavP>
+            </MobileRightCol>
+          </LogoGridCon>
+        </>
+      );
+    }
+  };
   const projectIndexSelectArray = data.prismicProjectIndexSelect.data.project_relationship_group.map(
     (content, index) => {
       return { content };
@@ -379,7 +545,7 @@ const ProjectIndex = ({ data }) => {
       </Helmet>
 
       <PageCon>
-        <NavGrid></NavGrid>
+        <Nav></Nav>
         <CategoryMenuConCon>
           <CategoryMenuCon>
             <Categories></Categories>
