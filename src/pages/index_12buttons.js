@@ -10,10 +10,10 @@ import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { Intro } from "../components/tf/index/intro";
-import { ProjectInfo2NoButtons } from "../components/tf/index/project-info2-noButtons";
+import { ProjectInfo2 } from "../components/tf/index/project-info2-buttonBlur";
 
-import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-bigArrows";
-import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1";
+import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-buttonBlur";
+import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1-ButtonsBlur";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
 import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
@@ -328,10 +328,10 @@ const Index = ({ data }) => {
                   React.cloneElement(child, {})
                 )}
               </FilmLeadCarousel2>
-              <ProjectInfo2NoButtons
+              <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2NoButtons>
+              ></ProjectInfo2>
             </ProjectCon>
           </>
         );
@@ -402,10 +402,10 @@ const Index = ({ data }) => {
                   })
                 )}
               </TwoUpProjectCarouselSwiperOf1>
-              <ProjectInfo2NoButtons
+              <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2NoButtons>
+              ></ProjectInfo2>
             </ProjectCon>
           );
         } else if (isPageWide && projectLength <= 1) {
@@ -413,10 +413,10 @@ const Index = ({ data }) => {
             <>
               <ProjectCon>
                 <SingleAssetProject>{project}</SingleAssetProject>
-                <ProjectInfo2NoButtons
+                <ProjectInfo2
                   data2={content.project_relationship_field.document.data}
                   uid={content.project_relationship_field.document.uid}
-                ></ProjectInfo2NoButtons>
+                ></ProjectInfo2>
               </ProjectCon>
             </>
           );
@@ -425,10 +425,10 @@ const Index = ({ data }) => {
             <>
               <ProjectCon>
                 <SingleAssetProject>{project}</SingleAssetProject>
-                <ProjectInfo2NoButtons
+                <ProjectInfo2
                   data2={content.project_relationship_field.document.data}
                   uid={content.project_relationship_field.document.uid}
-                ></ProjectInfo2NoButtons>
+                ></ProjectInfo2>
               </ProjectCon>
             </>
           );
@@ -442,10 +442,10 @@ const Index = ({ data }) => {
                   })
                 )}
               </OneUpProjectCarouselSwiperOf1>
-              <ProjectInfo2NoButtons
+              <ProjectInfo2
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
-              ></ProjectInfo2NoButtons>
+              ></ProjectInfo2>
             </ProjectCon>
           );
         }
