@@ -97,6 +97,7 @@ module.exports = {
         schemas: {
           project: require("./src/schemas/project.json"),
           film_lead_project: require("./src/schemas/film_lead_project.json"),
+          project_desktop: require("./src/schemas/project_desktop.json"),
           featured_projects: require("./src/schemas/featured_projects.json"),
           test_homepage: require("./src/schemas/test_homepage.json"),
           about: require("./src/schemas/about.json"),
