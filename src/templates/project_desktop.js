@@ -329,6 +329,35 @@ const ProjectDesktop = ({ data }) => {
           );
         }
       }
+      if (content.slice_type == "full_bleed_video") {
+        const posterImgProps = content.primary.poster_image;
+
+        return (
+          <>
+            <FullBleedImgCon>
+              <FullBleedImgConCon
+                columnStart={content.primary.column_start}
+                columnWidth={content.primary.column_width}
+              >
+                <AutoPlayVideo
+                  srcProps={content.primary.video.url}
+                  posterProps={posterImgProps}
+                />
+                <Caption
+                  style={{ marginLeft: "12.5px" }}
+                  CaptionFontSize={content.primary.caption_font_size}
+                >
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: content.primary.caption.html,
+                    }}
+                  />
+                </Caption>
+              </FullBleedImgConCon>
+            </FullBleedImgCon>
+          </>
+        );
+      }
     }
   );
 
@@ -505,6 +534,30 @@ export const query = graphql`
               column_width
               column_start
               caption_size
+              caption {
+                html
+                text
+              }
+            }
+          }
+          ... on PrismicProjectDesktopDataBody2FullBleedVideo {
+            id
+            slice_type
+            primary {
+              video {
+                url
+              }
+              small_video {
+                url
+              }
+              row_margin_top
+              poster_image {
+                gatsbyImageData
+              }
+              margin_top
+              column_width
+              column_start
+              caption_font_size
               caption {
                 html
                 text

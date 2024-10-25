@@ -652,7 +652,7 @@
               "caption": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, hyperlink",
+                  "multi": "paragraph,hyperlink",
                   "allowTargetBlank": true,
                   "label": "Caption"
                 }
@@ -663,6 +663,61 @@
                   "options": ["12px", "16px"],
                   "default_value": "12px",
                   "label": "Caption Font Size"
+                }
+              },
+              "row_margin_top": {
+                "type": "Select",
+                "config": {
+                  "options": ["120px", "0px"],
+                  "default_value": "120px",
+                  "label": "Row Margin Top"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "black_films_module": {
+            "type": "Slice",
+            "fieldset": "Black Films Module",
+            "description": "Black Films Module",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {
+              "video": {
+                "type": "Link",
+                "config": {
+                  "label": "Video"
+                }
+              },
+              "poster_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Poster Image"
+                }
+              },
+              "full_bleed": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Full Bleed"
+                }
+              },
+              "caption": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, hyperlink",
+                  "allowTargetBlank": true,
+                  "label": "Caption"
+                }
+              },
+              "caption_fonts_size": {
+                "type": "Select",
+                "config": {
+                  "options": ["12px", "16px"],
+                  "default_value": "12px",
+                  "label": "Caption Fonts Size"
                 }
               },
               "row_margin_top": {
