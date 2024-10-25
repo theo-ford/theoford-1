@@ -12,10 +12,17 @@ import { PageLoad } from "../components/tf/page-load";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { VideoProjectPage } from "../components/tf/project/video-project-page";
 import Logo from "../../assets/WhiteLogo.svg";
+import { AutoPlayVideoOriginalAuto } from "../components/tf/autoplay-video-OriginalAuto";
+
 const GlobalStyle = createGlobalStyle`
   p {
     letter-spacing: -0.2px;
   }
+  body {
+    width: calc(100vw);
+    overflow-x: hidden;
+  }
+  
 `;
 const PageConCon = styled.div`
   width: calc(100% - 25px);
@@ -193,7 +200,7 @@ const Caption = styled.div`
     max-width: 50vw;
     font-size: ${props => {
       const captionFontSize = props.CaptionFontSize;
-      console.log(captionFontSize);
+
       if (captionFontSize === "16px") {
         return "16px";
       } else if (captionFontSize === "12px") {
@@ -202,7 +209,7 @@ const Caption = styled.div`
     }};
     margin-top: ${props => {
       const captionFontSize = props.CaptionFontSize;
-      console.log(captionFontSize);
+
       if (captionFontSize === "16px") {
         return "6px";
       } else if (captionFontSize === "12px") {
@@ -210,6 +217,43 @@ const Caption = styled.div`
       }
     }};
   }
+`;
+
+const BlackFilmsModuleCon = styled.div`
+  grid-column: span 16;
+  width: calc(100% + 25px);
+  margin-left: -12.5px;
+  background-color: black;
+  height: 110vh;
+  margin-top: ${props => {
+    const test = props.RowMarginTop;
+    if (test === "120px") {
+      return "120px";
+    } else {
+      return "0px";
+    }
+  }};
+`;
+const BlackFilmsModuleConCon = styled.div`
+  width: ${props => {
+    const columnWidth = props.columnWidth;
+
+    if (columnWidth === "16") {
+      return "100%";
+    } else if (columnWidth === "8") {
+      return "calc(50% - 6.5px)";
+    }
+  }};
+
+  margin-left: ${props => {
+    const columnStart = props.columnStart;
+
+    if (columnStart === "0") {
+      return "0%";
+    } else if (columnStart === "8") {
+      return "calc(50% + 6.5px)";
+    }
+  }};
 `;
 
 const ProjectDesktop = ({ data }) => {
@@ -338,6 +382,7 @@ const ProjectDesktop = ({ data }) => {
               <FullBleedImgConCon
                 columnStart={content.primary.column_start}
                 columnWidth={content.primary.column_width}
+                RowMarginTop={content.primary.row_margin_top}
               >
                 <AutoPlayVideo
                   srcProps={content.primary.video.url}
@@ -358,11 +403,42 @@ const ProjectDesktop = ({ data }) => {
           </>
         );
       }
+      if (content.slice_type == "black_films_module") {
+        const posterImage = content.primary.poster_image;
+        console.log(posterImage);
+        return (
+          <>
+            <BlackFilmsModuleCon RowMarginTop={content.primary.row_margin_top}>
+              <BlackFilmsModuleConCon
+                columnStart={content.primary.column_start}
+                columnWidth={content.primary.column_width}
+              >
+                <AutoPlayVideoOriginalAuto
+                  srcProps={content.primary.video.url}
+                  posterProps={posterImage}
+                  img={posterImage}
+                />
+                <Caption
+                  style={{ marginLeft: "12.5px" }}
+                  CaptionFontSize={content.primary.caption_font_size}
+                >
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: content.primary.caption.html,
+                    }}
+                  />
+                </Caption>
+              </BlackFilmsModuleConCon>
+            </BlackFilmsModuleCon>
+          </>
+        );
+      }
     }
   );
 
   return (
     <>
+      <GlobalStyle />
       <Helmet>
         <title>
           Theo Ford – {data.prismicProjectDesktop.data.project_title.text}
@@ -562,6 +638,29 @@ export const query = graphql`
                 html
                 text
               }
+            }
+          }
+          ... on PrismicProjectDesktopDataBody2BlackFilmsModule {
+            id
+            slice_type
+            primary {
+              video {
+                url
+              }
+              poster_image {
+                gatsbyImageData
+                dimensions {
+                  height
+                  width
+                }
+              }
+              full_bleed
+              row_margin_top
+              caption {
+                html
+                text
+              }
+              caption_fonts_size
             }
           }
         }
