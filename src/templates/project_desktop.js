@@ -282,6 +282,53 @@ const ProjectDesktop = ({ data }) => {
           </>
         );
       }
+      if (content.slice_type == "video") {
+        if (isPageWide) {
+          const posterImgProps = content.primary.index_image;
+          return (
+            <SquareImgCon
+              columnStart={content.primary.column_start}
+              columnWidth={content.primary.column_width}
+              RowMarginTop={content.primary.row_margin_top}
+              ImgMarginTop={content.primary.margin_top}
+            >
+              <AutoPlayVideo
+                srcProps={content.primary.video.url}
+                posterProps={posterImgProps}
+              />
+              <Caption CaptionFontSize={content.primary.caption_font_size}>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: content.primary.caption.html,
+                  }}
+                />
+              </Caption>
+            </SquareImgCon>
+          );
+        } else {
+          const posterImgProps = content.primary.index_image;
+          return (
+            <SquareImgCon
+              columnStart={content.primary.column_start}
+              columnWidth={content.primary.column_width}
+              RowMarginTop={content.primary.row_margin_top}
+              ImgMarginTop={content.primary.margin_top}
+            >
+              <AutoPlayVideo
+                srcProps={content.primary.sml_video.url}
+                posterProps={posterImgProps}
+              />
+              <Caption CaptionFontSize={content.primary.caption_font_size}>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: content.primary.caption.html,
+                  }}
+                />
+              </Caption>
+            </SquareImgCon>
+          );
+        }
+      }
     }
   );
 
@@ -438,6 +485,30 @@ export const query = graphql`
                 html
               }
               row_margin_top
+            }
+          }
+          ... on PrismicProjectDesktopDataBody2Video {
+            id
+            slice_type
+            primary {
+              video {
+                url
+              }
+              sml_video {
+                url
+              }
+              row_margin_top
+              margin_top
+              index_image {
+                gatsbyImageData
+              }
+              column_width
+              column_start
+              caption_size
+              caption {
+                html
+                text
+              }
             }
           }
         }
