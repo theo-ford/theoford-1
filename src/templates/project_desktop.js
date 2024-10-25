@@ -76,7 +76,7 @@ const IntroCon = styled.div`
   width: calc(100% - 25px);
   margin-left: 12.5px;
   align-items: center;
-  height: 80vh;
+  height: 70vh;
 `;
 const IntroTextCon = styled.div`
   grid-column: span 8;
@@ -298,7 +298,12 @@ const ProjectDesktop = ({ data }) => {
             <Logo />
           </Link>
         </LogoCon>
-        <p> &nbsp;for Gold for Cash in Los Angeles, US. 2023.</p>
+        <p>
+          {" "}
+          &nbsp;for {data.prismicProjectDesktop.data.project_title.text} in{" "}
+          {data.prismicProjectDesktop.data.location.text}.{" "}
+          {data.prismicProjectDesktop.data.year.text}.
+        </p>
       </LogoTitleCon>
       <MenuCon>
         <DesktopNavP>
