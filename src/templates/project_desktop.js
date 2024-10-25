@@ -660,7 +660,7 @@ export const query = graphql`
                 html
                 text
               }
-              # caption_font_size
+              caption_font_size
             }
           }
         }
