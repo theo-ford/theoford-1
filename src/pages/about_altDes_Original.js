@@ -77,7 +77,7 @@ const LogoCon = styled.div`
   vertical-align: top;
   p {
     color: white;
-    span {
+    span.bold {
       font-variation-settings: "wght" 600;
     }
   }
@@ -137,12 +137,12 @@ const IntroCon = styled.div`
   margin-left: 12.5px;
   /* margin-top: 180px; */
   margin-top: -6px;
-  margin-bottom: 165px;
+  /* margin-bottom: 165px; */
   p {
     color: white;
     letter-spacing: -0.2px;
     font-size: 16px;
-    span {
+    span.bold {
       font-variation-settings: "wght" 600;
     }
   }
@@ -150,12 +150,16 @@ const IntroCon = styled.div`
 const ImgCon = styled.div`
   width: calc(50% - 12.5px);
   margin-left: 12.5px;
+  height: 94vh;
+  display: grid;
+  align-items: center;
+  /* background-color: red; */
   /* border-radius: 10px;
   overflow: hidden; */
 `;
 const ImgCaptionCon = styled.div`
-  width: calc(50% - 12.5px);
-  margin-left: 12.5px;
+  width: calc(100%);
+
   margin-top: 6px;
   p {
     color: white;
@@ -167,13 +171,13 @@ const ImgCaptionCon = styled.div`
 const BodyTextCon = styled.div`
   width: calc(50% - 12.5px);
   margin-left: 12.5px;
-  margin-top: 100px;
+  /* margin-top: 100px; */
   margin-bottom: 12.5px;
   p {
     color: white;
     letter-spacing: -0.2px;
     font-size: 16px;
-    span {
+    span.bold {
       font-variation-settings: "wght" 600;
     }
   }
@@ -281,25 +285,29 @@ const ProjectIndex = ({ data }) => {
         <CopyNav></CopyNav>
         <IntroCon>
           <p>
-            <span>Theo Ford</span> is an Indian/British art-director &
-            programmer currently in New York.
+            <span className="bold">Theo Ford</span> is an Indian/British
+            art-director & programmer currently in New York.
           </p>
         </IntroCon>
         <ImgCon>
-          <img src={Baby} />
+          <div>
+            <img src={Baby} />
+            <ImgCaptionCon>
+              <p>
+                This is an A0 photo of me in Philadelphia when I was two. Mutaji
+                (Grandma) had it hanging in her living room next to a portrait
+                of her other great love Guru Nanak. When she passed, it was the
+                only thing I received in the inheritance. At the time I was
+                bitter because my sister got money, but with age this feels
+                priceless.
+              </p>
+            </ImgCaptionCon>
+          </div>
         </ImgCon>
-        <ImgCaptionCon>
-          <p>
-            This is an A0 photo of me in Philadelphia when I was two. Mutaji
-            (Grandma) had it hanging in her living room next to a portrait of
-            her other great love Guru Nanak. When she passed, it was the only
-            thing I received in the inheritance. At the time I was bitter
-            because my sister got money, but with age this feels priceless.
-          </p>
-        </ImgCaptionCon>
+
         <BodyTextCon>
           <p>
-            <span>Theo Ford</span> can...<br></br>
+            <span className="bold">Theo Ford</span> can...<br></br>
             <br></br>
             build websites using HTML, CSS, Javascript, Gatsby & NextJS<br></br>
             design websites and digital products using Figma<br></br>
@@ -379,7 +387,21 @@ const ProjectIndex = ({ data }) => {
           </p>
         </BodyTextCon>
         <BodyTextCon>
-          <p>To discuss a project please email info@theoford.com</p>
+          <p>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>To discuss a project please email info@theoford.com
+            <br></br>
+            Follow Theo on Instagram at
+            <Link
+              target="_blank"
+              to={data.prismicAbout.data.instagram_office_link.url}
+            >
+              <span> @tf.public</span>
+            </Link>
+          </p>
         </BodyTextCon>
       </PageCon>
     </>
@@ -389,85 +411,75 @@ const ProjectIndex = ({ data }) => {
 export default withPrismicPreview(ProjectIndex);
 
 export const query = graphql`
-  query ProjectIndexSelectQuery2 {
-    prismicProjectIndexSelect {
+  query aboutQuery17 {
+    prismicAbout {
       data {
-        project_relationship_group {
-          project_relationship_field {
-            document {
-              ... on PrismicProject {
-                id
-                type
-                uid
-                data {
-                  categories {
-                    category {
-                      slug
-                      id
-                    }
-                  }
-                  project_title {
-                    text
-                  }
-                  year {
-                    text
-                  }
-                  client {
-                    text
-                  }
-                  location {
-                    text
-                  }
-                  sector {
-                    text
-                  }
-                  index_preview_img {
-                    gatsbyImageData
-                  }
-                }
-              }
-              ... on PrismicFilmLeadProject {
-                id
-                type
-                uid
-                data {
-                  categories {
-                    category {
-                      slug
-                      id
-                    }
-                  }
-                  project_title {
-                    text
-                  }
-                  year {
-                    text
-                  }
-                  client {
-                    text
-                  }
-                  location {
-                    text
-                  }
-                  sector {
-                    text
-                  }
-                  index_preview_img {
-                    gatsbyImageData
-                  }
-                }
-              }
-            }
-          }
+        website_url {
+          html
+          text
         }
-      }
-    }
-    allPrismicCategory {
-      edges {
-        node {
-          data {
-            name
-          }
+        upcoming_locations {
+          html
+          text
+        }
+        services {
+          html
+          text
+        }
+        previous_locations {
+          html
+          text
+        }
+        previous_employers {
+          html
+          text
+        }
+        phone_number {
+          html
+          text
+        }
+        instagram {
+          html
+          text
+        }
+        homepage_intro {
+          html
+          text
+        }
+        email {
+          url
+        }
+        instagram_office_link {
+          url
+        }
+        linked_in {
+          url
+        }
+        twitter {
+          url
+        }
+        current_location {
+          html
+          text
+        }
+        collaborators {
+          html
+          text
+        }
+        clients {
+          html
+          text
+        }
+        address {
+          html
+          text
+        }
+        about_page_intro {
+          html
+          text
+        }
+        press {
+          html
         }
       }
     }

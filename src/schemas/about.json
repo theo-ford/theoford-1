@@ -107,7 +107,7 @@
     "previous_employers": {
       "type": "StructuredText",
       "config": {
-        "single": "paragraph, hyperlink, list-item",
+        "single": "paragraph,hyperlink,list-item",
         "allowTargetBlank": true,
         "label": "Previous Employers"
       }
@@ -122,7 +122,7 @@
     "collaborators": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, hyperlink, list-item",
+        "multi": "paragraph,hyperlink,list-item",
         "allowTargetBlank": true,
         "label": "Collaborators"
       }
@@ -133,6 +133,14 @@
         "multi": "hyperlink,list-item",
         "allowTargetBlank": true,
         "label": "press"
+      }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Image"
       }
     }
   }
