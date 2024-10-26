@@ -44,7 +44,7 @@ const GlobalStyle = createGlobalStyle`
 const LogoGridCon = styled.div`
   width: calc(100% - 25px);
   margin-left: 12.5px;
-  position: sticky;
+  position: fixed;
   top: 12.5px;
   z-index: 300000;
   mix-blend-mode: exclusion;
@@ -248,6 +248,7 @@ const ProjectIndex = ({ data }) => {
   const LogoConRef = useRef(null);
   const [activeCategory, setCategory] = useState(null);
   const [categoriesVisible, setCategoriesVisible] = useState(false);
+
   const CopyNav = () => {
     let isPageWide = useMediaQuery("(min-width: 667px)");
     var [currentPage, setCurrentPage] = useState(null);
@@ -318,11 +319,7 @@ const ProjectIndex = ({ data }) => {
 
             <MobileRightCol>
               <Link to="/about_altDes_Original">
-                <MobileNavP
-                  className={currentPage == "office" ? "selected" : ""}
-                >
-                  Office
-                </MobileNavP>
+                <MobileNavP className="selected">Office</MobileNavP>
               </Link>
               <MobileNavP>
                 <Link target="_blank" to="https://www.instagram.com/tf.public/">
@@ -345,130 +342,140 @@ const ProjectIndex = ({ data }) => {
 
       <PageCon>
         <CopyNav></CopyNav>
-        <IntroCon>
-          <p>
-            <span className="bold">Theo Ford</span> is an Indian/British
-            art-director & programmer currently in New York.
-          </p>
-        </IntroCon>
-        <ImgCon>
-          <div>
-            <GatsbyImage image={image} />
-            {/* <img src={Baby} /> */}
-            <ImgCaptionCon>
-              <p>
-                This is an A0 photo of me in Philadelphia when I was two. Mutaji
-                (Grandma) had it hanging in her living room next to a portrait
-                of her other great love Guru Nanak. When she passed, it was the
-                only thing I received in the inheritance. At the time I was
-                bitter because my sister got money, but with age this feels
-                priceless.
-              </p>
-            </ImgCaptionCon>
-          </div>
-        </ImgCon>
 
-        <BodyTextCon>
-          <div className="can">
+        <div>
+          <IntroCon>
             <p>
-              <span className="bold">Theo Ford</span> can...<br></br>
-              <br></br>
-              build websites using HTML, CSS, Javascript, Gatsby & NextJS
-              <br></br>
-              design websites and digital products using Figma<br></br>
-              edit and colour grade film using Premiere Pro and Davinci<br></br>
-              direct and shoot film using an iPhone or Canon 5D<br></br>
-              animate typography and graphics using After Effects<br></br>
-              edit photography using Adobe Photoshop<br></br>
-              create graphic design for printed matter using Adobe Indesign
-              <br></br>
-              make type design and illustration using Adobe Illustrator<br></br>
-              devise product, marketing and brand strategies<br></br>
-              come up with original ideas<br></br>
+              <span className="bold">Theo Ford</span> is an Indian/British
+              art-director & programmer currently in New York.
             </p>
+          </IntroCon>
+          <ImgCon>
+            <div>
+              <GatsbyImage image={image} />
+              {/* <img src={Baby} /> */}
+              <ImgCaptionCon>
+                <p>
+                  This is an A0 photo of me in Philadelphia when I was two.
+                  Mutaji (Grandma) had it hanging in her living room next to a
+                  portrait of her other great love Guru Nanak. When she passed,
+                  it was the only thing I received in the inheritance. At the
+                  time I was bitter because my sister got money, but with age
+                  this feels priceless.
+                </p>
+              </ImgCaptionCon>
+            </div>
+          </ImgCon>
+          <div>
+            <BodyTextCon>
+              <div className="can">
+                <p>
+                  <span className="bold">Theo Ford</span> can...<br></br>
+                  <br></br>
+                  build websites using HTML, CSS, Javascript, Gatsby & NextJS
+                  <br></br>
+                  design websites and digital products using Figma<br></br>
+                  edit and colour grade film using Premiere Pro and Davinci
+                  <br></br>
+                  direct and shoot film using an iPhone or Canon 5D<br></br>
+                  animate typography and graphics using After Effects<br></br>
+                  edit photography using Adobe Photoshop<br></br>
+                  create graphic design for printed matter using Adobe Indesign
+                  <br></br>
+                  make type design and illustration using Adobe Illustrator
+                  <br></br>
+                  devise product, marketing and brand strategies<br></br>
+                  come up with original ideas<br></br>
+                </p>
+              </div>
+            </BodyTextCon>
+            <BodyTextCon>
+              <div className="experience">
+                <p>
+                  <span className="bold"> Theo Ford's</span> experience...
+                  <br></br>
+                  <br></br>
+                  Self-Employed<br></br>
+                  Designer, Developer & Art Director<br></br>
+                  London/Los Angeles<br></br>
+                  2018–2024<br></br>
+                  <br></br>
+                  Select Clients: Lunar Energy, Mayku, Jan Hendzel Studio, 
+                  <br></br>
+                  G4C, Nowness, Dazed, Martinez Gallery, Merchant Gallery, 
+                  <br></br>
+                  Alice Bucknell, Uma Termas, Studio Lyons, Josh Kopeika
+                  <br></br>
+                  <br></br>
+                  American Apparel <br></br>
+                  Art Director & Videographer<br></br>
+                  Los Angeles<br></br>
+                  2017–2018<br></br>
+                  <br></br>
+                  EdenSpiekermann<br></br>
+                  Product Designer & Developer<br></br>
+                  Los Angeles<br></br>
+                  2016–2017<br></br>
+                  <br></br>
+                  Safe Place for Youth<br></br>
+                  Teacher<br></br>
+                  Los Angeles<br></br>
+                  2016-2018<br></br>
+                  <br></br>
+                  COS <br></br>
+                  Middle-Weight Designer <br></br>
+                  London<br></br>
+                  2015<br></br>
+                  <br></br>
+                  Graphic Thought Facility<br></br>
+                  Internship <br></br>
+                  London<br></br>
+                  2015<br></br>
+                  <br></br>
+                  Research & Development<br></br>
+                  Internship<br></br>
+                  Stockholm<br></br>
+                  2014<br></br>
+                  <br></br>
+                  Lundgren+Lindqvist<br></br>
+                  Internship<br></br>
+                  Gothenberg<br></br>
+                  2014<br></br>
+                  <br></br>
+                  Daniel Eatock <br></br>
+                  Internship<br></br>
+                  Remote<br></br>
+                  2014<br></br>
+                  <br></br>
+                  Glasgow School of Art<br></br>
+                  BA Hons in Graphic Design <br></br>
+                  Glasgow<br></br>
+                  2010 – 2014<br></br>
+                  <br></br>
+                  Falmouth University <br></br>
+                  Art Foundation <br></br>
+                  Falmouth<br></br>
+                  2009–2010<br></br>
+                </p>
+              </div>
+            </BodyTextCon>
+            <BodyTextCon>
+              <div className="contact">
+                <p>
+                  <br></br>To discuss a project please email info@theoford.com
+                  <br></br>
+                  Follow Theo on Instagram at
+                  <Link
+                    target="_blank"
+                    to={data.prismicAbout.data.instagram_office_link.url}
+                  >
+                    @tf.public
+                  </Link>
+                </p>
+              </div>
+            </BodyTextCon>
           </div>
-        </BodyTextCon>
-        <BodyTextCon>
-          <div className="experience">
-            <p>
-              <span className="bold"> Theo Ford's</span> experience...<br></br>
-              <br></br>
-              Self-Employed<br></br>
-              Designer, Developer & Art Director<br></br>
-              London/Los Angeles<br></br>
-              2018–2024<br></br>
-              <br></br>
-              Select Clients: Lunar Energy, Mayku, Jan Hendzel Studio, <br></br>
-              G4C, Nowness, Dazed, Martinez Gallery, Merchant Gallery, <br></br>
-              Alice Bucknell, Uma Termas, Studio Lyons, Josh Kopeika<br></br>
-              <br></br>
-              American Apparel <br></br>
-              Art Director & Videographer<br></br>
-              Los Angeles<br></br>
-              2017–2018<br></br>
-              <br></br>
-              EdenSpiekermann<br></br>
-              Product Designer & Developer<br></br>
-              Los Angeles<br></br>
-              2016–2017<br></br>
-              <br></br>
-              Safe Place for Youth<br></br>
-              Teacher<br></br>
-              Los Angeles<br></br>
-              2016-2018<br></br>
-              <br></br>
-              COS <br></br>
-              Middle-Weight Designer <br></br>
-              London<br></br>
-              2015<br></br>
-              <br></br>
-              Graphic Thought Facility<br></br>
-              Internship <br></br>
-              London<br></br>
-              2015<br></br>
-              <br></br>
-              Research & Development<br></br>
-              Internship<br></br>
-              Stockholm<br></br>
-              2014<br></br>
-              <br></br>
-              Lundgren+Lindqvist<br></br>
-              Internship<br></br>
-              Gothenberg<br></br>
-              2014<br></br>
-              <br></br>
-              Daniel Eatock <br></br>
-              Internship<br></br>
-              Remote<br></br>
-              2014<br></br>
-              <br></br>
-              Glasgow School of Art<br></br>
-              BA Hons in Graphic Design <br></br>
-              Glasgow<br></br>
-              2010 – 2014<br></br>
-              <br></br>
-              Falmouth University <br></br>
-              Art Foundation <br></br>
-              Falmouth<br></br>
-              2009–2010<br></br>
-            </p>
-          </div>
-        </BodyTextCon>
-        <BodyTextCon>
-          <div className="contact">
-            <p>
-              <br></br>To discuss a project please email info@theoford.com
-              <br></br>
-              Follow Theo on Instagram at
-              <Link
-                target="_blank"
-                to={data.prismicAbout.data.instagram_office_link.url}
-              >
-                @tf.public
-              </Link>
-            </p>
-          </div>
-        </BodyTextCon>
+        </div>
       </PageCon>
     </>
   );
