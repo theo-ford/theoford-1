@@ -281,14 +281,16 @@ const ProjectIndex = ({ data }) => {
             </LogoConCon>
             <MenuCon>
               <DesktopNavP>
-                <Link to="/">Select, </Link>
+                <Link to="/index_no_buttons_BigArrows_AutoPlayFilms">
+                  Select,{" "}
+                </Link>
                 <Link
-                  to="/project_index"
+                  to="/project_index_altDes_OriginalNav"
                   className={currentPage == "project_index" ? "selected" : ""}
                 >
                   Index,{" "}
                 </Link>
-                <Link to="/office" className="selected">
+                <Link to="/about_altDes_Original" className="selected">
                   Office
                 </Link>
                 {/* <br></br>Instagram, Twitter */}
@@ -303,10 +305,10 @@ const ProjectIndex = ({ data }) => {
         <>
           <LogoGridCon>
             <MobileLeftCol>
-              <Link to="/">
+              <Link to="/index_no_buttons_BigArrows_AutoPlayFilms">
                 <MobileNavP>Selected</MobileNavP>
               </Link>
-              <Link to="/project_index">
+              <Link to="/project_index_altDes_OriginalNav">
                 <MobileNavP
                   className={currentPage == "project_index" ? "selected" : ""}
                 >
@@ -316,7 +318,7 @@ const ProjectIndex = ({ data }) => {
             </MobileLeftCol>
 
             <MobileRightCol>
-              <Link to="/office">
+              <Link to="/about_altDes_Original">
                 <MobileNavP className="selected">Office</MobileNavP>
               </Link>
               <MobileNavP>
@@ -481,7 +483,7 @@ const ProjectIndex = ({ data }) => {
 export default withPrismicPreview(ProjectIndex);
 
 export const query = graphql`
-  query aboutQuery90 {
+  query aboutQuery17 {
     prismicAbout {
       data {
         website_url {
