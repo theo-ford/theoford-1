@@ -137,6 +137,7 @@ const IntroCon = styled.div`
   margin-left: 12.5px;
   /* margin-top: 180px; */
   margin-top: -6px;
+
   /* margin-bottom: 165px; */
   p {
     color: white;
@@ -146,6 +147,13 @@ const IntroCon = styled.div`
       font-variation-settings: "wght" 600;
     }
   }
+  @media (max-width: 666px) {
+    margin-top: 100px;
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    display: block;
+    float: left;
+  }
 `;
 const ImgCon = styled.div`
   width: calc(50% - 12.5px);
@@ -153,9 +161,16 @@ const ImgCon = styled.div`
   height: 94vh;
   display: grid;
   align-items: center;
-  /* background-color: red; */
-  /* border-radius: 10px;
-  overflow: hidden; */
+
+  @media (max-width: 666px) {
+    margin-top: 20px;
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    display: block;
+    float: left;
+    margin-top: 6px;
+    height: auto;
+  }
 `;
 const ImgCaptionCon = styled.div`
   width: calc(100%);
@@ -173,12 +188,58 @@ const BodyTextCon = styled.div`
   margin-left: 12.5px;
   /* margin-top: 100px; */
   margin-bottom: 12.5px;
-  p {
+  p,
+  a {
     color: white;
     letter-spacing: -0.2px;
     font-size: 16px;
     span.bold {
       font-variation-settings: "wght" 600;
+    }
+  }
+  .can {
+    margin-top: 0px;
+  }
+  .experience {
+    margin-top: 100px;
+  }
+
+  .contact {
+    margin-top: 100px;
+  }
+  @media (max-width: 666px) {
+    margin-top: 20px;
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    display: block;
+    float: left;
+    margin-top: 6px;
+    height: auto;
+    margin-top: 100px;
+    p,
+    a {
+      color: white;
+      letter-spacing: -0.2px;
+      font-size: 12px;
+      span.bold {
+        font-variation-settings: "wght" 600;
+        font-size: 12px;
+      }
+    }
+    .can {
+      margin-top: 0px;
+    }
+    .experience {
+      margin-top: 0px;
+    }
+
+    .contact {
+      margin-top: 0px;
+
+      p,
+      a {
+        font-size: 16px !important;
+      }
     }
   }
 `;
@@ -274,6 +335,7 @@ const ProjectIndex = ({ data }) => {
       );
     }
   };
+  const image = getImage(data.prismicAbout.data.image);
   return (
     <>
       <GlobalStyle />
@@ -291,7 +353,8 @@ const ProjectIndex = ({ data }) => {
         </IntroCon>
         <ImgCon>
           <div>
-            <img src={Baby} />
+            <GatsbyImage image={image} />
+            {/* <img src={Baby} /> */}
             <ImgCaptionCon>
               <p>
                 This is an A0 photo of me in Philadelphia when I was two. Mutaji
@@ -306,102 +369,105 @@ const ProjectIndex = ({ data }) => {
         </ImgCon>
 
         <BodyTextCon>
-          <p>
-            <span className="bold">Theo Ford</span> can...<br></br>
-            <br></br>
-            build websites using HTML, CSS, Javascript, Gatsby & NextJS<br></br>
-            design websites and digital products using Figma<br></br>
-            edit and colour grade film using Premiere Pro and Davinci<br></br>
-            direct and shoot film using an iPhone or Canon 5D<br></br>
-            animate typography and graphics using After Effects<br></br>
-            edit photography using Adobe Photoshop<br></br>
-            create graphic design for printed matter using Adobe Indesign
-            <br></br>
-            make type design and illustration using Adobe Illustrator<br></br>
-            devise product, marketing and brand strategies<br></br>
-            come up with original ideas<br></br>
-          </p>
+          <div className="can">
+            <p>
+              <span className="bold">Theo Ford</span> can...<br></br>
+              <br></br>
+              build websites using HTML, CSS, Javascript, Gatsby & NextJS
+              <br></br>
+              design websites and digital products using Figma<br></br>
+              edit and colour grade film using Premiere Pro and Davinci<br></br>
+              direct and shoot film using an iPhone or Canon 5D<br></br>
+              animate typography and graphics using After Effects<br></br>
+              edit photography using Adobe Photoshop<br></br>
+              create graphic design for printed matter using Adobe Indesign
+              <br></br>
+              make type design and illustration using Adobe Illustrator<br></br>
+              devise product, marketing and brand strategies<br></br>
+              come up with original ideas<br></br>
+            </p>
+          </div>
         </BodyTextCon>
         <BodyTextCon>
-          <p>
-            <span>Theo Ford's</span> experience...<br></br>
-            <br></br>
-            Self-Employed<br></br>
-            Designer, Developer & Art Director<br></br>
-            London/Los Angeles<br></br>
-            2018–2024<br></br>
-            <br></br>
-            Select Clients: Lunar Energy, Mayku, Jan Hendzel Studio, <br></br>
-            G4C, Nowness, Dazed, Martinez Gallery, Merchant Gallery, <br></br>
-            Alice Bucknell, Uma Termas, Studio Lyons, Josh Kopeika<br></br>
-            <br></br>
-            American Apparel <br></br>
-            Art Director & Videographer<br></br>
-            Los Angeles<br></br>
-            2017–2018<br></br>
-            <br></br>
-            EdenSpiekermann<br></br>
-            Product Designer & Developer<br></br>
-            Los Angeles<br></br>
-            2016–2017<br></br>
-            <br></br>
-            Safe Place for Youth<br></br>
-            Teacher<br></br>
-            Los Angeles<br></br>
-            2016-2018<br></br>
-            <br></br>
-            COS <br></br>
-            Middle-Weight Designer <br></br>
-            London<br></br>
-            2015<br></br>
-            <br></br>
-            Graphic Thought Facility<br></br>
-            Internship <br></br>
-            London<br></br>
-            2015<br></br>
-            <br></br>
-            Research & Development<br></br>
-            Internship<br></br>
-            Stockholm<br></br>
-            2014<br></br>
-            <br></br>
-            Lundgren+Lindqvist<br></br>
-            Internship<br></br>
-            Gothenberg<br></br>
-            2014<br></br>
-            <br></br>
-            Daniel Eatock <br></br>
-            Internship<br></br>
-            Remote<br></br>
-            2014<br></br>
-            <br></br>
-            Glasgow School of Art<br></br>
-            BA Hons in Graphic Design <br></br>
-            Glasgow<br></br>
-            2010 – 2014<br></br>
-            <br></br>
-            Falmouth University <br></br>
-            Art Foundation <br></br>
-            Falmouth<br></br>
-            2009–2010<br></br>
-          </p>
+          <div className="experience">
+            <p>
+              <span className="bold"> Theo Ford's</span> experience...<br></br>
+              <br></br>
+              Self-Employed<br></br>
+              Designer, Developer & Art Director<br></br>
+              London/Los Angeles<br></br>
+              2018–2024<br></br>
+              <br></br>
+              Select Clients: Lunar Energy, Mayku, Jan Hendzel Studio, <br></br>
+              G4C, Nowness, Dazed, Martinez Gallery, Merchant Gallery, <br></br>
+              Alice Bucknell, Uma Termas, Studio Lyons, Josh Kopeika<br></br>
+              <br></br>
+              American Apparel <br></br>
+              Art Director & Videographer<br></br>
+              Los Angeles<br></br>
+              2017–2018<br></br>
+              <br></br>
+              EdenSpiekermann<br></br>
+              Product Designer & Developer<br></br>
+              Los Angeles<br></br>
+              2016–2017<br></br>
+              <br></br>
+              Safe Place for Youth<br></br>
+              Teacher<br></br>
+              Los Angeles<br></br>
+              2016-2018<br></br>
+              <br></br>
+              COS <br></br>
+              Middle-Weight Designer <br></br>
+              London<br></br>
+              2015<br></br>
+              <br></br>
+              Graphic Thought Facility<br></br>
+              Internship <br></br>
+              London<br></br>
+              2015<br></br>
+              <br></br>
+              Research & Development<br></br>
+              Internship<br></br>
+              Stockholm<br></br>
+              2014<br></br>
+              <br></br>
+              Lundgren+Lindqvist<br></br>
+              Internship<br></br>
+              Gothenberg<br></br>
+              2014<br></br>
+              <br></br>
+              Daniel Eatock <br></br>
+              Internship<br></br>
+              Remote<br></br>
+              2014<br></br>
+              <br></br>
+              Glasgow School of Art<br></br>
+              BA Hons in Graphic Design <br></br>
+              Glasgow<br></br>
+              2010 – 2014<br></br>
+              <br></br>
+              Falmouth University <br></br>
+              Art Foundation <br></br>
+              Falmouth<br></br>
+              2009–2010<br></br>
+            </p>
+          </div>
         </BodyTextCon>
         <BodyTextCon>
-          <p>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>To discuss a project please email info@theoford.com
-            <br></br>
-            Follow Theo on Instagram at
-            <Link
-              target="_blank"
-              to={data.prismicAbout.data.instagram_office_link.url}
-            >
-              <span> @tf.public</span>
-            </Link>
-          </p>
+          <div className="contact">
+            <p>
+              <br></br>To discuss a project please email info@theoford.com
+              <br></br>
+              Follow Theo on Instagram at
+              <Link
+                target="_blank"
+                to={data.prismicAbout.data.instagram_office_link.url}
+              >
+                @tf.public
+              </Link>
+            </p>
+          </div>
         </BodyTextCon>
       </PageCon>
     </>
@@ -480,6 +546,9 @@ export const query = graphql`
         }
         press {
           html
+        }
+        image {
+          gatsbyImageData(placeholder: NONE, backgroundColor: "#D6D6D6")
         }
       }
     }

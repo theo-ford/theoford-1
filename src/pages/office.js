@@ -639,6 +639,9 @@ export const query = graphql`
         press {
           html
         }
+        image {
+          gatsbyImageData
+        }
       }
     }
   }

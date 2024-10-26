@@ -97,7 +97,7 @@ export const Intro = () => {
         </AboutCon>
         <LocationCon>
           <p>
-            Current Location: <span className="grey">New York,</span> London,
+            Current Location:<span className="grey"> London, </span> New York,
             <span className="grey">
               {" "}
               Los Angeles, Beijing, Stockholm, Gothenburg, Glasgow, Falmouth,
