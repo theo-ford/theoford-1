@@ -288,8 +288,8 @@ const ProjectIndex = ({ data }) => {
                 >
                   Index,{" "}
                 </Link>
-                <Link to="/office" className="selected">
-                  Office
+                <Link to="/about" className="selected">
+                  About
                 </Link>
                 {/* <br></br>Instagram, Twitter */}
               </DesktopNavP>
@@ -316,8 +316,8 @@ const ProjectIndex = ({ data }) => {
             </MobileLeftCol>
 
             <MobileRightCol>
-              <Link to="/office">
-                <MobileNavP className="selected">Office</MobileNavP>
+              <Link to="/about">
+                <MobileNavP className="selected">About</MobileNavP>
               </Link>
               <MobileNavP>
                 <Link target="_blank" to="https://www.instagram.com/tf.public/">

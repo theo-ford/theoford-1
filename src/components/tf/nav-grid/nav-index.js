@@ -150,7 +150,7 @@ export const NavIndexGrid = () => {
                 Select,{" "}
               </Link>
               <Link to="/project_index">Index, </Link>
-              <Link to="/office">Office</Link>
+              <Link to="/about">Abouut</Link>
               {/* <br></br>Instagram, Twitter */}
             </DesktopNavP>
           </MenuCon>
@@ -172,8 +172,8 @@ export const NavIndexGrid = () => {
           </MobileLeftCol>
 
           <MobileRightCol>
-            <Link to="/office">
-              <MobileNavP>Office</MobileNavP>
+            <Link to="/about">
+              <MobileNavP>About</MobileNavP>
             </Link>
             <MobileNavP>Instagram</MobileNavP>
           </MobileRightCol>

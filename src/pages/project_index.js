@@ -339,10 +339,10 @@ const ProjectIndex = ({ data }) => {
                   Index,{" "}
                 </Link>
                 <Link
-                  to="/office"
-                  className={currentPage == "office" ? "selected" : ""}
+                  to="/about"
+                  className={currentPage == "about" ? "selected" : ""}
                 >
-                  Office
+                  About
                 </Link>
                 {/* <br></br>Instagram, Twitter */}
               </DesktopNavP>
@@ -369,11 +369,11 @@ const ProjectIndex = ({ data }) => {
             </MobileLeftCol>
 
             <MobileRightCol>
-              <Link to="/office">
+              <Link to="/about">
                 <MobileNavP
-                  className={currentPage == "office" ? "selected" : ""}
+                  className={currentPage == "about" ? "selected" : ""}
                 >
-                  Office
+                  About
                 </MobileNavP>
               </Link>
               <MobileNavP>

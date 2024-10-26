@@ -254,7 +254,7 @@ const Index = ({ data }) => {
                 Select,{" "}
               </Link>
               <Link to="/project_index">Index, </Link>
-              <Link to="/office">Office</Link>
+              <Link to="/about">About</Link>
             </DesktopNavP>
           </MenuCon>
         </>
@@ -274,8 +274,8 @@ const Index = ({ data }) => {
             </MobileLeftCol>
 
             <MobileRightCol>
-              <Link to="/office">
-                <MobileNavP>Office</MobileNavP>
+              <Link to="/about">
+                <MobileNavP>About</MobileNavP>
               </Link>
               <MobileNavP>Instagram</MobileNavP>
             </MobileRightCol>

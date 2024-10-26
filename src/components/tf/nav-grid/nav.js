@@ -118,10 +118,10 @@ export const NavGrid = () => {
                 Index,{" "}
               </Link>
               <Link
-                to="/office"
-                className={currentPage == "office" ? "selected" : ""}
+                to="/about"
+                className={currentPage == "about" ? "selected" : ""}
               >
-                Office
+                About
               </Link>
               {/* <br></br>Instagram, Twitter */}
             </DesktopNavP>
@@ -148,9 +148,9 @@ export const NavGrid = () => {
           </MobileLeftCol>
 
           <MobileRightCol>
-            <Link to="/office">
-              <MobileNavP className={currentPage == "office" ? "selected" : ""}>
-                Office
+            <Link to="/about">
+              <MobileNavP className={currentPage == "about" ? "selected" : ""}>
+                About
               </MobileNavP>
             </Link>
             <MobileNavP>
