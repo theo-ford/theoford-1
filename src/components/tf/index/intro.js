@@ -112,8 +112,8 @@ export const Intro = () => {
             <span>
               info@theoford.com
               <br />
-              +44 7599 759 529
-              <br />
+              +44 7599 759 527
+              <br /> &nbsp;
               <Link target="_blank" to="https://www.instagram.com/tf.public/">
                 @tf.public
               </Link>
