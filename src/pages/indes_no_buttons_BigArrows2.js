@@ -15,9 +15,7 @@ import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-car
 import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
-// import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
-import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel-originalAuto";
-import { AutoPlayVideoOriginalAuto } from "../components/tf/autoplay-video-OriginalAuto";
+import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
 import { VideoWithControlsImg2 } from "../components/tf/index/video";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperIndexContext from "../components/tf/index/two-up-carousels/swiper-index-context";
@@ -301,21 +299,21 @@ const Index = ({ data }) => {
               const posterImage = content_three.primary.video_thumbnail;
               if (isPageWide) {
                 return (
-                  <AutoPlayVideoOriginalAuto
+                  <VideoWithControlsImg2
                     srcProps={content_three.primary.video_with_play_button.url}
                     posterProps={posterImage}
                     img={posterImage}
-                  ></AutoPlayVideoOriginalAuto>
+                  ></VideoWithControlsImg2>
                 );
               } else {
                 return (
-                  <AutoPlayVideoOriginalAuto
+                  <VideoWithControlsImg2
                     srcProps={
                       content_three.primary.small_video_with_play_button.url
                     }
                     posterProps={posterImage}
                     img={posterImage}
-                  ></AutoPlayVideoOriginalAuto>
+                  ></VideoWithControlsImg2>
                 );
               }
             }
@@ -475,7 +473,7 @@ const Index = ({ data }) => {
 export default withPrismicPreview(Index);
 
 export const query = graphql`
-  query IndexQuery95 {
+  query IndexQuery74 {
     prismicFeaturedProjects {
       data {
         project_relationship_group {
