@@ -392,12 +392,7 @@ const ProjectIndex = ({ data }) => {
                   <span className="bold"> Theo Ford's</span> experience...
                   <br></br>
                   <br></br>
-                  London Met<br></br>
-                  Associate Lecturer<br></br>
-                  London<br></br>
-                  2024<br></br>
-                  <br></br>
-                  Self-Employed<br></br>
+                  Theo Ford<br></br>
                   Designer, Developer & Art Director<br></br>
                   London/Los Angeles<br></br>
                   2018–2024<br></br>
@@ -408,6 +403,11 @@ const ProjectIndex = ({ data }) => {
                   <br></br>
                   Alice Bucknell, Uma Termas, Studio Lyons, Josh Kopeika
                   <br></br>
+                  <br></br>
+                  London Metropolitan University<br></br>
+                  Associate Lecturer in Graphic Design<br></br>
+                  London<br></br>
+                  2024<br></br>
                   <br></br>
                   American Apparel <br></br>
                   Art Director & Videographer<br></br>
