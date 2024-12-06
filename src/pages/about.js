@@ -123,6 +123,9 @@ const MobileNavP = styled.p`
 
 const PageCon = styled.div`
   background-color: black;
+  position: absolute;
+  top: 0;
+  width: 100vw;
   min-height: 100vh;
   /* min-height: 100vh; */
   /* overflow: hidden; */
@@ -238,7 +241,7 @@ const BodyTextCon = styled.div`
 
       p,
       a {
-        font-size: 16px !important;
+        font-size: 12px !important;
       }
     }
   }
