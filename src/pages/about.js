@@ -22,13 +22,13 @@ import Baby from "../img/baby_portrait.jpg";
 
 const GlobalStyle = createGlobalStyle`
   html {
-    background-color: black;
+    background-color: black !important;
     overflow-x: clip;
     max-width: 100vw;
   }
   body {
     // https://stackoverflow.com/questions/47095596/body-overflow-x-hidden-breaks-position-sticky
-    background-color: black;
+    background-color: black !important;
     overflow-x: clip;
     max-width: 100vw;
   }
