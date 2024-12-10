@@ -142,6 +142,13 @@
         "thumbnails": [],
         "label": "Image"
       }
+    },
+    "sizzle": {
+      "type": "Link",
+      "config": {
+        "select": "media",
+        "label": "Sizzle"
+      }
     }
   }
 }
