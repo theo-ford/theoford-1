@@ -149,6 +149,14 @@
         "select": "media",
         "label": "Sizzle"
       }
+    },
+    "landing_sizzle_first_frame": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Landing Sizzle First Frame"
+      }
     }
   }
 }
