@@ -9,7 +9,7 @@ import "../components/styles/index.css";
 import { useMediaQuery } from "../components/tf/media-query";
 import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
-import { Intro } from "../components/tf/index/intro";
+// import { IntroHeroSizzle } from "../components/tf/index/intro-hero-sizzle";
 import { ProjectInfo2NoButtons } from "../components/tf/index/project-info2-noButtons";
 import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-bigArrows";
 import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1";
@@ -40,7 +40,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 /* - - - - - INTRO  - - - - -  */
-const IntroConCon = styled.div``;
+const IntroConCon = styled.div`
+  top: 12.5px;
+`;
 
 /* NAV */
 /* BOTH */
@@ -187,11 +189,112 @@ const Counter = styled.p`
   margin-bottom: 5px;
 `;
 
+/* - - - - SIZZLE - - - - */
+
+const SizzleCon = styled.div`
+  width: 100vw;
+  height: 100vh;
+  /* background-color: red; */
+  overflow: hidden;
+`;
+const SizzleTextCon = styled.div`
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 12.5px;
+  margin-left: 12.5px;
+  grid-row-gap: 0;
+  width: calc(100% - 25px);
+  z-index: 20000;
+  position: absolute;
+  top: 12.5px;
+  mix-blend-mode: exclusion;
+`;
+const SizzleIntroCon = styled.div`
+  grid-column: span 8;
+  mix-blend-mode: exclusion;
+  p {
+    color: white;
+    span.bold {
+      font-weight: 900;
+    }
+  }
+`;
+const SizzleCountDownCon = styled.div`
+  grid-column: 16 / span 1;
+  mix-blend-mode: exclusion;
+  p {
+    color: white;
+    text-align: right;
+    span.bold {
+      font-weight: 900;
+    }
+  }
+`;
+const SizzleVidCon = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+`;
+const Nav2 = styled.div`
+  position: fixed;
+  top: 10px;
+  left: calc(50vw + 6.25px);
+  z-index: 50000;
+  mix-blend-mode: exclusion;
+`;
+
+/* - - - - -INTRO HERO - - - - - */
+
+const IntroCon = styled.div`
+  padding-top: 10px;
+  /* transition: 1s ease; */
+  span.grey {
+    color: #878787;
+  }
+  span.bold {
+    font-weight: 900;
+  }
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
+const Grid16 = styled.div`
+  display: grid;
+  top: 12.5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 12.5px;
+  margin-left: 12.5px;
+  grid-row-gap: 0;
+  width: calc(100% - 25px);
+  z-index: 20000;
+`;
+const AboutCon = styled.div`
+  grid-column: span 7;
+  /* p,
+  span {
+    font-size: 22px;
+  } */
+`;
+const LocationCon = styled.div`
+  grid-column: 11 / span 4;
+  span.grey {
+    color: #878787;
+  }
+`;
+const ContactCon = styled.div`
+  grid-column: 15 / span 2;
+`;
+
 const Index = ({ data }) => {
   console.log("2023/12/04 16:59");
   const [pageLoad, setPageLoad] = useState(null);
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef2 = useRef(null);
+  const intro = useRef();
 
   // page load useEffect
   // https://stackoverflow.com/questions/57729504/is-there-a-way-to-tell-when-your-react-app-page-is-done-loading-the-page-asset
@@ -213,6 +316,25 @@ const Index = ({ data }) => {
     }
   }, []);
 
+  const scrollToElement = () => {
+    const { current } = intro;
+    if (current !== null) {
+      current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const scrollToTop = () => {
+    const c = intro.scrollTop;
+    if (c > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, c - c / 8);
+    }
+  };
+
+  // useEffect(scrollToElement, []);
+
+  setTimeout(scrollToElement, 10000);
+
   const NavIndexGridIndex = () => {
     let isPageWide = useMediaQuery("(min-width: 667px)");
     var [currentPage, setCurrentPage] = useState(null);
@@ -221,10 +343,10 @@ const Index = ({ data }) => {
     const handleScroll = () => {
       const position = window.pageYOffset;
       // console.log(position);
-      if (position > 25) {
+      if (position > 1100) {
         // console.log("greater than 100");
         LogoConRef.current.classList.add("shrink");
-      } else if (position < 25) {
+      } else if (position < 1100) {
         // console.log("less than 100");
         LogoConRef.current.classList.remove("shrink");
       }
@@ -250,7 +372,7 @@ const Index = ({ data }) => {
               </Link>
             </LogoCon>
           </LogoConCon>
-          <MenuCon style={{ opacity: pageLoad ? 1 : 0 }}>
+          {/* <MenuCon style={{ opacity: pageLoad ? 1 : 0 }}>
             <DesktopNavP>
               <Link to="/" className="selected">
                 Select,{" "}
@@ -258,7 +380,7 @@ const Index = ({ data }) => {
               <Link to="/project_index">Index, </Link>
               <Link to="/about">About</Link>
             </DesktopNavP>
-          </MenuCon>
+          </MenuCon> */}
         </>
       );
     }
@@ -288,6 +410,101 @@ const Index = ({ data }) => {
         </>
       );
     }
+  };
+
+  const Countdown = () => {
+    const [seconds, setSeconds] = React.useState(10);
+
+    React.useEffect(() => {
+      if (seconds > 0) {
+        setTimeout(() => setSeconds(seconds - 1), 1000);
+      } else {
+        setSeconds(0);
+      }
+    });
+
+    return <p>{seconds}</p>;
+  };
+
+  const IntroHeroSizzle = () => {
+    // https://stackoverflow.com/questions/71201160/how-to-update-a-clock-every-second-in-react-js-recursively
+    const [time, setTime] = React.useState(date());
+
+    function date() {
+      let nwDate = new Date();
+      var year = nwDate.getFullYear();
+      var month = nwDate.getMonth() + 1;
+      var monthString = month.toString();
+      var day = nwDate.getDate();
+      var hours = nwDate.getHours();
+      var minutes = nwDate.getMinutes();
+      var seconds = nwDate.getSeconds();
+      var dateTimeString =
+        year +
+        "/" +
+        ("0" + monthString).slice(-2) +
+        "/" +
+        ("0" + day).slice(-2) +
+        " " +
+        ("0" + hours).slice(-2) +
+        ":" +
+        ("0" + minutes).slice(-2) +
+        ":" +
+        ("0" + seconds).slice(-2);
+      return dateTimeString;
+    }
+
+    // console.log(date());
+
+    useEffect(() => {
+      setInterval(() => {
+        setTime(date());
+      }, 1000);
+    }, []);
+
+    return (
+      <IntroCon ref={intro}>
+        <Grid16>
+          <AboutCon>
+            <p>
+              <span class="bold">Theo Ford's</span> practice centers on graphic
+              design, art direction, moving-image and web development. <br></br>
+              Recent commissions and collaborations include identities for the
+              head of energy at <span className="grey">Tesla</span>,
+              art-direction <br></br> for{" "}
+              <span className="grey">American Apparel</span>, and printed matter
+              for <span className="grey">COS</span>.
+            </p>
+          </AboutCon>
+          <LocationCon>
+            <p>
+              Current and previous locations:
+              <span className="grey"> London, </span> New York,
+              <span className="grey">
+                {" "}
+                Los Angeles, Beijing, Stockholm, Gothenburg, Glasgow, Falmouth,
+                Philadelphia.
+              </span>{" "}
+              {/* 2023/03/23 21:32.  */}
+              {time.toString()}.
+            </p>
+          </LocationCon>
+          <ContactCon>
+            <p class="">
+              <span>
+                info@theoford.com
+                <br />
+                +44 7599 759 527
+                <br /> &nbsp;
+                <Link target="_blank" to="https://www.instagram.com/tf.public/">
+                  @tf.public
+                </Link>
+              </span>
+            </p>
+          </ContactCon>
+        </Grid16>
+      </IntroCon>
+    );
   };
 
   const overview = data.prismicFeaturedProjects.data.project_relationship_group.map(
@@ -460,8 +677,40 @@ const Index = ({ data }) => {
       <Helmet>
         <title>Theo Ford</title>
       </Helmet>
+      <Nav2>
+        <div style={{ opacity: pageLoad ? 1 : 0 }}>
+          <DesktopNavP>
+            <Link to="/" className="selected">
+              Select,{" "}
+            </Link>
+            <Link to="/project_index">Index, </Link>
+            <Link to="/about">About</Link>
+          </DesktopNavP>
+        </div>
+      </Nav2>
+      <SizzleCon>
+        <SizzleTextCon>
+          <SizzleIntroCon>
+            <p>
+              <span class="bold">Theo Ford</span> is an American, Indian &
+              British art-director, designer & developer
+              <br></br> working between New York & London.
+            </p>
+          </SizzleIntroCon>
+          <SizzleCountDownCon>
+            <Countdown></Countdown>
+          </SizzleCountDownCon>
+        </SizzleTextCon>
+        <SizzleVidCon>
+          <AutoPlayVideo
+            srcProps={data.prismicAbout.data.sizzle.url}
+            posterProps={data.prismicAbout.data.landing_sizzle_first_frame.url}
+          />
+        </SizzleVidCon>
+      </SizzleCon>
+
       <IntroConCon style={{ opacity: pageLoad ? 1 : 0 }}>
-        <Intro></Intro>
+        <IntroHeroSizzle></IntroHeroSizzle>
       </IntroConCon>
 
       <NavSpacer></NavSpacer>
@@ -476,6 +725,16 @@ export default withPrismicPreview(Index);
 
 export const query = graphql`
   query IndexQuery97 {
+    prismicAbout {
+      data {
+        sizzle {
+          url
+        }
+        landing_sizzle_first_frame {
+          gatsbyImageData
+        }
+      }
+    }
     prismicFeaturedProjects {
       data {
         project_relationship_group {
