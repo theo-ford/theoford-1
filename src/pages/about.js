@@ -348,7 +348,8 @@ const ProjectIndex = ({ data }) => {
           <IntroCon>
             <p>
               <span className="bold">Theo Ford</span> is an
-              American/Indian/British designer & programmer currently in London.
+              American/Indian/British designer & programmer<br></br> currently
+              working between London & New York.
             </p>
           </IntroCon>
           {/* <ImgCon>
