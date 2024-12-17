@@ -323,6 +323,7 @@ const Index = ({ data }) => {
     }
   }, []);
 
+  // https://www.npmjs.com/package/react-scroll
   const reactScroll = () => {
     const options = {
       duration: 2500,
@@ -331,7 +332,7 @@ const Index = ({ data }) => {
     scroll.scrollTo(intro.current.offsetTop, options);
   };
 
-  setTimeout(reactScroll, 10000);
+  setTimeout(reactScroll, 20000);
 
   const NavIndexGridIndex = () => {
     let isPageWide = useMediaQuery("(min-width: 667px)");
@@ -411,7 +412,7 @@ const Index = ({ data }) => {
   };
 
   const Countdown = () => {
-    const [seconds, setSeconds] = React.useState(10);
+    const [seconds, setSeconds] = React.useState(20);
 
     React.useEffect(() => {
       if (seconds > 0) {
