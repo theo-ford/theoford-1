@@ -21,6 +21,13 @@ import { AutoPlayVideoOriginalAuto } from "../components/tf/autoplay-video-Origi
 import { VideoWithControlsImg2 } from "../components/tf/index/video";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperIndexContext from "../components/tf/index/two-up-carousels/swiper-index-context";
+import {
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+} from "react-scroll";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -316,24 +323,15 @@ const Index = ({ data }) => {
     }
   }, []);
 
-  const scrollToElement = () => {
-    const { current } = intro;
-    if (current !== null) {
-      current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+  const reactScroll = () => {
+    const options = {
+      duration: 2500,
+      smoother: "easeInQuad",
+    };
+    scroll.scrollTo(intro.current.offsetTop, options);
   };
 
-  const scrollToTop = () => {
-    const c = intro.scrollTop;
-    if (c > 0) {
-      window.requestAnimationFrame(scrollToTop);
-      window.scrollTo(0, c - c / 8);
-    }
-  };
-
-  // useEffect(scrollToElement, []);
-
-  setTimeout(scrollToElement, 10000);
+  setTimeout(reactScroll, 10000);
 
   const NavIndexGridIndex = () => {
     let isPageWide = useMediaQuery("(min-width: 667px)");
