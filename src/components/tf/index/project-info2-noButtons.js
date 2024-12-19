@@ -85,7 +85,7 @@ const ProjectLink = styled.div`
   }
 `;
 const MoreButtonCon = styled.div`
-  grid-column: 15 / span 1;
+  grid-column: 15 / span 2;
 `;
 const MoreButtonConP = styled.div`
   cursor: pointer;
