@@ -320,7 +320,7 @@ const Index = ({ data }) => {
                 );
               }
             }
-            if (content_four.slice_type == "image") {
+            if (content_three.slice_type == "image") {
               const image = getImage(content_three.primary.image);
               return (
                 <BlackFilmsModuleImage
