@@ -108,9 +108,6 @@ export const TwoUpProjectCarouselSwiperOf1 = ({
   const [swiper, setSwiper] = React.useState(null);
   const [currentSlide3, setCurrentSlide3] = useState();
   const carouselIndex = useContext(SwiperIndexContext);
-  console.log("HELLO");
-  console.log(carouselIndex);
-
   useEffect(() => {
     // initSwiper(index);
     if (swiper) {

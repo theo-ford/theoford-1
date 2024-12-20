@@ -189,7 +189,6 @@ const Counter = styled.p`
 `;
 
 const Index = ({ data }) => {
-  console.log("2023/12/04 16:59");
   const [pageLoad, setPageLoad] = useState(null);
   let isPageWide = useMediaQuery("(min-width: 667px)");
   const LogoConRef2 = useRef(null);
@@ -321,9 +320,10 @@ const Index = ({ data }) => {
               }
             }
             if (content_three.slice_type == "image") {
-              const image = getImage(content_three.primary.image);
+              // console.log("FULL BLEED= " + content_three.primary.full_bleed);
               return (
                 <BlackFilmsModuleImage
+                  fullBleed={content_three.primary.full_bleed}
                   image={content_three.primary.image}
                 ></BlackFilmsModuleImage>
               );
@@ -578,6 +578,7 @@ export const query = graphql`
                       id
                       slice_type
                       primary {
+                        full_bleed
                         image {
                           gatsbyImageData
                           dimensions {

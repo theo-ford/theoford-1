@@ -182,10 +182,9 @@
                 }
               },
               "full_bleed": {
-                "type": "Select",
+                "type": "Boolean",
                 "config": {
-                  "options": ["false", "true"],
-                  "default_value": "false",
+                  "default_value": false,
                   "label": "Full Bleed"
                 }
               }

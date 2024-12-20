@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { ImageOrientation2 } from "../../utils/image-orientation2";
+import { ImageOrientation3 } from "../../utils/image-orientation3";
 
 const AutoplayVideoCon = styled.div`
   width: calc(100%);
@@ -34,6 +34,9 @@ const AutoplayVideoCon = styled.div`
   }
 `;
 const AutoPlayVideoConInner = styled.div`
+  &.fullBleedClass {
+    grid-column: span 48;
+  }
   &.sml-portrait {
     grid-column: 19 / span 12;
   }
@@ -46,6 +49,7 @@ const AutoPlayVideoConInner = styled.div`
   &.landscape {
     grid-column: 13 / span 24;
   }
+
   @media (max-width: 666px) {
     &.sml-portrait {
       grid-column: 6 / span 26;
@@ -66,12 +70,15 @@ const AutoplayVideoImg = styled.div`
   height: 100%;
 `;
 
-export const BlackFilmsModuleImage = ({ image }) => {
+export const BlackFilmsModuleImage = ({ image, fullBleed }) => {
   const getPosterImage = getImage(image);
   return (
     <>
-      <AutoplayVideoCon className={ImageOrientation2(image)}>
-        <AutoPlayVideoConInner className={ImageOrientation2(image)}>
+      <AutoplayVideoCon fullBleed={fullBleed}>
+        <AutoPlayVideoConInner
+          className={ImageOrientation3(image, fullBleed)}
+          fullBleed={fullBleed}
+        >
           <GatsbyImage image={getPosterImage} />
         </AutoPlayVideoConInner>
       </AutoplayVideoCon>
