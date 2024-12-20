@@ -580,6 +580,10 @@ export const query = graphql`
                       primary {
                         image {
                           gatsbyImageData
+                          dimensions {
+                            height
+                            width
+                          }
                         }
                       }
                     }
