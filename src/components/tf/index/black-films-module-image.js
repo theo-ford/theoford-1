@@ -70,8 +70,8 @@ export const BlackFilmsModuleImage = ({ image }) => {
   const getPosterImage = getImage(image);
   return (
     <>
-      <AutoplayVideoCon className={ImageOrientation2(posterProps)}>
-        <AutoPlayVideoConInner className={ImageOrientation2(posterProps)}>
+      <AutoplayVideoCon className={ImageOrientation2(image)}>
+        <AutoPlayVideoConInner className={ImageOrientation2(image)}>
           <GatsbyImage image={getPosterImage} />
         </AutoPlayVideoConInner>
       </AutoplayVideoCon>
