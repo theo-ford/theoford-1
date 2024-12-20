@@ -22,6 +22,20 @@ const AutoplayVideoCon = styled.div`
   z-index: 20000;
   align-items: center;
   height: 110vh;
+  @media (min-width: 666px) {
+    width: ${props => {
+      const fullBleed = props.fullBleed;
+      if (fullBleed == true) {
+        return "100% !important";
+      }
+    }};
+    margin-left: ${props => {
+      const fullBleed = props.fullBleed;
+      if (fullBleed == true) {
+        return "0px !important";
+      }
+    }};
+  }
   @media (max-width: 666px) {
     grid-template-columns: 1fr 1fr 1fr 1fr /* 4 */ 1fr 1fr 1fr 1fr /* 8 */ 1fr 1fr 1fr 1fr /* 12 */ 1fr 1fr 1fr 1fr /* 16 */ 1fr 1fr 1fr 1fr /* 20 */ 1fr 1fr 1fr 1fr /* 24 */ 1fr 1fr 1fr 1fr /* 28 */ 1fr 1fr 1fr 1fr /* 32 */ 1fr 1fr 1fr 1fr /* 36 */;
     grid-column-gap: 10px;
@@ -49,7 +63,14 @@ const AutoPlayVideoConInner = styled.div`
   &.landscape {
     grid-column: 13 / span 24;
   }
-
+  @media (min-width: 666px) {
+    grid-column: ${props => {
+      const fullBleed = props.fullBleed;
+      if (fullBleed == true) {
+        return "span 48 !important";
+      }
+    }};
+  }
   @media (max-width: 666px) {
     &.sml-portrait {
       grid-column: 6 / span 26;
