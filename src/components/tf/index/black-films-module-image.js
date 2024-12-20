@@ -7,9 +7,8 @@ import React, {
   useMemo,
 } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
-import { useOnScreen } from "../hooks/useOnScreen";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { ImageOrientation2 } from "../utils/image-orientation2";
+import { ImageOrientation2 } from "../../utils/image-orientation2";
 
 const AutoplayVideoCon = styled.div`
   width: calc(100%);
