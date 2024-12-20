@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { ImageOrientation3 } from "../../utils/image-orientation3";
+import { ImageOrientation2 } from "../../utils/image-orientation2";
 
 const AutoplayVideoCon = styled.div`
   width: calc(100%);
@@ -76,7 +76,7 @@ export const BlackFilmsModuleImage = ({ image, fullBleed }) => {
     <>
       <AutoplayVideoCon fullBleed={fullBleed}>
         <AutoPlayVideoConInner
-          className={ImageOrientation3(image, fullBleed)}
+          className={ImageOrientation2(image, fullBleed)}
           fullBleed={fullBleed}
         >
           <GatsbyImage image={getPosterImage} />
