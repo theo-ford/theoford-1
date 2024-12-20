@@ -21,6 +21,7 @@ import { AutoPlayVideoOriginalAuto } from "../components/tf/autoplay-video-Origi
 import { VideoWithControlsImg2 } from "../components/tf/index/video";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperIndexContext from "../components/tf/index/two-up-carousels/swiper-index-context";
+import { BlackFilmsModuleImage } from "../components/tf/index/black-films-module-image";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -319,6 +320,14 @@ const Index = ({ data }) => {
                 );
               }
             }
+            if (content_four.slice_type == "image") {
+              const image = getImage(content_three.primary.image);
+              return (
+                <BlackFilmsModuleImage
+                  image={content_three.primary.image}
+                ></BlackFilmsModuleImage>
+              );
+            }
           }
         );
         return (
@@ -565,6 +574,15 @@ export const query = graphql`
                     text
                   }
                   body {
+                    ... on PrismicFilmLeadProjectDataBodyImage {
+                      id
+                      slice_type
+                      primary {
+                        image {
+                          gatsbyImageData
+                        }
+                      }
+                    }
                     ... on PrismicFilmLeadProjectDataBodyVideoWithPlayButton {
                       id
                       slice_type
