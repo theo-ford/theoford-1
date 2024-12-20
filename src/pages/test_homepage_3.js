@@ -565,6 +565,15 @@ export const query = graphql`
                     text
                   }
                   body {
+                    ... on PrismicFilmLeadProjectDataBodyImage {
+                      id
+                      slice_type
+                      primary {
+                        image {
+                          gatsbyImageData
+                        }
+                      }
+                    }
                     ... on PrismicFilmLeadProjectDataBodyVideoWithPlayButton {
                       id
                       slice_type
