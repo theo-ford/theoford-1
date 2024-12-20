@@ -180,6 +180,14 @@
                   "thumbnails": [],
                   "label": "Image"
                 }
+              },
+              "full_bleed": {
+                "type": "Select",
+                "config": {
+                  "options": ["false", "true"],
+                  "default_value": "false",
+                  "label": "Full Bleed"
+                }
               }
             },
             "repeat": {}
