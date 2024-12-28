@@ -31,7 +31,7 @@ const VideoCarouselCon = styled.div`
   overflow: hidden;
   /* height: auto; */
   height: 110vh;
-  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.13);
+  /* box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.13); */
   background-color: black;
   margin-bottom: 8px;
   @media (max-width: 666px) {
