@@ -120,6 +120,13 @@
                   "thumbnails": [],
                   "label": "Video Thumbnail"
                 }
+              },
+              "full_bleed": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Full Bleed"
+                }
               }
             },
             "repeat": {}
