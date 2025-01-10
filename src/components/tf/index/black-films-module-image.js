@@ -70,6 +70,14 @@ const AutoPlayVideoConInner = styled.div`
         return "span 48 !important";
       }
     }};
+    &.sml-portrait {
+      grid-column: ${props => {
+        const fullBleed = props.fullBleed;
+        if (fullBleed == true) {
+          return "18 / span 14 !important";
+        }
+      }};
+    }
   }
   @media (max-width: 666px) {
     &.sml-portrait {
