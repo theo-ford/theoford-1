@@ -17,7 +17,7 @@ import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
 // import { FilmLeadCarousel2 } from "../components/tf/index/film-carousel";
 import { FilmLeadCarousel3 } from "../components/tf/index/film-carousel-originalAuto-3";
-import { AutoPlayVideoOriginalAuto } from "../components/tf/autoplay-video-OriginalAuto";
+import { AutoPlayVideoOriginalAutoFullBleed } from "../components/tf/autoplay-video-OriginalAutoFullBleed";
 import { VideoWithControlsImg2 } from "../components/tf/index/video";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperIndexContext from "../components/tf/index/two-up-carousels/swiper-index-context";
@@ -301,21 +301,23 @@ const Index = ({ data }) => {
               const posterImage = content_three.primary.video_thumbnail;
               if (isPageWide) {
                 return (
-                  <AutoPlayVideoOriginalAuto
+                  <AutoPlayVideoOriginalAutoFullBleed
                     srcProps={content_three.primary.video_with_play_button.url}
                     posterProps={posterImage}
                     img={posterImage}
-                  ></AutoPlayVideoOriginalAuto>
+                    fullBleed={content_three.primary.full_bleed}
+                  ></AutoPlayVideoOriginalAutoFullBleed>
                 );
               } else {
                 return (
-                  <AutoPlayVideoOriginalAuto
+                  <AutoPlayVideoOriginalAutoFullBleed
                     srcProps={
                       content_three.primary.small_video_with_play_button.url
                     }
                     posterProps={posterImage}
                     img={posterImage}
-                  ></AutoPlayVideoOriginalAuto>
+                    fullBleed={content_three.primary.full_bleed}
+                  ></AutoPlayVideoOriginalAutoFullBleed>
                 );
               }
             }
@@ -592,6 +594,7 @@ export const query = graphql`
                       id
                       slice_type
                       primary {
+                        full_bleed
                         video_with_play_button {
                           url
                         }
