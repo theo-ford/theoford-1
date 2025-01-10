@@ -7,7 +7,7 @@ import React, {
   useMemo,
 } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
-import { useOnScreen } from "../hooks/useOnScreen";
+import { useOnScreenFullBleed } from "../hooks/useOnScreenFullBleed";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { ImageOrientation2 } from "../utils/image-orientation2";
 
@@ -160,7 +160,7 @@ export const AutoPlayVideoOriginalAutoFullBleed = ({
   // https://stackoverflow.com/questions/58341787/intersectionobserver-with-react-hooks
   // https://frontend-digest.com/responsive-and-progressive-video-loading-in-react-e8753315af51
   const autoplayVideoRef = useRef(null);
-  const isOnScreen = useOnScreen(autoplayVideoRef);
+  const isOnScreen = useOnScreenFullBleed(autoplayVideoRef);
   const [videoSrcState, setVideoSrcState] = useState("");
   const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
 
