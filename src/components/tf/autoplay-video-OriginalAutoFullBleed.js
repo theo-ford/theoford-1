@@ -169,14 +169,22 @@ export const AutoPlayVideoOriginalAutoFullBleed = ({
   };
 
   useEffect(() => {
-    if (isOnScreen == true) {
-      setVideoSrcState(srcProps);
-      autoplayVideoRef.current.load();
-      autoplayVideoRef.current.play();
-    } else if (isOnScreen === false) {
-      setIsVideoLoaded(false);
-      setVideoSrcState("");
-    }
+    setVideoSrcState(srcProps);
+    autoplayVideoRef.current.load();
+    autoplayVideoRef.current.play();
+    // if (isOnScreen == true) {
+    //   setVideoSrcState(srcProps);
+    //   autoplayVideoRef.current.load();
+    //   autoplayVideoRef.current.play();
+    //   console.log("nina");
+    // } else if (isOnScreen === false) {
+    //   // setVideoSrcState(srcProps);
+    //   // autoplayVideoRef.current.load();
+    //   // autoplayVideoRef.current.play();
+    //   setIsVideoLoaded(false);
+    //   setVideoSrcState("");
+    //   // console.log("nina false");
+    // }
   }, [isOnScreen]);
   const getPosterImage = getImage(posterProps);
   return (
