@@ -45,7 +45,7 @@ const PrevButton = styled.div`
   float: left;
   float: left;
   cursor: url(${NextSml}) 0 0, pointer;
-  cursor: -webkit-image-set(url(${PrevSml}) 1x, url(${PrevSml}) 2x) 0 0, pointer;
+  cursor: -webkit-image-set(url(${PrevSml}) 1x, url(${PrevSml}) 2x) 0 0, pointer !important;
 `;
 const NextButton = styled.div`
   width: 50%;
@@ -53,7 +53,7 @@ const NextButton = styled.div`
   /* background-color: pink; */
   float: right;
   cursor: url(${NextSml}) 0 0, pointer;
-  cursor: -webkit-image-set(url(${NextSml}) 1x, url(${NextSml}) 2x) 0 0, pointer;
+  cursor: -webkit-image-set(url(${NextSml}) 1x, url(${NextSml}) 2x) 0 0, pointer !important;
 `;
 
 const Grid16 = styled.div`

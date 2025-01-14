@@ -28,12 +28,16 @@ const GlobalStyle = createGlobalStyle`
     background-color: white;
     overflow-x: clip;
     max-width: 100vw;
+    /* height: auto;
+    overflow-y: hidden; */
   }
   body {
     // https://stackoverflow.com/questions/47095596/body-overflow-x-hidden-breaks-position-sticky
     background-color: white;
     overflow-x: clip;
     max-width: 100vw;
+    height: auto;
+    overflow-y: hidden;
     @media (min-width: 666px) {
       /* position: fixed; */
     }    
@@ -154,6 +158,8 @@ const NavSpacer = styled.div`
 /* - - - - - PAGE  - - - - - */
 const PageCon = styled.div`
   margin-top: 48vh;
+  height: auto;
+  overflow-y: hidden;
   @media (max-width: 666px) {
     margin-top: 38vh;
   }
