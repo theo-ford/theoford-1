@@ -43,7 +43,6 @@ const PrevButton = styled.div`
   height: 100%;
   /* background-color: orange; */
   float: left;
-  float: left;
   cursor: url(${NextSml}) 0 0, pointer;
   cursor: -webkit-image-set(url(${PrevSml}) 1x, url(${PrevSml}) 2x) 0 0, pointer !important;
 `;
@@ -52,7 +51,10 @@ const NextButton = styled.div`
   height: 100%;
   /* background-color: pink; */
   float: right;
-  cursor: url(${NextSml}) 0 0, pointer;
+  /* background-color: blue;
+  z-index: 500000; */
+
+  cursor: url(${NextSml}) 0 0, pointer !important;
   cursor: -webkit-image-set(url(${NextSml}) 1x, url(${NextSml}) 2x) 0 0, pointer !important;
 `;
 

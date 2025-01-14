@@ -91,7 +91,7 @@ const ButtonCon = styled.div`
 `;
 const PrevButton = styled.div`
   width: 50%;
-  height: 100%;
+  height: 110vh;
   /* background-color: orange; */
   float: left;
   float: left;
@@ -100,9 +100,10 @@ const PrevButton = styled.div`
 `;
 const NextButton = styled.div`
   width: 50%;
-  height: 100%;
+  height: 110vh;
   /* background-color: pink; */
   float: right;
+  /* background-color: blue; */
   cursor: url(${NextSml}) 0 0, pointer;
   cursor: -webkit-image-set(url(${NextSml}) 1x, url(${NextSml}) 2x) 0 0, pointer !important;
 `;
