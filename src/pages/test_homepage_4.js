@@ -36,14 +36,19 @@ const GlobalStyle = createGlobalStyle`
     background-color: white;
     overflow-x: clip;
     max-width: 100vw;
-    height: auto;
-    overflow-y: hidden;
+    /* height: auto;
+  overflow-y: hidden; */
+
     @media (min-width: 666px) {
       /* position: fixed; */
     }    
   }
 `;
 
+const ProperPageCon = styled.div`
+  /* height: auto;
+  overflow-y: scroll; */
+`;
 /* - - - - - INTRO  - - - - -  */
 const IntroConCon = styled.div``;
 
@@ -477,14 +482,16 @@ const Index = ({ data }) => {
       <Helmet>
         <title>Theo Ford</title>
       </Helmet>
-      <IntroConCon style={{ opacity: pageLoad ? 1 : 0 }}>
-        <Intro></Intro>
-      </IntroConCon>
+      <ProperPageCon>
+        <IntroConCon style={{ opacity: pageLoad ? 1 : 0 }}>
+          <Intro></Intro>
+        </IntroConCon>
 
-      <NavSpacer></NavSpacer>
-      <NavIndexGridIndex></NavIndexGridIndex>
+        <NavSpacer></NavSpacer>
+        <NavIndexGridIndex></NavIndexGridIndex>
 
-      <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
+        <PageCon style={{ opacity: pageLoad ? 1 : 0 }}>{overview}</PageCon>
+      </ProperPageCon>
     </>
   );
 };

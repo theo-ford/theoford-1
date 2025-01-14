@@ -83,7 +83,7 @@ const NextCon = styled.div`
 `;
 const ButtonCon = styled.div`
   width: 100%;
-  height: 100%;
+  height: 110vh;
   object-fit: contain;
   /* background-color: blue; */
   position: absolute;
