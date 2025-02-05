@@ -167,7 +167,7 @@ const ProjectIndex = ({ data }) => {
             system of taxation to cover it and lobby government.
             <br></br>
             <br></br>
-            So… if you want to help, buy our shit.
+            So… if you want to help... buy our shit.
           </span>
           <br></br>
           <br></br>
@@ -176,9 +176,7 @@ const ProjectIndex = ({ data }) => {
           <br></br>
           Current and previous projects and companies:<br></br>
           <span className="link">
-            <br></br>
-            Figma/Adobe – Software for designers
-            <br></br>
+            Figma/Adobe – Software for designers <br></br>
             Indian American Apparel – Basics<br></br>
             Indian COS – Scandi Minimalism for Indian Staples<br></br>
             Artyfacts – Remixing modern and historical design <br></br>
