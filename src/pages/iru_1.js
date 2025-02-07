@@ -179,10 +179,10 @@ const ProjectIndex = ({ data }) => {
             Figma/Adobe – Software for designers <br></br>
             Indian American Apparel – Basics<br></br>
             Indian COS – Scandi Minimalism for Indian Staples<br></br>
-            Artyfacts – Remixing modern and historical design <br></br>
             Bath Bomb/Typeface – Immediate audience<br></br>
             Union – Workwear brand 20% profits go to labour unions<br></br>
             Indian Supreme – Skate Clothing<br></br>
+            {/* Artyfacts – Remixing modern and historical design <br></br> */}
           </span>
           <br></br>
         </p>
