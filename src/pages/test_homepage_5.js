@@ -301,7 +301,7 @@ const Index = ({ data }) => {
     }
   };
 
-  const overview = data.prismicTestHomepage.data.project_relationship_group.map(
+  const overview = data.prismicTestHomepage2.data.project_relationship_group.map(
     (content, index) => {
       if (
         content.project_relationship_field.document.type == "film_lead_project"
@@ -500,7 +500,7 @@ export default withPrismicPreview(Index);
 
 export const query = graphql`
   query IndexQuery1700 {
-    prismicTestHomepage {
+    prismicTestHomepage2 {
       data {
         project_relationship_group {
           project_relationship_field {
