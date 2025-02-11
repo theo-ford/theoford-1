@@ -100,6 +100,7 @@ module.exports = {
           project_desktop: require("./src/schemas/project_desktop.json"),
           featured_projects: require("./src/schemas/featured_projects.json"),
           test_homepage: require("./src/schemas/test_homepage.json"),
+          test_homepage: require("./src/schemas/test_homepage_2.json"),
           about: require("./src/schemas/about.json"),
           category: require("./src/schemas/category.json"),
           project_index_select: require("./src/schemas/project_index_select.json"),
