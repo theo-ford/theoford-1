@@ -82,7 +82,7 @@ const LogoConCon = styled.div`
   width: calc(50vw - 18.75px);
   /* background-color: red; */
   position: sticky;
-  top: 10x;
+  top: 10px;
   margin-left: 10px;
   float: left;
   z-index: 200000;
