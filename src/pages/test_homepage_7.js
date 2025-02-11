@@ -11,7 +11,7 @@ import Icon from "../../assets/WhiteLogo.svg";
 import { AutoPlayVideo } from "../components/tf/autoplay-video";
 import { Intro } from "../components/tf/index/intro";
 import { ProjectInfo2NoButtons } from "../components/tf/index/project-info2-noButtons";
-import { TwoUpProjectCarouselSwiperOf1 } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-bigArrows";
+import { TwoUpProjectCarouselSwiperOf1TenPix } from "../components/tf/index/two-up-carousels/two-up-carousel-swiper-of-1-bigArrows-10px";
 import { OneUpProjectCarouselSwiperOf1 } from "../components/tf/index/one-up-carousel/one-up-carousel-swiper-of-1";
 import { ProjectCarousel } from "../components/tf/index/one-up-carousel";
 import { SingleAssetProject } from "../components/tf/index/single-asset-project1";
@@ -55,15 +55,15 @@ const IntroConCon = styled.div``;
 /* NAV */
 /* BOTH */
 const LogoGridCon = styled.div`
-  width: calc(100% - 25px);
-  margin-left: 12.5px;
+  width: calc(100% - 20px);
+  margin-left: 10px;
   position: sticky;
-  top: 12.5px;
+  top: 10px;
   z-index: 300000;
   mix-blend-mode: exclusion;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 12.5px;
+  grid-gap: 10px;
   /* background-color: green; */
   @media (max-width: 666px) {
     /* width: calc(100% - 25px);
@@ -82,8 +82,8 @@ const LogoConCon = styled.div`
   width: calc(50vw - 18.75px);
   /* background-color: red; */
   position: sticky;
-  top: 12.5px;
-  margin-left: 12.5px;
+  top: 10x;
+  margin-left: 10px;
   float: left;
   z-index: 200000;
 `;
@@ -94,9 +94,9 @@ const MenuCon = styled.div`
   /* margin-left: calc(50vw - 18.75px); */
   /* background-color: orange; */
   position: sticky;
-  top: 12.5px;
+  top: 10px;
   margin-top: -2px;
-  margin-left: 12.5px;
+  margin-left: 10px;
   z-index: 200000;
 `;
 const LogoCon = styled.div`
@@ -181,7 +181,7 @@ const ProjectCon = styled.div`
 /* - - perhaps in the autoplay video component you put a conditional saying if page index apply this  - - */
 const IndexAutoPlayVideoCon = styled.div`
   position: relative;
-  width: calc(100% - 12.5px) !important;
+  width: calc(100% - 10px) !important;
   @media (max-width: 666px) {
     width: 100%;
   }
@@ -189,11 +189,7 @@ const IndexAutoPlayVideoCon = styled.div`
 
 /* - - - - - - IMAGE - - - - - - - */
 const SquareImg = styled.div`
-  width: calc(100% - 12.5px) !important;
-  /* height: 96vh; */
-  height: calc(100vh - 25px);
-  display: grid;
-  align-items: center;
+  width: calc(100% - 10px) !important;
   @media (max-width: 666px) {
     /* width: 100% !important; */
   }
@@ -305,7 +301,7 @@ const Index = ({ data }) => {
     }
   };
 
-  const overview = data.prismicTestHomepage2.data.project_relationship_group.map(
+  const overview = data.prismicTestHomepage.data.project_relationship_group.map(
     (content, index) => {
       if (
         content.project_relationship_field.document.type == "film_lead_project"
@@ -418,7 +414,7 @@ const Index = ({ data }) => {
         if (isPageWide && projectLength > 1) {
           return (
             <ProjectCon>
-              <TwoUpProjectCarouselSwiperOf1
+              <TwoUpProjectCarouselSwiperOf1TenPix
                 projectLength={
                   content.project_relationship_field.document.data.body.length
                 }
@@ -428,7 +424,7 @@ const Index = ({ data }) => {
                     changedSlide: false,
                   })
                 )}
-              </TwoUpProjectCarouselSwiperOf1>
+              </TwoUpProjectCarouselSwiperOf1TenPix>
               <ProjectInfo2NoButtons
                 data2={content.project_relationship_field.document.data}
                 uid={content.project_relationship_field.document.uid}
@@ -503,8 +499,8 @@ const Index = ({ data }) => {
 export default withPrismicPreview(Index);
 
 export const query = graphql`
-  query IndexQuery1700 {
-    prismicTestHomepage2 {
+  query IndexQuery1600 {
+    prismicTestHomepage {
       data {
         project_relationship_group {
           project_relationship_field {
