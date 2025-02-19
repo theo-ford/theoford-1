@@ -176,13 +176,13 @@ const ProjectIndex = ({ data }) => {
           <br></br>
           Current and previous projects and companies:<br></br>
           <span className="link">
-            Figma/Adobe – Software for designers <br></br>
+            Figma/Adobe – Software for designers in marketing<br></br>
             Indian American Apparel – Basics<br></br>
+            Design Corp. – products for designers by designers<br></br>
             Indian COS – Scandi Minimalism for Indian Staples<br></br>
-            Bath Bomb/Typeface – Immediate audience<br></br>
             Union – Workwear brand 20% profits go to labour unions<br></br>
             Indian Supreme – Skate Clothing<br></br>
-            {/* Artyfacts – Remixing modern and historical design <br></br> */}
+            Artyfacts – mashups with historical weight <br></br>
           </span>
           <br></br>
         </p>
