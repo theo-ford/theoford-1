@@ -136,7 +136,7 @@ const PageCon = styled.div`
   }
 `;
 const IntroCon = styled.div`
-  width: calc(50% - 12.5px);
+  width: calc(30% - 12.5px);
   margin-left: 12.5px;
   /* margin-top: 180px; */
   margin-top: 10px;
@@ -348,8 +348,8 @@ const ProjectIndex = ({ data }) => {
           <IntroCon>
             <p>
               <span className="bold">Theo Ford</span> is an
-              American/Indian/British designer & programmer<br></br> currently
-              working between London & New York.
+              American/Indian/British designer & programmer currently working in
+              London.
             </p>
           </IntroCon>
           {/* <ImgCon>
