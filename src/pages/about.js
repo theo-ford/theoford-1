@@ -401,11 +401,14 @@ const ProjectIndex = ({ data }) => {
                   London/Los Angeles<br></br>
                   2018–2024<br></br>
                   <br></br>
-                  Select Clients: Lunar Energy, Mayku, Jan Hendzel Studio, 
+                  {/* Select Clients: Lunar Energy, Mayku, Jan Hendzel Studio,  */}
+                  Select Clients: MoMA, COS, Lunar Energy, Dazed,  <br></br>
+                  American Apaprel, Nowness, Martinez Gallery, Mayku,<br></br>{" "}
+                  Jan Hendzel Studio, Alice Bucknell, G4C, Merchant Gallery, {" "}
                   <br></br>
-                  G4C, Nowness, Dazed, Martinez Gallery, Merchant Gallery, 
+                  Uma Termas, Studio Lyons, Josh Kopeika, Gallery Climate{" "}
                   <br></br>
-                  Alice Bucknell, Uma Termas, Studio Lyons, Josh Kopeika
+                  Coalition, Rustic Canyon Productions
                   <br></br>
                   <br></br>
                   London Metropolitan University<br></br>
