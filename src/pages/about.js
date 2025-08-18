@@ -417,7 +417,7 @@ const ProjectIndex = ({ data }) => {
                   London Metropolitan University<br></br>
                   Associate Lecturer in Graphic Design<br></br>
                   London<br></br>
-                  2024<br></br>
+                  2024–2025<br></br>
                   <br></br>
                   American Apparel <br></br>
                   Art Director & Videographer<br></br>
