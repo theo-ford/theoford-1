@@ -399,7 +399,7 @@ const ProjectIndex = ({ data }) => {
                   Theo Ford<br></br>
                   Designer, Developer & Art Director<br></br>
                   London/Los Angeles<br></br>
-                  2018–2024<br></br>
+                  2018–2025<br></br>
                   <br></br>
                   {/* Select Clients: Lunar Energy, Mayku, Jan Hendzel Studio,  */}
                   {/* Select Clients: MoMA, COS, Lunar Energy, Dazed,  <br></br>
@@ -410,7 +410,7 @@ const ProjectIndex = ({ data }) => {
                   <br></br>
                   <br></br> */}
                   Select Clients: MoMA, COS, Lunar Energy, Dazed,  <br></br>
-                  American Apaprel, Nowness, Mayku, Jan Hendzel<br></br>
+                  American Appaprel, Nowness, Mayku, Jan Hendzel<br></br>
                   Studio, Martinez Gallery, Alice Bucknell, G4C
                   <br></br>
                   <br></br>
