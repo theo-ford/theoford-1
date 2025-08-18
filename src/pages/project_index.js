@@ -280,6 +280,7 @@ const CategoryMenuCon = styled.div`
 
 const CategoryItem = styled.span`
   font-size: 16px;
+  cursor: pointer;
   color: #878787;
   &.active {
     color: white;
