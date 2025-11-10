@@ -91,7 +91,7 @@ export const Intro = () => {
             direction, moving-image and web development. Recent commissions and
             collaborations include identities for{" "}
             <span className="grey">MoMA</span>, adverts for{" "}
-            <span className="grey">American Apparel</span>, and printed matter
+            <span className="grey">American Apparel</span> and printed matter
             for <span className="grey">COS</span>.<br />
           </p>
         </AboutCon>
