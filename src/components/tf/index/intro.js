@@ -90,8 +90,8 @@ export const Intro = () => {
             The design office of Theo Ford. Specialising in graphic design, art
             direction, moving-image and web development. Commissions and
             collaborations include identities for{" "}
-            <span className="grey">MoMA</span>, adverts for{" "}
-            <span className="grey">American Apparel</span> and printed matter
+            <span className="grey">MoMA</span>{" "}and{" "}
+            <span className="grey">Lunar Energy</span> and printed matter
             for <span className="grey">COS</span>.<br />
           </p>
         </AboutCon>
